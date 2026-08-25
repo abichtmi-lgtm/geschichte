@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Leistungskurs Geschichte Jgst. 12 – Die Weltkriege: Verläufe, Dimensionen, Heimatfront. Interaktive Übersicht.">
+<meta name="theme-color" content="#121418">
+<title>Weltkriege · LK Geschichte 12 · Übersicht</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   DESIGN SYSTEM – DARK MUTED THEME
+   ═══════════════════════════════════════════ */
+:root {
+  --bg:        #0e1014;
+  --bg-raised: #151820;
+  --bg-card:   #1a1f28;
+  --bg-card-2: #1f2532;
+  --bg-hover:  #252b38;
+  --border:    #2a3040;
+  --border-soft:#222836;
+
+  --text:      #ddd8ce;
+  --text-soft: #9a968d;
+  --text-faint:#65625b;
+  --text-inv:  #0e1014;
+
+  /* Accent palette – muted, sophisticated */
+  --amber:     #c4913c;
+  --amber-dim: #a07630;
+  --amber-bg:  rgba(196,145,60,0.08);
+  --green:     #5c7a56;
+  --green-dim: #4a6344;
+  --green-bg:  rgba(92,122,86,0.08);
+  --steel:     #4a6d8c;
+  --steel-dim: #3b5770;
+  --steel-bg:  rgba(74,109,140,0.08);
+  --red:       #8c4a4a;
+  --red-dim:   #703b3b;
+  --red-bg:    rgba(140,74,74,0.08);
+  --purple:    #7a6492;
+
+  --display: 'Archivo', ui-sans-serif, system-ui, sans-serif;
+  --body:    'Inter', ui-sans-serif, system-ui, sans-serif;
+  --mono:    ui-monospace, 'SF Mono', 'Cascadia Code', Menlo, monospace;
+
+  --maxw: 1060px;
+  --nav-h: 56px;
+  --radius: 10px;
+  --radius-sm: 6px;
+}
+
+/* ═══ RESET ═══ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--nav-h) + 24px); }
+body {
+  margin: 0; background: var(--bg); color: var(--text);
+  font-family: var(--body); font-size: 15px; line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--amber); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ═══ UTILITY ═══ */
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 0 24px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+/* ═══════════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════════ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: var(--nav-h);
+  background: rgba(14,16,20,0.82);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid var(--border-soft);
+  transition: box-shadow .3s;
+}
+.nav.scrolled { box-shadow: 0 2px 24px rgba(0,0,0,0.4); }
+.nav-inner {
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+  display: flex; align-items: center; height: 100%; gap: 6px;
+}
+.nav-brand {
+  font-family: var(--display); font-weight: 800; font-size: 15px;
+  color: var(--amber); letter-spacing: -0.02em; margin-right: 20px;
+  white-space: nowrap;
+}
+.nav-links { display: flex; gap: 2px; overflow-x: auto; }
+.nav-links a {
+  padding: 6px 14px; border-radius: 6px; font-size: 13px; font-weight: 600;
+  color: var(--text-soft); white-space: nowrap; transition: all .2s;
+  text-decoration: none; position: relative;
+}
+.nav-links a:hover { color: var(--text); background: var(--bg-hover); }
+.nav-links a.active {
+  color: var(--amber); background: var(--amber-bg);
+}
+.nav-links a.active::after {
+  content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%);
+  width: 18px; height: 2px; background: var(--amber); border-radius: 2px;
+}
+
+/* mobile burger */
+.nav-burger {
+  display: none; background: none; border: none; color: var(--text); cursor: pointer;
+  padding: 8px; margin-left: auto;
+}
+.nav-burger svg { width: 22px; height: 22px; }
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.hero {
+  padding: calc(var(--nav-h) + 60px) 24px 50px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.hero::before {
+  content: ''; position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 600px 400px at 30% 20%, rgba(196,145,60,0.06), transparent),
+    radial-gradient(ellipse 500px 350px at 70% 60%, rgba(74,109,140,0.05), transparent);
+  pointer-events: none;
+}
+.hero-eyebrow {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--amber); margin-bottom: 12px;
+}
+.hero h1 {
+  font-family: var(--display); font-weight: 900; font-size: clamp(28px,5vw,46px);
+  line-height: 1.15; letter-spacing: -0.03em; margin: 0 0 16px;
+  background: linear-gradient(135deg, var(--text) 30%, var(--text-soft) 100%);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-sub {
+  font-size: 15px; color: var(--text-soft); max-width: 580px; margin: 0 auto 28px;
+  line-height: 1.6;
+}
+.hero-chips {
+  display: flex; flex-wrap: wrap; gap: 8px; justify-content: center;
+}
+.hero-chip {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 20px; border: 1px solid var(--border);
+  color: var(--text-soft); background: var(--bg-raised);
+}
+
+/* ═══════════════════════════════════════════
+   SECTIONS
+   ═══════════════════════════════════════════ */
+.section {
+  padding: 56px 0; border-top: 1px solid var(--border-soft);
+}
+.section-header {
+  margin-bottom: 32px;
+}
+.section-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-eyebrow.amber { color: var(--amber); }
+.section-eyebrow.green { color: var(--green); }
+.section-eyebrow.steel { color: var(--steel); }
+.section-eyebrow.red   { color: var(--red); }
+.section h2 {
+  font-family: var(--display); font-weight: 800; font-size: clamp(22px,3.5vw,32px);
+  line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 8px;
+}
+.section h3 {
+  font-family: var(--display); font-weight: 700; font-size: 18px;
+  margin: 28px 0 12px; color: var(--text);
+}
+.section h4 {
+  font-family: var(--display); font-weight: 700; font-size: 15px;
+  margin: 20px 0 8px; color: var(--text-soft);
+}
+.section-desc {
+  color: var(--text-soft); font-size: 14px; max-width: 700px; margin: 0;
+}
+
+/* ═══ CARDS ═══ */
+.card {
+  background: var(--bg-card); border: 1px solid var(--border-soft);
+  border-radius: var(--radius); padding: 24px; margin-bottom: 16px;
+  transition: border-color .25s, transform .25s;
+}
+.card:hover { border-color: var(--border); transform: translateY(-1px); }
+.card-title {
+  font-family: var(--display); font-weight: 700; font-size: 16px;
+  margin: 0 0 12px; display: flex; align-items: center; gap: 10px;
+}
+.card-title .dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+.dot.amber  { background: var(--amber); }
+.dot.green  { background: var(--green); }
+.dot.steel  { background: var(--steel); }
+.dot.red    { background: var(--red); }
+
+/* ═══ TABLES ═══ */
+.table-wrap {
+  overflow-x: auto; margin: 16px 0;
+  border: 1px solid var(--border-soft); border-radius: var(--radius);
+}
+table {
+  width: 100%; border-collapse: collapse; font-size: 13.5px;
+}
+thead th {
+  background: var(--bg-card-2); font-family: var(--display); font-weight: 700;
+  font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--text-soft); padding: 12px 16px; text-align: left;
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 2;
+}
+td {
+  padding: 12px 16px; border-bottom: 1px solid var(--border-soft);
+  vertical-align: top; line-height: 1.55;
+}
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: var(--bg-hover); }
+td:first-child {
+  font-weight: 600; white-space: nowrap; color: var(--text-soft); font-size: 12px;
+}
+.phase-tag {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  padding: 2px 8px; border-radius: 4px; margin-bottom: 4px;
+}
+.phase-tag.amber { background: var(--amber-bg); color: var(--amber); }
+.phase-tag.green { background: var(--green-bg); color: var(--green); }
+.phase-tag.steel { background: var(--steel-bg); color: var(--steel); }
+.phase-tag.red   { background: var(--red-bg);   color: var(--red); }
+
+/* ═══ TABS ═══ */
+.tabs {
+  display: flex; gap: 4px; margin-bottom: 24px;
+  border-bottom: 1px solid var(--border-soft); padding-bottom: 0;
+}
+.tab-btn {
+  padding: 10px 20px; font-size: 13px; font-weight: 700; font-family: var(--display);
+  background: none; border: none; border-bottom: 2px solid transparent;
+  color: var(--text-soft); cursor: pointer; transition: all .2s;
+  letter-spacing: 0.02em;
+}
+.tab-btn:hover { color: var(--text); background: var(--bg-hover); }
+.tab-btn.active { color: var(--amber); border-bottom-color: var(--amber); }
+.tab-panel { display: none; animation: fadeTab .35s ease; }
+.tab-panel.active { display: block; }
+@keyframes fadeTab { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); }}
+
+/* ═══ ACCORDION ═══ */
+.accordion { margin-bottom: 10px; }
+.accordion-header {
+  width: 100%; padding: 16px 20px; font-size: 14px; font-weight: 600;
+  font-family: var(--body); text-align: left; cursor: pointer;
+  background: var(--bg-card); border: 1px solid var(--border-soft);
+  border-radius: var(--radius); color: var(--text);
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  transition: all .2s;
+}
+.accordion-header:hover { background: var(--bg-hover); border-color: var(--border); }
+.accordion-header.open { border-radius: var(--radius) var(--radius) 0 0; border-bottom-color: transparent; }
+.accordion-chevron {
+  width: 18px; height: 18px; flex-shrink: 0; transition: transform .3s;
+  color: var(--text-faint);
+}
+.accordion-header.open .accordion-chevron { transform: rotate(180deg); color: var(--amber); }
+.accordion-body {
+  max-height: 0; overflow: hidden; transition: max-height .4s ease;
+  background: var(--bg-card); border: 1px solid var(--border-soft); border-top: none;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+.accordion-body.open { max-height: 4000px; }
+.accordion-content { padding: 4px 20px 20px; }
+.accordion-content ul {
+  margin: 6px 0; padding-left: 18px;
+}
+.accordion-content li {
+  margin-bottom: 6px; font-size: 14px; line-height: 1.6; color: var(--text);
+}
+.accordion-content li::marker { color: var(--text-faint); }
+
+/* ═══ BULLET LISTS (in cards) ═══ */
+.bullet-list { margin: 8px 0; padding-left: 18px; }
+.bullet-list li {
+  margin-bottom: 5px; font-size: 14px; line-height: 1.55;
+}
+.bullet-list li::marker { color: var(--text-faint); }
+.bullet-list .highlight { color: var(--amber); font-weight: 600; }
+.bullet-list .sub { color: var(--text-soft); font-size: 13px; }
+
+/* ═══ INFO BADGE ═══ */
+.info-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 4px; margin: 4px 4px 4px 0;
+}
+.info-badge.amber  { background: var(--amber-bg); color: var(--amber); }
+.info-badge.green  { background: var(--green-bg); color: var(--green); }
+.info-badge.steel  { background: var(--steel-bg); color: var(--steel); }
+.info-badge.red    { background: var(--red-bg);   color: var(--red); }
+
+/* ═══ TWO-COL GRID ═══ */
+.grid-2 {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+}
+.grid-3 {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px;
+}
+
+/* ═══ AUSWIRKUNGEN BAR ═══ */
+.impact-row {
+  display: flex; align-items: center; gap: 12px; margin-bottom: 10px;
+}
+.impact-label {
+  font-size: 13px; font-weight: 600; min-width: 120px;
+}
+.impact-bar-wrap {
+  flex: 1; height: 8px; background: var(--bg-hover); border-radius: 4px; overflow: hidden;
+}
+.impact-bar {
+  height: 100%; border-radius: 4px; transition: width 1s ease;
+}
+.impact-bar.amber { background: var(--amber); }
+.impact-bar.red   { background: var(--red); }
+.impact-bar.steel { background: var(--steel); }
+.impact-bar.green { background: var(--green); }
+.impact-note {
+  font-size: 11px; color: var(--text-faint); min-width: 50px; text-align: right;
+}
+
+/* ═══ KEY FACT ═══ */
+.keyfact {
+  display: flex; align-items: flex-start; gap: 14px;
+  padding: 16px; background: var(--bg-card-2); border-radius: var(--radius-sm);
+  margin-bottom: 10px; border-left: 3px solid var(--amber);
+}
+.keyfact-marker {
+  width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 8px;
+  background: var(--amber);
+}
+.keyfact-marker.steel { background: var(--steel); }
+.keyfact-marker.red { background: var(--red); }
+.keyfact-text { font-size: 13.5px; line-height: 1.55; }
+.keyfact-text strong { color: var(--amber); }
+
+/* ═══ SCROLL REVEAL ═══ */
+.reveal {
+  opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ═══ FOOTER ═══ */
+.footer {
+  padding: 32px 24px; text-align: center; font-size: 12px; color: var(--text-faint);
+  border-top: 1px solid var(--border-soft); margin-top: 40px;
+}
+
+/* ═══ RESPONSIVE ═══ */
+@media (max-width: 768px) {
+  :root { --nav-h: 50px; }
+  .wrap { padding: 0 16px; }
+
+  /* Hero */
+  .hero { padding: calc(var(--nav-h) + 32px) 16px 32px; }
+  .hero h1 { font-size: 24px; }
+  .hero-sub { font-size: 13px; }
+  .hero-chips { gap: 6px; }
+  .hero-chip { font-size: 10px; padding: 4px 10px; }
+
+  /* Navigation */
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: var(--nav-h); left: 0; right: 0; background: var(--bg-raised);
+    border-bottom: 1px solid var(--border); padding: 8px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.4);
+  }
+  .nav-links.open a {
+    padding: 12px 16px; font-size: 14px; border-radius: var(--radius-sm);
+  }
+  .nav-burger { display: block; }
+  .nav-brand { font-size: 13px; }
+
+  /* Grids */
+  .grid-2, .grid-3 { grid-template-columns: 1fr; gap: 12px; }
+
+  /* Sections */
+  .section { padding: 36px 0; }
+  .section h2 { font-size: 20px; }
+  .section h3 { font-size: 16px; }
+  .section h4 { font-size: 14px; }
+  .section-desc { font-size: 13px; }
+
+  /* Cards */
+  .card { padding: 16px; margin-bottom: 12px; }
+  .card-title { font-size: 14px; }
+
+  /* Tables */
+  .table-wrap { margin: 12px 0; }
+  table { font-size: 12px; }
+  thead th { padding: 10px 12px; font-size: 10px; }
+  td { padding: 10px 12px; font-size: 12px; line-height: 1.5; }
+  td:first-child { white-space: normal; min-width: 80px; }
+  .phase-tag { font-size: 9px; }
+
+  /* Tabs */
+  .tabs { gap: 2px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .tab-btn { padding: 8px 14px; font-size: 12px; white-space: nowrap; }
+
+  /* Accordions */
+  .accordion-header { padding: 14px 16px; font-size: 13px; }
+  .accordion-content { padding: 4px 16px 16px; }
+  .accordion-content li { font-size: 13px; }
+
+  /* Bullet lists */
+  .bullet-list li { font-size: 13px; }
+  .bullet-list { padding-left: 14px; }
+
+  /* Impact bars */
+  .impact-label { min-width: 80px; font-size: 12px; }
+  .impact-row { gap: 8px; }
+
+  /* Keyfacts */
+  .keyfact { padding: 12px; gap: 10px; }
+  .keyfact-text { font-size: 12.5px; }
+
+  /* Info badges */
+  .info-badge { font-size: 10px; padding: 3px 8px; }
+
+  /* Footer */
+  .footer { padding: 24px 16px; font-size: 11px; }
+}
+
+@media (max-width: 420px) {
+  .hero h1 { font-size: 20px; }
+  .section h2 { font-size: 18px; }
+  .card { padding: 14px; }
+  table { font-size: 11px; }
+  td { padding: 8px 10px; }
+  .tab-btn { padding: 8px 10px; font-size: 11px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════
+     NAVIGATION
+     ═══════════════════════════════════════════ -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <div class="nav-brand">LK 12 · Geschichte</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#ueberblick" data-section="ueberblick">Überblick</a>
+      <a href="#wk1" data-section="wk1">1. Weltkrieg</a>
+      <a href="#wk2" data-section="wk2">2. Weltkrieg</a>
+      <a href="#heimatfront" data-section="heimatfront">Heimatfront</a>
+    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menü öffnen">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════════ -->
+<header class="hero">
+  <div class="hero-eyebrow">Leistungskurs Geschichte · Jahrgangsstufe 12</div>
+  <h1>Die Weltkriege des<br>20. Jahrhunderts</h1>
+  <p class="hero-sub">Verläufe, Dimensionen und Rückwirkungen auf die Zivilbevölkerung – fachwissenschaftliche Übersicht auf Grundlage des sächsischen Lehrplans (LB 1: Herausforderung „Frieden").</p>
+  <div class="hero-chips">
+    <span class="hero-chip">Kriegsverläufe</span>
+    <span class="hero-chip">Waffentechnik & Taktik</span>
+    <span class="hero-chip">Vernichtungskrieg</span>
+    <span class="hero-chip">Heimatfront</span>
+    <span class="hero-chip">Lehrplan Sachsen Lk 12</span>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     SEKTION 1: ÜBERBLICK KRIEGSVERLÄUFE
+     ═══════════════════════════════════════════ -->
+<section class="section" id="ueberblick">
+<div class="wrap">
+  <div class="section-header reveal">
+    <div class="section-eyebrow amber">Sektion 01</div>
+    <h2>Überblick: Kriegsverläufe</h2>
+    <p class="section-desc">Phasentabellen beider Weltkriege – Schlüsselereignisse, Charakter und Wendepunkte im chronologischen Überblick.</p>
+  </div>
+
+  <!-- Tabs: WK1 / WK2 -->
+  <div class="tabs reveal" role="tablist">
+    <button class="tab-btn active" role="tab" data-tab="ov-wk1" aria-selected="true">Erster Weltkrieg 1914–1918</button>
+    <button class="tab-btn" role="tab" data-tab="ov-wk2" aria-selected="false">Zweiter Weltkrieg 1939–1945</button>
+  </div>
+
+  <!-- Tab: 1. WK Überblick -->
+  <div class="tab-panel active" id="ov-wk1">
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Phase / Zeitraum</th>
+            <th>Charakter</th>
+            <th>Schlüsselereignisse</th>
+            <th>Wende / Bedeutung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="phase-tag amber">Phase 1</span><br>Aug.–Dez. 1914</td>
+            <td>Bewegungskrieg</td>
+            <td>
+              Schlieffenplan; Einmarsch ins neutrale Belgien<br>
+              Marneschlacht (Sept. 1914) stoppt den Vormarsch<br>
+              Osten: Tannenberg / Masurische Seen<br>
+              „Wettlauf zum Meer"; Augusterlebnis, Burgfrieden
+            </td>
+            <td>Scheitern des Schlieffenplans → kein schneller Sieg, Erstarrung der Westfront</td>
+          </tr>
+          <tr>
+            <td><span class="phase-tag steel">Phase 2</span><br>1915–1916</td>
+            <td>Stellungs- / Grabenkrieg, Material&shy;schlachten</td>
+            <td>
+              Erstarrte Westfront, Schützengräben<br>
+              Neue Waffen: Giftgas (Ypern 1915), Artillerie, MG<br>
+              Verdun und Somme 1916 (erstmals Panzer)<br>
+              Kriegswirtschaft, Hindenburg-Programm, „Steckrübenwinter"
+            </td>
+            <td>Abnutzungskrieg ohne Durchbruch, enorme Verluste, Belastung der Heimatfront</td>
+          </tr>
+          <tr>
+            <td><span class="phase-tag green">Phase 3</span><br>1917</td>
+            <td>Krisen- und Wendejahr</td>
+            <td>
+              Uneingeschränkter U-Boot-Krieg → Kriegseintritt USA (Apr. 1917)<br>
+              Russische Revolution → Russland scheidet aus<br>
+              Friedensresolution des Reichstags (Juli 1917)<br>
+              Faktische OHL-Diktatur (Hindenburg / Ludendorff)
+            </td>
+            <td>Kräfteverschiebung zugunsten der Entente (USA), Ende des Zweifrontenkriegs</td>
+          </tr>
+          <tr>
+            <td><span class="phase-tag red">Phase 4</span><br>1918</td>
+            <td>Entscheidung und Kriegsende</td>
+            <td>
+              Frieden von Brest-Litowsk (März 1918)<br>
+              Deutsche Frühjahrsoffensiven scheitern<br>
+              Alliierte Gegenoffensive (ab Aug. 1918)<br>
+              Novemberrevolution; Waffenstillstand von Compiègne (11.11.1918)
+            </td>
+            <td>Militärische Niederlage der Mittelmächte, Ende des Kaiserreichs</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Tab: 2. WK Überblick -->
+  <div class="tab-panel" id="ov-wk2">
+    <div class="table-wrap reveal">
+      <table>
+        <thead>
+          <tr>
+            <th>Phase / Zeitraum</th>
+            <th>Charakter</th>
+            <th>Schlüsselereignisse</th>
+            <th>Wende / Bedeutung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="phase-tag amber">Phase 1</span><br>1939–1941</td>
+            <td>„Blitzkriege" / deutsche Expansion</td>
+            <td>
+              Überfall auf Polen (1.9.1939) → Kriegsbeginn<br>
+              Westfeldzug; Kapitulation Frankreichs (Juni 1940)<br>
+              Luftschlacht um England (1940): erste Niederlage<br>
+              Balkanfeldzug, Nordafrika (Rommel)
+            </td>
+            <td>Schnelle Erfolge, aber gescheiterte Invasion Englands → erster Rückschlag</td>
+          </tr>
+          <tr>
+            <td><span class="phase-tag steel">Phase 2</span><br>1941</td>
+            <td>Ausweitung zum Weltkrieg</td>
+            <td>
+              Überfall auf die Sowjetunion („Barbarossa", 22.6.1941) → Vernichtungskrieg im Osten<br>
+              Pearl Harbor (7.12.1941) → Kriegseintritt USA<br>
+              Wannseekonferenz (Jan. 1942): Organisation der „Endlösung"
+            </td>
+            <td>Krieg wird global; Beginn des systematischen Völkermords</td>
+          </tr>
+          <tr>
+            <td><span class="phase-tag green">Phase 3</span><br>1942–1943</td>
+            <td>Wende des Krieges</td>
+            <td>
+              Stalingrad (Niederlage 6. Armee, Jan./Feb. 1943)<br>
+              El Alamein (1942, Nordafrika); Midway (1942, Pazifik)<br>
+              Kursk (1943): letzte dt. Großoffensive scheitert<br>
+              „Totaler Krieg" (Sportpalastrede Feb. 1943)
+            </td>
+            <td>Initiative geht an die Alliierten über, Achsenmächte in der Defensive</td>
+          </tr>
+          <tr>
+            <td><span class="phase-tag red">Phase 4</span><br>1943–1944</td>
+            <td>Defensive / Rückzug der Achsenmächte</td>
+            <td>
+              Landung in Italien, Sturz Mussolinis (1943)<br>
+              D-Day / Normandie (6.6.1944): zweite Front<br>
+              Sowjetische Offensiven; Luftkrieg gegen dt. Städte<br>
+              Attentat vom 20. Juli 1944
+            </td>
+            <td>Einkreisung des Reiches von West und Ost</td>
+          </tr>
+          <tr>
+            <td><span class="phase-tag amber">Phase 5</span><br>1944–1945</td>
+            <td>Kriegsende und Kapitulation</td>
+            <td>
+              Ardennenoffensive scheitert (Winter 1944/45)<br>
+              Schlacht um Berlin; bedingungs&shy;lose Kapitulation (8.5.1945)<br>
+              Atombomben Hiroshima / Nagasaki (Aug. 1945)<br>
+              Kapitulation Japans (2.9.1945)
+            </td>
+            <td>Bedingungslose Kapitulation, Ende des Krieges in Europa und Asien</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEKTION 2a: 1. WELTKRIEG – DIMENSIONEN
+     ═══════════════════════════════════════════ -->
+<section class="section" id="wk1">
+<div class="wrap">
+  <div class="section-header reveal">
+    <div class="section-eyebrow steel">Sektion 02</div>
+    <h2>Erster Weltkrieg – Der industrialisierte Krieg</h2>
+    <p class="section-desc">Der 1. Weltkrieg als „Urkatastrophe des 20. Jahrhunderts" (George F. Kennan) – Zusammenhang zwischen Waffentechnik, Kriegsführung, Taktik und deren Auswirkungen.</p>
+  </div>
+
+  <!-- Charakterzüge des 1. WK -->
+  <div class="card reveal">
+    <div class="card-title"><span class="dot amber"></span>Charakterzüge des Ersten Weltkrieges</div>
+    <div class="grid-2">
+      <div>
+        <h4>Industrialisierter Massenkrieg</h4>
+        <ul class="bullet-list">
+          <li>Erstmals systematische Verknüpfung von <span class="highlight">industrieller Produktion</span> und Kriegsführung</li>
+          <li>Massenproduktion von Waffen, Munition und Ausrüstung im Fließbandverfahren</li>
+          <li>Materialschlachten: Kriegsentscheidung durch <span class="highlight">technisch-industrielle Überlegenheit</span> statt taktischer Manöver</li>
+          <li>Anonymisierung des Tötens durch Distanzwaffen (Artillerie, MG, Gas)</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Totaler Krieg</h4>
+        <ul class="bullet-list">
+          <li>Mobilisierung der <span class="highlight">gesamten Gesellschaft</span>: Wirtschaft, Wissenschaft, Zivilbevölkerung</li>
+          <li>Kriegswirtschaft: Hindenburg-Programm (1916) als totale Ressourcenmobilisierung</li>
+          <li>Aufhebung der Trennung von Front und Heimat</li>
+          <li>Propaganda als systematisches Mittel der Kriegsführung</li>
+          <li>Seeblockade als Waffe gegen die Zivilbevölkerung</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid-2" style="margin-top:12px;">
+      <div>
+        <h4>Grabenkrieg & Abnutzung</h4>
+        <ul class="bullet-list">
+          <li>Erstarrung der Westfront auf ca. 700 km Länge</li>
+          <li>Komplexes Grabensystem: Frontgräben, Reservegräben, Verbindungsgräben</li>
+          <li>Abnutzungsstrategie statt Entscheidungsschlacht</li>
+          <li>Verdun: „Ausblutungsstrategie" Falkenhayns – symbolisch für die Sinnlosigkeit</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Globalisierung des Krieges</h4>
+        <ul class="bullet-list">
+          <li>Erstmals Krieg auf <span class="highlight">allen Kontinenten</span> (Kolonialschauplätze)</li>
+          <li>Seekrieg: U-Boot-Krieg im Atlantik, Blockaden</li>
+          <li>Bündnissysteme zogen fast alle Großmächte in den Konflikt</li>
+          <li>Kriegseintritt der USA 1917 → entscheidende Kräfteverschiebung</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kriegsführung an den Fronten -->
+  <h3 class="reveal">Kriegsführung an den Fronten</h3>
+
+  <div class="accordion reveal">
+    <button class="accordion-header" aria-expanded="false">
+      <span>Westfront – Stellungskrieg und Materialschlachten</span>
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Schlieffenplan (1914):</strong> Geplanter schneller Sieg durch Umfassung Frankreichs über Belgien – scheiterte an der Marneschlacht</li>
+          <li><strong>Erstarrung:</strong> Nach dem „Wettlauf zum Meer" bildete sich ein kontinuierliches Grabensystem von der Nordsee bis zur Schweiz</li>
+          <li><strong>Verdun (Feb.–Dez. 1916):</strong> Falkenhayns Abnutzungsstrategie – ca. 700.000 Verluste auf beiden Seiten, kein Durchbruch; symbolisch für die Sinnlosigkeit des Stellungskrieges</li>
+          <li><strong>Somme (Juli–Nov. 1916):</strong> Britisch-französische Offensive – erstmaliger Einsatz von Panzern (Tanks); über 1 Mio. Gesamtverluste bei minimalem Geländegewinn</li>
+          <li><strong>Charakteristik:</strong> Infanterieangriffe gegen MG-Stellungen, Artillerievorbereitungen (Trommelfeuer), Minenkrieg, psychische Belastung (Shell Shock)</li>
+          <li><strong>Frühjahrsoffensiven 1918:</strong> Letzte deutsche Durchbruchsversuche (Operation Michael) scheitern an überdehntenen Linien und alliierter Gegenoffensive</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion reveal">
+    <button class="accordion-header" aria-expanded="false">
+      <span>Ostfront – Bewegungskrieg und Zusammenbruch</span>
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Beweglichere Kriegsführung</strong> als im Westen aufgrund der weiträumigeren Geographie</li>
+          <li><strong>Tannenberg / Masurische Seen (1914):</strong> Vernichtende deutsche Siege unter Hindenburg/Ludendorff gegen die russische Armee</li>
+          <li><strong>Gorlice-Tarnów-Offensive (1915):</strong> Deutsch-österreichischer Durchbruch – Rückeroberung Galiziens, Eroberung Polens</li>
+          <li><strong>Brussilow-Offensive (1916):</strong> Letzte erfolgreiche russische Großoffensive – schwere Verluste für Österreich-Ungarn</li>
+          <li><strong>Revolution und Kriegsende:</strong> Februarrevolution 1917 → innenpolitische Destabilisierung Russlands; Oktoberrevolution → Waffenstillstand; Frieden von Brest-Litowsk (März 1918) mit harten Gebietsabtretungen</li>
+          <li><strong>Bedeutung:</strong> Ende des Zweifrontenkriegs ermöglichte die deutschen Frühjahrsoffensiven 1918 im Westen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion reveal">
+    <button class="accordion-header" aria-expanded="false">
+      <span>Luftkrieg – Neue Dimension der Kriegsführung</span>
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Entwicklung:</strong> Vom Aufklärungsinstrument (1914) zur eigenständigen Waffengattung</li>
+          <li><strong>Aufklärungsflüge:</strong> Zunächst Hauptaufgabe – Erkundung feindlicher Stellungen und Artilleriebeobachtung</li>
+          <li><strong>Luftkämpfe:</strong> Jagdflugzeuge mit eingebauten MG; Heroisierung der „Fliegerasse" (Richthofen, Fonck)</li>
+          <li><strong>Bombenangriffe:</strong> Erste strategische Bombardierungen auf Zivilbevölkerung (Zeppeline über London, Gotha-Bomber)</li>
+          <li><strong>Auswirkung:</strong> Begründete die Idee des strategischen Luftkriegs → grundlegend für die Kriegsführung im 2. WK</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion reveal">
+    <button class="accordion-header" aria-expanded="false">
+      <span>Seekrieg – U-Boot-Krieg und Seeblockade</span>
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Britische Seeblockade:</strong> Fernblockade der Nordsee – Abschneidung Deutschlands von Rohstoffen und Nahrungsmitteln → direkte Auswirkung auf die Zivilbevölkerung (Steckrübenwinter 1916/17)</li>
+          <li><strong>U-Boot-Krieg:</strong> Deutsches Gegenkonzept zur Blockade – Versenkung alliierter Handelsschiffe</li>
+          <li><strong>Lusitania (1915):</strong> Versenkung des Passagierdampfers mit 1.198 Todesopfern – Wendepunkt im Verhältnis zu den USA</li>
+          <li><strong>Uneingeschränkter U-Boot-Krieg (1917):</strong> Kalkül: England zur Kapitulation zwingen, bevor die USA eingreifen können – Kalkül ging nicht auf</li>
+          <li><strong>Skagerrakschlacht (1916):</strong> Einzige große Seeschlacht der Hochseeflotten – ohne klares Ergebnis, britische Seeherrschaft blieb bestehen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Waffentechnik & Auswirkungen -->
+  <h3 class="reveal">Waffentechnik und deren Auswirkungen</h3>
+  <p class="section-desc reveal" style="margin-bottom:20px;">Zusammenhang zwischen technologischer Innovation, taktischer Anpassung und Auswirkung auf den Kriegsverlauf.</p>
+
+  <div class="table-wrap reveal">
+    <table>
+      <thead>
+        <tr>
+          <th>Waffe / Technik</th>
+          <th>Einsatz & Taktik</th>
+          <th>Auswirkungen auf den Krieg</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="info-badge red">MG</span></td>
+          <td>Defensivwaffe in befestigten Stellungen; MG 08 schoss 400–600 Schuss/Min.; machte Infanteriefrontalangriffe zu Todeszonen</td>
+          <td>Erzwang den Stellungskrieg; begründete die taktische Überlegenheit der Defensive; hauptverantwortlich für die Massenopfer bei Offensiven</td>
+        </tr>
+        <tr>
+          <td><span class="info-badge amber">Artillerie</span></td>
+          <td>Schwere Geschütze (bis 42cm) für Trommelfeuer vor Offensiven; Artilleriebeobachtung durch Flugzeuge und Fesselballons</td>
+          <td>Verursachte ca. 60–70% aller Verluste im Krieg; zerstörte Landschaften (Mondlandschaften), erschütterte die Psyche der Soldaten (Shell Shock)</td>
+        </tr>
+        <tr>
+          <td><span class="info-badge green">Giftgas</span></td>
+          <td>Erstmals bei Ypern (April 1915): Chlorgas; später Phosgen und Senfgas (Lost); Gasmasken als Gegenmaßnahme</td>
+          <td>Psychologische Terrorwaffe; ca. 90.000 Tote, über 1 Mio. Verletzte; kein kriegsentscheidender Durchbruch, aber Symbol des industrialisierten Tötens</td>
+        </tr>
+        <tr>
+          <td><span class="info-badge steel">Panzer</span></td>
+          <td>Erstmals an der Somme (Sept. 1916): brit. Mark I; technisch unzuverlässig; bei Cambrai (1917) erster massed Panzereinsatz</td>
+          <td>Sollte den Stellungskrieg überwinden; im 1. WK noch begrenzte Wirkung, aber bahnbrechend für die mobile Kriegsführung des 2. WK (Blitzkrieg)</td>
+        </tr>
+        <tr>
+          <td><span class="info-badge red">U-Boote</span></td>
+          <td>Blockadebrecher gegen alliierte Versorgungslinien; uneingeschränkter U-Boot-Krieg ab Feb. 1917</td>
+          <td>Bedrohte die britische Versorgung; provozierte jedoch den Kriegseintritt der USA → strategischer Fehlkalkül mit kriegsentscheidenden Folgen</td>
+        </tr>
+        <tr>
+          <td><span class="info-badge amber">Flugzeuge</span></td>
+          <td>Aufklärung, Jagd, Bombenabwurf; zunehmende Spezialisierung der Flugzeugtypen im Kriegsverlauf</td>
+          <td>Revolutionierte die Aufklärung; begründete den strategischen Luftkrieg; noch keine kriegsentscheidende Wirkung, aber Grundstein für die Luftwaffe im 2. WK</td>
+        </tr>
+        <tr>
+          <td><span class="info-badge steel">Flammenwerfer</span></td>
+          <td>Nahkampfwaffe zur Räumung von Gräben und Bunkern; Einsatz bei Verdun und Somme</td>
+          <td>Begrenzte taktische Reichweite; enorme psychologische Wirkung; unterstreicht die Brutalisierung der Kriegsführung</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Auswirkungen-Visualisierung -->
+  <div class="card reveal" style="margin-top:20px;">
+    <div class="card-title"><span class="dot red"></span>Einfluss der Waffensysteme auf den Kriegsverlauf</div>
+    <div style="margin-top:12px;">
+      <div class="impact-row">
+        <span class="impact-label">Maschinengewehr</span>
+        <div class="impact-bar-wrap"><div class="impact-bar red" data-width="95" style="width:0%"></div></div>
+        <span class="impact-note">Sehr hoch</span>
+      </div>
+      <div class="impact-row">
+        <span class="impact-label">Artillerie</span>
+        <div class="impact-bar-wrap"><div class="impact-bar amber" data-width="92" style="width:0%"></div></div>
+        <span class="impact-note">Sehr hoch</span>
+      </div>
+      <div class="impact-row">
+        <span class="impact-label">U-Boote</span>
+        <div class="impact-bar-wrap"><div class="impact-bar steel" data-width="78" style="width:0%"></div></div>
+        <span class="impact-note">Hoch</span>
+      </div>
+      <div class="impact-row">
+        <span class="impact-label">Giftgas</span>
+        <div class="impact-bar-wrap"><div class="impact-bar green" data-width="55" style="width:0%"></div></div>
+        <span class="impact-note">Mittel</span>
+      </div>
+      <div class="impact-row">
+        <span class="impact-label">Panzer</span>
+        <div class="impact-bar-wrap"><div class="impact-bar steel" data-width="40" style="width:0%"></div></div>
+        <span class="impact-note">Begrenzt</span>
+      </div>
+      <div class="impact-row">
+        <span class="impact-label">Flugzeuge</span>
+        <div class="impact-bar-wrap"><div class="impact-bar amber" data-width="45" style="width:0%"></div></div>
+        <span class="impact-note">Begrenzt</span>
+      </div>
+      <div class="impact-row">
+        <span class="impact-label">Flammenwerfer</span>
+        <div class="impact-bar-wrap"><div class="impact-bar red" data-width="25" style="width:0%"></div></div>
+        <span class="impact-note">Gering</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Zusammenhang Waffentechnik-Taktik-Kriegsführung -->
+  <div class="card reveal" style="margin-top:16px;">
+    <div class="card-title"><span class="dot steel"></span>Zusammenhang: Waffentechnik → Taktik → Kriegsführung</div>
+    <div class="keyfact">
+      <span class="keyfact-marker"></span>
+      <div class="keyfact-text">
+        Die <strong>industrielle Massenproduktion</strong> von Waffen (MG, Artillerie, Munition) verschob das taktische Gleichgewicht zugunsten der <strong>Defensive</strong>.
+        Frontalangriffe gegen befestigte MG-Stellungen führten zu verheerenden Verlusten – die Taktik hinkte der Technik hinterher.
+        Erst die Kombination aus <strong>Panzer, Stoßtrupptaktik, Sperrfeuer und Artilleriekoordination</strong> durchbrach gegen Kriegsende ansatzweise den Stellungskrieg.
+      </div>
+    </div>
+    <div class="keyfact" style="border-left-color:var(--steel);">
+      <span class="keyfact-marker steel"></span>
+      <div class="keyfact-text">
+        <strong>Kreislauf:</strong> Neue Waffen (MG) → erzwang Grabensystem → erforderte neue Offensivmittel (Gas, Panzer, Stoßtrupps) → führte zu Material- und Abnutzungsschlachten → totale Mobilisierung der Wirtschaft → industrialisierter Krieg
+      </div>
+    </div>
+    <div class="keyfact" style="border-left-color:var(--red);">
+      <span class="keyfact-marker red"></span>
+      <div class="keyfact-text">
+        <strong>Leiden am Krieg:</strong> Die Soldaten waren der technisierten Gewalt in einem nie gekannten Ausmaß ausgeliefert. Shell Shock, Verstümmelungen durch Artillerie, Gasvergiftungen, das Ausharren in nassen Schützengräben unter ständigem Beschuss – der 1. WK traumatisierte eine gesamte Generation (verlorene Generation).
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEKTION 2b: 2. WELTKRIEG – DIMENSIONEN
+     ═══════════════════════════════════════════ -->
+<section class="section" id="wk2">
+<div class="wrap">
+  <div class="section-header reveal">
+    <div class="section-eyebrow red">Sektion 03</div>
+    <h2>Zweiter Weltkrieg – Eroberungs- und Vernichtungskrieg</h2>
+    <p class="section-desc">Der 2. Weltkrieg als ideologisch begründeter Eroberungs- und Vernichtungskrieg – geprägt von der nationalsozialistischen Rassenideologie und dem Streben nach „Lebensraum im Osten".</p>
+  </div>
+
+  <!-- Ideologische Grundlagen -->
+  <div class="card reveal">
+    <div class="card-title"><span class="dot red"></span>Ideologische Grundlagen</div>
+    <div class="grid-2">
+      <div>
+        <h4>Rassenideologie</h4>
+        <ul class="bullet-list">
+          <li>Konstrukt einer „arischen Herrenrasse" – pseudowissenschaftliche Begründung</li>
+          <li>Einteilung in „höherwertige" und „minderwertige" Völker</li>
+          <li>Antisemitismus als Kern der NS-Ideologie: Juden als „Weltfeind"</li>
+          <li>Slawen als „Untermenschen" → Legitimation der Besatzungspolitik im Osten</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Lebensraumideologie & Antibolschewismus</h4>
+        <ul class="bullet-list">
+          <li>„Lebensraum im Osten" (Hitlers Mein Kampf): Expansion nach Osteuropa und Russland</li>
+          <li>Germanisierung der eroberten Gebiete, Vertreibung/Vernichtung der Bevölkerung</li>
+          <li>Antibolschewismus: Krieg gegen die UdSSR als „Kampf gegen den jüdischen Bolschewismus"</li>
+          <li>Verknüpfung von Rassismus und Antikommunismus als Kriegslegitimation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Kriegsführung Teilphasen -->
+  <h3 class="reveal">Kriegsführung in den Teilphasen</h3>
+
+  <div class="accordion reveal">
+    <button class="accordion-header" aria-expanded="false">
+      <span>Polenfeldzug (September 1939)</span>
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Blitzkrieg-Prinzip:</strong> Koordiniertes Zusammenwirken von Panzerverbänden, Luftwaffe und motorisierter Infanterie für schnelle Durchbrüche</li>
+          <li><strong>Strategische Zangen:</strong> Doppelangriff aus Norden (Ostpreußen) und Süden (Schlesien/Slowakei) → Einschließung polnischer Kräfte</li>
+          <li><strong>Luftüberlegenheit:</strong> Zerstörung der polnischen Luftwaffe am Boden; Terrorbombardierung von Warschau und Wieluń</li>
+          <li><strong>Dauer:</strong> Feldzug dauerte nur ca. 5 Wochen – unterstrich die Überlegenheit der neuen Kriegsführung</li>
+          <li><strong>Bereits hier:</strong> Erste Massenerschießungen von Zivilisten und Intelligenz (Sonderaktionen der Einsatzgruppen)</li>
+          <li><strong>Sowjetische Besetzung Ostpolens:</strong> Gemäß Hitler-Stalin-Pakt (Geheimes Zusatzprotokoll)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion reveal">
+    <button class="accordion-header" aria-expanded="false">
+      <span>Weserübung – Besetzung Dänemarks und Norwegens (April 1940)</span>
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Strategisches Ziel:</strong> Sicherung der schwedischen Eisenerzlieferungen über Narvik; Gewinnung von Stützpunkten für den U-Boot-Krieg im Atlantik</li>
+          <li><strong>Erste kombinierte Operation:</strong> Marine, Luftwaffe und Heer in koordiniertem Zusammenwirken – erstmals Fallschirmjäger im Großeinsatz</li>
+          <li><strong>Dänemark:</strong> Kampflose Besetzung innerhalb eines Tages</li>
+          <li><strong>Norwegen:</strong> Heftiger Widerstand; Seeschlachten bei Narvik, alliierte Gegenlandungen; Eroberung innerhalb von zwei Monaten</li>
+          <li><strong>Bedeutung:</strong> Sicherung der Nordflanke und strategischer Rohstoffe; Beweis der Leistungsfähigkeit kombinierter Operationen</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion reveal">
+    <button class="accordion-header" aria-expanded="false">
+      <span>Westfeldzug – Fall Gelb und Fall Rot (Mai–Juni 1940)</span>
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Sichelschnittplan (Manstein-Plan):</strong> Panzer-Durchbruch durch die Ardennen – als „undurchdringlich" geltend – zur Kanalküste → Abschneidung der alliierten Nordarmeen</li>
+          <li><strong>Überrumpelungseffekt:</strong> Umgehung der Maginot-Linie; Einnahme der Niederlande, Belgiens und Luxemburgs; Kapitulation der Niederlande nach 5 Tagen</li>
+          <li><strong>Kessel von Dünkirchen:</strong> Eingeschlossene alliierte Truppen; umstrittener Haltebefehl Hitlers; Evakuierung von ca. 338.000 Soldaten (Operation Dynamo)</li>
+          <li><strong>Kapitulation Frankreichs:</strong> 22. Juni 1940 im Wald von Compiègne – bewusste Demütigung (gleicher Waggon wie 1918); Teilung in besetzte Zone und Vichy-Frankreich</li>
+          <li><strong>Bedeutung:</strong> In nur 6 Wochen besiegte die Wehrmacht Frankreich – Blitzkrieg auf dem Höhepunkt; Hitler auf dem Gipfel seiner Macht</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="accordion reveal">
+    <button class="accordion-header" aria-expanded="false">
+      <span>Luftschlacht um England (Juli–Oktober 1940)</span>
+      <svg class="accordion-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+    <div class="accordion-body">
+      <div class="accordion-content">
+        <ul>
+          <li><strong>Ziel:</strong> Erringung der Luftherrschaft als Voraussetzung für die geplante Invasion Englands (Unternehmen Seelöwe)</li>
+          <li><strong>Phasen:</strong> Angriffe auf Flugplätze und Radarstationen → Verlagerung auf Terrorbombardierung der Städte (Blitz auf London)</li>
+          <li><strong>Britische Verteidigung:</strong> Radar-Frühwarnsystem (Chain Home), Spitfire und Hurricane, entschlossene Verteidigung unter Churchills Führung</li>
+          <li><strong>Ergebnis:</strong> Erste Niederlage der Wehrmacht; Luftwaffe konnte die RAF nicht ausschalten; Operation Seelöwe auf unbestimmte Zeit verschoben</li>
+          <li><strong>Bedeutung:</strong> Bewies die Grenzen der Blitzkrieg-Strategie; England blieb als alliierter Brückenkopf bestehen → entscheidend für den weiteren Kriegsverlauf</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vernichtungskrieg im Osten -->
+  <h3 class="reveal">Der Vernichtungskrieg im Osten (ab 1941)</h3>
+
+  <div class="card reveal">
+    <div class="card-title"><span class="dot red"></span>Unternehmen Barbarossa – Ideologischer Vernichtungskrieg</div>
+    <ul class="bullet-list">
+      <li><strong>Beginn:</strong> 22. Juni 1941 – Überfall auf die Sowjetunion mit ca. 3,6 Mio. Soldaten an der gesamten Ostfront</li>
+      <li>Kein gewöhnlicher Angriffskrieg, sondern von Beginn an als <span class="highlight">ideologischer Vernichtungs- und Rassenkrieg</span> geplant und durchgeführt</li>
+      <li><strong>Kommissarbefehl:</strong> Anordnung zur sofortigen Erschießung gefangener sowjetischer Politkommissare – Bruch des Kriegsvölkerrechts</li>
+      <li><strong>Kriegsgerichtsbarkeitserlass:</strong> Straffreiheit für Übergriffe gegen die Zivilbevölkerung – systematische Enthemmung der Truppe</li>
+      <li><strong>Hungerplan (Backe-Plan):</strong> Gezielte Aushungerung der sowjetischen Stadtbevölkerung zur Versorgung der Wehrmacht und des Deutschen Reiches</li>
+      <li><strong>Einsatzgruppen:</strong> Mobile Tötungseinheiten der SS hinter der Front – systematische Massenerschießungen von Juden, Kommunisten, Roma</li>
+    </ul>
+  </div>
+
+  <div class="grid-2 reveal">
+    <div class="card">
+      <div class="card-title"><span class="dot amber"></span>Besatzungspolitik im Osten</div>
+      <ul class="bullet-list">
+        <li><strong>Entrechtung:</strong> Systematischer Entzug aller Rechte der einheimischen Bevölkerung; Zwangskollektivierung, Beschlagnahmung von Eigentum</li>
+        <li><strong>Zwangsarbeit:</strong> Millionen Sowjetbürger und Polen als Zwangsarbeiter ins Reich verschleppt (ca. 8 Mio. „Ostarbeiter")</li>
+        <li><strong>Generalplan Ost:</strong> Germanisierung des eroberten Raumes; Vertreibung, Umsiedlung oder Vernichtung von bis zu 45 Mio. Menschen geplant</li>
+        <li><strong>Taktik der verbrannten Erde:</strong> Systematische Zerstörung bei Rückzug – Vernichtung von Infrastruktur, Dörfern, Vorräten</li>
+        <li><strong>Geiselerschießungen &amp; Vergeltungsaktionen:</strong> Brutale Repressalien gegen die Zivilbevölkerung als „Partisanenbekämpfung"</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title"><span class="dot red"></span>Shoa / Holocaust</div>
+      <ul class="bullet-list">
+        <li><strong>Eskalationsstufen:</strong> Entrechtung → Ghettoisierung → Massenerschießungen → industrielle Vernichtung</li>
+        <li><strong>Wannseekonferenz (Jan. 1942):</strong> Organisatorische Koordination der „Endlösung der Judenfrage" – Vernichtung von ca. 11 Mio. europäischen Juden geplant</li>
+        <li><strong>Vernichtungslager:</strong> Auschwitz-Birkenau, Treblinka, Sobibor, Belzec, Chelmno, Majdanek – industrielle Massentötung in Gaskammern</li>
+        <li><strong>Opfer:</strong> ca. 6 Mio. ermordete Juden; zusätzlich Sinti/Roma, sowjetische Kriegsgefangene, Behinderte, politische Gegner</li>
+        <li><strong>Zivilisationsbruch:</strong> Beispiellos in der Geschichte – staatlich organisierter, industrieller Völkermord</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Nachweis: Eroberungskrieg / Vernichtungskrieg -->
+  <h3 class="reveal">Der 2. Weltkrieg als ideologischer Eroberungs- und Vernichtungskrieg</h3>
+
+  <div class="grid-2 reveal">
+    <div class="card" style="border-left: 3px solid var(--amber);">
+      <div class="card-title"><span class="dot amber"></span>Nachweis: Ideologischer Eroberungskrieg</div>
+      <ul class="bullet-list">
+        <li><strong>Lebensraum-Ideologie:</strong> Hitlers programmatische Forderung nach „Lebensraum im Osten" – bereits in Mein Kampf formuliert</li>
+        <li><strong>Systematische Expansion:</strong> Annexion Österreichs, Sudetenland, Resttschechei – planmäßige Revision von Versailles und darüber hinaus</li>
+        <li><strong>Generalplan Ost:</strong> Langfristige Germanisierung der eroberten Ostgebiete – Siedlungsplanung für „germanische Bauern"</li>
+        <li><strong>Wirtschaftliche Ausbeutung:</strong> Besetzung zur Rohstoffgewinnung (Öl, Getreide, Arbeitskraft) – Eroberung diente der Ressourcensicherung</li>
+        <li><strong>Propagandistische Begründung:</strong> Krieg als „Verteidigung Europas gegen den Bolschewismus" – ideologische Legitimation der Aggression</li>
+        <li><strong>Bündnispolitik:</strong> Achsenmächte teilten die Welt in Einflusssphären (Dreimächtepakt) – globaler Herrschaftsanspruch</li>
+      </ul>
+    </div>
+    <div class="card" style="border-left: 3px solid var(--red);">
+      <div class="card-title"><span class="dot red"></span>Nachweis: Ideologischer Vernichtungskrieg</div>
+      <ul class="bullet-list">
+        <li><strong>Rassenideologische Grundlage:</strong> Krieg gegen „Untermenschen" und „rassisch Minderwertige" – kein Krieg zwischen Staaten, sondern zwischen „Rassen"</li>
+        <li><strong>Kommissarbefehl &amp; Barbarossa-Erlass:</strong> Vorsätzliche Außerkraftsetzung des Kriegsvölkerrechts an der Ostfront</li>
+        <li><strong>Einsatzgruppen:</strong> Systematische Massenerschießungen hinter der Front – ca. 1,5 Mio. Opfer allein durch diese Einheiten</li>
+        <li><strong>Holocaust/Shoa:</strong> Industrielle Vernichtung in Lagern – beispielloser staatlich organisierter Völkermord</li>
+        <li><strong>Hungerplan:</strong> Bewusste Inkaufnahme des Hungertods von Millionen sowjetischer Zivilisten</li>
+        <li><strong>Kriegsgefangenenpolitik:</strong> Ca. 3,3 Mio. sowjetische Kriegsgefangene starben in deutscher Gefangenschaft (Hunger, Krankheit, Erschießungen)</li>
+        <li><strong>Vergeltungsmaßnahmen:</strong> Zerstörung ganzer Dörfer als „Partisanenbekämpfung" (z.B. Lidice, Oradour)</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     SEKTION 3: HEIMATFRONT
+     ═══════════════════════════════════════════ -->
+<section class="section" id="heimatfront">
+<div class="wrap">
+  <div class="section-header reveal">
+    <div class="section-eyebrow green">Sektion 04</div>
+    <h2>Heimatfront & Rückwirkungen auf die Zivilbevölkerung</h2>
+    <p class="section-desc">Die Entgrenzung des Krieges – Auswirkungen auf das Leben der Zivilbevölkerung im 1. und 2. Weltkrieg.</p>
+  </div>
+
+  <!-- Tabs: WK1 / WK2 -->
+  <div class="tabs reveal" role="tablist">
+    <button class="tab-btn active" role="tab" data-tab="hf-wk1" aria-selected="true">Erster Weltkrieg</button>
+    <button class="tab-btn" role="tab" data-tab="hf-wk2" aria-selected="false">Zweiter Weltkrieg</button>
+  </div>
+
+  <!-- Heimatfront 1. WK -->
+  <div class="tab-panel active" id="hf-wk1">
+    <div class="grid-2 reveal">
+      <div class="card">
+        <div class="card-title"><span class="dot amber"></span>Versorgungslage & Hunger</div>
+        <ul class="bullet-list">
+          <li><strong>Britische Seeblockade</strong> schnitt Deutschland von Nahrungsmittel- und Rohstoffimporten ab</li>
+          <li><strong>„Steckrübenwinter" 1916/17:</strong> Katastrophale Ernährungslage – Steckrüben als Hauptnahrungsmittel; ca. 700.000 Zivilisten starben an Unterernährung und Krankheiten</li>
+          <li><strong>Rationierungssystem:</strong> Lebensmittelkarten ab 1915; Schwarzmarkt und Hamsterfahrten auf das Land</li>
+          <li><strong>Ersatzstoffe:</strong> Ersatzkaffee, Ersatzbrot, Ersatzkleidung – die Wirtschaft des Mangels</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot steel"></span>Kriegswirtschaft & Mobilisierung</div>
+        <ul class="bullet-list">
+          <li><strong>Hindenburg-Programm (1916):</strong> Totale Mobilisierung der Wirtschaft für den Krieg; „Vaterländischer Hilfsdienst"</li>
+          <li><strong>Frauen in der Produktion:</strong> Massiver Eintritt von Frauen in die Rüstungsindustrie und Verwaltung</li>
+          <li><strong>Rohstoffbewirtschaftung:</strong> Walther Rathenau organisierte die zentrale Rohstoffverteilung (KRA)</li>
+          <li><strong>Burgfrieden:</strong> Innenpolitischer Waffenstillstand 1914 – zerbrach im Verlauf des Krieges (Streiks 1917/18)</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid-2 reveal">
+      <div class="card">
+        <div class="card-title"><span class="dot green"></span>Propaganda & Stimmung</div>
+        <ul class="bullet-list">
+          <li><strong>Augusterlebnis 1914:</strong> Anfängliche Kriegsbegeisterung – „Burgfrieden" über Parteigrenzen hinweg</li>
+          <li><strong>Propaganda:</strong> Kriegsanleihen-Werbung, Feindbilder, Zensur der Presse</li>
+          <li><strong>Stimmungswandel:</strong> Zunehmende Kriegsmüdigkeit ab 1916/17; Friedenssehnsucht, Streiks</li>
+          <li><strong>Friedensresolution (Juli 1917):</strong> Reichstagsmehrheit fordert Verständigungsfrieden – wird von OHL ignoriert</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot red"></span>Gesellschaftliche Folgen</div>
+        <ul class="bullet-list">
+          <li><strong>Verluste:</strong> Ca. 2 Mio. deutsche Gefallene; Millionen Verwundete und Traumatisierte</li>
+          <li><strong>Soziale Spannungen:</strong> Wachsende Kluft zwischen Arm und Reich; Wucher und Schieber</li>
+          <li><strong>Politische Radikalisierung:</strong> USPD-Abspaltung 1917; Matrosenaufstand → Novemberrevolution 1918</li>
+          <li><strong>Langzeitfolgen:</strong> Kriegstraumata, Inflation, Dolchstoßlegende → Belastung der Weimarer Republik</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Heimatfront 2. WK -->
+  <div class="tab-panel" id="hf-wk2">
+    <div class="grid-2 reveal">
+      <div class="card">
+        <div class="card-title"><span class="dot red"></span>Bombenkrieg gegen die Zivilbevölkerung</div>
+        <ul class="bullet-list">
+          <li><strong>Strategische Bombardierung:</strong> Alliierte Bomberoffensiven ab 1942 – Flächenbombardierung deutscher Städte</li>
+          <li><strong>Area Bombing:</strong> Britische Nachtangriffe auf Wohnviertel; US-amerikanische Tagangriffe auf Industrie</li>
+          <li><strong>Feuerstürme:</strong> Hamburg (1943, Operation Gomorrha), Dresden (13.–15. Feb. 1945) – Zehntausende Tote</li>
+          <li><strong>Fallbeispiel Dresden:</strong> Ca. 25.000 Tote; Zerstörung der historischen Innenstadt; umstritten hinsichtlich militärischer Notwendigkeit; Symbol der Entgrenzung des Luftkriegs</li>
+          <li><strong>Wirkung:</strong> Ca. 600.000 Zivilisten starben durch Bombenangriffe; Millionen Obdachlose; Infrastrukturzerstörung</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot amber"></span>Totale Mobilisierung & Kriegswirtschaft</div>
+        <ul class="bullet-list">
+          <li><strong>Sportpalastrede (Feb. 1943):</strong> Goebbels' Proklamation des „totalen Krieges" – Mobilisierung aller letzten Reserven</li>
+          <li><strong>Albert Speer:</strong> Rüstungsminister ab 1942 – Steigerung der Rüstungsproduktion trotz Bombenkrieg (Verlagerung in Untertagefabriken)</li>
+          <li><strong>Zwangsarbeit:</strong> Millionen ausländische Zwangsarbeiter und KZ-Häftlinge in der Rüstungsproduktion</li>
+          <li><strong>Frauenarbeit:</strong> Trotz NS-Ideologie zunehmender Einsatz von Frauen in der Produktion</li>
+          <li><strong>Rationierung:</strong> Lebensmittelkarten von Beginn an; Versorgungslage verschlechterte sich ab 1943 dramatisch</li>
+        </ul>
+      </div>
+    </div>
+    <div class="grid-2 reveal">
+      <div class="card">
+        <div class="card-title"><span class="dot steel"></span>Flucht & Vertreibung</div>
+        <ul class="bullet-list">
+          <li><strong>Flucht aus dem Osten (1944/45):</strong> Millionen Deutsche flohen vor der vorrückenden Roten Armee</li>
+          <li><strong>Vertreibung:</strong> Ca. 12–14 Mio. Deutsche aus den Ostgebieten, dem Sudetenland und Südosteuropa vertrieben</li>
+          <li><strong>Opfer:</strong> Ca. 2 Mio. Menschen kamen durch Flucht und Vertreibung ums Leben</li>
+          <li><strong>Folgen:</strong> Massenhafte Entwurzelung, Traumatisierung, Integrationsprobleme in den Besatzungszonen</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-title"><span class="dot green"></span>Gesellschaft unter dem NS-Regime</div>
+        <ul class="bullet-list">
+          <li><strong>Propaganda bis zuletzt:</strong> Durchhalteparolen, „Wunderwaffen"-Versprechen (V1, V2), Volkssturmaufgebote</li>
+          <li><strong>Jugend:</strong> Hitlerjugend und BDM – Mobilisierung als Flakhelfer und Volkssturmkämpfer</li>
+          <li><strong>Zersetzung:</strong> Denunziation, Standgerichte, Erschießung von „Deserteuren" und „Wehrkraftzersetzern" in den letzten Kriegswochen</li>
+          <li><strong>Kriegsende:</strong> Bedingungslose Kapitulation (8.5.1945) – „Stunde Null", materielle und moralische Trümmerlandschaft</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════ -->
+<footer class="footer">
+  <p>Leistungskurs Geschichte · Jgst. 12 · Gymnasium Tolkewitz · Lehrplan Sachsen (LB 1: Herausforderung „Frieden")</p>
+  <p style="margin-top:4px; font-size:11px;">Quellen: Sächsischer Lehrplan Geschichte (SMK, 2019) · Erwartungsbild Weltkriege-Phasen · MHM Dresden</p>
+</footer>
+
+<!-- ═══════════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  /* ─── NAVIGATION SCROLL EFFECT ─── */
+  const nav = document.getElementById('mainNav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  /* ─── MOBILE BURGER ─── */
+  const burger = document.getElementById('navBurger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  // Close on link click (mobile)
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  /* ─── SCROLL-SPY ─── */
+  const sections = document.querySelectorAll('section[id]');
+  const navItems = document.querySelectorAll('.nav-links a[data-section]');
+
+  function updateScrollSpy() {
+    let current = '';
+    const scrollY = window.scrollY + 120;
+    sections.forEach(s => {
+      if (scrollY >= s.offsetTop) current = s.id;
+    });
+    navItems.forEach(a => {
+      a.classList.toggle('active', a.dataset.section === current);
+    });
+  }
+  window.addEventListener('scroll', updateScrollSpy, { passive: true });
+  updateScrollSpy();
+
+  /* ─── TABS ─── */
+  document.querySelectorAll('.tabs').forEach(tabBar => {
+    const buttons = tabBar.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.dataset.tab;
+        // Deactivate siblings
+        buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected','true');
+        // Show target panel
+        const parent = tabBar.parentElement;
+        parent.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        const target = document.getElementById(targetId);
+        if (target) target.classList.add('active');
+      });
+    });
+  });
+
+  /* ─── ACCORDIONS ─── */
+  document.querySelectorAll('.accordion-header').forEach(header => {
+    header.addEventListener('click', () => {
+      const isOpen = header.classList.contains('open');
+      header.classList.toggle('open');
+      header.setAttribute('aria-expanded', !isOpen);
+      const body = header.nextElementSibling;
+      body.classList.toggle('open');
+    });
+  });
+
+  /* ─── SCROLL REVEAL ─── */
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  /* ─── IMPACT BARS ANIMATION ─── */
+  const impactBars = document.querySelectorAll('.impact-bar[data-width]');
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.width = entry.target.dataset.width + '%';
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.3 });
+  impactBars.forEach(bar => barObserver.observe(bar));
+
+})();
+</script>
+</body>
+</html>
