@@ -1,0 +1,1645 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Interaktiver Zeitstrahl zum Ersten Weltkrieg - Wiederholung Geschichte Klasse 9">
+    <title>Zeitstrahl: Der Erste Weltkrieg 1914-1919 | Geschichte Klasse 9</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #0a0e17;
+            --bg-secondary: #111827;
+            --bg-card: #1a2235;
+            --bg-card-hover: #1f2a42;
+            --text-primary: #e8ecf4;
+            --text-secondary: #8b95a8;
+            --text-muted: #5a6478;
+            --accent-gold: #d4a843;
+            --accent-gold-dim: #b8922e;
+            --accent-red: #c0392b;
+            --cat-military: #e74c3c;
+            --cat-political: #3498db;
+            --cat-social: #f39c12;
+            --cat-diplomatic: #9b59b6;
+            --cat-revolution: #e67e22;
+            --border-subtle: rgba(255, 255, 255, 0.06);
+            --border-glow: rgba(212, 168, 67, 0.3);
+            --timeline-line: rgba(212, 168, 67, 0.2);
+            --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.6);
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 20px;
+            --transition-fast: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-smooth: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(192, 57, 43, 0.06) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 80%, rgba(212, 168, 67, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* === HEADER === */
+        .header {
+            position: relative;
+            text-align: center;
+            padding: 50px 24px 36px;
+            background: linear-gradient(180deg, rgba(192, 57, 43, 0.08) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border-subtle);
+            z-index: 1;
+        }
+
+        .header::before {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translateX(-50%);
+            width: 200px; height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+        }
+
+        .header-badge {
+            display: inline-block;
+            padding: 5px 14px;
+            background: rgba(212, 168, 67, 0.1);
+            border: 1px solid rgba(212, 168, 67, 0.2);
+            border-radius: 20px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent-gold);
+            margin-bottom: 14px;
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            font-weight: 900;
+            line-height: 1.15;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-gold) 50%, var(--text-primary) 100%);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: shimmer 4s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% center; }
+            50% { background-position: 200% center; }
+        }
+
+        .header .subtitle {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 20px;
+        }
+
+        .header-stats {
+            display: flex;
+            justify-content: center;
+            gap: 28px;
+            flex-wrap: wrap;
+        }
+
+        .stat-value {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent-gold);
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-top: 2px;
+        }
+
+        /* === CONTROLS === */
+        .controls {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(10, 14, 23, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 12px 24px;
+        }
+
+        .controls-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .year-nav {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .year-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--text-muted);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.78rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+        }
+
+        .year-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+            background: rgba(212, 168, 67, 0.06);
+        }
+
+        .year-btn.active {
+            border-color: var(--accent-gold);
+            color: var(--bg-primary);
+            background: var(--accent-gold);
+            box-shadow: 0 0 16px rgba(212, 168, 67, 0.3);
+        }
+
+        .year-btn.revealed {
+            border-color: rgba(212, 168, 67, 0.3);
+            color: var(--accent-gold-dim);
+        }
+
+        .year-btn.locked {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .year-btn.locked:hover {
+            border-color: var(--border-subtle);
+            color: var(--text-muted);
+            background: transparent;
+        }
+
+        .control-actions { display: flex; gap: 6px; flex-wrap: wrap; }
+
+        .action-btn {
+            padding: 6px 14px;
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-sm);
+            background: transparent;
+            color: var(--text-secondary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .action-btn:hover {
+            border-color: var(--accent-gold);
+            color: var(--accent-gold);
+        }
+
+        .action-btn.primary {
+            background: linear-gradient(135deg, var(--accent-gold), var(--accent-gold-dim));
+            color: var(--bg-primary);
+            border-color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .action-btn.primary:hover {
+            box-shadow: 0 0 20px rgba(212, 168, 67, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .action-btn.primary:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .action-btn.danger {
+            border-color: rgba(231, 76, 60, 0.3);
+            color: var(--cat-military);
+        }
+
+        .action-btn.danger:hover {
+            background: rgba(231, 76, 60, 0.1);
+            border-color: var(--cat-military);
+        }
+
+        /* === PROGRESS === */
+        .progress-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 14px 24px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .progress-bar-bg {
+            width: 100%; height: 3px;
+            background: var(--border-subtle);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent-red), var(--accent-gold));
+            border-radius: 2px;
+            transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 0%;
+        }
+
+        .progress-label {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+            font-size: 0.65rem;
+            color: var(--text-muted);
+        }
+
+        /* === LEGEND === */
+        .legend {
+            max-width: 1000px;
+            margin: 12px auto 0;
+            padding: 0 24px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .legend-dot {
+            width: 7px; height: 7px;
+            border-radius: 50%;
+        }
+
+        /* === TIMELINE === */
+        .timeline-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 24px 24px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* === YEAR SECTION === */
+        .year-section {
+            margin-bottom: 8px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+        }
+
+        .year-section.revealed {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: auto;
+        }
+
+        .year-marker {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 10px;
+            padding: 0 4px;
+        }
+
+        .year-marker-label {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--accent-gold);
+            white-space: nowrap;
+            text-shadow: 0 0 20px rgba(212, 168, 67, 0.2);
+        }
+
+        .year-marker-line {
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(212, 168, 67, 0.3), transparent);
+        }
+
+        .year-marker-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        /* === COMPACT EVENT CARDS === */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+            margin-bottom: 16px;
+        }
+
+        .event-card {
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .event-card.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-content::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 3px; height: 100%;
+            transition: width var(--transition-fast);
+        }
+
+        .card-content:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-glow);
+        }
+
+        .card-content.expanded {
+            border-color: var(--border-glow);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Category color bars */
+        .event-card.military .card-content::before { background: var(--cat-military); }
+        .event-card.political .card-content::before { background: var(--cat-political); }
+        .event-card.social .card-content::before { background: var(--cat-social); }
+        .event-card.diplomatic .card-content::before { background: var(--cat-diplomatic); }
+        .event-card.revolution .card-content::before { background: var(--cat-revolution); }
+
+        /* Card header - always visible */
+        .card-header {
+            display: flex;
+            align-items: center;
+            padding: 10px 14px 10px 18px;
+            gap: 12px;
+        }
+
+        .card-date {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--accent-gold);
+            white-space: nowrap;
+            min-width: 100px;
+        }
+
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            line-height: 1.3;
+            flex: 1;
+        }
+
+        .card-category {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.58rem;
+            font-weight: 600;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            white-space: nowrap;
+        }
+
+        .cat-military { background: rgba(231, 76, 60, 0.12); color: var(--cat-military); }
+        .cat-political { background: rgba(52, 152, 219, 0.12); color: var(--cat-political); }
+        .cat-social { background: rgba(243, 156, 18, 0.12); color: var(--cat-social); }
+        .cat-diplomatic { background: rgba(155, 89, 182, 0.12); color: var(--cat-diplomatic); }
+        .cat-revolution { background: rgba(230, 126, 34, 0.12); color: var(--cat-revolution); }
+
+        .card-toggle {
+            color: var(--text-muted);
+            font-size: 0.7rem;
+            transition: transform 0.3s ease, color 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .card-content.expanded .card-toggle {
+            transform: rotate(90deg);
+            color: var(--accent-gold);
+        }
+
+        /* Card body - hidden by default, expandable */
+        .card-body {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-content.expanded .card-body {
+            max-height: 500px;
+        }
+
+        .card-body-inner {
+            padding: 0 18px 14px 18px;
+            border-top: 1px solid var(--border-subtle);
+            margin: 0 14px;
+            padding-top: 10px;
+        }
+
+        .card-description {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 8px;
+        }
+
+        .card-detail {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-top: 8px;
+            padding-top: 8px;
+            border-top: 1px dashed rgba(255,255,255,0.06);
+            font-style: italic;
+        }
+
+        .key-terms {
+            margin-top: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 4px;
+        }
+
+        .key-term {
+            display: inline-block;
+            padding: 2px 8px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 10px;
+            font-size: 0.6rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        /* === INFO BOX === */
+        .info-box-inner {
+            background: linear-gradient(135deg, rgba(212, 168, 67, 0.06), rgba(192, 57, 43, 0.04));
+            border: 1px solid rgba(212, 168, 67, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 18px;
+            margin-bottom: 20px;
+        }
+
+        .info-box-inner h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1rem;
+            color: var(--accent-gold);
+            margin-bottom: 8px;
+        }
+
+        .info-box-inner p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        .parties-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-top: 12px;
+        }
+
+        .party-card {
+            padding: 12px;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .party-card.mittelmachte {
+            background: rgba(192, 57, 43, 0.06);
+            border-color: rgba(192, 57, 43, 0.2);
+        }
+
+        .party-card.entente {
+            background: rgba(52, 152, 219, 0.06);
+            border-color: rgba(52, 152, 219, 0.2);
+        }
+
+        .party-card h4 { font-size: 0.8rem; font-weight: 700; margin-bottom: 6px; }
+        .party-card.mittelmachte h4 { color: var(--cat-military); }
+        .party-card.entente h4 { color: var(--cat-political); }
+
+        .party-card ul {
+            list-style: none;
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .party-card li { padding: 1px 0; }
+        .party-card li::before { content: '\2192 '; color: var(--text-muted); }
+
+        /* === FOOTER === */
+        .footer {
+            text-align: center;
+            padding: 30px 24px;
+            border-top: 1px solid var(--border-subtle);
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer p { font-size: 0.75rem; color: var(--text-muted); }
+
+        .footer .total-casualties {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--accent-red);
+            margin-bottom: 4px;
+        }
+
+        .footer .casualties-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        /* === LOCKED OVERLAY === */
+        .locked-overlay {
+            position: relative;
+            text-align: center;
+            padding: 50px 24px;
+            z-index: 1;
+        }
+
+        .locked-overlay .lock-icon { font-size: 2rem; margin-bottom: 10px; opacity: 0.3; }
+        .locked-overlay p { color: var(--text-muted); font-size: 0.85rem; }
+        .locked-overlay .hint { color: var(--accent-gold); font-size: 0.78rem; margin-top: 6px; font-weight: 500; }
+
+        /* === SCROLL TOP === */
+        .scroll-top-btn {
+            position: fixed;
+            bottom: 20px; right: 20px;
+            width: 40px; height: 40px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all var(--transition-smooth);
+            z-index: 200;
+            box-shadow: 0 4px 16px rgba(212, 168, 67, 0.3);
+        }
+
+        .scroll-top-btn.visible { opacity: 1; transform: translateY(0); }
+        .scroll-top-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(212, 168, 67, 0.4); }
+
+        /* === QUIZ MODAL === */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(8px);
+            z-index: 500;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+        }
+
+        .modal-overlay.active { display: flex; }
+
+        .modal {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-xl);
+            padding: 28px;
+            max-width: 520px;
+            width: 100%;
+            animation: modalIn 0.3s ease;
+            position: relative;
+        }
+
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 14px; right: 14px;
+            background: none; border: none;
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+
+        .modal-close:hover { color: var(--text-primary); }
+
+        .modal h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 6px;
+        }
+
+        .modal p { font-size: 0.84rem; color: var(--text-secondary); margin-bottom: 16px; }
+
+        .quiz-question { font-size: 0.92rem; color: var(--text-primary); font-weight: 500; margin-bottom: 14px; }
+
+        .quiz-options { display: flex; flex-direction: column; gap: 6px; }
+
+        .quiz-option {
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.82rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: left;
+        }
+
+        .quiz-option:hover { background: rgba(212, 168, 67, 0.08); border-color: rgba(212, 168, 67, 0.3); }
+        .quiz-option.correct { background: rgba(39, 174, 96, 0.15); border-color: #27ae60; color: #27ae60; }
+        .quiz-option.wrong { background: rgba(231, 76, 60, 0.15); border-color: var(--cat-military); color: var(--cat-military); }
+
+        .quiz-result {
+            margin-top: 14px;
+            padding: 10px;
+            border-radius: var(--radius-md);
+            font-size: 0.84rem;
+            display: none;
+        }
+
+        .quiz-result.show { display: block; }
+        .quiz-result.success { background: rgba(39, 174, 96, 0.1); border: 1px solid rgba(39, 174, 96, 0.2); color: #27ae60; }
+        .quiz-result.failure { background: rgba(231, 76, 60, 0.1); border: 1px solid rgba(231, 76, 60, 0.2); color: var(--cat-military); }
+
+        .quiz-nav { margin-top: 14px; display: flex; justify-content: space-between; align-items: center; }
+        .quiz-counter { font-size: 0.72rem; color: var(--text-muted); }
+
+        .quiz-next-btn {
+            padding: 7px 18px;
+            background: var(--accent-gold);
+            color: var(--bg-primary);
+            border: none;
+            border-radius: var(--radius-sm);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            display: none;
+        }
+
+        /* Matching Quiz Styles */
+        .matching-container {
+            display: flex;
+            gap: 16px;
+            margin-top: 14px;
+            margin-bottom: 14px;
+        }
+        .matching-column {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .matching-item {
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            color: var(--text-primary);
+            font-size: 0.78rem;
+            cursor: pointer;
+            transition: all var(--transition-fast);
+            text-align: left;
+            user-select: none;
+        }
+        .matching-item:hover {
+            border-color: rgba(212, 168, 67, 0.3);
+            background: rgba(212, 168, 67, 0.04);
+        }
+        .matching-item.selected {
+            border-color: var(--accent-gold);
+            background: rgba(212, 168, 67, 0.12);
+            box-shadow: 0 0 10px rgba(212, 168, 67, 0.15);
+        }
+        .matching-item.matched {
+            border-color: #27ae60;
+            background: rgba(39, 174, 96, 0.1);
+            color: #2abf6c;
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.8;
+        }
+        .matching-item.error {
+            border-color: var(--cat-military);
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--cat-military);
+        }
+
+        .quiz-next-btn.show { display: inline-block; }
+        .quiz-next-btn:hover { box-shadow: 0 0 16px rgba(212, 168, 67, 0.3); }
+
+        /* === RESPONSIVE === */
+        @media (max-width: 768px) {
+            .controls-inner { flex-direction: column; align-items: stretch; }
+            .year-nav { justify-content: center; }
+            .control-actions { justify-content: center; }
+            .parties-grid { grid-template-columns: 1fr; }
+            .card-header { flex-wrap: wrap; gap: 6px; }
+            .card-date { min-width: auto; }
+            .card-category { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="header-badge">Geschichte Klasse 9 – Wiederholung</div>
+        <h1>Der Erste Weltkrieg</h1>
+        <p class="subtitle">Die Urkatastrophe des 20. Jahrhunderts – Ein interaktiver Zeitstrahl</p>
+        <div class="header-stats">
+            <div class="stat">
+                <div class="stat-value">1914–1918</div>
+                <div class="stat-label">Kriegsdauer</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">~17 Mio.</div>
+                <div class="stat-label">Tote</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">40+</div>
+                <div class="stat-label">Beteiligte Staaten</div>
+            </div>
+        </div>
+    </header>
+
+    <nav class="controls">
+        <div class="controls-inner">
+            <div class="year-nav" id="yearNav"></div>
+            <div class="control-actions">
+                <button class="action-btn primary" id="nextYearBtn">1914 aufdecken</button>
+                <button class="action-btn" id="revealAllBtn">Alle zeigen</button>
+                <button class="action-btn danger" id="resetBtn">Zurücksetzen</button>
+                <button class="action-btn" id="quizBtn">Quiz</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="progress-container">
+        <div class="progress-bar-bg">
+            <div class="progress-bar-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-label">
+            <span id="progressText">0 von 7 Zeitabschnitten aufgedeckt</span>
+            <span id="progressPercent">0%</span>
+        </div>
+    </div>
+
+    <div class="legend">
+        <div class="legend-item"><div class="legend-dot" style="background: var(--cat-military)"></div>Militärisch</div>
+        <div class="legend-item"><div class="legend-dot" style="background: var(--cat-political)"></div>Politisch</div>
+        <div class="legend-item"><div class="legend-dot" style="background: var(--cat-social)"></div>Gesellschaftlich</div>
+        <div class="legend-item"><div class="legend-dot" style="background: var(--cat-diplomatic)"></div>Diplomatisch</div>
+        <div class="legend-item"><div class="legend-dot" style="background: var(--cat-revolution)"></div>Revolution</div>
+    </div>
+
+    <main class="timeline-container" id="timeline"></main>
+
+    <div class="locked-overlay" id="lockedOverlay">
+        <div class="lock-icon">&#128274;</div>
+        <p>Decke die Zeitabschnitte nacheinander auf.</p>
+        <p class="hint">Klicke oben auf den goldenen Button, um zu starten.</p>
+    </div>
+
+    <footer class="footer" id="footer" style="display: none;">
+        <div class="total-casualties">~17.000.000</div>
+        <div class="casualties-label">Tote im Ersten Weltkrieg</div>
+        <p>Interaktiver Zeitstrahl – Geschichte Klasse 9</p>
+    </footer>
+
+    <button class="scroll-top-btn" id="scrollTopBtn">&#8593;</button>
+
+    <div class="modal-overlay" id="quizModal">
+        <div class="modal">
+            <button class="modal-close" id="quizCloseBtn">&#10005;</button>
+            <h3>Wissensquiz</h3>
+            <p>Teste dein Wissen zum Ersten Weltkrieg!</p>
+            <div class="quiz-question" id="quizQuestion"></div>
+            <div class="quiz-options" id="quizOptions"></div>
+            <div class="quiz-result" id="quizResult"></div>
+            <div class="quiz-nav">
+                <span class="quiz-counter" id="quizCounter"></span>
+                <button class="quiz-next-btn" id="quizNextBtn">Nächste Frage</button>
+            </div>
+        </div>
+    </div>
+
+<script>
+// ===== TIMELINE DATA =====
+var timelineData = [
+    {
+        year: "1914",
+        yearLabel: "1914",
+        subtitle: "Kriegsbeginn",
+        events: [
+            {
+                date: "28. Juni 1914",
+                title: "Attentat von Sarajevo",
+                description: "Erzherzog Franz Ferdinand wird in Sarajevo vom serbischen Nationalisten Gavrilo Princip ermordet. Das Attentat wird zum Auslöser des Krieges.",
+                detail: "Princip gehörte zur Gruppe 'Schwarze Hand'. Das Attentat war der Auslöser – nicht die Ursache – des Krieges. Die eigentlichen Ursachen lagen in den Bündnissystemen, im Imperialismus und Nationalismus.",
+                category: "political",
+                categoryLabel: "Politisch",
+                terms: ["Sarajevo", "Franz Ferdinand", "Gavrilo Princip"]
+            },
+            {
+                date: "Juli/Aug. 1914",
+                title: "Julikrise und Kriegserklärungen",
+                description: "Deutschland gibt Österreich-Ungarn den 'Blankoscheck'. Durch die Bündnisautomatik folgen Kriegserklärungen: Österreich an Serbien (28.7.), Deutschland an Russland (1.8.) und Frankreich (3.8.), Einmarsch in Belgien, Großbritannien erklärt Deutschland den Krieg (4.8.).",
+                detail: "Österreich stellte Serbien ein absichtlich unannehmbares Ultimatum. Der Schlieffen-Plan sah einen schnellen Sieg über Frankreich durch Belgien vor. Die Verletzung der belgischen Neutralität war der Kriegsgrund für Großbritannien.",
+                category: "diplomatic",
+                categoryLabel: "Diplomatisch",
+                terms: ["Julikrise", "Blankoscheck", "Schlieffen-Plan", "Bündnisautomatik"]
+            },
+            {
+                date: "August 1914",
+                title: "Augusterlebnis und Burgfrieden",
+                description: "Kriegsbegeisterung in der Bevölkerung. Kaiser Wilhelm II.: 'Ich kenne keine Parteien mehr, ich kenne nur noch Deutsche.' Alle Parteien stimmen den Kriegskrediten zu.",
+                detail: "Die Kriegsbegeisterung war vor allem in den Städten verbreitet. Auf dem Land war die Stimmung skeptischer. Der Burgfrieden beendete politische Konflikte – selbst die SPD stimmte den Kriegskrediten zu.",
+                category: "social",
+                categoryLabel: "Gesellschaftlich",
+                terms: ["Augusterlebnis", "Burgfrieden"]
+            },
+            {
+                date: "Sept. 1914",
+                title: "Marneschlacht und Beginn des Stellungskriegs",
+                description: "Der deutsche Vormarsch wird an der Marne gestoppt. Der Schlieffen-Plan scheitert. An der Westfront erstarrt der Krieg zum Grabenkrieg mit Hunderten Kilometern Schützengräben.",
+                detail: "Die französische Armee stoppte den deutschen Vormarsch 40 km vor Paris. Moderne Verteidigungswaffen (MG, Stacheldraht, Artillerie) machten jeden Angriff zum verlustreichen Desaster.",
+                category: "military",
+                categoryLabel: "Militärisch",
+                terms: ["Marneschlacht", "Stellungskrieg", "Grabenkrieg"]
+            }
+        ]
+    },
+    {
+        year: "1915",
+        yearLabel: "1915",
+        subtitle: "Neue Waffen und totaler Krieg",
+        events: [
+            {
+                date: "22. April 1915",
+                title: "Erster Giftgaseinsatz bei Ypern",
+                description: "Deutsche Truppen setzen erstmals Chlorgas ein – Beginn der chemischen Kriegsführung. Bis Kriegsende sterben 90.000 Soldaten durch Giftgas.",
+                detail: "Fritz Haber entwickelte den Gaseinsatz. Trotz Ächtung durch die Haager Landkriegsordnung setzten bald alle Seiten Gas ein. Über 1 Million Soldaten wurden durch Gas verletzt.",
+                category: "military",
+                categoryLabel: "Militärisch",
+                terms: ["Giftgas", "Ypern", "Fritz Haber"]
+            },
+            {
+                date: "1915",
+                title: "Seeblockade und Heimatfront",
+                description: "Die britische Marine blockiert Deutschland. Nahrungsmittel und Rohstoffe werden knapp. Die Versenkung der Lusitania (7. Mai, 1.198 Tote) belastet die Beziehungen zu den USA.",
+                detail: "Die Seeblockade verursachte schätzungsweise 700.000 zivile Hungertote in Deutschland. Lebensmittelkarten und Ersatzstoffe wurden zum Alltag.",
+                category: "social",
+                categoryLabel: "Gesellschaftlich",
+                terms: ["Seeblockade", "Lusitania", "Heimatfront"]
+            }
+        ]
+    },
+    {
+        year: "1916",
+        yearLabel: "1916",
+        subtitle: "Materialschlachten",
+        events: [
+            {
+                date: "Feb.–Dez. 1916",
+                title: "Schlacht um Verdun",
+                description: "Die 'Blutpumpe': ca. 700.000 Tote und Verwundete auf beiden Seiten. Zehn Monate Kampf um wenige Kilometer – Symbol für die Sinnlosigkeit des Stellungskriegs.",
+                detail: "General Falkenhayn plante, die französische Armee 'ausbluten' zu lassen. Doch auch Deutschland erlitt verheerende Verluste. Verdun wurde zum Inbegriff des sinnlosen Massensterbens.",
+                category: "military",
+                categoryLabel: "Militärisch",
+                terms: ["Verdun", "Materialschlacht", "Falkenhayn"]
+            },
+            {
+                date: "Juli–Nov. 1916",
+                title: "Schlacht an der Somme",
+                description: "Britisch-französische Offensive mit ca. 1 Million Verlusten. Am ersten Tag verliert Großbritannien fast 60.000 Mann. Erstmaliger Einsatz von Panzern.",
+                detail: "Der 1. Juli 1916 war der verlustreichste Tag der britischen Militärgeschichte. Die Panzer waren noch zu unzuverlässig für einen Durchbruch.",
+                category: "military",
+                categoryLabel: "Militärisch",
+                terms: ["Somme", "Panzer", "Materialschlacht"]
+            },
+            {
+                date: "Winter 1916/17",
+                title: "Steckrübenwinter – Hungerkrise",
+                description: "Die Versorgungslage bricht zusammen. Steckrüben müssen als Ersatz für fast alle Lebensmittel dienen. Hunger und Kriegsmüdigkeit wachsen.",
+                detail: "Durch die Seeblockade und eine schlechte Kartoffelernte wurden Steckrüben zum Grundnahrungsmittel. Die Kriegsmüdigkeit in der Bevölkerung nahm stark zu.",
+                category: "social",
+                categoryLabel: "Gesellschaftlich",
+                terms: ["Steckrübenwinter", "Hunger", "Heimatfront"]
+            }
+        ]
+    },
+    {
+        year: "1917",
+        yearLabel: "1917",
+        subtitle: "Das Wendejahr",
+        events: [
+            {
+                date: "1. Feb. 1917",
+                title: "Uneingeschränkter U-Boot-Krieg",
+                description: "Deutschland versenkt alle Schiffe in der Kriegszone ohne Warnung. Das Kalkül: Großbritannien in 6 Monaten zum Frieden zwingen. Stattdessen provoziert es den US-Kriegseintritt.",
+                detail: "Die OHL setzte sich gegen Bedenken der Regierung durch. Das Kalkül ging nicht auf: Die USA traten in den Krieg ein, bevor Großbritannien aufgeben musste.",
+                category: "military",
+                categoryLabel: "Militärisch",
+                terms: ["U-Boot-Krieg", "OHL"]
+            },
+            {
+                date: "6. April 1917",
+                title: "Kriegseintritt der USA",
+                description: "Die USA erklären Deutschland den Krieg. Gründe: U-Boot-Krieg, Lusitania, Zimmermann-Depesche. Frische Truppen und industrielle Übermacht verändern das Kräfteverhältnis.",
+                detail: "Die Zimmermann-Depesche bot Mexiko ein Bündnis gegen die USA an. Die USA mobilisierten über 4 Millionen Soldaten.",
+                category: "political",
+                categoryLabel: "Politisch",
+                terms: ["USA", "Zimmermann-Depesche", "Woodrow Wilson"]
+            },
+            {
+                date: "März / Nov. 1917",
+                title: "Revolutionen in Russland",
+                description: "Februarrevolution: Sturz des Zaren. Oktoberrevolution: Bolschewiki unter Lenin übernehmen die Macht und streben sofort Frieden an. Russland scheidet aus dem Krieg aus.",
+                detail: "Kriegsmüdigkeit und Hunger führten zum Sturz des Zaren. Lenin versprach 'Frieden, Brot und Land'. Russlands Ausscheiden ermöglichte Deutschland, Truppen an die Westfront zu verlegen.",
+                category: "revolution",
+                categoryLabel: "Revolution",
+                terms: ["Februarrevolution", "Oktoberrevolution", "Lenin"]
+            }
+        ]
+    },
+    {
+        year: "1918",
+        yearLabel: "1918",
+        subtitle: "Zusammenbruch und Revolution",
+        events: [
+            {
+                date: "Jan./März 1918",
+                title: "Wilsons 14 Punkte und Frieden von Brest-Litowsk",
+                description: "Wilson formuliert ein Friedensprogramm (Selbstbestimmungsrecht, Völkerbund). Deutschland schließt einen harten Separatfrieden mit Russland: Riesige Gebietsabtretungen.",
+                detail: "Russland verlor Polen, die baltischen Staaten und die Ukraine. Wilsons 14 Punkte wurden im Versailler Vertrag nur teilweise umgesetzt.",
+                category: "diplomatic",
+                categoryLabel: "Diplomatisch",
+                terms: ["14 Punkte", "Wilson", "Brest-Litowsk", "Völkerbund"]
+            },
+            {
+                date: "Frühjahr/Herbst",
+                title: "Frühjahrsoffensive und Zusammenbruch",
+                description: "Letzter deutscher Angriffsversuch scheitert. Die alliierte Gegenoffensive mit US-Verstärkung führt zum Zusammenbruch der Westfront. Am 29. September fordert die OHL den Waffenstillstand.",
+                detail: "Ludendorff forderte die Parlamentarisierung, damit die neuen demokratischen Politiker die Verantwortung für die militärische Niederlage übernehmen mussten.",
+                category: "military",
+                categoryLabel: "Militärisch",
+                terms: ["Frühjahrsoffensive", "Ludendorff", "Waffenstillstand"]
+            },
+            {
+                date: "Okt./Nov. 1918",
+                title: "Matrosenaufstand und Novemberrevolution",
+                description: "Matrosen in Kiel verweigern einen letzten Flotteneinsatz. Die Revolution breitet sich über ganz Deutschland aus. Arbeiter- und Soldatenräte entstehen.",
+                detail: "Die Admiralität plante einen letzten Flottenausfall gegen die Royal Navy. Die Matrosen meuterten. Innerhalb von Tagen bildeten sich in ganz Deutschland Räte.",
+                category: "revolution",
+                categoryLabel: "Revolution",
+                terms: ["Matrosenaufstand", "Kiel", "Soldatenräte"]
+            },
+            {
+                date: "9. Nov. 1918",
+                title: "Ende des Kaiserreichs",
+                description: "Kaiser Wilhelm II. dankt ab und flieht. Philipp Scheidemann (SPD) ruft die Republik aus. Das Kaiserreich endet nach 47 Jahren.",
+                detail: "Scheidemann rief die 'Deutsche Republik' aus, Karl Liebknecht die 'Freie Sozialistische Republik'. Scheidemann setzte sich durch.",
+                category: "revolution",
+                categoryLabel: "Revolution",
+                terms: ["Abdankung", "Scheidemann", "Republik"]
+            },
+            {
+                date: "11. Nov. 1918",
+                title: "Waffenstillstand von Compiègne",
+                description: "Um 11 Uhr am 11. Tag des 11. Monats schweigen die Waffen. Der Erste Weltkrieg ist zu Ende.",
+                detail: "Der Waffenstillstand wurde im Eisenbahnwaggon im Wald von Compiègne unterzeichnet. Deutschland musste besetzte Gebiete räumen und schwere Waffen abgeben.",
+                category: "military",
+                categoryLabel: "Militärisch",
+                terms: ["Waffenstillstand", "Compiègne"]
+            }
+        ]
+    },
+    {
+        year: "1919",
+        yearLabel: "1919",
+        subtitle: "Frieden und Folgen",
+        events: [
+            {
+                date: "28. Juni 1919",
+                title: "Versailler Vertrag",
+                description: "Deutschland wird die alleinige Kriegsschuld zugewiesen (Art. 231). Harte Bedingungen: Gebietsabtretungen (Elsass-Lothringen, Westpreußen), Reparationen (132 Mrd. Goldmark), Heer auf 100.000 Mann begrenzt.",
+                detail: "Der Vertrag wurde in Deutschland als 'Diktatfrieden' empfunden. Die Kriegsschuldfrage belastete die Weimarer Republik schwer.",
+                category: "diplomatic",
+                categoryLabel: "Diplomatisch",
+                terms: ["Versailler Vertrag", "Artikel 231", "Reparationen", "Diktatfrieden"]
+            },
+            {
+                date: "1919",
+                title: "Neuordnung Europas",
+                description: "Vier Imperien zerfallen: Deutsches Kaiserreich, Österreich-Ungarn, Osmanisches Reich, Russisches Zarenreich. Neue Nationalstaaten entstehen: Polen, Tschechoslowakei, Jugoslawien u.a.",
+                detail: "Die Pariser Vorortverträge schufen eine neue Landkarte Europas. Viele Grenzen waren umstritten und legten den Grundstein für künftige Konflikte.",
+                category: "political",
+                categoryLabel: "Politisch",
+                terms: ["Neuordnung", "Nationalstaaten"]
+            }
+        ]
+    },
+    {
+        year: "Bilanz",
+        yearLabel: "Bilanz",
+        subtitle: "Die Urkatastrophe des 20. Jahrhunderts",
+        events: [
+            {
+                date: "1914–1918",
+                title: "Bilanz des Ersten Weltkriegs",
+                description: "~17 Millionen Tote, ~20 Millionen Verwundete. Untergang der alten Ordnung, Aufstieg der USA und der Sowjetunion. Die ungelösten Probleme trugen direkt zum Zweiten Weltkrieg bei.",
+                detail: "Der Krieg veränderte die Welt grundlegend: Entstehung neuer Ideologien (Kommunismus, Faschismus), Trauma einer ganzen Generation. George F. Kennan nannte ihn die 'Urkatastrophe des 20. Jahrhunderts'.",
+                category: "social",
+                categoryLabel: "Gesellschaftlich",
+                terms: ["Urkatastrophe", "Totaler Krieg", "Folgen"]
+            }
+        ]
+    }
+];
+
+// ===== QUIZ DATA =====
+var quizData = [
+    {
+        question: "Was charakterisierte den Kriegsverlauf an der Westfront ab Herbst 1914 hauptsächlich?",
+        options: [
+            "Ein rascher Bewegungskrieg mit weitreichenden Geländegewinnen.",
+            "Ein jahrelanger, verlustreicher Stellungskrieg (Grabenkrieg) ohne wesentliche Frontverschiebungen.",
+            "Ein reiner Seekrieg im Atlantik.",
+            "Ein friedlicher Waffenstillstand."
+        ],
+        correct: 1
+    },
+    {
+        question: "Warum wird der Erste Weltkrieg als der erste „industrialisierte Krieg“ bezeichnet?",
+        options: [
+            "Weil er ausschließlich in Fabriken stattfand.",
+            "Wegen des massenhaften Einsatzes moderner, maschineller Massenvernichtungswaffen (wie MGs, Giftgas und Panzern).",
+            "Weil Handarbeit im Militär verboten war.",
+            "Weil nur Fabrikarbeiter als Soldaten rekrutiert wurden."
+        ],
+        correct: 1
+    },
+    {
+        question: "Was versteht man unter dem Begriff „Heimatfront“?",
+        options: [
+            "Die Verteidigungslinie an den deutschen Grenzen.",
+            "Die vollständige Mobilisierung der Zivilbevölkerung und Wirtschaft zur Unterstützung des Krieges.",
+            "Ein geschützter Bereich, in dem kein Mangel herrschte.",
+            "Die Ausbildungslager für junge Rekruten."
+        ],
+        correct: 1
+    },
+    {
+        question: "Was war der unmittelbare Auslöser und was die tieferen Ursachen des Kriegsausbruchs 1914?",
+        options: [
+            "Auslöser: Wirtschaftliche Sanktionen. Ursachen: Die russische Revolution.",
+            "Auslöser: Das Attentat von Sarajevo. Ursachen: Imperialismus, Nationalismus, Wettrüsten und Bündnissysteme.",
+            "Auslöser: Der Kriegseintritt der USA. Ursachen: Die britische Seeblockade.",
+            "Auslöser: Die Marneschlacht. Ursachen: Ausbreitung des Sozialismus."
+        ],
+        correct: 1
+    },
+    {
+        question: "Warum gilt das Jahr 1917 als das entscheidende „Wendejahr“ des Ersten Weltkriegs?",
+        options: [
+            "Wegen des Friedensschlusses aller europäischen Staaten.",
+            "Durch den Kriegseintritt der wirtschaftlich überlegenen USA und das kriegsmüde Ausscheiden Russlands nach der Oktoberrevolution.",
+            "Weil in diesem Jahr keine Schlachten ausgetragen wurden.",
+            "Durch die Abdankung des deutschen Kaisers."
+        ],
+        correct: 1
+    },
+    {
+        question: "Wie endete der Erste Weltkrieg im November 1918 für das Deutsche Reich?",
+        options: [
+            "Mit einem militärischen Sieg über die Entente-Mächte.",
+            "Mit dem wirtschaftlichen und militärischen Zusammenbruch, gefolgt von einer Revolution und der Ausrufung der Republik.",
+            "Durch einen freiwilligen Rückzug aller Truppen ohne Friedensvertrag.",
+            "Mit der sofortigen Gründung des Völkerbundes in Berlin."
+        ],
+        correct: 1
+    },
+    {
+        type: "matching",
+        question: "Ordne den Phasen des Krieges die passenden Leitbegriffe des Kriegsverlaufs zu!",
+        left: [
+            { id: "L1", text: "Kriegsbeginn 1914" },
+            { id: "L2", text: "Kriegsmitte 1915/1916" },
+            { id: "L3", text: "Wendejahr 1917" },
+            { id: "L4", text: "Kriegsende 1918/1919" }
+        ],
+        right: [
+            { id: "R1", text: "Julikrise und Scheitern des Schlieffen-Plans" },
+            { id: "R2", text: "Stellungskrieg und Materialschlachten (Verdun)" },
+            { id: "R3", text: "Kriegseintritt der USA & Zusammenbruch Russlands" },
+            { id: "R4", text: "Waffenstillstand und Versailler Vertrag" }
+        ],
+        pairs: {
+            "L1": "R1",
+            "L2": "R2",
+            "L3": "R3",
+            "L4": "R4"
+        }
+    },
+    {
+        type: "matching",
+        question: "Ordne die wesentlichen Charakterzüge des Ersten Weltkriegs ihren Beschreibungen zu!",
+        left: [
+            { id: "L1", text: "Industrialisierter Krieg" },
+            { id: "L2", text: "Totaler Krieg" },
+            { id: "L3", text: "Globale Dimension" },
+            { id: "L4", text: "Ergebnis/Folge" }
+        ],
+        right: [
+            { id: "R1", text: "Massenhafter Einsatz von Panzern, MGs, Giftgas und Flugzeugen" },
+            { id: "R2", text: "Unterordnung der gesamten Gesellschaft und Wirtschaft ('Heimatfront') unter den Krieg" },
+            { id: "R3", text: "Beteiligung von über 40 Staaten und Einbezug von Kolonien weltweit" },
+            { id: "R4", text: "Zusammenbruch von vier Imperien und Neuordnung der europäischen Landkarte" }
+        ],
+        pairs: {
+            "L1": "R1",
+            "L2": "R2",
+            "L3": "R3",
+            "L4": "R4"
+        }
+    }
+];
+
+// ===== STATE =====
+var revealedYears = {};
+var currentQuizIndex = 0;
+var quizScore = 0;
+var quizAnswered = false;
+var totalYears = timelineData.length;
+
+// State für Zuordnungsspiel
+var selectedLeftId = null;
+var matchedPairsCount = 0;
+
+// ===== INIT =====
+function init() {
+    renderYearNav();
+    renderTimeline();
+    updateProgress();
+    setupEventListeners();
+}
+
+function setupEventListeners() {
+    document.getElementById("nextYearBtn").addEventListener("click", revealNextYear);
+    document.getElementById("revealAllBtn").addEventListener("click", revealAll);
+    document.getElementById("resetBtn").addEventListener("click", resetAll);
+    document.getElementById("quizBtn").addEventListener("click", openQuiz);
+    document.getElementById("quizCloseBtn").addEventListener("click", closeQuiz);
+    document.getElementById("quizNextBtn").addEventListener("click", nextQuizQuestion);
+    document.getElementById("scrollTopBtn").addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+    window.addEventListener("scroll", function() {
+        var btn = document.getElementById("scrollTopBtn");
+        if (window.scrollY > 400) { btn.classList.add("visible"); } else { btn.classList.remove("visible"); }
+    });
+}
+
+function renderYearNav() {
+    var nav = document.getElementById("yearNav");
+    nav.innerHTML = "";
+    for (var i = 0; i < timelineData.length; i++) {
+        var btn = document.createElement("button");
+        btn.className = "year-btn";
+        if (revealedYears[i]) btn.className += " revealed";
+        if (!revealedYears[i] && i > 0 && !revealedYears[i - 1]) btn.className += " locked";
+        btn.textContent = timelineData[i].yearLabel;
+        btn.setAttribute("data-index", i);
+        btn.addEventListener("click", function() {
+            toggleYear(parseInt(this.getAttribute("data-index")));
+        });
+        nav.appendChild(btn);
+    }
+}
+
+function renderTimeline() {
+    var container = document.getElementById("timeline");
+    container.innerHTML = "";
+
+    // Info box
+    var infoDiv = document.createElement("div");
+    infoDiv.innerHTML = '<div class="info-box-inner">' +
+        '<h3>Die Kriegsparteien</h3>' +
+        '<p>Europa war in zwei rivalisierende Bündnissysteme gespalten:</p>' +
+        '<div class="parties-grid">' +
+            '<div class="party-card mittelmachte"><h4>Mittelmächte</h4>' +
+            '<ul><li>Deutsches Kaiserreich</li><li>Österreich-Ungarn</li><li>Osmanisches Reich</li><li>Bulgarien</li></ul></div>' +
+            '<div class="party-card entente"><h4>Entente / Alliierte</h4>' +
+            '<ul><li>Frankreich</li><li>Großbritannien</li><li>Russland (bis 1917)</li><li>Italien (ab 1915)</li><li>USA (ab 1917)</li></ul></div>' +
+        '</div></div>';
+    container.appendChild(infoDiv);
+
+    for (var s = 0; s < timelineData.length; s++) {
+        var section = timelineData[s];
+        var sectionDiv = document.createElement("div");
+        sectionDiv.className = "year-section" + (revealedYears[s] ? " revealed" : "");
+        sectionDiv.id = "section-" + s;
+
+        // Year marker - horizontal layout
+        var marker = document.createElement("div");
+        marker.className = "year-marker";
+        marker.innerHTML = '<div class="year-marker-label">' + section.yearLabel + '</div>' +
+            '<div class="year-marker-line"></div>' +
+            '<div class="year-marker-subtitle">' + section.subtitle + '</div>';
+        sectionDiv.appendChild(marker);
+
+        // Compact event list
+        var eventList = document.createElement("div");
+        eventList.className = "event-list";
+
+        for (var e = 0; e < section.events.length; e++) {
+            var ev = section.events[e];
+            var card = document.createElement("div");
+            card.className = "event-card " + ev.category;
+            card.id = "event-" + s + "-" + e;
+
+            var termsHTML = "";
+            if (ev.terms) {
+                termsHTML = '<div class="key-terms">';
+                for (var t = 0; t < ev.terms.length; t++) {
+                    termsHTML += '<span class="key-term">' + ev.terms[t] + '</span>';
+                }
+                termsHTML += '</div>';
+            }
+
+            card.innerHTML =
+                '<div class="card-content" data-section="' + s + '" data-event="' + e + '">' +
+                    '<div class="card-header">' +
+                        '<div class="card-date">' + ev.date + '</div>' +
+                        '<div class="card-title">' + ev.title + '</div>' +
+                        '<span class="card-category cat-' + ev.category + '">' + ev.categoryLabel + '</span>' +
+                        '<div class="card-toggle">&#9656;</div>' +
+                    '</div>' +
+                    '<div class="card-body">' +
+                        '<div class="card-body-inner">' +
+                            '<div class="card-description">' + ev.description + '</div>' +
+                            '<div class="card-detail">' + ev.detail + '</div>' +
+                            termsHTML +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+
+            eventList.appendChild(card);
+        }
+
+        sectionDiv.appendChild(eventList);
+        container.appendChild(sectionDiv);
+    }
+
+    // Add click listeners
+    var cardContents = document.querySelectorAll(".card-content");
+    for (var c = 0; c < cardContents.length; c++) {
+        cardContents[c].addEventListener("click", function() {
+            this.classList.toggle("expanded");
+        });
+    }
+}
+
+function toggleYear(index) {
+    if (index > 0 && !revealedYears[index - 1] && !revealedYears[index]) return;
+    if (revealedYears[index]) { scrollToSection(index); return; }
+
+    revealedYears[index] = true;
+    renderYearNav();
+
+    var section = document.getElementById("section-" + index);
+    section.classList.add("revealed");
+
+    var cards = section.querySelectorAll(".event-card");
+    for (var i = 0; i < cards.length; i++) {
+        (function(card, delay) {
+            setTimeout(function() { card.classList.add("show"); }, delay);
+        })(cards[i], 100 * (i + 1));
+    }
+
+    updateProgress();
+    updateLockOverlay();
+    scrollToSection(index);
+
+    if (countRevealed() === totalYears) {
+        document.getElementById("footer").style.display = "block";
+    }
+    updateNextButton();
+}
+
+function revealNextYear() {
+    for (var i = 0; i < totalYears; i++) {
+        if (!revealedYears[i]) { toggleYear(i); return; }
+    }
+}
+
+function revealAll() {
+    for (var i = 0; i < totalYears; i++) { revealedYears[i] = true; }
+    renderYearNav();
+    renderTimeline();
+    document.querySelectorAll(".year-section").forEach(function(s) { s.classList.add("revealed"); });
+    setTimeout(function() {
+        document.querySelectorAll(".event-card").forEach(function(c, i) {
+            setTimeout(function() { c.classList.add("show"); }, 30 * i);
+        });
+    }, 50);
+    updateProgress();
+    updateLockOverlay();
+    document.getElementById("footer").style.display = "block";
+    updateNextButton();
+}
+
+function resetAll() {
+    revealedYears = {};
+    renderYearNav();
+    renderTimeline();
+    updateProgress();
+    updateLockOverlay();
+    document.getElementById("footer").style.display = "none";
+    updateNextButton();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function scrollToSection(index) {
+    var section = document.getElementById("section-" + index);
+    if (section) {
+        setTimeout(function() {
+            var controlsHeight = document.querySelector(".controls").offsetHeight;
+            var sectionTop = section.getBoundingClientRect().top + window.pageYOffset - controlsHeight - 10;
+            window.scrollTo({ top: sectionTop, behavior: "smooth" });
+        }, 250);
+    }
+}
+
+function countRevealed() {
+    var count = 0;
+    for (var i = 0; i < totalYears; i++) { if (revealedYears[i]) count++; }
+    return count;
+}
+
+function updateProgress() {
+    var revealed = countRevealed();
+    var percent = Math.round((revealed / totalYears) * 100);
+    document.getElementById("progressFill").style.width = percent + "%";
+    document.getElementById("progressText").textContent = revealed + " von " + totalYears + " Zeitabschnitten aufgedeckt";
+    document.getElementById("progressPercent").textContent = percent + "%";
+}
+
+function updateLockOverlay() {
+    document.getElementById("lockedOverlay").style.display = countRevealed() > 0 ? "none" : "block";
+}
+
+function updateNextButton() {
+    var btn = document.getElementById("nextYearBtn");
+    var nextIndex = -1;
+    for (var i = 0; i < totalYears; i++) { if (!revealedYears[i]) { nextIndex = i; break; } }
+    if (nextIndex === -1) { btn.textContent = "Alle aufgedeckt"; btn.disabled = true; }
+    else { btn.textContent = timelineData[nextIndex].yearLabel + " aufdecken"; btn.disabled = false; }
+}
+
+// ===== QUIZ =====
+function openQuiz() {
+    currentQuizIndex = 0; quizScore = 0;
+    document.getElementById("quizModal").classList.add("active");
+    showQuizQuestion();
+}
+function closeQuiz() { document.getElementById("quizModal").classList.remove("active"); }
+
+function showQuizQuestion() {
+    quizAnswered = false;
+    selectedLeftId = null;
+    matchedPairsCount = 0;
+    
+    var q = quizData[currentQuizIndex];
+    document.getElementById("quizQuestion").textContent = q.question;
+    
+    var oc = document.getElementById("quizOptions"); 
+    oc.innerHTML = "";
+    document.getElementById("quizResult").className = "quiz-result";
+    document.getElementById("quizResult").style.display = "none";
+    document.getElementById("quizNextBtn").classList.remove("show");
+    
+    if (q.type === "matching") {
+        var container = document.createElement("div");
+        container.className = "matching-container";
+        
+        var leftCol = document.createElement("div");
+        leftCol.className = "matching-column";
+        
+        var rightCol = document.createElement("div");
+        rightCol.className = "matching-column";
+        
+        // Zufällig mischen
+        var leftItems = q.left.slice().sort(function() { return 0.5 - Math.random(); });
+        var rightItems = q.right.slice().sort(function() { return 0.5 - Math.random(); });
+        
+        leftItems.forEach(function(item) {
+            var el = document.createElement("div");
+            el.className = "matching-item";
+            el.textContent = item.text;
+            el.setAttribute("data-id", item.id);
+            el.addEventListener("click", function() {
+                if (quizAnswered) return;
+                var currentSelected = leftCol.querySelector(".matching-item.selected");
+                if (currentSelected) currentSelected.classList.remove("selected");
+                
+                el.classList.add("selected");
+                selectedLeftId = item.id;
+            });
+            leftCol.appendChild(el);
+        });
+        
+        rightItems.forEach(function(item) {
+            var el = document.createElement("div");
+            el.className = "matching-item";
+            el.textContent = item.text;
+            el.setAttribute("data-id", item.id);
+            el.addEventListener("click", function() {
+                if (quizAnswered || !selectedLeftId) return;
+                
+                var leftEl = leftCol.querySelector('[data-id="' + selectedLeftId + '"]');
+                var rightId = item.id;
+                
+                if (q.pairs[selectedLeftId] === rightId) {
+                    leftEl.classList.remove("selected");
+                    leftEl.classList.add("matched");
+                    el.classList.add("matched");
+                    selectedLeftId = null;
+                    matchedPairsCount++;
+                    
+                    if (matchedPairsCount === Object.keys(q.pairs).length) {
+                        quizAnswered = true;
+                        quizScore++;
+                        var result = document.getElementById("quizResult");
+                        result.className = "quiz-result show success";
+                        result.textContent = "✓ Super! Alle Zuordnungen sind richtig!";
+                        
+                        var nextBtn = document.getElementById("quizNextBtn");
+                        nextBtn.classList.add("show");
+                        nextBtn.textContent = currentQuizIndex < quizData.length - 1 ? "Nächste Frage" : "Ergebnis anzeigen";
+                    }
+                } else {
+                    leftEl.classList.add("error");
+                    el.classList.add("error");
+                    var tempLeftId = selectedLeftId;
+                    selectedLeftId = null;
+                    leftEl.classList.remove("selected");
+                    
+                    setTimeout(function() {
+                        leftEl.classList.remove("error");
+                        el.classList.remove("error");
+                    }, 800);
+                }
+            });
+            rightCol.appendChild(el);
+        });
+        
+        container.appendChild(leftCol);
+        container.appendChild(rightCol);
+        oc.appendChild(container);
+    } else {
+        for (var i = 0; i < q.options.length; i++) {
+            var btn = document.createElement("button");
+            btn.className = "quiz-option"; 
+            btn.textContent = q.options[i];
+            btn.setAttribute("data-index", i);
+            btn.addEventListener("click", function() { answerQuiz(parseInt(this.getAttribute("data-index"))); });
+            oc.appendChild(btn);
+        }
+    }
+    
+    document.getElementById("quizCounter").textContent = "Frage " + (currentQuizIndex + 1) + " von " + quizData.length + " | Punkte: " + quizScore;
+}
+
+function answerQuiz(selected) {
+    if (quizAnswered) return; quizAnswered = true;
+    var q = quizData[currentQuizIndex];
+    var options = document.querySelectorAll(".quiz-option");
+    var result = document.getElementById("quizResult");
+    for (var i = 0; i < options.length; i++) {
+        options[i].style.cursor = "default";
+        if (i === q.correct) options[i].classList.add("correct");
+        if (i === selected && selected !== q.correct) options[i].classList.add("wrong");
+    }
+    if (selected === q.correct) { quizScore++; result.className = "quiz-result show success"; result.textContent = "✓ Richtig! Gut gemacht!"; }
+    else { result.className = "quiz-result show failure"; result.textContent = "✗ Leider falsch. Richtige Antwort: " + q.options[q.correct]; }
+    document.getElementById("quizCounter").textContent = "Frage " + (currentQuizIndex + 1) + " von " + quizData.length + " | Punkte: " + quizScore;
+    var nextBtn = document.getElementById("quizNextBtn"); nextBtn.classList.add("show");
+    nextBtn.textContent = currentQuizIndex < quizData.length - 1 ? "Nächste Frage" : "Ergebnis anzeigen";
+}
+
+function nextQuizQuestion() {
+    currentQuizIndex++;
+    if (currentQuizIndex < quizData.length) { showQuizQuestion(); return; }
+    var percent = Math.round((quizScore / quizData.length) * 100);
+    var message = percent >= 80 ? "Ausgezeichnet!" : percent >= 50 ? "Gut gemacht!" : "Weiter üben!";
+    document.getElementById("quizQuestion").textContent = "Quiz beendet – " + message;
+    document.getElementById("quizOptions").innerHTML = "";
+    var result = document.getElementById("quizResult");
+    result.className = "quiz-result show " + (percent >= 50 ? "success" : "failure");
+    result.textContent = "Du hast " + quizScore + " von " + quizData.length + " Fragen richtig beantwortet (" + percent + "%).";
+    var nextBtn = document.getElementById("quizNextBtn");
+    nextBtn.textContent = "Quiz neu starten"; nextBtn.classList.add("show");
+    nextBtn.removeEventListener("click", nextQuizQuestion);
+    nextBtn.addEventListener("click", function restart() {
+        nextBtn.removeEventListener("click", restart);
+        nextBtn.addEventListener("click", nextQuizQuestion);
+        openQuiz();
+    });
+    document.getElementById("quizCounter").textContent = "Ergebnis: " + quizScore + "/" + quizData.length;
+}
+
+init();
+</script>
+</body>
+</html>
