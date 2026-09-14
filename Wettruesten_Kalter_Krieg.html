@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wettrüsten im Kalten Krieg · Geschichte Klasse 10</title>
+<meta name="description" content="Interaktive Lerneinheit zum atomaren Wettrüsten zwischen USA und Sowjetunion im Kalten Krieg. Geschichte Klasse 10.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   DESIGN SYSTEM — COLD WAR AESTHETIC
+   ============================================ */
+:root {
+  /* Dark dramatic palette */
+  --bg-deep: #0a0c10;
+  --bg-surface: #12151c;
+  --bg-card: #181c26;
+  --bg-card-hover: #1e2330;
+  --bg-elevated: #222838;
+
+  /* Accent colors — USA red vs USSR blue */
+  --usa: #c0392b;
+  --usa-glow: rgba(192, 57, 43, 0.3);
+  --usa-soft: #e74c3c;
+  --usa-bg: rgba(192, 57, 43, 0.08);
+
+  --ussr: #2471a3;
+  --ussr-glow: rgba(36, 113, 163, 0.3);
+  --ussr-soft: #3498db;
+  --ussr-bg: rgba(36, 113, 163, 0.08);
+
+  /* Neutral text */
+  --text-primary: #e8e6e1;
+  --text-secondary: #9a9690;
+  --text-muted: #5c5955;
+  --text-accent: #d4a855;
+
+  /* Borders & lines */
+  --border: rgba(255,255,255,0.06);
+  --border-strong: rgba(255,255,255,0.12);
+  --glow-line: rgba(212,168,85,0.2);
+
+  /* Warning / nuclear */
+  --nuclear: #f39c12;
+  --nuclear-glow: rgba(243,156,18,0.25);
+  --danger: #e74c3c;
+
+  /* Fonts */
+  --display: 'Archivo Black', 'Impact', sans-serif;
+  --body: 'Inter', system-ui, -apple-system, sans-serif;
+  --mono: 'JetBrains Mono', 'Menlo', monospace;
+
+  /* Spacing */
+  --maxw: 960px;
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--text-muted); border-radius: 3px; }
+
+/* ============================================
+   ANIMATED BACKGROUND
+   ============================================ */
+.bg-grid {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.bg-gradient {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 20% 10%, var(--usa-glow), transparent),
+    radial-gradient(ellipse 80% 60% at 80% 10%, var(--ussr-glow), transparent),
+    radial-gradient(ellipse 50% 40% at 50% 100%, var(--nuclear-glow), transparent);
+  opacity: 0.5;
+}
+
+/* ============================================
+   LAYOUT
+   ============================================ */
+.wrap {
+  position: relative; z-index: 1;
+  max-width: var(--maxw); margin: 0 auto; padding: 0 24px;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center;
+  padding: 60px 24px 80px;
+  position: relative;
+}
+
+.hero-badge {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-accent); border: 1px solid rgba(212,168,85,0.3);
+  padding: 6px 18px; border-radius: 100px;
+  margin-bottom: 32px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.hero h1 {
+  font-family: var(--display); font-size: clamp(36px, 7vw, 72px);
+  line-height: 1.0; letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  animation: fadeInUp 0.8s ease-out 0.15s both;
+}
+
+.hero h1 .word-wet { color: var(--nuclear); }
+.hero h1 .word-krieg {
+  background: linear-gradient(135deg, var(--usa-soft), var(--ussr-soft));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-family: var(--display); font-size: clamp(14px, 2.2vw, 22px);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 36px;
+  animation: fadeInUp 0.8s ease-out 0.3s both;
+}
+
+.hero-desc {
+  font-size: 17px; color: var(--text-secondary);
+  max-width: 58ch; line-height: 1.7; margin-bottom: 48px;
+  animation: fadeInUp 0.8s ease-out 0.45s both;
+}
+
+.hero-desc strong { color: var(--text-primary); font-weight: 600; }
+
+.hero-cta {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--mono); font-size: 13px; font-weight: 600;
+  letter-spacing: 0.05em; text-transform: uppercase;
+  color: var(--bg-deep); background: var(--text-accent);
+  padding: 14px 32px; border-radius: 100px; border: none; cursor: pointer;
+  text-decoration: none;
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+.hero-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(212,168,85,0.3);
+}
+.hero-cta svg { width: 16px; height: 16px; }
+
+.scroll-hint {
+  position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  color: var(--text-muted); font-family: var(--mono); font-size: 10px;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+.scroll-hint .line {
+  width: 1px; height: 40px;
+  background: linear-gradient(to bottom, var(--text-muted), transparent);
+}
+
+/* ============================================
+   SECTION HEADERS
+   ============================================ */
+.section-header {
+  padding: 80px 0 40px;
+  border-top: 1px solid var(--border);
+}
+.section-header .label {
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.2em; text-transform: uppercase;
+  color: var(--text-accent); margin-bottom: 12px;
+}
+.section-header h2 {
+  font-family: var(--display); font-size: clamp(24px, 4vw, 40px);
+  line-height: 1.1; color: var(--text-primary);
+}
+.section-header p {
+  font-size: 16px; color: var(--text-secondary);
+  max-width: 60ch; margin-top: 12px; line-height: 1.6;
+}
+
+/* ============================================
+   INTRO VIDEO CARD
+   ============================================ */
+.intro-video-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 36px;
+  margin-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+}
+
+.intro-video-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--usa), var(--nuclear), var(--ussr));
+}
+
+.intro-video-card h3 {
+  font-family: var(--display); font-size: 20px;
+  color: var(--text-primary); margin-bottom: 12px;
+}
+
+.intro-video-card p {
+  color: var(--text-secondary); font-size: 15px;
+  margin-bottom: 24px; max-width: 55ch;
+}
+
+/* ============================================
+   VIDEO / EXTERNAL LINK BUTTONS
+   ============================================ */
+.video-btn {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--mono); font-size: 13px; font-weight: 600;
+  color: #fff; text-decoration: none;
+  padding: 14px 24px; border-radius: var(--radius-sm);
+  transition: all 0.25s cubic-bezier(0.16,1,0.3,1);
+  position: relative; overflow: hidden;
+  border: none; cursor: pointer;
+}
+
+.video-btn::before {
+  content: ''; position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent);
+  opacity: 0; transition: opacity 0.3s;
+}
+.video-btn:hover::before { opacity: 1; }
+
+.video-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.3);
+}
+
+.video-btn.red {
+  background: linear-gradient(135deg, var(--usa), #922b21);
+}
+.video-btn.blue {
+  background: linear-gradient(135deg, var(--ussr), #1a5276);
+}
+.video-btn.gold {
+  background: linear-gradient(135deg, var(--nuclear), #b7950b);
+  color: var(--bg-deep);
+}
+
+.video-btn svg {
+  width: 20px; height: 20px; flex-shrink: 0;
+}
+
+.video-btn-group {
+  display: flex; flex-wrap: wrap; gap: 12px;
+}
+
+/* ============================================
+   AUFGABENSTELLUNG (Task Section)
+   ============================================ */
+.task-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 36px;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.task-section::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: var(--nuclear);
+}
+
+.task-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--nuclear); background: rgba(243,156,18,0.1);
+  border: 1px solid rgba(243,156,18,0.2);
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 18px;
+}
+
+.task-badge svg { width: 14px; height: 14px; }
+
+.task-section h3 {
+  font-family: var(--display); font-size: 22px;
+  color: var(--text-primary); margin-bottom: 20px;
+}
+
+.task-block {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.task-block:last-child { margin-bottom: 0; }
+
+.task-block .task-title {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--nuclear); margin-bottom: 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+
+.task-block .task-title .time-badge {
+  font-family: var(--body); font-size: 11px; font-weight: 600;
+  color: var(--bg-deep); background: var(--nuclear);
+  padding: 2px 10px; border-radius: 100px;
+  letter-spacing: 0; text-transform: none;
+}
+
+.task-block ul {
+  list-style: none; padding: 0;
+}
+
+.task-block ul li {
+  position: relative; padding: 6px 0 6px 24px;
+  color: var(--text-secondary); font-size: 15px; line-height: 1.6;
+}
+
+.task-block ul li::before {
+  content: '';
+  position: absolute; left: 4px; top: 14px;
+  width: 8px; height: 8px; border-radius: 2px;
+  border: 2px solid var(--text-muted);
+  background: transparent;
+}
+
+.task-block ul li strong { color: var(--text-primary); }
+
+.task-hint {
+  display: flex; gap: 12px; align-items: flex-start;
+  background: rgba(212,168,85,0.06);
+  border: 1px solid rgba(212,168,85,0.15);
+  border-radius: var(--radius-sm);
+  padding: 16px 20px; margin-top: 8px;
+  font-size: 14px; color: var(--text-secondary);
+}
+
+.task-hint .hint-icon {
+  flex-shrink: 0; width: 20px; height: 20px;
+  color: var(--text-accent);
+}
+
+/* ============================================
+   TIMELINE
+   ============================================ */
+.timeline {
+  position: relative;
+  padding: 20px 0 60px;
+}
+
+/* Central line */
+.timeline::before {
+  content: '';
+  position: absolute; left: 50%; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom,
+    transparent,
+    var(--border-strong) 80px,
+    var(--border-strong) calc(100% - 80px),
+    transparent
+  );
+  transform: translateX(-50%);
+}
+
+/* Year marker */
+.tl-year {
+  position: relative;
+  display: flex; justify-content: center;
+  margin-bottom: 40px;
+  z-index: 2;
+}
+
+.tl-year-inner {
+  font-family: var(--display); font-size: clamp(28px, 4vw, 42px);
+  color: var(--text-primary);
+  background: var(--bg-deep);
+  padding: 8px 28px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  position: relative;
+}
+
+.tl-year-inner.usa { border-color: var(--usa); color: var(--usa-soft); }
+.tl-year-inner.ussr { border-color: var(--ussr); color: var(--ussr-soft); }
+
+/* Event card */
+.tl-event {
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  gap: 0;
+  margin-bottom: 50px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.tl-event.visible {
+  opacity: 1; transform: translateY(0);
+}
+
+/* Node on the timeline */
+.tl-node {
+  display: flex; justify-content: center; align-items: flex-start;
+  padding-top: 32px;
+  position: relative; z-index: 2;
+}
+
+.tl-dot {
+  width: 20px; height: 20px; border-radius: 50%;
+  border: 3px solid var(--text-muted);
+  background: var(--bg-deep);
+  position: relative;
+}
+
+.tl-dot.usa { border-color: var(--usa-soft); box-shadow: 0 0 12px var(--usa-glow); }
+.tl-dot.ussr { border-color: var(--ussr-soft); box-shadow: 0 0 12px var(--ussr-glow); }
+
+.tl-dot::after {
+  content: ''; position: absolute;
+  top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 6px; height: 6px; border-radius: 50%;
+}
+.tl-dot.usa::after { background: var(--usa-soft); }
+.tl-dot.ussr::after { background: var(--ussr-soft); }
+
+/* Side content */
+.tl-content {
+  padding: 0;
+}
+
+.tl-content.left { text-align: right; padding-right: 28px; }
+.tl-content.right { text-align: left; padding-left: 28px; }
+
+.tl-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 28px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tl-card:hover {
+  background: var(--bg-card-hover);
+  border-color: rgba(255,255,255,0.15);
+  transform: translateY(-2px);
+}
+
+.tl-card.usa {
+  border-left: 4px solid var(--usa);
+}
+.tl-card.ussr {
+  border-right: 4px solid var(--ussr);
+}
+
+.tl-card .flag-tag {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px;
+  display: inline-block; margin-bottom: 12px;
+}
+.tl-card.usa .flag-tag {
+  color: var(--usa-soft); background: var(--usa-bg);
+  border: 1px solid rgba(192,57,43,0.2);
+}
+.tl-card.ussr .flag-tag {
+  color: var(--ussr-soft); background: var(--ussr-bg);
+  border: 1px solid rgba(36,113,163,0.2);
+}
+
+.tl-card h3 {
+  font-family: var(--display); font-size: 18px;
+  line-height: 1.2; margin-bottom: 14px;
+}
+.tl-card.usa h3 { color: var(--usa-soft); }
+.tl-card.ussr h3 { color: var(--ussr-soft); }
+
+.tl-card p {
+  font-size: 15px; line-height: 1.65; color: var(--text-secondary);
+}
+.tl-card p strong { color: var(--text-primary); font-weight: 600; }
+
+.tl-card .fact-box {
+  margin-top: 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px 18px;
+  font-family: var(--mono); font-size: 13px;
+  color: var(--text-accent);
+  display: flex; align-items: center; gap: 10px;
+}
+
+.tl-card .fact-box svg { width: 18px; height: 18px; flex-shrink: 0; color: var(--nuclear); }
+
+/* Empty side placeholder */
+.tl-empty { min-height: 1px; }
+
+/* Time gap indicator */
+.tl-gap {
+  display: flex; justify-content: center;
+  margin: -20px 0 20px;
+  position: relative; z-index: 3;
+}
+.tl-gap-badge {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  color: var(--nuclear); background: var(--bg-deep);
+  border: 1px dashed rgba(243,156,18,0.3);
+  padding: 6px 16px; border-radius: 100px;
+  display: flex; align-items: center; gap: 8px;
+}
+.tl-gap-badge svg { width: 14px; height: 14px; }
+
+/* ============================================
+   ENTSCHEIDUNGSAUFGABE (Decision Task)
+   ============================================ */
+.decision-section {
+  background: linear-gradient(135deg, var(--bg-card), var(--bg-elevated));
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  padding: 40px;
+  margin: 60px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.decision-section::before {
+  content: '';
+  position: absolute; inset: -2px;
+  background: linear-gradient(135deg, var(--usa), var(--nuclear), var(--ussr));
+  border-radius: calc(var(--radius) + 2px);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.decision-section::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  z-index: -1;
+}
+
+.decision-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--mono); font-size: 11px; font-weight: 600;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--danger); background: rgba(231,76,60,0.1);
+  border: 1px solid rgba(231,76,60,0.2);
+  padding: 5px 14px; border-radius: 100px; margin-bottom: 18px;
+}
+
+.decision-section h3 {
+  font-family: var(--display); font-size: 26px;
+  color: var(--text-primary); margin-bottom: 8px;
+}
+
+.decision-section .role-text {
+  font-family: var(--mono); font-size: 14px;
+  color: var(--usa-soft); margin-bottom: 20px;
+}
+
+.decision-section .scenario {
+  font-size: 16px; line-height: 1.7; color: var(--text-secondary);
+  margin-bottom: 28px; max-width: 65ch;
+}
+.decision-section .scenario strong { color: var(--text-primary); }
+
+.decision-prompt {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 24px;
+}
+
+.decision-prompt h4 {
+  font-family: var(--mono); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--nuclear); margin-bottom: 14px;
+}
+
+.decision-prompt ol {
+  padding-left: 22px; color: var(--text-secondary);
+  font-size: 15px; line-height: 1.7;
+}
+.decision-prompt ol li { margin-bottom: 6px; }
+.decision-prompt ol li strong { color: var(--text-primary); }
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 40px 0 60px;
+  margin-top: 40px;
+}
+
+.footer-inner {
+  display: flex; flex-wrap: wrap; gap: 24px;
+  justify-content: space-between; align-items: flex-start;
+}
+
+.footer-col h4 {
+  font-family: var(--mono); font-size: 10px; font-weight: 600;
+  letter-spacing: 0.15em; text-transform: uppercase;
+  color: var(--text-muted); margin-bottom: 8px;
+}
+
+.footer-col p, .footer-col a {
+  font-size: 13px; color: var(--text-secondary); line-height: 1.6;
+  text-decoration: none;
+}
+.footer-col a:hover { color: var(--text-accent); }
+
+/* ============================================
+   PROGRESS BAR (sticky top)
+   ============================================ */
+.progress-bar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 3px; background: var(--bg-deep);
+}
+.progress-fill {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--usa), var(--nuclear), var(--ussr));
+  transition: width 0.15s ease-out;
+}
+
+/* ============================================
+   NAV (sticky)
+   ============================================ */
+.sticky-nav {
+  position: fixed; top: 3px; left: 0; right: 0; z-index: 90;
+  background: rgba(10,12,16,0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 24px;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease;
+}
+.sticky-nav.visible { transform: translateY(0); }
+
+.nav-inner {
+  max-width: var(--maxw); margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  height: 54px;
+}
+
+.nav-title {
+  font-family: var(--display); font-size: 14px;
+  color: var(--text-primary); letter-spacing: 0.03em;
+}
+
+.nav-links {
+  display: flex; gap: 6px;
+}
+
+.nav-link {
+  font-family: var(--mono); font-size: 11px; font-weight: 500;
+  color: var(--text-secondary); text-decoration: none;
+  padding: 6px 14px; border-radius: 100px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(255,255,255,0.05);
+  border-color: var(--border);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .timeline::before { left: 24px; }
+
+  .tl-event {
+    grid-template-columns: 48px 1fr;
+    gap: 0;
+  }
+  .tl-node { padding-top: 24px; }
+  .tl-content.left {
+    text-align: left;
+    padding-right: 0;
+    padding-left: 20px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .tl-content.right {
+    padding-left: 20px;
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .tl-empty { display: none; }
+  .tl-card.usa { border-left: 4px solid var(--usa); border-right: none; }
+  .tl-card.ussr { border-left: 4px solid var(--ussr); border-right: none; }
+
+  .task-section, .intro-video-card, .decision-section { padding: 24px; }
+  .decision-section { padding: 28px; }
+
+  .hero h1 { font-size: clamp(32px, 9vw, 56px); }
+}
+
+@media (max-width: 480px) {
+  .video-btn-group { flex-direction: column; }
+  .nav-links { display: none; }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+  40% { transform: translateX(-50%) translateY(-8px); }
+  60% { transform: translateX(-50%) translateY(-4px); }
+}
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+/* Nuclear symbol animation */
+.nuclear-icon {
+  display: inline-block;
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Stagger animation for list items */
+.task-block ul li {
+  opacity: 0;
+  animation: fadeInUp 0.5s ease forwards;
+}
+.task-block ul li:nth-child(1) { animation-delay: 0.1s; }
+.task-block ul li:nth-child(2) { animation-delay: 0.2s; }
+.task-block ul li:nth-child(3) { animation-delay: 0.3s; }
+.task-block ul li:nth-child(4) { animation-delay: 0.4s; }
+.task-block ul li:nth-child(5) { animation-delay: 0.5s; }
+.task-block ul li:nth-child(6) { animation-delay: 0.6s; }
+
+/* Timeline card images */
+.tl-card-img {
+  width: 100%; border-radius: 8px; margin-top: 16px;
+  border: 1px solid var(--border); opacity: 0.9; transition: opacity 0.3s ease;
+}
+.tl-card-img:hover { opacity: 1; }
+.tl-card-img-caption {
+  font-family: var(--mono); font-size: 10px;
+  color: var(--text-muted); margin-top: 6px; letter-spacing: 0.05em;
+}
+
+/* Diagram in decision */
+.diagram-container {
+  background: var(--bg-elevated); border: 1px solid var(--border);
+  border-radius: var(--radius-sm); padding: 20px; margin: 24px 0; text-align: center;
+}
+.diagram-container img { max-width: 100%; border-radius: 6px; border: 1px solid var(--border); }
+.diagram-container .caption {
+  font-family: var(--mono); font-size: 11px; color: var(--text-muted); margin-top: 10px;
+}
+.diagram-container .caption strong { color: var(--text-accent); }
+
+/* Decision section & Options */
+.choice-cards { display: flex; gap: 16px; margin: 20px 0; flex-wrap: wrap; }
+.choice-card {
+  flex: 1; min-width: 240px; padding: 22px 24px; border-radius: var(--radius);
+  border: 1px solid var(--border-strong); background: var(--bg-elevated);
+  position: relative; overflow: hidden; transition: all 0.3s ease;
+}
+.choice-card::before {
+  content: ''; position: absolute; inset: 0; opacity: 0.08; pointer-events: none;
+}
+.choice-card.arm { border-color: rgba(192,57,43,0.3); }
+.choice-card.arm::before { background: var(--usa); }
+.choice-card.arm:hover { border-color: var(--usa); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(192,57,43,0.15); }
+.choice-card.stop { border-color: rgba(36,113,163,0.3); }
+.choice-card.stop::before { background: var(--ussr); }
+.choice-card.stop:hover { border-color: var(--ussr); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(36,113,163,0.15); }
+
+.choice-card .choice-icon { font-size: 30px; margin-bottom: 10px; }
+.choice-card .choice-badge-mini {
+  display: inline-block; font-family: var(--mono); font-size: 10px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.1em; padding: 3px 8px; border-radius: 4px; margin-bottom: 8px;
+}
+.choice-card.arm .choice-badge-mini { background: rgba(192,57,43,0.2); color: #e74c3c; }
+.choice-card.stop .choice-badge-mini { background: rgba(36,113,163,0.2); color: #3498db; }
+.choice-card .choice-label { font-family: var(--display); font-size: 17px; margin-bottom: 6px; color: var(--text-primary); }
+.choice-card .choice-desc { font-size: 13.5px; color: var(--text-secondary); line-height: 1.5; }
+
+/* Hefter Task Box */
+.hefter-task-box {
+  background: linear-gradient(135deg, rgba(212,168,85,0.08), rgba(212,168,85,0.02));
+  border: 1px solid rgba(212,168,85,0.25); border-left: 4px solid var(--text-accent);
+  border-radius: var(--radius); padding: 24px; margin-top: 24px;
+}
+.hefter-header {
+  display: flex; align-items: center; gap: 10px; margin-bottom: 16px;
+}
+.hefter-icon {
+  width: 32px; height: 32px; border-radius: 8px; background: rgba(212,168,85,0.15);
+  display: flex; align-items: center; justify-content: center; font-size: 16px;
+}
+.hefter-header h4 {
+  font-family: var(--display); font-size: 16px; color: var(--text-accent); margin: 0;
+}
+.hefter-steps { list-style: none; padding: 0; margin: 0; counter-reset: hefter-step; }
+.hefter-step-item {
+  display: flex; align-items: flex-start; gap: 14px; margin-bottom: 14px;
+  font-size: 14.5px; color: var(--text-secondary); line-height: 1.55;
+}
+.hefter-step-item:last-child { margin-bottom: 0; }
+.step-num {
+  display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+  width: 24px; height: 24px; border-radius: 50%;
+  background: var(--text-accent); color: var(--bg-deep);
+  font-family: var(--mono); font-size: 12px; font-weight: 700;
+}
+.hefter-step-item strong { color: var(--text-primary); }
+
+/* Historical Hint Accordion */
+.hist-details {
+  margin-top: 20px; border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg-deep); overflow: hidden;
+}
+.hist-details summary {
+  padding: 14px 18px; font-family: var(--mono); font-size: 12px; font-weight: 600;
+  color: var(--text-muted); cursor: pointer; list-style: none;
+  display: flex; align-items: center; justify-content: space-between;
+  transition: all 0.2s ease;
+}
+.hist-details summary::-webkit-details-marker { display: none; }
+.hist-details summary:hover { color: var(--text-accent); background: rgba(255,255,255,0.02); }
+.hist-details summary::after {
+  content: '▼'; font-size: 10px; transition: transform 0.2s ease;
+}
+.hist-details[open] summary::after { transform: rotate(180deg); }
+.hist-details-content {
+  padding: 16px 18px; border-top: 1px solid var(--border);
+  font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;
+}
+.hist-details-content strong { color: var(--text-primary); }
+
+/* Print */
+@media print {
+  body { background: #fff; color: #000; }
+  .bg-grid, .bg-gradient, .progress-bar, .sticky-nav, .scroll-hint { display: none !important; }
+  .hero { min-height: auto; padding: 40px 0; }
+  .tl-card { break-inside: avoid; background: #f8f8f8; border-color: #ccc; }
+  .tl-card.usa h3, .tl-card.ussr h3 { color: #333; }
+  .tl-card p, .task-block ul li { color: #333; }
+  .choice-btn { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+
+<!-- Background effects -->
+<div class="bg-grid"></div>
+<div class="bg-gradient"></div>
+
+<!-- Progress bar -->
+<div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+
+<!-- Sticky Navigation -->
+<nav class="sticky-nav" id="stickyNav">
+  <div class="nav-inner">
+    <span class="nav-title">☢ Wettrüsten</span>
+    <div class="nav-links">
+      <a class="nav-link" href="#aufgabe">Aufgabe</a>
+      <a class="nav-link" href="#zeitstrahl">Zeitstrahl</a>
+      <a class="nav-link" href="#entscheidung">Entscheidung</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- ========================
+       HERO
+       ======================== -->
+  <section class="hero" id="top">
+    <div class="hero-badge">Geschichte · Klasse 10 · LB 1 Kalter Krieg</div>
+    <h1>
+      <span class="word-wet">Wett</span>rüsten<br>
+      im <span class="word-krieg">Kalten Krieg</span>
+    </h1>
+    <div class="hero-sub">Die atomare Rüstungsspirale 1945 – 1957</div>
+    <p class="hero-desc">
+      In nur <strong>12 Jahren</strong> entwickeln zwei Supermächte genug Waffen, um die Welt
+      mehrfach zu vernichten. Wie konnte es dazu kommen — und hätte man es stoppen können?
+    </p>
+    <a class="hero-cta" href="#aufgabe">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+      Starten
+    </a>
+    <div class="scroll-hint">
+      <div class="line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ========================
+       EINFÜHRUNGSVIDEO
+       ======================== -->
+  <section id="einfuehrung">
+    <div class="section-header">
+      <div class="label">Einstieg</div>
+      <h2>Einführung ins Thema</h2>
+      <p>Verschaffe dir einen ersten Überblick über das Wettrüsten im Kalten Krieg.</p>
+    </div>
+
+    <div class="intro-video-card">
+      <h3>📽 Einführungsvideo</h3>
+      <p>Schau dir das folgende Video an, um einen Überblick über die Rüstungsspirale zwischen den USA und der Sowjetunion zu erhalten. Achte besonders auf die <strong>Schlüsselereignisse</strong> und ihre <strong>zeitliche Abfolge</strong>.</p>
+      <div class="video-btn-group">
+        <a class="video-btn gold" href="https://www.youtube.com/results?search_query=Wettr%C3%BCsten+Kalter+Krieg+einfach+erkl%C3%A4rt" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+          Einführung: Wettrüsten im Kalten Krieg
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       AUFGABENSTELLUNG
+       ======================== -->
+  <section id="aufgabe">
+    <div class="section-header">
+      <div class="label">Arbeitsauftrag</div>
+      <h2>Deine Aufgaben</h2>
+      <p>Bearbeite die folgenden Aufgaben in der angegebenen Reihenfolge. Nutze die Informationen aus dem Zeitstrahl weiter unten.</p>
+    </div>
+
+    <div class="task-section">
+      <div class="task-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 12l2 2 4-4"/></svg>
+        Arbeitsaufträge
+      </div>
+
+      <h3>Rüstungsspirale visualisieren</h3>
+
+      <div class="task-block">
+        <div class="task-title">
+          Teil 1 — Grafische Übersicht
+          <span class="time-badge">20 min</span>
+        </div>
+        <ul>
+          <li>Erstelle eine <strong>grafische Übersicht</strong> über die wichtigsten Ereignisse des Wettrüstens auf einem A4-Blatt (etwa eine halbe Seite).</li>
+          <li>Ordne die Ereignisse der <strong>USA</strong> auf der <strong>linken Seite</strong> (rot) und die der <strong>Sowjetunion</strong> auf der <strong>rechten Seite</strong> (blau) an.</li>
+          <li>Trage die <strong>5 Schlüsselereignisse</strong> abwechselnd links und rechts ein und <strong>verbinde sie mit Pfeilen</strong>.</li>
+          <li>Notiere zu jedem Ereignis stichpunktartig: <strong>Jahr</strong>, <strong>Ereignis</strong> und <strong>Reaktion worauf?</strong></li>
+          <li>Schreibe an jeden Pfeil, <strong>wie viele Jahre</strong> seit dem letzten Ereignis vergangen sind.</li>
+        </ul>
+        <div class="task-hint">
+          <svg class="hint-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          <span><strong>Tipp:</strong> Scrolle zum Zeitstrahl weiter unten, um alle Informationen zu den einzelnen Ereignissen zu finden. Die Karten enthalten alle Details, die du brauchst.</span>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-title">
+          Teil 2 — Abschlussaufgabe
+          <span class="time-badge">10 min</span>
+        </div>
+        <ul>
+          <li>Bearbeite die <strong>Entscheidungsaufgabe</strong> am Ende der Seite und notiere deine Antwort unter die grafische Übersicht.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       ZEITSTRAHL
+       ======================== -->
+  <section id="zeitstrahl">
+    <div class="section-header">
+      <div class="label">Chronologie</div>
+      <h2>Die Rüstungsspirale</h2>
+      <p>Fünf Schlüsselereignisse, die die Welt an den Rand der Vernichtung brachten.</p>
+    </div>
+
+    <div class="timeline">
+
+      <!-- ===== 1945 — USA ===== -->
+      <div class="tl-year">
+        <div class="tl-year-inner usa">1945</div>
+      </div>
+
+      <div class="tl-event" data-anim>
+        <div class="tl-content left">
+          <div class="tl-card usa">
+            <div class="flag-tag">🇺🇸 USA</div>
+            <h3>Die USA haben die Bombe</h3>
+            <p>
+              Seit 1942 entwickeln die USA im geheimen <strong>Manhattan-Projekt</strong> unter
+              J. Robert Oppenheimer die Atombombe. Der erste Test <strong>„Trinity"</strong>
+              findet am 16. Juli 1945 statt.
+            </p>
+            <p style="margin-top: 12px;">
+              Am <strong>6. und 9. August 1945</strong> werfen die USA Atombomben auf
+              <strong>Hiroshima</strong> und <strong>Nagasaki</strong> — bis Jahresende sterben
+              rund <strong>230.000 Menschen</strong>.
+            </p>
+            <img class="tl-card-img" src="img_hiroshima_pilzwolke.png" alt="Atompilz über Hiroshima, 6. August 1945">
+            <div class="tl-card-img-caption">Atompilz über Hiroshima · 6. August 1945</div>
+            <div class="fact-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Die USA sind die einzige Atommacht der Welt.
+            </div>
+          </div>
+        </div>
+        <div class="tl-node"><div class="tl-dot usa"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <!-- Time gap -->
+      <div class="tl-gap">
+        <div class="tl-gap-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          4 Jahre später
+        </div>
+      </div>
+
+      <!-- ===== 1949 — UdSSR ===== -->
+      <div class="tl-year">
+        <div class="tl-year-inner ussr">1949</div>
+      </div>
+
+      <div class="tl-event" data-anim>
+        <div class="tl-empty"></div>
+        <div class="tl-node"><div class="tl-dot ussr"></div></div>
+        <div class="tl-content right">
+          <div class="tl-card ussr">
+            <div class="flag-tag">☭ Sowjetunion</div>
+            <h3>Die Sowjetunion zieht nach</h3>
+            <p>
+              Am <strong>29. August 1949</strong> zündet die UdSSR ihre erste Atombombe im
+              Testgelände von <strong>Semipalatinsk</strong>. Spione hatten Baupläne aus dem
+              Manhattan-Projekt beschafft.
+            </p>
+            <p style="margin-top: 12px;">
+              Das US-Monopol hält nur <strong>4 Jahre</strong>. Präsident Truman lässt daraufhin
+              die <strong>Wasserstoffbombe</strong> entwickeln.
+            </p>
+            <div class="fact-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Spionage beschleunigt die sowjetische Entwicklung erheblich.
+            </div>
+            <div class="video-btn-group" style="margin-top: 20px;">
+              <a class="video-btn blue" href="https://www.youtube.com/watch?v=NA4Fk31hYSM" target="_blank" rel="noopener" style="font-size: 12px; padding: 10px 18px;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+                Video: Sowjetischer Atombombentest
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time gap -->
+      <div class="tl-gap">
+        <div class="tl-gap-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          3 Jahre später
+        </div>
+      </div>
+
+      <!-- ===== 1952 — USA ===== -->
+      <div class="tl-year">
+        <div class="tl-year-inner usa">1952</div>
+      </div>
+
+      <div class="tl-event" data-anim>
+        <div class="tl-content left">
+          <div class="tl-card usa">
+            <div class="flag-tag">🇺🇸 USA</div>
+            <h3>Die Wasserstoffbombe</h3>
+            <p>
+              Am <strong>1. November 1952</strong> zünden die USA die erste
+              <strong>Wasserstoffbombe</strong> (<strong>„Ivy Mike"</strong>):
+              <strong>10,4 Megatonnen</strong> — das <strong>800-Fache</strong> der
+              Hiroshima-Bombe.
+            </p>
+            <div class="fact-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Die USA sind wieder einen Schritt voraus.
+            </div>
+          </div>
+        </div>
+        <div class="tl-node"><div class="tl-dot usa"></div></div>
+        <div class="tl-empty"></div>
+      </div>
+
+      <!-- Time gap -->
+      <div class="tl-gap">
+        <div class="tl-gap-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          Nur 10 Monate!
+        </div>
+      </div>
+
+      <!-- ===== 1953 — UdSSR ===== -->
+      <div class="tl-year">
+        <div class="tl-year-inner ussr">1953</div>
+      </div>
+
+      <div class="tl-event" data-anim>
+        <div class="tl-empty"></div>
+        <div class="tl-node"><div class="tl-dot ussr"></div></div>
+        <div class="tl-content right">
+          <div class="tl-card ussr">
+            <div class="flag-tag">☭ Sowjetunion</div>
+            <h3>Antwort nach 10 Monaten</h3>
+            <p>
+              Schon am <strong>12. August 1953</strong> zündet die UdSSR ihre eigene
+              Wasserstoffbombe. 1955 folgt die erste <strong>abwurffähige</strong> Version.
+            </p>
+            <p style="margin-top: 12px;">
+              Der Vorsprung der USA schmilzt von <strong>4 Jahren</strong> auf nur noch
+              <strong>10 Monate</strong>. Das Wettrüsten beschleunigt sich dramatisch.
+            </p>
+            <div class="fact-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Die Reaktionszeit wird immer kürzer — die Spirale dreht sich schneller.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Time gap -->
+      <div class="tl-gap">
+        <div class="tl-gap-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          4 Jahre später
+        </div>
+      </div>
+
+      <!-- ===== 1957 — UdSSR ===== -->
+      <div class="tl-year">
+        <div class="tl-year-inner ussr">1957</div>
+      </div>
+
+      <div class="tl-event" data-anim>
+        <div class="tl-empty"></div>
+        <div class="tl-node"><div class="tl-dot ussr"></div></div>
+        <div class="tl-content right">
+          <div class="tl-card ussr">
+            <div class="flag-tag">☭ Sowjetunion</div>
+            <h3>Sputnik-Schock</h3>
+            <p>
+              Im <strong>August 1957</strong> testet die UdSSR die erste
+              <strong>Interkontinentalrakete (R-7)</strong>. Am <strong>4. Oktober</strong>
+              bringt dieselbe Rakete <strong>Sputnik I</strong> ins All, einen Monat später
+              die Hündin <strong>Laika</strong>.
+            </p>
+            <p style="margin-top: 12px;">
+              Jetzt liegen <strong>Europa und Nordamerika in Reichweite</strong> sowjetischer
+              Atomraketen. Erstmals ist die UdSSR <strong>technisch voraus</strong> — der Westen
+              ist geschockt.
+            </p>
+            <div class="fact-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              Erstmals ist die UdSSR technisch führend — ein Wendepunkt.
+            </div>
+            <div class="video-btn-group" style="margin-top: 20px;">
+              <a class="video-btn blue" href="https://www.youtube.com/watch?v=EjTJFOEb7cQ" target="_blank" rel="noopener" style="font-size: 12px; padding: 10px 18px;">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+                Video: Sputnik — Der Satellit, der die Welt veränderte
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /timeline -->
+  </section>
+
+  <!-- ========================
+       ENTSCHEIDUNGSAUFGABE
+       ======================== -->
+  <section id="entscheidung">
+    <div class="section-header">
+      <div class="label">Abschlussaufgabe</div>
+      <h2>Deine Entscheidung</h2>
+      <p>Versetze dich in eine historische Rolle und triff eine begründete Entscheidung.</p>
+    </div>
+
+    <div class="decision-section">
+      <div class="decision-badge">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        Entscheidungssituation
+      </div>
+
+      <h3>Sie sind Berater des US-Pr&#228;sidenten.</h3>
+      <div class="role-text">Washington D.C., 1953</div>
+
+      <div class="scenario">
+        Die Sowjetunion hat gerade ihre <strong>Wasserstoffbombe</strong> gez&#252;ndet.
+        Die USA haben bereits <strong>genug Atomwaffen, um die UdSSR zu vernichten</strong>.
+        Neue Waffen kosten <strong>Milliarden</strong>.
+        <br><br>
+        Sie sollen dem Pr&#228;sidenten empfehlen: <strong>Weiter aufr&#252;sten &#8212; oder aufh&#246;ren?</strong>
+      </div>
+
+      <!-- Diagramm: Nuklearsprengk&#246;pfe -->
+      <div class="diagram-container">
+        <img src="img_sprengkoepfe_diagramm.png" alt="Diagramm: Zahl der weltweit vorhandenen nuklearen Sprengk&#246;pfe 1950&#8211;2003 (in Tausend)">
+        <div class="caption">
+          <strong>M2</strong> &#8212; Zahl der weltweit vorhandenen nuklearen Sprengk&#246;pfe 1950&#8211;2003 (in Tausend).
+          Beachte: 1953 stehen die USA am Anfang einer dramatischen Aufr&#252;stung.
+        </div>
+      </div>
+
+      <!-- Wahlmöglichkeiten -->
+      <div class="choice-cards">
+        <div class="choice-card arm">
+          <div class="choice-badge-mini">Option A</div>
+          <div class="choice-icon">&#9876;&#65039;</div>
+          <div class="choice-label">Weiter aufr&#252;sten</div>
+          <div class="choice-desc">
+            Die USA m&#252;ssen ihren milit&#228;rischen Vorsprung sichern. Neue Waffen garantieren Sicherheit und Frieden durch maximale Abschreckung (<em>Peace through Strength</em>).
+          </div>
+        </div>
+
+        <div class="choice-card stop">
+          <div class="choice-badge-mini">Option B</div>
+          <div class="choice-icon">&#128330;&#65039;</div>
+          <div class="choice-label">Aufr&#252;stung stoppen</div>
+          <div class="choice-desc">
+            Es sind l&#228;ngst gen&#252;gend Waffen zur gegenseitigen Vernichtung vorhanden. Weitere Milliarden f&#252;r das Wettr&#252;sten sind wirtschaftliche Verschwendung und erh&#246;hen das Kriegsrisiko.
+          </div>
+        </div>
+      </div>
+
+      <!-- Arbeitsauftrag für den Hefter -->
+      <div class="hefter-task-box">
+        <div class="hefter-header">
+          <div class="hefter-icon">&#128221;</div>
+          <h4>Aufgabe f&#252;r deinen Hefter (ca. 10 Minuten)</h4>
+        </div>
+
+        <ul class="hefter-steps">
+          <li class="hefter-step-item">
+            <span class="step-num">1</span>
+            <div>
+              <strong>Deine Entscheidung notieren:</strong> W&#228;hle begr&#252;ndet zwischen <strong>Option A (Weiter aufr&#252;sten)</strong> oder <strong>Option B (Aufr&#252;stung stoppen)</strong> als deine Empfehlung an den US-Pr&#228;sidenten.
+            </div>
+          </li>
+          <li class="hefter-step-item">
+            <span class="step-num">2</span>
+            <div>
+              <strong>Begr&#252;ndung ausf&#252;hren:</strong> Notiere <strong>mindestens zwei stichhaltige Argumente</strong> f&#252;r deine gew&#228;hlte Position. Nutze dabei Erkenntnisse aus dem Zeitstrahl und dem Diagramm <strong>M2</strong>.
+            </div>
+          </li>
+          <li class="hefter-step-item">
+            <span class="step-num">3</span>
+            <div>
+              <strong>Perspektivwechsel &amp; Gegenargument:</strong> Nenne <strong>ein starkes Gegenargument</strong>, das gegen deine Empfehlung spricht, und erkl&#228;re kurz, warum du dich dennoch so entschieden hast.
+            </div>
+          </li>
+        </ul>
+
+        <!-- Historische Auflösung zum Aufklappen -->
+        <details class="hist-details">
+          <summary>&#128065;&#65039; Historische Aufl&#246;sung anzeigen: Wie entschied Eisenhower 1953?</summary>
+          <div class="hist-details-content">
+            Pr&#228;sident Dwight D. Eisenhower entschied sich 1953 f&#252;r die <strong>weitere massive Aufr&#252;stung</strong> (Doktrin der <em>„massiven Vergeltung“ / massive retaliation</em>). Um Milit&#228;rkosten bei konventionellen Truppen zu sparen, setzten die USA voll auf atomare Abschreckung. Die Sowjetunion zog gleich &#8212; bis Mitte der 1980er Jahre wuchs das weltweite Arsenal auf &#252;ber <strong>70.000 Sprengk&#246;pfe</strong> an (siehe Diagramm M2 oben).
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       WEITERFÜHRENDE VIDEOS
+       ======================== -->
+  <section id="videos">
+    <div class="section-header">
+      <div class="label">Vertiefung</div>
+      <h2>Weiterführende Videos</h2>
+      <p>Diese Videos liefern zusätzlichen Kontext — falls du schneller fertig bist oder dich vertiefen möchtest.</p>
+    </div>
+
+    <div class="intro-video-card" style="margin-bottom: 24px;">
+      <h3>🎬 Kalter Krieg — Überblick</h3>
+      <p>Ein kompakter Überblick über die gesamte Epoche des Kalten Krieges und seine wichtigsten Wendepunkte.</p>
+      <div class="video-btn-group">
+        <a class="video-btn red" href="https://www.youtube.com/results?search_query=Kalter+Krieg+erkl%C3%A4rt+MrWissen2go+%C3%9Cberblick" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+          Der Kalte Krieg erklärt
+        </a>
+        <a class="video-btn blue" href="https://www.youtube.com/results?search_query=atomares+Wettr%C3%BCsten+Dokumentation+Kalter+Krieg" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+          Atomares Wettrüsten — Dokumentation
+        </a>
+      </div>
+    </div>
+
+    <div class="intro-video-card">
+      <h3>🚀 Space Race & Raketentechnik</h3>
+      <p>Die Verbindung zwischen Raketentechnik, Weltraumforschung und atomarer Bedrohung.</p>
+      <div class="video-btn-group">
+        <a class="video-btn gold" href="https://www.youtube.com/results?search_query=Wettlauf+ins+All+Space+Race+Kalter+Krieg+deutsch" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0C.488 3.45.029 5.804 0 12c.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0C23.512 20.55 23.971 18.196 24 12c-.029-6.185-.484-8.549-4.385-8.816zM9 16V8l8 4-8 4z"/></svg>
+          Der Wettlauf ins All
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================
+       FOOTER
+       ======================== -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Einordnung</h4>
+        <p>Geschichte Klasse 10 · LB 1 Kalter Krieg<br>Woche 4: „Zwei Blöcke — NATO, Warschauer Pakt, Eiserner Vorhang"</p>
+      </div>
+      <div class="footer-col">
+        <h4>Lehrplanbezug</h4>
+        <p>Sächsischer Lehrplan Gymnasium · LB 1.1<br>Bündnislogik und Abschreckung · Wettrüsten</p>
+      </div>
+      <div class="footer-col">
+        <h4>Zeitrahmen</h4>
+        <p>Bearbeitungszeit: 30 Minuten<br>Teil 1: 20 min · Teil 2: 10 min</p>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /wrap -->
+
+<script>
+/* ============================================
+   SCROLL PROGRESS BAR
+   ============================================ */
+const progressFill = document.getElementById('progressFill');
+const stickyNav = document.getElementById('stickyNav');
+
+function updateProgress() {
+  const scrollTop = window.scrollY;
+  const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+  const progress = Math.min((scrollTop / docHeight) * 100, 100);
+  progressFill.style.width = progress + '%';
+
+  // Show/hide sticky nav
+  if (scrollTop > window.innerHeight * 0.5) {
+    stickyNav.classList.add('visible');
+  } else {
+    stickyNav.classList.remove('visible');
+  }
+}
+
+window.addEventListener('scroll', updateProgress, { passive: true });
+
+/* ============================================
+   SCROLL ANIMATIONS (Intersection Observer)
+   ============================================ */
+const animElements = document.querySelectorAll('[data-anim]');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, {
+  threshold: 0.15,
+  rootMargin: '0px 0px -60px 0px'
+});
+
+animElements.forEach(el => observer.observe(el));
+
+/* ============================================
+   SMOOTH SCROLL FOR NAV LINKS
+   ============================================ */
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
