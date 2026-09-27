@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kabinettsakte 1914</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;1,6..96,500&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+:root{
+  --paper:#E8ECE6; --panel:#F6F7F3; --panel-2:#EEF1EB; --ink:#1A2126; --ink-2:#4B5660; --ink-3:#6E7880;
+  --rule:#C3CBC2; --seal:#9B2C24; --seal-soft:#F1DCD8; --brass:#8F6A1E;
+  --tape:#F2E6C2; --tape-ink:#2B2414; --central:#7A5A1C; --entente:#2D5572; --serbia:#9B2C24;
+  --ok:#2F6B45; --ok-soft:#DCEBDF; --warn:#9A5B12; --c:var(--ink);
+  --f-disp:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --f-sans:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme:light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111618; --panel:#1A2124; --panel-2:#20282B; --ink:#E6E7E1; --ink-2:#A3ADAC; --ink-3:#7E8888;
+    --rule:#2E383B; --seal:#E0685C; --seal-soft:#3A2120; --brass:#D2A64E;
+    --tape:#2A2517; --tape-ink:#EBDDB5; --central:#D2A64E; --entente:#7FAED0; --serbia:#E0685C;
+    --ok:#7BC495; --ok-soft:#1D3024; --warn:#E0A054;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111618; --panel:#1A2124; --panel-2:#20282B; --ink:#E6E7E1; --ink-2:#A3ADAC; --ink-3:#7E8888;
+  --rule:#2E383B; --seal:#E0685C; --seal-soft:#3A2120; --brass:#D2A64E;
+  --tape:#2A2517; --tape-ink:#EBDDB5; --central:#D2A64E; --entente:#7FAED0; --serbia:#E0685C;
+  --ok:#7BC495; --ok-soft:#1D3024; --warn:#E0A054;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-sans);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,textarea,select{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-disp);font-weight:500;text-wrap:balance;margin:0;line-height:1.15}
+p{margin:0}
+[data-block="Zweibund"]{--c:var(--central)}[data-block="Entente"]{--c:var(--entente)}[data-block="Schützling Russlands"]{--c:var(--serbia)}
+
+/* Kopf */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--rule)}
+.top-in{max-width:900px;margin:0 auto;padding:10px 16px 0;display:flex;flex-direction:column;gap:8px}
+.id{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.brand{font-family:var(--f-disp);font-size:1.15em}
+.who{display:flex;gap:8px;align-items:center;font-size:.8em;color:var(--ink-2);flex-wrap:wrap}
+.who .dot{width:10px;height:10px;border-radius:50%;background:var(--c)}
+.tabs{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none;margin:0 -4px}
+.tabs button{flex:0 0 auto;background:none;border:none;border-bottom:3px solid transparent;padding:8px 12px;font-size:.85em;color:var(--ink-2);white-space:nowrap}
+.tabs button[aria-current="page"]{border-bottom-color:var(--c);color:var(--ink);font-weight:600}
+.tabs button .lock{font-family:var(--f-mono);font-size:.75em;color:var(--ink-3);margin-left:4px}
+.tabs button .done{color:var(--ok);margin-left:4px}
+
+main{max-width:900px;margin:0 auto;padding-block:24px 80px;padding-inline:16px;display:flex;flex-direction:column;gap:22px}
+.eyebrow{font-family:var(--f-mono);font-size:.72em;letter-spacing:.14em;text-transform:uppercase;color:var(--brass)}
+.h1{font-size:clamp(2rem,6vw,3rem)}
+.h2{font-size:clamp(1.5rem,4vw,2.1rem)}
+.lead{color:var(--ink-2)}
+.note{font-size:.82em;color:var(--ink-3)}
+.panel{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:16px 18px;display:flex;flex-direction:column;gap:12px}
+.panel h3{font-size:1.25em}
+.btn{background:var(--ink);color:var(--paper);border:none;border-radius:3px;padding:12px 20px;font-weight:600;align-self:flex-start}
+.btn.ghost{background:none;color:var(--ink);border:1px solid var(--ink)}
+.btn.seal{background:var(--seal);color:#fff}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btns{display:flex;gap:10px;flex-wrap:wrap}
+
+/* Auswahl */
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fill,minmax(min(100%,250px),1fr))}
+.tile{text-align:left;background:var(--panel);border:1px solid var(--rule);border-top:5px solid var(--c);border-radius:4px;padding:14px 16px;display:flex;flex-direction:column;gap:4px}
+.tile:hover{border-color:var(--ink-3);border-top-color:var(--c)}
+.tile b{font-family:var(--f-disp);font-weight:500;font-size:1.35em}
+.tile span{font-size:.8em;color:var(--ink-3);font-family:var(--f-mono);letter-spacing:.06em;text-transform:uppercase}
+.tile small{font-size:.85em;color:var(--ink-2)}
+.tile[aria-pressed="true"]{outline:3px solid var(--c);outline-offset:-1px}
+
+/* Telegramm */
+.telegram{background:var(--tape);color:var(--tape-ink);border-radius:2px;padding:16px 18px}
+.telegram .hdr{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-family:var(--f-mono);font-size:.68em;letter-spacing:.12em;text-transform:uppercase;opacity:.75;border-bottom:1px dashed currentColor;padding-bottom:6px;margin-bottom:10px}
+.telegram ol{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.telegram li{font-family:var(--f-mono);font-size:.95em;line-height:1.4}
+.dilemma{font-family:var(--f-disp);font-style:italic;font-size:1.3em;line-height:1.3;border-left:3px solid var(--seal);padding-left:14px}
+
+/* Formular */
+fieldset{border:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+legend{font-weight:600;margin-bottom:6px}
+.opt{display:grid;grid-template-columns:auto auto 1fr;gap:10px;align-items:start;background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:10px 12px;cursor:pointer}
+.opt input{margin-top:5px;accent-color:var(--seal);width:18px;height:18px}
+.opt b{font-family:var(--f-mono)}
+.opt:has(input:checked){border-color:var(--c);box-shadow:inset 4px 0 0 var(--c)}
+.opt:has(input:disabled){cursor:default}
+label.fld{display:flex;flex-direction:column;gap:4px;font-weight:600;font-size:.92em}
+label.fld small{font-weight:400;color:var(--ink-3)}
+textarea,input[type=text],select{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:10px 12px;width:100%;font-weight:400}
+textarea{min-height:84px;resize:vertical}
+textarea:disabled,select:disabled,input:disabled{opacity:.75}
+.count{font-family:var(--f-mono);font-size:.75em;color:var(--ink-3);text-align:right}
+.count.over{color:var(--seal)}
+.stamp{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);font-size:.8em;letter-spacing:.1em;text-transform:uppercase;color:var(--seal);border:2px solid var(--seal);padding:4px 10px;border-radius:3px;transform:rotate(-2deg);align-self:flex-start}
+.pill{font-family:var(--f-mono);font-size:.75em;padding:3px 8px;line-height:1.3;border-radius:6px;display:inline-block;align-self:flex-start}
+.pill.same{color:var(--ok);background:var(--ok-soft)}
+.pill.diff{color:var(--seal);background:var(--seal-soft)}
+.seg{display:flex;gap:6px;flex-wrap:wrap}
+.seg button{background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:8px 16px;font-family:var(--f-mono);font-weight:600}
+.seg button[aria-pressed="true"]{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+/* Weggabelungen */
+.wlist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;position:relative}
+.wlist::before{content:"";position:absolute;left:17px;top:8px;bottom:8px;width:2px;background:var(--rule)}
+.wg{display:grid;grid-template-columns:36px 1fr;gap:12px;padding:10px 0}
+.wn{width:36px;height:36px;border-radius:50%;border:2px solid var(--seal);background:var(--panel);display:grid;place-items:center;font-family:var(--f-mono);font-weight:600;color:var(--seal);position:relative;z-index:1}
+.wb{display:flex;flex-direction:column;gap:6px;min-width:0}
+.wd{font-family:var(--f-mono);font-size:.75em;color:var(--seal);letter-spacing:.04em}
+
+/* Code */
+.codeform{display:flex;gap:8px;flex-wrap:wrap}
+.codeform input{flex:1 1 200px;font-family:var(--f-mono);letter-spacing:.12em;text-transform:uppercase;font-size:1.2em}
+.err{color:var(--seal);font-size:.85em;min-height:1.2em}
+
+/* Verkündung / Zustellung (Vollbild) */
+.overlay{position:fixed;inset:0;z-index:50;background:var(--paper);display:flex;flex-direction:column;justify-content:center;gap:24px;padding:calc(24px + env(safe-area-inset-top,0px)) 24px calc(24px + env(safe-area-inset-bottom,0px));overflow:auto}
+.overlay .big{font-family:var(--f-mono);font-weight:600;font-size:clamp(5rem,26vw,12rem);line-height:.9;color:var(--c)}
+.overlay .txt{font-family:var(--f-disp);font-size:clamp(1.3rem,4vw,2.2rem);line-height:1.25;max-width:32ch}
+.overlay .telegram li{font-size:clamp(1.05rem,3.4vw,1.6rem)}
+
+/* Protokoll */
+.prot{display:flex;flex-direction:column;gap:0;border-top:2px solid var(--ink)}
+.prot .r{display:grid;gap:6px 16px;padding:12px 0;border-bottom:1px solid var(--rule)}
+@media (min-width:700px){.prot .r{grid-template-columns:120px 1fr}}
+.prot dt{font-family:var(--f-mono);font-size:.7em;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+.prot dd{margin:0 0 6px}
+.linie{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.linie label{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;font-size:.78em;background:var(--panel);border:1px solid var(--rule);border-radius:3px;padding:10px 4px;cursor:pointer}
+.linie label:has(input:checked){border-color:var(--seal);box-shadow:inset 0 -4px 0 var(--seal)}
+.linie input{accent-color:var(--seal)}
+@media (max-width:560px){.linie{grid-template-columns:1fr}.linie label{flex-direction:row;text-align:left}}
+blockquote{margin:0;font-family:var(--f-disp);font-style:italic;border-left:2px solid var(--brass);padding-left:12px;color:var(--ink-2)}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--paper);padding:10px 18px;border-radius:3px;font-size:.9em;z-index:60}
+@media print{.top,.btns,.noprint{display:none!important} body{background:#fff;color:#000} main{padding:0}}
+</style>
+</head>
+<body>
+<header class="top" id="top" hidden></header>
+<main id="app"></main>
+<div class="toast" id="toast" role="status" hidden></div>
+
+<script>
+/* Inhalte werden von build_schueler.py aus julikrise_daten.js eingesetzt – ohne Lösungen und Eskalationspunkte. */
+const JK = {"meta": {"titel": "Fünf Wochen im Sommer", "untertitel": "Die Julikrise 1914 als Entscheidungsspiel", "leitfrage": "Hineingeschlittert oder bewusst entfesselt? – Warum wurde aus dem Attentat von Sarajevo ein Weltkrieg?", "kurs": "Leistungskurs Geschichte · Jahrgangsstufe 12 · LB 1 „Herausforderung Frieden“", "minSuS": 10, "maxSuS": 15}, "kabinette": [{"id": "dr", "name": "Deutsches Reich", "ort": "Berlin", "kurz": "DR", "block": "Zweibund"}, {"id": "oeu", "name": "Österreich-Ungarn", "ort": "Wien", "kurz": "Ö-U", "block": "Zweibund"}, {"id": "ru", "name": "Russland", "ort": "St. Petersburg", "kurz": "RU", "block": "Entente"}, {"id": "fr", "name": "Frankreich", "ort": "Paris", "kurz": "FR", "block": "Entente"}, {"id": "gb", "name": "Großbritannien", "ort": "London", "kurz": "GB", "block": "Entente"}, {"id": "srb", "name": "Serbien", "ort": "Belgrad", "kurz": "SRB", "block": "Schützling Russlands"}], "rollen": [{"id": "bethmann", "kab": "dr", "prio": 1, "leit": true, "name": "Theobald von Bethmann Hollweg", "amt": "Reichskanzler", "haltung": "Sie fürchten die Einkreisung des Reiches und ein Russland, das bis 1917 militärisch übermächtig wird. Ein lokaler Krieg Österreichs gegen Serbien könnte die Entente spalten – oder zum Weltkrieg werden. Sie wagen das Risiko, wollen aber, dass Russland vor der Welt als Angreifer dasteht.", "ziel": "Österreich als einzigen verlässlichen Verbündeten halten; den Konflikt lokalisieren; Großbritannien neutral halten.", "roteLinie": "Das Reich darf nicht als Aggressor erscheinen – sonst folgen weder die Sozialdemokraten noch London.", "geheim": "Ihr Vertrauter Kurt Riezler notiert Ihre Einschätzung: Eine Aktion gegen Serbien kann zum Weltkrieg führen – ein „Sprung ins Dunkle“ (vgl. Hellfeld, S. 252).", "taktik": "Wien öffentlich zur Mäßigung mahnen, intern aber zum raschen Handeln drängen („fait accompli“)."}, {"id": "moltke", "kab": "dr", "prio": 7, "name": "Helmuth von Moltke d. J.", "amt": "Chef des Generalstabs", "haltung": "Die Zeit arbeitet gegen das Reich: Russlands Rüstungsprogramm wird in wenigen Jahren abgeschlossen sein. Wenn Krieg, dann jetzt. Jeder Tag diplomatischer Verzögerung kostet militärische Chancen.", "ziel": "Den Zeitplan des Aufmarschs sichern; keinen Tag Vorsprung an Russland verlieren.", "roteLinie": "Kein reiner Ostaufmarsch – es gibt nur einen Kriegsplan, und der beginnt im Westen.", "geheim": "Der Aufmarschplan (sog. Schlieffen-Plan) sieht vor: Krieg gegen Russland bedeutet sofortigen Angriff auf Frankreich durch das neutrale Belgien; die Festung Lüttich muss in den ersten Tagen fallen. Eine Mobilmachung ist daher faktisch der Krieg.", "taktik": "Den Kanzler mit militärischen Sachzwängen unter Druck setzen; Wien direkt zur Generalmobilmachung ermutigen."}, {"id": "wilhelm", "kab": "dr", "prio": 10, "name": "Kaiser Wilhelm II.", "amt": "Deutscher Kaiser und König von Preußen", "haltung": "Die Ermordung des befreundeten Thronfolgers trifft Sie persönlich. Sie schwanken zwischen Kraftworten und Angst vor dem großen Krieg. Mit dem Zaren, Ihrem Vetter „Nicky“, verbindet Sie eine persönliche Korrespondenz.", "ziel": "Monarchische Solidarität gegen „Königsmörder“; Prestige des Reiches wahren – aber keinen Krieg gegen Ihren Vetter.", "roteLinie": "Das Reich darf den Bündnispartner nicht im Stich lassen.", "geheim": "Sie haben den Bericht Ihres Botschafters in Wien am Rand kommentiert: „Jetzt oder nie! … Mit den Serben muss aufgeräumt werden, und zwar bald.“ (Hellfeld, S. 251)", "taktik": "Impulsiv urteilen – aber lassen Sie sich von neuen Nachrichten (z. B. einer entgegenkommenden serbischen Antwort) umstimmen."}, {"id": "berchtold", "kab": "oeu", "prio": 2, "leit": true, "name": "Leopold Graf Berchtold", "amt": "Außenminister", "haltung": "Seit den Balkankriegen 1912/13 sieht Wien, wie Serbien wächst und die Südslawen der Monarchie anzieht. Nach dem Mord muss die Großmacht Österreich-Ungarn handeln – sonst gilt sie als erledigt.", "ziel": "Serbien als Machtfaktor auf dem Balkan ausschalten; Rückendeckung aus Berlin sichern.", "roteLinie": "Keine Lösung, die als Nachgeben erscheint.", "geheim": "Kaiser Franz Joseph hat als Ziel die „Isolierung und Verkleinerung Serbiens“ vorgegeben (Hellfeld, S. 252).", "taktik": "Ein Ultimatum so formulieren, dass Belgrad es kaum annehmen kann – und Russland keine Zeit zur Absprache bleibt."}, {"id": "conrad", "kab": "oeu", "prio": 8, "name": "Franz Conrad von Hötzendorf", "amt": "Chef des Generalstabs", "haltung": "Sie fordern seit Jahren einen Präventivkrieg gegen Serbien. Jetzt ist der Anlass da. Diplomatie hat die Monarchie 1908 und 1913 nur Zeit gekostet.", "ziel": "Sofortiger Krieg gegen Serbien.", "roteLinie": "Keine Verhandlungen, keine Konferenzen.", "geheim": "Die Armee braucht rund 16 Tage bis zur Einsatzbereitschaft gegen Serbien – ein sofortiger Schlag ist praktisch unmöglich.", "taktik": "Mit der Ehre der Armee und der Existenz der Monarchie argumentieren."}, {"id": "tisza", "kab": "oeu", "prio": 11, "name": "István Graf Tisza", "amt": "Ungarischer Ministerpräsident", "haltung": "Sie warnen: Ein Krieg gegen Serbien kann den Weltkrieg auslösen, und die Annexion weiterer Slawen würde die ungarische Stellung in der Doppelmonarchie schwächen.", "ziel": "Kein überstürzter Krieg; keine Annexion serbischen Gebiets.", "roteLinie": "Kein Krieg ohne diplomatische Vorbereitung und ohne Verzicht auf Gebietserwerb.", "geheim": "Sektionsrat Wiesner meldet am 13. Juli: Eine Mitwisserschaft der serbischen Regierung sei „durch nichts erwiesen oder auch nur zu vermuten“ (Hellfeld, S. 253).", "taktik": "Bremsen – aber Sie können überstimmt werden. Stimmen Sie nur zu, wenn Ihre Bedingungen erfüllt sind."}, {"id": "sasonow", "kab": "ru", "prio": 3, "leit": true, "name": "Sergei Sasonow", "amt": "Außenminister", "haltung": "1908/09 musste Russland in der Bosnischen Annexionskrise vor Wien und Berlin zurückweichen. Ein zweites Mal darf das nicht geschehen – sonst verliert Russland jeden Einfluss auf dem Balkan und bei den slawischen Völkern.", "ziel": "Die „Zerstörung Serbiens und des Gleichgewichts auf dem Balkan“ verhindern (Hellfeld, S. 256).", "roteLinie": "Kein Nachgeben gegenüber einem Angriff auf Serbien.", "geheim": "Frankreich hat beim Staatsbesuch (20.–23. Juli) die Bündnistreue bekräftigt.", "taktik": "Mit militärischen Vorbereitungen Druck aufbauen, zugleich Vermittlung fordern (z. B. Fristverlängerung)."}, {"id": "nikolaus", "kab": "ru", "prio": 9, "name": "Zar Nikolaus II.", "amt": "Kaiser von Russland", "haltung": "Sie sind friedliebend und unsicher, aber als Schutzherr der Slawen gebunden. Über Telegramme stehen Sie mit Ihrem Vetter „Willy“ in Verbindung.", "ziel": "Krieg vermeiden, ohne Russlands Ehre zu verlieren.", "roteLinie": "Serbien darf nicht vernichtet werden.", "geheim": "Sie können jede Mobilmachung per Befehl anhalten oder begrenzen – noch.", "taktik": "Zögern Sie. Nutzen Sie den persönlichen Draht nach Berlin (Telegramm)."}, {"id": "januschkewitsch", "kab": "ru", "prio": 12, "name": "Nikolai Januschkewitsch", "amt": "Chef des Generalstabs", "haltung": "Russland ist riesig und hat wenig Eisenbahnen. Wer später mobilisiert, verliert. Eine halbe Mobilmachung stiftet Chaos.", "ziel": "Generalmobilmachung so früh wie möglich.", "roteLinie": "Keine Teilmobilmachung, die die Armee desorganisiert.", "geheim": "Eine Teilmobilmachung nur gegen Österreich ist technisch kaum durchführbar – es gibt dafür keinen ausgearbeiteten Plan.", "taktik": "Mit der Sicherheit des Reiches argumentieren; den Zaren zur Generalmobilmachung drängen."}, {"id": "poincare", "kab": "fr", "prio": 4, "leit": true, "name": "Raymond Poincaré", "amt": "Staatspräsident", "haltung": "Frankreichs Sicherheit hängt am Bündnis mit Russland. Ohne Russland steht Frankreich allein gegen das Deutsche Reich. Seit 1871 ist Elsass-Lothringen verloren.", "ziel": "Das Bündnis mit Russland festigen; Frankreich als Großmacht behaupten.", "roteLinie": "Russland darf nicht an Frankreichs Treue zweifeln.", "geheim": "Beim Staatsbesuch in St. Petersburg (20.–23. Juli) warnen Sie den österreichischen Botschafter, Serbien habe Freunde.", "taktik": "Russland Rückendeckung geben, zugleich Frankreich vor London als friedfertig darstellen."}, {"id": "viviani", "kab": "fr", "prio": 13, "name": "René Viviani", "amt": "Ministerpräsident und Außenminister", "haltung": "Sie sind außenpolitisch unerfahren und stehen einer kriegsskeptischen Linken nahe. Frankreich muss so handeln, dass London es als Opfer, nicht als Angreifer sieht.", "ziel": "Großbritannien auf Frankreichs Seite ziehen.", "roteLinie": "Kein französischer Schritt, der wie eine Provokation aussieht.", "geheim": "Ohne britische Unterstützung ist ein Krieg für Frankreich hoch riskant.", "taktik": "Zurückhaltung demonstrieren (z. B. Truppen von der Grenze zurückziehen)."}, {"id": "grey", "kab": "gb", "prio": 5, "leit": true, "name": "Sir Edward Grey", "amt": "Außenminister", "haltung": "Großbritannien ist durch keinen Bündnisvertrag gebunden, aber durch militärische Absprachen moralisch an Frankreich. Sie wollen vermitteln – und Berlin im Unklaren lassen, ob London eingreift.", "ziel": "Vermittlung durch die unbeteiligten Mächte; Gleichgewicht in Europa erhalten.", "roteLinie": "Frankreich darf nicht niedergeworfen werden; die Kanalküste nicht in deutsche Hand fallen.", "geheim": "Die Mehrheit im Kabinett ist gegen ein Eingreifen – es sei denn, Belgiens Neutralität (garantiert 1839) wird verletzt.", "taktik": "Vermittlungsvorschläge machen; Warnungen an Berlin nur vorsichtig dosieren."}, {"id": "asquith", "kab": "gb", "prio": 14, "name": "Herbert Henry Asquith", "amt": "Premierminister", "haltung": "Ihre Regierung ist gespalten, und in Irland droht wegen der Home-Rule-Frage ein Bürgerkrieg. Ein Kontinentalkrieg kommt zur Unzeit.", "ziel": "Die Regierung zusammenhalten; nur mit breiter Mehrheit handeln.", "roteLinie": "Kein Kriegseintritt, der die Regierung zerbrechen lässt.", "geheim": "Mehrere Minister drohen mit Rücktritt, falls Großbritannien Frankreich ohne klaren Anlass beisteht.", "taktik": "Zeit gewinnen; auf einen Anlass warten, der das Land eint."}, {"id": "pasic", "kab": "srb", "prio": 6, "leit": true, "name": "Nikola Pašić", "amt": "Ministerpräsident", "haltung": "Serbien ist erschöpft von zwei Balkankriegen. Im August sind Wahlen. Das Offizierskorps um Oberst Dimitrijević ist mächtig und nationalistisch – Sie können es kaum kontrollieren.", "ziel": "Krieg vermeiden, ohne die Souveränität Serbiens preiszugeben; russischen Schutz sichern.", "roteLinie": "Keine österreichischen Beamten, die auf serbischem Boden ermitteln.", "geheim": "Sie hatten Anfang Juni vage Hinweise auf den Grenzübertritt bewaffneter junger Männer. Eine offene Untersuchung könnte das eigene Militär belasten.", "taktik": "Entgegenkommen zeigen, aber Kernpunkte ablehnen; Russland um Beistand bitten."}, {"id": "apis", "kab": "srb", "prio": 15, "name": "Oberst Dragutin Dimitrijević („Apis“)", "amt": "Chef des militärischen Nachrichtendienstes", "haltung": "Sie führen den Geheimbund „Vereinigung oder Tod“ („Schwarze Hand“). Das Ziel ist die Vereinigung aller Serben – notfalls durch Gewalt.", "ziel": "Keine Unterwerfung unter Wien; kein Einblick Österreichs in die Netzwerke.", "roteLinie": "Keine Untersuchung gegen serbische Offiziere.", "geheim": "Aus Ihrem Umfeld stammten Waffen und Hilfe für die Attentäter. Wird das bekannt, ist die Regierung – und Serbien – in höchster Gefahr.", "taktik": "Jede Nachgiebigkeit der Regierung als Verrat brandmarken."}], "regeln": ["Jede Rolle spricht aus der Sicht des Jahres 1914 – nicht mit dem Wissen von heute.", "Jedes Kabinett entscheidet sich pro Runde für genau eine Option (A, B oder C).", "Pro Runde darf jedes Kabinett ein Telegramm an eine andere Macht schicken. Die Spielleitung stellt es erst zu Beginn der nächsten Runde zu.", "Nach Ablauf des Timers verkündet der Sprecher die Entscheidung. Der Sprecher wechselt jede Runde.", "Die Lage wird nach jeder Runde so fortgeschrieben, wie sie 1914 verlief – unabhängig vom Beschluss des Kabinetts. Abweichungen werden am Ende ausgewertet.", "Ziel ist nicht zu gewinnen, sondern Entscheidungen zu treffen, die die Rollen 1914 hätten begründen können."], "runden": [{"nr": 1, "titel": "Die Antwort auf Sarajevo", "datum": "5.–22. Juli 1914", "minuten": 7, "telegramm": ["SARAJEVO 28. JUNI STOP THRONFOLGER FRANZ FERDINAND UND HERZOGIN SOPHIE ERSCHOSSEN STOP", "TÄTER BOSNISCHE SERBEN – UNTERTANEN DER DOPPELMONARCHIE STOP", "BELGRAD VERSICHERT AM 3. JULI: KEINE BETEILIGUNG STOP AUFKLÄRUNG ZUGESAGT STOP", "WIEN SENDET GRAF HOYOS NACH BERLIN STOP ZIEL: ISOLIERUNG UND VERKLEINERUNG SERBIENS STOP"], "lage": "Seit dem Attentat vom 28. Juni ist eine Woche vergangen. Die Attentäter haben gestanden; Waffen und Hilfe kamen offenbar aus Serbien. In Wien wird über eine „Abrechnung“ mit Serbien gesprochen. Graf Hoyos bringt ein Handschreiben Kaiser Franz Josephs nach Berlin. Paris bereitet einen Staatsbesuch in St. Petersburg vor (20.–23. Juli). In London beherrscht die Irlandkrise die Politik.", "leitdilemma": "Bündnistreue oder Eskalationsrisiko? – Stellen Sie Ihrem Partner einen „Blankoscheck“ aus?", "optionen": {"dr": [{"k": "A", "t": "Wien bedingungslose Unterstützung zusagen – was immer es gegen Serbien unternimmt („Blankoscheck“)."}, {"k": "B", "t": "Unterstützung nur für eine begrenzte Strafaktion zusagen; Wien muss Berlin vorab konsultieren."}, {"k": "C", "t": "Wien zu Mäßigung und einer internationalen Untersuchung des Attentats drängen."}], "oeu": [{"k": "A", "t": "Sofortiger Militärschlag gegen Serbien, solange die Empörung in Europa groß ist."}, {"k": "B", "t": "Ein befristetes, schwer annehmbares Ultimatum ausarbeiten – Übergabe erst nach dem französischen Staatsbesuch in Russland."}, {"k": "C", "t": "Diplomatische Genugtuung und eine gemeinsame Untersuchung fordern; Ergebnis der eigenen Ermittlungen (Wiesner) abwarten."}], "ru": [{"k": "A", "t": "Deutlich signalisieren, dass Russland einen Angriff auf Serbien nicht hinnehmen wird."}, {"k": "B", "t": "Belgrad zu weitgehendem Entgegenkommen gegenüber Wien drängen."}, {"k": "C", "t": "Abwarten und keine Signale senden."}], "fr": [{"k": "A", "t": "Beim Staatsbesuch das Bündnis bekräftigen und Russland Rückendeckung geben; Wien warnen."}, {"k": "B", "t": "Russland beim Staatsbesuch zur Vorsicht in der Balkanfrage mahnen."}, {"k": "C", "t": "Den Staatsbesuch unpolitisch halten."}], "gb": [{"k": "A", "t": "Die Irlandkrise hat Vorrang; der Balkan ist eine Angelegenheit Wiens."}, {"k": "B", "t": "Berlin frühzeitig und vertraulich vor einer Eskalation warnen."}, {"k": "C", "t": "Eine Vermittlungsinitiative der unbeteiligten Mächte vorbereiten."}], "srb": [{"k": "A", "t": "Eine Untersuchung gegen verdächtige Offiziere einleiten – auch gegen den Widerstand des Militärs."}, {"k": "B", "t": "Jede Beteiligung bestreiten, Aufklärung zusagen, aber keine Ermittlungen gegen das Militär."}, {"k": "C", "t": "Sofort Russland um eine öffentliche Schutzgarantie bitten."}]}}, {"nr": 2, "titel": "Das Ultimatum", "datum": "23.–27. Juli 1914", "minuten": 6, "telegramm": ["WIEN 23. JULI 18 UHR STOP ULTIMATUM AN SERBIEN ÜBERGEBEN STOP FRIST 48 STUNDEN STOP", "10 PUNKTE STOP PUNKT 5 UND 6: K.U.K. ORGANE SOLLEN IN SERBIEN MITWIRKEN UND ERMITTELN STOP", "PARIS: PRÄSIDENT POINCARÉ AUF SEE – RÜCKREISE AUS ST. PETERSBURG STOP", "LONDON: GREY NENNT ULTIMATUM DAS FURCHTBARSTE DOKUMENT GEGEN EINEN UNABHÄNGIGEN STAAT STOP"], "lage": "Das Ultimatum verlangt u. a. die Unterdrückung jeder antiösterreichischen Propaganda und die Mitwirkung österreichischer Organe an Untersuchungen auf serbischem Boden. Es ist bewusst so formuliert, dass Belgrad kaum zustimmen kann, ohne seine Souveränität aufzugeben. Die Frist läuft am 25. Juli um 18 Uhr ab. In allen Hauptstädten wartet man auf Belgrads Antwort – und auf die Reaktion der anderen.", "leitdilemma": "Gesichtswahrung oder Kompromiss? – Kann man nachgeben, ohne als Verlierer dazustehen?", "optionen": {"dr": [{"k": "A", "t": "Den britischen Vorschlag einer Botschafterkonferenz ablehnen: Der Konflikt ist eine Sache zwischen Wien und Belgrad („Lokalisierung“)."}, {"k": "B", "t": "Den Konferenzvorschlag annehmen und Wien zur Teilnahme drängen."}, {"k": "C", "t": "Zum Schein Gesprächsbereitschaft zeigen, Wien intern aber zu raschem Handeln ermutigen."}], "oeu": [{"k": "A", "t": "Jede Antwort, die nicht alle Punkte vorbehaltlos annimmt, gilt als Ablehnung: Abbruch der Beziehungen und Mobilmachung gegen Serbien."}, {"k": "B", "t": "Eine weitgehende Annahme wird als Verhandlungsbasis akzeptiert."}], "ru": [{"k": "A", "t": "Die „Periode der Kriegsvorbereitung“ einleiten und eine Teilmobilmachung gegen Österreich-Ungarn grundsätzlich beschließen."}, {"k": "B", "t": "Nur diplomatisch protestieren und Belgrad zur Annahme raten."}, {"k": "C", "t": "Eine Fristverlängerung für Serbien fordern und sonst abwarten."}], "fr": [{"k": "A", "t": "Russland volle Solidarität zusichern."}, {"k": "B", "t": "Russland zur Mäßigung drängen."}, {"k": "C", "t": "Sich ganz hinter den britischen Konferenzvorschlag stellen."}], "gb": [{"k": "A", "t": "Eine Botschafterkonferenz der unbeteiligten Mächte (GB, FR, DR, Italien) vorschlagen."}, {"k": "B", "t": "Offen erklären, dass Großbritannien an der Seite Frankreichs und Russlands steht."}, {"k": "C", "t": "Andeuten, dass Großbritannien neutral bleiben wird."}], "srb": [{"k": "A", "t": "Das Ultimatum vollständig annehmen, einschließlich der Punkte 5 und 6."}, {"k": "B", "t": "Weitgehend entgegenkommend antworten, aber die Mitwirkung österreichischer Organe an Ermittlungen (Punkt 6) ablehnen – und vorsorglich mobilisieren."}, {"k": "C", "t": "Das Ultimatum als unvereinbar mit der Souveränität zurückweisen."}]}}, {"nr": 3, "titel": "Mobilmachung", "datum": "28.–30. Juli 1914", "minuten": 5, "telegramm": ["BERLIN 28. JULI STOP KAISER LIEST SERBISCHE ANTWORT STOP JEDER KRIEGSGRUND ENTFALLEN STOP", "VORSCHLAG BERLIN: BELGRAD ALS PFAND BESETZEN UND DANN HALT STOP", "WIEN 28. JULI STOP KRIEGSERKLÄRUNG AN SERBIEN STOP 29. JULI BESCHIESSUNG BELGRADS STOP", "ST. PETERSBURG 29. JULI STOP TEILMOBILMACHUNG GEGEN ÖSTERREICH-UNGARN VERKÜNDET STOP"], "lage": "Wilhelm II. hält den Kriegsgrund nach der serbischen Antwort für entfallen und schlägt vor, Österreich solle Belgrad nur als Pfand besetzen („Halt in Belgrad“). Wien erklärt Serbien trotzdem am 28. Juli den Krieg – Kaiser Franz Joseph wurde zuvor über ein angebliches serbisches Gefecht falsch informiert. Belgrad wird beschossen. Russland hat die Teilmobilmachung verkündet. In Berlin ringen Reichskanzler und Generalstab um den Kurs. Ob London eingreifen wird, weiß noch niemand.", "leitdilemma": "Diplomatische Zeit oder militärischer Zeitplan? – Wer zuerst mobilisiert, gewinnt militärisch und verliert diplomatisch.", "optionen": {"dr": [{"k": "A", "t": "Wien unter Androhung des Bündnisentzugs zwingen, bei Belgrad anzuhalten und zu verhandeln."}, {"k": "B", "t": "Dem Generalstab folgen: Wien zur Generalmobilmachung drängen, eigene Mobilmachung vorbereiten."}, {"k": "C", "t": "Zweigleisig: Der Kanzler mahnt Wien zu Verhandlungen, der Generalstab drängt zur Mobilmachung; Großbritannien wird für seine Neutralität ein Angebot gemacht."}], "oeu": [{"k": "A", "t": "„Halt in Belgrad“ annehmen und Verhandlungen über die Großmächte zulassen."}, {"k": "B", "t": "Den Krieg gegen Serbien fortsetzen und jede Vermittlung ablehnen."}], "ru": [{"k": "A", "t": "Bei der Teilmobilmachung gegen Österreich-Ungarn bleiben."}, {"k": "B", "t": "Die Generalmobilmachung aller Streitkräfte anordnen."}, {"k": "C", "t": "Alle Mobilmachungen anhalten und über den Zaren direkt mit Berlin verhandeln."}], "fr": [{"k": "A", "t": "Die Truppen 10 km hinter die Grenze zurückziehen, um vor London nicht als Angreifer dazustehen – Russland aber die Treue bestätigen."}, {"k": "B", "t": "Die eigene Mobilmachung vorbereiten."}, {"k": "C", "t": "Russland ausdrücklich von einer Generalmobilmachung abraten."}], "gb": [{"k": "A", "t": "Berlin vertraulich warnen, dass Großbritannien nicht abseits stehen werde – Frankreich aber keine feste Zusage geben."}, {"k": "B", "t": "Frankreich und Russland öffentlich Beistand zusagen."}, {"k": "C", "t": "Das deutsche Neutralitätsangebot annehmen."}], "srb": [{"k": "A", "t": "Die Großmächte (Zar, London) um Vermittlung anrufen."}, {"k": "B", "t": "Militärischen Widerstand organisieren und auf Russland vertrauen."}, {"k": "C", "t": "Belgrad als Pfand räumen, um einen großen Krieg zu verhindern."}]}}, {"nr": 4, "titel": "Der Automatismus", "datum": "31. Juli – 4. August 1914", "minuten": 4, "telegramm": ["ST. PETERSBURG 31. JULI STOP GENERALMOBILMACHUNG ÖFFENTLICH BEKANNT STOP", "BERLIN: ZUSTAND DROHENDER KRIEGSGEFAHR ERKLÄRT STOP", "WIEN: GENERALMOBILMACHUNG ANGEORDNET STOP", "GENERALSTAB BERLIN: AUFMARSCH WEST VERLANGT DURCHMARSCH DURCH BELGIEN STOP"], "lage": "Russland mobilisiert alle Streitkräfte. Nach deutscher Planung ist das der Ernstfall: Der Aufmarsch verlangt einen sofortigen Angriff auf Frankreich durch Luxemburg und das neutrale Belgien. Belgiens Neutralität wird seit 1839 von den Großmächten garantiert – auch von Großbritannien. Italien, Partner des Dreibunds, wird sich für neutral erklären.", "leitdilemma": "Vertragstreue oder „militärische Notwendigkeit“? – Und: Gibt es noch einen Weg zurück?", "optionen": {"dr": [{"k": "A", "t": "Ultimaten an Russland (12 Std.) und Frankreich (18 Std.); danach Kriegserklärung an Russland, Einmarsch in Luxemburg und Belgien nach Aufmarschplan."}, {"k": "B", "t": "Nur im Osten aufmarschieren und Frankreich nicht angreifen – gegen den Rat des Generalstabs („undurchführbar“)."}, {"k": "C", "t": "Abwarten und dem Zaren über den persönlichen Draht eine letzte Frist anbieten."}], "oeu": [{"k": "A", "t": "Generalmobilmachung, Krieg auch gegen Russland."}, {"k": "B", "t": "Den Schwerpunkt auf Serbien legen und Russland direkte Gespräche anbieten."}], "ru": [{"k": "A", "t": "Das deutsche Ultimatum verstreichen lassen – die Mobilmachung ist nicht umkehrbar."}, {"k": "B", "t": "Die Mobilmachung einstellen, um den Krieg mit Deutschland zu vermeiden."}], "fr": [{"k": "A", "t": "Mobilmachung (1. August) und Beistand für Russland."}, {"k": "B", "t": "Neutralität erklären – und dafür die geforderten Festungen Toul und Verdun als Pfand übergeben."}], "gb": [{"k": "A", "t": "Falls Deutschland Belgien angreift: Ultimatum an Berlin und Kriegseintritt."}, {"k": "B", "t": "Neutral bleiben, auch wenn Belgien überfallen wird."}, {"k": "C", "t": "Nur die französische Nordküste mit der Flotte schützen."}], "srb": [{"k": "A", "t": "Den Kampf an der Seite Russlands fortsetzen."}, {"k": "B", "t": "Wien einen Separatfrieden anbieten."}]}}], "positionen": [{"id": "lloyd", "pos": 1, "kurz": "Hineingeschlittert", "autor": "David Lloyd George", "werk": "War Memoirs, 1933–36", "these": "Keine Regierung habe den Krieg gewollt. Die Nationen seien in einer kollektiven Überforderung „über den Rand“ in den Krieg geglitten. Diese Deutung prägte die Zwischenkriegszeit und entlastete alle Beteiligten gleichermaßen.", "zitat": "„The nations slithered over the brink into the boiling cauldron of war.“ – „Die Nationen schlitterten über den Rand in den brodelnden Kessel des Krieges.“", "beleg": "Zitat vor dem Druck an der Originalausgabe prüfen (War Memoirs, Bd. 1).", "geprueft": false, "pruefFrage": "Wo hatten die Kabinette im Spiel keine echte Wahl mehr – und wo doch?"}, {"id": "fischer", "pos": 4, "kurz": "Griff nach der Weltmacht", "autor": "Fritz Fischer", "werk": "Griff nach der Weltmacht, 1961", "these": "Das Deutsche Reich trägt einen entscheidenden Teil der Verantwortung. Berlin habe den Krieg Österreichs gegen Serbien gewollt und gedeckt und bewusst den großen Konflikt riskiert, um aus der Isolation auszubrechen und Weltmacht zu werden. Die Kriegsziele zeigen eine Kontinuität deutscher Machtpolitik.", "zitat": "Nach dieser Sichtweise „stolperten oder schlitterten die Deutschen nicht in den Krieg. Sie entschieden sich für ihn – schlimmer noch, sie planten ihn im Voraus, in der Hoffnung, aus ihrer europäischen Isolation auszubrechen und den berüchtigten ‚Griff nach der Weltmacht‘ zu wagen.“", "beleg": "Zusammenfassung der Fischer-Schule bei Clark, Die Schlafwandler, S. 798.", "geprueft": true, "pruefFrage": "Welche Entscheidungen Berlins im Spiel (Runde 1–4) stützen diese These?"}, {"id": "clark", "pos": 2, "kurz": "Schlafwandler", "autor": "Christopher Clark", "werk": "Die Schlafwandler, 2012 (dt. 2013)", "these": "Die Krise war multipolar und interaktiv; alle Hauptakteure trugen Verantwortung. Die Frage nach dem einen Schuldigen verengt den Blick. Wichtiger sei, wie die Akteure unter Misstrauen, Zeitdruck und eigenen Deutungsmustern handelten.", "zitat": "„Der Kriegsausbruch von 1914 ist kein Agatha-Christie-Thriller […]. In dieser Geschichte gibt es keine Tatwaffe als unwiderlegbaren Beweis, oder genauer: Es gibt sie in der Hand jedes einzelnen wichtigen Akteurs. So gesehen war der Kriegsausbruch eine Tragödie, kein Verbrechen.“ (S. 799) – „So gesehen waren die Protagonisten von 1914 Schlafwandler – wachsam, aber blind, von Albträumen geplagt, aber unfähig, die Realität der Gräuel zu erkennen, die sie in Kürze in die Welt setzen sollten.“ (S. 801)", "beleg": "Clark, Die Schlafwandler, München: DVA 2013, S. 799 und 801.", "geprueft": true, "pruefFrage": "Wo hat im Spiel jede Macht (auch Russland, Frankreich, Serbien) zur Eskalation beigetragen?"}, {"id": "krumeich", "pos": 3, "kurz": "Kalkuliertes Risiko", "autor": "Gerd Krumeich / Annika Mombauer", "werk": "Juli 1914. Eine Bilanz, 2014 / Die Julikrise, 2014", "these": "Berlin und Wien hatten in der Julikrise die Initiative und trugen die Hauptverantwortung. Berlin betrieb eine Politik des kalkulierten Risikos: Es wollte einen lokalen Krieg und nahm den großen Krieg bewusst in Kauf, weil es glaubte, ihn jetzt noch gewinnen zu können. Andere Mächte trugen Mitverantwortung, reagierten aber vor allem auf die Initiative der Mittelmächte.", "zitat": "Beleg aus der Quelle: Bethmann Hollweg selbst hielt schon Anfang Juli fest, dass eine „Aktion gegen Serbien zum Weltkrieg werden“ könne – ein „Sprung ins Dunkle“ (Riezler-Tagebuch, zit. n. Hellfeld, S. 252).", "beleg": "Kernthese als Paraphrase – vor dem Druck mit Krumeich 2014 bzw. Mombauer 2014 abgleichen.", "geprueft": false, "pruefFrage": "Wer hat im Spiel die Initiative ergriffen – und wer hat nur reagiert?"}], "linie": [{"id": "l1", "label": "Hineingeschlittert", "sub": "Lloyd George"}, {"id": "l2", "label": "Geteilte Verantwortung", "sub": "Clark"}, {"id": "l3", "label": "Hauptverantwortung mit Mitverantwortung", "sub": ""}, {"id": "l4", "label": "Kalkuliertes Risiko", "sub": "Krumeich / Mombauer"}, {"id": "l5", "label": "Bewusst entfesselt", "sub": "Fischer"}], "aufgaben": {"experten": [{"op": "Arbeiten Sie", "rest": " die Kernthese Ihrer Forschungsposition und deren zentrales Argument heraus.", "afb": "II"}, {"op": "Überprüfen Sie", "rest": " die These an mindestens zwei konkreten Entscheidungen aus dem Spiel.", "afb": "III"}], "weggabelung": [{"op": "Beurteilen Sie", "rest": ", an welcher Weggabelung der Krieg 1914 am ehesten hätte verhindert werden können – und warum sie nicht genutzt wurde.", "afb": "III · Sachurteil"}], "plenum": [{"op": "Beurteilen Sie", "rest": ", inwieweit der Kriegsausbruch 1914 eher auf strukturelle Zwänge oder auf bewusste Entscheidungen zurückzuführen ist.", "afb": "III · Sachurteil"}], "hausaufgabe": [{"op": "Erörtern Sie", "rest": " Clarks These, die Protagonisten von 1914 seien „Schlafwandler“ gewesen (ca. 1,5 Seiten).", "afb": "III"}, {"op": "Nehmen Sie Stellung", "rest": " zu der Frage, ob „Kriegsschuld“ eine angemessene Kategorie historischen Urteilens ist.", "afb": "III · Werturteil"}]}, "exitTicket": ["3 Faktoren, die den Handlungsspielraum 1914 verengten", "2 Unterschiede zwischen Fischer und Clark", "1 Weggabelung, an der der Krieg am ehesten vermeidbar war – beurteilen Sie sie in zwei Sätzen"], "realismus": ["kaum möglich", "eher schwer", "eher möglich", "gut möglich"], "codeHash": {"r1": "p7ud89", "r2": "aycgl0", "r3": "15q76ne", "r4": "13ykhtr", "abschluss": "ga2y86"}, "wg64": "eyJ3ZWdnYWJlbHVuZ2VuIjogW3sibnIiOiAxLCAiZGF0dW0iOiAiQW5mYW5nIEp1bGkiLCAib3J0IjogIkJlbGdyYWQiLCAiYWt0ZXVyIjogIlNlcmJpc2NoZSBSZWdpZXJ1bmciLCAiciI6IDEsICJ3YWhsIjogeyJzcmIiOiBbIkEiXX0sICJhdXNzdGllZyI6ICJPZmZlbiBnZWdlbiBkYXMgT2ZmaXppZXJzbmV0endlcmsgKOKAnlNjaHdhcnplIEhhbmTigJwpIGVybWl0dGVsbiwgYXVzIGRlbSBkaWUgQXR0ZW50w6R0ZXIgSGlsZmUgZXJoaWVsdGVuLiIsICJ3YXJ1bU5pY2h0IjogIkRhcyBNaWxpdMOkciB3YXIgbcOkY2h0aWcsIGltIEF1Z3VzdCBzdGFuZGVuIFdhaGxlbiBhbiDigJMgZWluZSBVbnRlcnN1Y2h1bmcgaMOkdHRlIGRpZSBSZWdpZXJ1bmcgc2VsYnN0IGdlZsOkaHJkZXQuIn0sIHsibnIiOiAyLCAiZGF0dW0iOiAiNS4vNi4gSnVsaSIsICJvcnQiOiAiQmVybGluIiwgImFrdGV1ciI6ICJXaWxoZWxtIElJLiB1bmQgQmV0aG1hbm4gSG9sbHdlZyIsICJyIjogMSwgIndhaGwiOiB7ImRyIjogWyJCIiwgIkMiXX0sICJhdXNzdGllZyI6ICJEaWUgVW50ZXJzdMO8dHp1bmcgV2llbnMgYW4gQmVkaW5ndW5nZW4ga27DvHBmZW4gc3RhdHQgZWluZW4g4oCeQmxhbmtvc2NoZWNr4oCcIGF1c3p1c3RlbGxlbi4iLCAid2FydW1OaWNodCI6ICJBbmdzdCwgZGVuIGVpbnppZ2VuIHZlcmzDpHNzbGljaGVuIFZlcmLDvG5kZXRlbiB6dSB2ZXJsaWVyZW47IFByw6R2ZW50aXZrcmllZ3NkZW5rZW47IEhvZmZudW5nLCBkZXIgS3JpZWcgYmxlaWJlIGxva2FsLiJ9LCB7Im5yIjogMywgImRhdHVtIjogIjEzLiBKdWxpIiwgIm9ydCI6ICJXaWVuIiwgImFrdGV1ciI6ICJCZXJjaHRvbGQgdW5kIGRlciBNaW5pc3RlcnJhdCIsICJyIjogMSwgIndhaGwiOiB7Im9ldSI6IFsiQyJdfSwgImF1c3N0aWVnIjogIkRlbiBXaWVzbmVyLUJlcmljaHQgZXJuc3QgbmVobWVuOiBFaW5lIE1pdHNjaHVsZCBkZXIgc2VyYmlzY2hlbiBSZWdpZXJ1bmcgd2FyIG5pY2h0IGVyd2llc2VuLiIsICJ3YXJ1bU5pY2h0IjogIkRpZSBFbnRzY2hlaWR1bmcgenVyIOKAnkFicmVjaG51bmfigJwgd2FyIGJlcmVpdHMgZ2VmYWxsZW47IGVpbiBSw7xja3ppZWhlciBow6R0dGUgYWxzIFNjaHfDpGNoZSBnZWdvbHRlbi4ifSwgeyJuciI6IDQsICJkYXR1bSI6ICJKdWxpIiwgIm9ydCI6ICJMb25kb24iLCAiYWt0ZXVyIjogIkdyZXkgdW5kIGRhcyBLYWJpbmV0dCIsICJyIjogMSwgIndhaGwiOiB7ImdiIjogWyJCIiwgIkMiXX0sICJhdXNzdGllZyI6ICJGcsO8aHplaXRpZyB3YXJuZW4gb2RlciB2ZXJtaXR0ZWxuLCBzb2xhbmdlIG5vY2ggbmljaHRzIGVudHNjaGllZGVuIHdhci4iLCAid2FydW1OaWNodCI6ICJEaWUgSXJsYW5ka3Jpc2UgYmFuZCBhbGxlIEtyw6RmdGU7IGRpZSBHZWZhaHIgYXVmIGRlbSBCYWxrYW4gd3VyZGUgdW50ZXJzY2jDpHR6dC4gT2IgZWluZSBmcsO8aGUgV2FybnVuZyBCZXJsaW4gZ2VicmVtc3QgaMOkdHRlLCBpc3QgdW1zdHJpdHRlbi4ifSwgeyJuciI6IDUsICJkYXR1bSI6ICIyMC7igJMyMy4gSnVsaSIsICJvcnQiOiAiU3QuIFBldGVyc2J1cmciLCAiYWt0ZXVyIjogIlBvaW5jYXLDqSB1bmQgU2Fzb25vdyIsICJyIjogMSwgIndhaGwiOiB7ImZyIjogWyJCIl0sICJydSI6IFsiQiJdfSwgImF1c3N0aWVnIjogIkVpbmFuZGVyIHp1ciBNw6TDn2lndW5nIGRyw6RuZ2VuIHN0YXR0IHNpY2ggZ2VnZW5zZWl0aWcgZGVuIFLDvGNrZW4genUgc3TDpHJrZW4uIiwgIndhcnVtTmljaHQiOiAiQmVpZGUgZsO8cmNodGV0ZW4gdW0gZGVuIEJlc3RhbmQgZGVzIELDvG5kbmlzc2VzOyBSdXNzbGFuZCB3b2xsdGUga2VpbmUgendlaXRlIERlbcO8dGlndW5nIHdpZSAxOTA4LzA5LiJ9LCB7Im5yIjogNiwgImRhdHVtIjogIjI1LiBKdWxpIiwgIm9ydCI6ICJXaWVuIiwgImFrdGV1ciI6ICJCZXJjaHRvbGQiLCAiciI6IDIsICJ3YWhsIjogeyJvZXUiOiBbIkIiXSwgInNyYiI6IFsiQSJdfSwgImF1c3N0aWVnIjogIkRpZSBzZWhyIGVudGdlZ2Vua29tbWVuZGUgc2VyYmlzY2hlIEFudHdvcnQgYWxzIFZlcmhhbmRsdW5nc2Jhc2lzIGFubmVobWVuLiIsICJ3YXJ1bU5pY2h0IjogIkRhcyBVbHRpbWF0dW0gd2FyIGF1ZiBBYmxlaG51bmcgYW5nZWxlZ3Q7IFdpZW4gd29sbHRlIFNlcmJpZW4gYWxzIE1hY2h0ZmFrdG9yIGF1c3NjaGFsdGVuLiJ9LCB7Im5yIjogNywgImRhdHVtIjogIjI2Li8yNy4gSnVsaSIsICJvcnQiOiAiQmVybGluIiwgImFrdGV1ciI6ICJSZWljaHNsZWl0dW5nIiwgInIiOiAyLCAid2FobCI6IHsiZHIiOiBbIkIiXX0sICJhdXNzdGllZyI6ICJHcmV5cyBWb3JzY2hsYWcgZWluZXIgQm90c2NoYWZ0ZXJrb25mZXJlbnogZGVyIHVuYmV0ZWlsaWd0ZW4gTcOkY2h0ZSBhbm5laG1lbi4iLCAid2FydW1OaWNodCI6ICJCZXJsaW4gc2V0enRlIGF1ZiDigJ5Mb2thbGlzaWVydW5n4oCcIHVuZCBmw7xyY2h0ZXRlLCBpbiBlaW5lciBLb25mZXJlbnogw7xiZXJzdGltbXQgenUgd2VyZGVuLiJ9LCB7Im5yIjogOCwgImRhdHVtIjogIjI4Li8yOS4gSnVsaSIsICJvcnQiOiAiV2llbiB1bmQgQmVybGluIiwgImFrdGV1ciI6ICJCZXJjaHRvbGQsIFdpbGhlbG0gSUkuLCBCZXRobWFubiBIb2xsd2VnIiwgInIiOiAzLCAid2FobCI6IHsib2V1IjogWyJBIl0sICJkciI6IFsiQSJdfSwgImF1c3N0aWVnIjogIuKAnkhhbHQgaW4gQmVsZ3JhZOKAnDogQmVsZ3JhZCBudXIgYWxzIFBmYW5kIGJlc2V0emVuIHVuZCB2ZXJoYW5kZWxuIOKAkyBzZWxic3QgV2lsaGVsbSBJSS4gaGllbHQgZGVuIEtyaWVnc2dydW5kIGbDvHIgZW50ZmFsbGVuLiIsICJ3YXJ1bU5pY2h0IjogIldpZW4gbGVobnRlIGFiOyBCZXJsaW4gZHLDpG5ndGUgc3DDpHQgdW5kIGhhbGJoZXJ6aWcsIHfDpGhyZW5kIGRlciBHZW5lcmFsc3RhYiBnbGVpY2h6ZWl0aWcgenVyIE1vYmlsbWFjaHVuZyByaWV0LiJ9LCB7Im5yIjogOSwgImRhdHVtIjogIjI5Li8zMC4gSnVsaSIsICJvcnQiOiAiU3QuIFBldGVyc2J1cmciLCAiYWt0ZXVyIjogIlphciBOaWtvbGF1cyBJSS4iLCAiciI6IDMsICJ3YWhsIjogeyJydSI6IFsiQSIsICJDIl19LCAiYXVzc3RpZWciOiAiQmVpIGRlciBUZWlsbW9iaWxtYWNodW5nIGJsZWliZW4gb2RlciBzaWUgYW5oYWx0ZW4g4oCTIGRlciBaYXIgesO2Z2VydGUgdGF0c8OkY2hsaWNoIGVpbmVuIEFiZW5kIGxhbmcuIiwgIndhcnVtTmljaHQiOiAiRGVyIEdlbmVyYWxzdGFiIGhpZWx0IGVpbmUgVGVpbG1vYmlsbWFjaHVuZyBmw7xyIHVuZHVyY2hmw7xocmJhciB1bmQgZsO8cmNodGV0ZSBkZW4gZGV1dHNjaGVuIFZvcnNwcnVuZy4ifSwgeyJuciI6IDEwLCAiZGF0dW0iOiAiMS4gQXVndXN0IiwgIm9ydCI6ICJCZXJsaW4iLCAiYWt0ZXVyIjogIldpbGhlbG0gSUkuIHVuZCBNb2x0a2UiLCAiciI6IDQsICJ3YWhsIjogeyJkciI6IFsiQiIsICJDIl19LCAiYXVzc3RpZWciOiAiTmljaHQgaW0gV2VzdGVuIGFuZ3JlaWZlbiB1bmQgQmVsZ2llbnMgTmV1dHJhbGl0w6R0IGFjaHRlbiDigJMgZGFtaXQgd8OkcmUgR3Jvw59icml0YW5uaWVuIHdvaGwgbmV1dHJhbCBnZWJsaWViZW4uIiwgIndhcnVtTmljaHQiOiAiRXMgZ2FiIG51ciBlaW5lbiBBdWZtYXJzY2hwbGFuOyBNb2x0a2UgZXJrbMOkcnRlIGVpbmVuIHJlaW5lbiBPc3RhdWZtYXJzY2ggZsO8ciDigJ51bmR1cmNoZsO8aHJiYXLigJwuIn1dLCAiZmF6aXQiOiBbeyJ0ZXh0IjogIuKAnlVuZCBkZW5ub2NoIHdhciBkZXIgRXJzdGUgV2VsdGtyaWVnIG5pY2h0IHVudmVybWVpZGxpY2gsIGVyIGjDpHR0ZSBiaXMga3VyeiB2b3IgZGVtIGVyc3RlbiBTY2h1c3MgZ2VzdG9wcHQgd2VyZGVuIGvDtm5uZW4uIEFiZXIga2VpbmVyIGRlciBldXJvcMOkaXNjaGVuIFN0YWF0c23DpG5uZXIgd2FndGUgZWluZSBzb2xjaGUgd2FocmxpY2ggaGVsZGVuaGFmdGUgQWt0aW9uLuKAnCIsICJxdWVsbGUiOiAiSGVsbGZlbGQsIEthcC4gMTEsIFMuIDI1MCJ9LCB7InRleHQiOiAiRGVyIEtyaWVnIGjDpHR0ZSDigJ5iZWkgbWVociBwb2xpdGlzY2hlciBXZWl0c2ljaHQgdW5kIFVydGVpbHNrcmFmdCB2ZXJtaWVkZW4gd2VyZGVuIGvDtm5uZW7igJwuIiwgInF1ZWxsZSI6ICJIZXJmcmllZCBNw7xua2xlciwgRGVyIEdyb8OfZSBLcmllZywgMjAxMzsgeml0LiBuLiBIZWxsZmVsZCwgUy4gMjUwIn0sIHsidGV4dCI6ICLigJ5LZWluIGVpbnppZ2VzIGRlciBBbmxpZWdlbiwgZsO8ciBkaWUgZGllIFBvbGl0aWtlciB2b24gMTkxNCBzdHJpdHRlbiwgd2FyIGRpZSBkYXJhdWZmb2xnZW5kZSBLYXRhc3Ryb3BoZSB3ZXJ0LuKAnCIsICJxdWVsbGUiOiAiQ2xhcmssIERpZSBTY2hsYWZ3YW5kbGVyLCBTLiA4MDAifV19"};
+</script>
+<script>
+(function(){
+"use strict";
+const $ = (s, el=document) => el.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const KEY = "jk1914_schueler_v2";
+const ROUNDS = JK.runden.map(r => "r"+r.nr);
+
+/* ---------- Zustand (nur auf diesem Gerät) ---------- */
+const blank = () => ({ kab:null, anw:[], view:"start", unlocked:{}, runden:{}, abschluss:{ exit:["","",""], wgRating:{}, wgBest:"", wgBegr:"" } });
+let S = blank();
+try { const raw = localStorage.getItem(KEY); if (raw) S = Object.assign(blank(), JSON.parse(raw)); } catch(e){}
+let saveT = null;
+const flush = () => { clearTimeout(saveT); try { localStorage.setItem(KEY, JSON.stringify(S)); } catch(e){} };
+const save = () => { clearTimeout(saveT); saveT = setTimeout(flush, 250); };
+window.addEventListener("pagehide", flush);
+document.addEventListener("visibilitychange", () => { if (document.visibilityState === "hidden") flush(); });
+const rs = id => (S.runden[id] = S.runden[id] || { sprecher:"", option:"", begr:"", risiko:"", info:"", gegen:[], gegenGrund:"", locked:false, hist:"", abwErk:"", tele:{ an:"", text:"", fertig:false }, post:"" });
+
+function hash(s){
+  s = String(s).toUpperCase().replace(/Ä/g,"AE").replace(/Ö/g,"OE").replace(/Ü/g,"UE").replace(/ß/g,"SS").replace(/[^A-Z0-9]/g,"");
+  let x = 2166136261; for (let i=0;i<s.length;i++){ x ^= s.charCodeAt(i); x = Math.imul(x,16777619) >>> 0; } return x.toString(36);
+}
+const kab = id => JK.kabinette.find(k => k.id===id);
+const rolle = id => JK.rollen.find(r => r.id===id);
+let WG = null;
+function wg(){ if (!WG){ try { const bin = atob(JK.wg64), bytes = new Uint8Array(bin.length); for (let i=0;i<bin.length;i++) bytes[i]=bin.charCodeAt(i); WG = JSON.parse(new TextDecoder().decode(bytes)); } catch(e){ WG = { weggabelungen:[], fazit:[] }; } } return WG; }
+const present = () => JK.rollen.filter(r => r.kab===S.kab && S.anw.includes(r.id)).sort((a,b)=>a.prio-b.prio);
+function toast(msg){ const t=$("#toast"); t.textContent=msg; t.hidden=false; clearTimeout(t._h); t._h=setTimeout(()=>t.hidden=true,2200); }
+const words = s => (s.trim().match(/\S+/g)||[]).length;
+
+/* ---------- Kopf ---------- */
+function renderTop(){
+  const top = $("#top");
+  if (!S.kab){ top.hidden = true; document.documentElement.removeAttribute("data-block"); return; }
+  top.hidden = false;
+  const k = kab(S.kab);
+  document.documentElement.setAttribute("data-block", k.block);
+  const tab = (id, label, extra="") => `<button data-view="${id}" ${S.view===id?'aria-current="page"':""}>${label}${extra}</button>`;
+  const rTabs = JK.runden.map(x => { const id="r"+x.nr, st=S.runden[id];
+    return tab(id, "Runde "+x.nr, !S.unlocked[id] ? '<span class="lock">gesperrt</span>' : st&&st.locked ? '<span class="done">✓</span>' : ""); }).join("");
+  top.innerHTML = `<div class="top-in">
+    <div class="id"><div class="brand">Kabinettsakte 1914</div>
+      <div class="who"><span class="dot"></span><b>Kabinett ${esc(k.name)}</b><span>· ${esc(k.ort)} · ${S.anw.length} am Tisch</span></div></div>
+    <nav class="tabs" aria-label="Bereiche">${tab("kabinett","Kabinett")}${rTabs}${tab("protokoll","Protokoll")}${tab("abschluss","Abschluss", !S.unlocked.abschluss?'<span class="lock">gesperrt</span>':"")}</nav>
+  </div>`;
+}
+
+/* ---------- Start: Kabinett wählen ---------- */
+function vStart(){
+  const tiles = JK.kabinette.map(x => `<button class="tile" data-block="${esc(x.block)}" data-pickkab="${x.id}">
+      <span>${esc(x.ort)}</span><b>${esc(x.name)}</b><small>${JK.rollen.filter(r=>r.kab===x.id).map(r=>esc(r.name.replace(/^(Kaiser|Zar|Oberst|Sir) /,""))).join(" · ")}</small></button>`).join("");
+  return `<div class="eyebrow">Julikrise 1914 · Entscheidungsspiel</div>
+    <h1 class="h1">Fünf Wochen im Sommer</h1>
+    <p class="lead">${esc(JK.meta.leitfrage)}</p>
+    <div class="panel"><h3>Welches Kabinett sitzt an diesem PC?</h3><div class="grid">${tiles}</div>
+      <p class="note">Eure Rollenkarten habt ihr auf Papier. Lest sie still und zeigt sie euch nicht gegenseitig.</p></div>`;
+}
+
+/* ---------- Kabinett ---------- */
+function vKabinett(){
+  const k = kab(S.kab), list = JK.rollen.filter(r=>r.kab===k.id).sort((a,b)=>a.prio-b.prio);
+  const absent = list.filter(r=>!S.anw.includes(r.id));
+  return `<div><div class="eyebrow">${esc(k.ort)}</div><h1 class="h1">Kabinett ${esc(k.name)}</h1></div>
+    <div class="panel"><h3>Wer sitzt heute am Tisch?</h3>
+      <fieldset>${list.map(r=>`<label class="opt"><input type="checkbox" data-anw="${r.id}" ${S.anw.includes(r.id)?"checked":""} ${r.leit?"disabled":""}><b></b><span><b style="font-family:var(--f-sans)">${esc(r.name)}</b> – ${esc(r.amt)}${r.leit?' <span class="note">(Leitrolle, immer besetzt)</span>':""}</span></label>`).join("")}</fieldset>
+      ${absent.length ? `<p class="note">Nicht besetzt: ${absent.map(r=>esc(r.name)).join(", ")} – die Leitrolle bringt diese Stimmen ein (siehe ihre Rollenkarte).</p>` : ""}
+    </div>
+    <div class="panel"><h3>So arbeitet ihr am PC</h3><ol>
+      <li>Jede Runde schaltet ihr mit dem Code vom Beamer frei.</li>
+      <li>Ihr beratet aus Sicht eurer Rollen. Wer gerade tippt, entscheidet ihr selbst.</li>
+      <li>Vor Ablauf des Timers haltet ihr den Beschluss fest. Der Sprecher der Runde verkündet ihn.</li>
+      <li>Nach der Aufdeckung am Beamer tragt ihr ein, wie 1914 entschieden wurde.</li></ol></div>
+    <div class="panel"><h3>Spielregeln</h3><ol>${JK.regeln.map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>
+    <div class="btns noprint"><button class="btn" data-view="r1">Weiter zu Runde 1</button><button class="btn ghost" data-act="switch">Anderes Kabinett wählen</button></div>`;
+}
+
+/* ---------- Code-Sperre ---------- */
+function vLocked(id, label){
+  return `<div class="eyebrow">${esc(label)}</div>
+    <div class="cover"><h3>Noch gesperrt</h3><p>Die Spielleitung zeigt den Freischaltcode am Beamer, sobald es losgeht.</p>
+      <form class="codeform" data-code="${id}"><label class="fld" style="flex:1 1 220px">Freischaltcode<input type="text" id="code_${id}" autocomplete="off" autocapitalize="characters" spellcheck="false"></label>
+      <button class="btn" type="submit" style="align-self:flex-end">Freischalten</button></form>
+      <p class="err" id="err_${id}"></p></div>`;
+}
+
+/* ---------- Runde ---------- */
+function vRunde(r){
+  const id = "r"+r.nr;
+  if (!S.unlocked[id]) return vLocked(id, "Runde "+r.nr+" · "+r.titel);
+  const k = kab(S.kab), st = rs(id), opts = r.optionen[S.kab], lock = st.locked;
+  const others = JK.kabinette.filter(x=>x.id!==S.kab);
+  const chosen = opts.find(o=>o.k===st.option);
+  const histDone = !!st.hist;
+  return `<div><div class="eyebrow">Runde ${r.nr} von ${JK.runden.length} · ${esc(r.datum)}</div><h1 class="h1">${esc(r.titel)}</h1></div>
+    <div class="telegram"><div class="hdr"><span>Telegramm · Eingang ${esc(k.ort)}</span><span>${esc(r.datum)}</span></div>
+      <ol>${r.telegramm.map(t=>`<li>${esc(t)}</li>`).join("")}</ol></div>
+    <p>${esc(r.lage)}</p>
+    <p class="dilemma">${esc(r.leitdilemma)}</p>
+
+    ${r.nr>1 ? `<div class="panel"><h3>Posteingang</h3><label class="fld">Telegramme, die euch zu Beginn dieser Runde zugestellt wurden<small>Absender und Kerninhalt notieren</small><textarea data-bind="${id}.post" ${lock?"disabled":""}>${esc(st.post)}</textarea></label></div>` : ""}
+
+    <form class="panel" data-beschluss="${id}">
+      <h3>Beschluss des Kabinetts ${esc(k.name)}</h3>
+      <p class="note">Die Zeit läuft am Beamer. Wählt genau eine Option und begründet sie aus Sicht eurer Rollen im Jahr ${r.datum.slice(-4)}.</p>
+      <label class="fld">Sprecher/in dieser Runde<small>Wechselt jede Runde</small><select data-bind="${id}.sprecher" ${lock?"disabled":""}><option value="">– wählen –</option>${present().map(x=>`<option value="${x.id}" ${st.sprecher===x.id?"selected":""} ${spokeBefore(r.nr,x.id)?"disabled":""}>${esc(x.name)}${spokeBefore(r.nr,x.id)?" (war schon Sprecher)":""}</option>`).join("")}</select></label>
+      <fieldset ${lock?"disabled":""}><legend>Optionen</legend>
+        ${opts.map(o=>`<label class="opt"><input type="radio" name="opt_${id}" value="${o.k}" ${st.option===o.k?"checked":""} data-bind="${id}.option"><b>${o.k}</b><span>${esc(o.t)}</span></label>`).join("")}
+      </fieldset>
+      <label class="fld">Begründung aus Sicht eurer Rollen<small>Pflichtfeld – mit Bezug auf Ziele und rote Linien</small><textarea data-bind="${id}.begr" ${lock?"disabled":""}>${esc(st.begr)}</textarea></label>
+      <label class="fld">Größtes Risiko dieser Entscheidung<textarea data-bind="${id}.risiko" ${lock?"disabled":""} style="min-height:60px">${esc(st.risiko)}</textarea></label>
+      <label class="fld">Was wissen wir in diesem Moment nicht?<textarea data-bind="${id}.info" ${lock?"disabled":""} style="min-height:60px">${esc(st.info)}</textarea></label>
+      <fieldset ${lock?"disabled":""}><legend>Gegenstimmen im Kabinett <span class="note">(optional)</span></legend>
+        <div class="seg">${present().map(x=>`<button type="button" data-gegen="${id}|${x.id}" aria-pressed="${st.gegen.includes(x.id)}" style="font-family:var(--f-sans);font-weight:500">${esc(x.name)}</button>`).join("")}</div>
+        ${st.gegen.length?`<label class="fld">Warum waren sie dagegen?<input type="text" data-bind="${id}.gegenGrund" value="${esc(st.gegenGrund)}" ${lock?"disabled":""}></label>`:""}
+      </fieldset>
+      ${lock ? `<span class="stamp">Beschlossen · Option ${esc(st.option)}</span>
+        <div class="btns"><button class="btn seal" type="button" data-act="announce" data-r="${id}">Beschluss verkünden</button><button class="btn ghost" type="button" data-act="unlock" data-r="${id}">${S._confirmUnlock===id?"Wirklich ändern? Nur mit Erlaubnis der Spielleitung":"Beschluss ändern"}</button></div>`
+      : `<button class="btn" type="submit">Beschluss festhalten</button><p class="err" id="berr_${id}"></p>`}
+    </form>
+
+    <div class="panel"><h3>Telegramm verfassen <span class="note">(optional, eins pro Runde)</span></h3>
+      <label class="fld">An<select data-bind="${id}.tele.an" ${st.tele.fertig?"disabled":""}><option value="">– Empfänger wählen –</option>${others.map(x=>`<option value="${x.id}" ${st.tele.an===x.id?"selected":""}>${esc(x.name)} (${esc(x.ort)})</option>`).join("")}</select></label>
+      <label class="fld">Text<small>Höchstens 25 Wörter. Sätze enden mit STOP.</small><textarea data-bind="${id}.tele.text" id="tt_${id}" ${st.tele.fertig?"disabled":""} style="font-family:var(--f-mono);text-transform:uppercase">${esc(st.tele.text)}</textarea></label>
+      <div class="count ${words(st.tele.text)>25?"over":""}" id="tc_${id}">${words(st.tele.text)} / 25 Wörter</div>
+      <div class="btns">${st.tele.fertig
+        ? `<button class="btn seal" data-act="deliver" data-r="${id}">Zustellansicht öffnen</button><button class="btn ghost" data-act="teleedit" data-r="${id}">Bearbeiten</button>`
+        : `<button class="btn" data-act="telefertig" data-r="${id}">Telegramm fertig</button>`}</div>
+      <p class="note">Zugestellt wird zu Beginn der nächsten Runde: Euer Bote zeigt die Zustellansicht beim Empfänger vor.</p>
+    </div>
+
+    ${lock ? `<div class="panel"><h3>Nach der Aufdeckung am Beamer</h3>
+      <p>Welche Option wählte ${esc(k.name)} 1914?</p>
+      <div class="seg">${opts.map(o=>`<button data-hist="${id}|${o.k}" aria-pressed="${st.hist===o.k}">${o.k}</button>`).join("")}</div>
+      ${histDone ? (st.hist===st.option ? '<span class="pill same">Wie 1914 entschieden</span>' : '<span class="pill diff">Abweichend von 1914</span>') + `
+        <label class="fld">${st.hist===st.option ? "Erklärt in einem Satz, warum ihr genauso entschieden habt." : "Erklärt in einem Satz, warum ihr anders entschieden habt – und ob das 1914 möglich gewesen wäre."}<textarea data-bind="${id}.abwErk">${esc(st.abwErk)}</textarea></label>` : ""}
+      ${r.nr < JK.runden.length ? `<button class="btn ghost" data-view="r${r.nr+1}">Weiter zu Runde ${r.nr+1}</button>` : `<button class="btn ghost" data-view="protokoll">Zum Protokoll</button>`}
+    </div>` : ""}`;
+}
+
+/* ---------- Protokoll ---------- */
+function protocolText(){
+  const k = kab(S.kab);
+  let t = `KABINETTSPROTOKOLL – ${k.name} (${k.ort})\nAm Tisch: ${present().map(x=>x.name+" ("+x.amt+")").join(", ")}\nJulikrise 1914 · Entscheidungsspiel\n\n`;
+  JK.runden.forEach(x => {
+    const st = S.runden["r"+x.nr]; if (!st) return;
+    const o = x.optionen[S.kab].find(y=>y.k===st.option);
+    t += `RUNDE ${x.nr} – ${x.titel} (${x.datum})\n`;
+    if (st.post) t += `Posteingang: ${st.post}\n`;
+    t += `Beschluss: ${o ? o.k+" – "+o.t : "–"}\nBegründung: ${st.begr||"–"}\nRisiko: ${st.risiko||"–"}\nFehlende Information: ${st.info||"–"}\n`;
+    if (st.sprecher) t += `Sprecher/in: ${rolle(st.sprecher)?.name||"–"}\n`;
+    if (st.gegen.length) t += `Gegenstimmen: ${st.gegen.map(g=>rolle(g)?.name).join(", ")}${st.gegenGrund?" – "+st.gegenGrund:""}\n`;
+    if (st.tele.fertig) t += `Telegramm an ${kab(st.tele.an)?.name||"?"}: ${st.tele.text.toUpperCase()}\n`;
+    if (st.hist) t += `1914: Option ${st.hist} – ${st.hist===st.option?"wie 1914":"abweichend"}${st.abwErk?" · "+st.abwErk:""}\n`;
+    t += "\n";
+  });
+  const a = S.abschluss;
+  if (S.unlocked.abschluss){
+    const p = JK.positionen.find(x=>x.id===a.pos), l = JK.linie.find(x=>x.id===a.linie);
+    const W = wg();
+    t += `WEGGABELUNGEN (Wie realistisch war der Ausweg 1914?)\n` + W.weggabelungen.map(w=>`  ${w.nr}. ${w.datum}, ${w.ort}: ${a.wgRating&&a.wgRating[w.nr]!=null ? JK.realismus[a.wgRating[w.nr]] : "–"}`).join("\n") + "\n";
+    t += `Aussichtsreichste Weggabelung: ${a.wgBest||"–"}\nBegründung: ${a.wgBegr||"–"}\n\n`;
+    t += `ABSCHLUSS\nForschungsposition: ${p?p.autor+" – „"+p.kurz+"“":"–"}\nKernthese: ${a.these||"–"}\nÜberprüfung am Spiel: ${a.pruef||"–"}\nPositionslinie: ${l?l.label:"–"}\nBegründung: ${a.linieBegr||"–"}\nSachurteil: ${a.urteil||"–"}\n`;
+    t += `Exit-Ticket:\n` + JK.exitTicket.map((q,i)=>`  ${q}: ${a.exit[i]||"–"}`).join("\n") + "\n";
+  }
+  return t;
+}
+function vProtokoll(){
+  const rows = JK.runden.map(x => {
+    const st = S.runden["r"+x.nr];
+    if (!S.unlocked["r"+x.nr] || !st) return `<div class="r"><div><b>Runde ${x.nr}</b><br><span class="note">${esc(x.datum)}</span></div><p class="note">Noch nicht bearbeitet.</p></div>`;
+    const o = x.optionen[S.kab].find(y=>y.k===st.option);
+    return `<div class="r"><div><b>Runde ${x.nr}</b><br><span class="note">${esc(x.datum)}</span><br>${st.hist?(st.hist===st.option?'<span class="pill same">wie 1914</span>':'<span class="pill diff">abweichend</span>'):""}</div>
+      <dl style="margin:0"><dt>Beschluss</dt><dd>${o?`<b>${o.k}</b> – ${esc(o.t)}`:"–"}</dd>
+      ${st.sprecher?`<dt>Sprecher/in</dt><dd>${esc(rolle(st.sprecher)?.name)}</dd>`:""}
+      <dt>Begründung</dt><dd>${esc(st.begr)||"–"}</dd>
+      ${st.gegen.length?`<dt>Gegenstimmen</dt><dd>${st.gegen.map(g=>esc(rolle(g)?.name)).join(", ")}${st.gegenGrund?" – "+esc(st.gegenGrund):""}</dd>`:""}<dt>Risiko</dt><dd>${esc(st.risiko)||"–"}</dd><dt>Fehlende Information</dt><dd>${esc(st.info)||"–"}</dd>
+      ${st.tele.fertig?`<dt>Telegramm an ${esc(kab(st.tele.an)?.name)}</dt><dd style="font-family:var(--f-mono)">${esc(st.tele.text.toUpperCase())}</dd>`:""}
+      ${st.abwErk?`<dt>Erklärung</dt><dd>${esc(st.abwErk)}</dd>`:""}</dl></div>`;
+  }).join("");
+  return `<div class="eyebrow">Ergebnissicherung</div><h1 class="h1">Kabinettsprotokoll</h1>
+    <p class="lead">${esc(kab(S.kab).name)} · automatisch aus euren Beschlüssen zusammengestellt.</p>
+    <div class="prot">${rows}</div>
+    <div class="panel noprint"><h3>Protokoll abgeben</h3>
+      <p class="note">Als Textdatei speichern (z. B. für den Upload in LernSax) oder in die Zwischenablage kopieren.</p>
+      <div class="btns"><button class="btn" data-act="download">Als Datei speichern</button><button class="btn ghost" data-act="copy">Text kopieren</button>${window.claude ? "" : '<button class="btn ghost" data-act="print">Drucken</button>'}</div>
+      <textarea id="protText" readonly style="min-height:160px;font-family:var(--f-mono);font-size:.8em" hidden></textarea>
+    </div>
+    <div class="panel noprint"><h3>Gerät für die nächste Gruppe freigeben</h3>
+      <p class="note">Löscht alle Eingaben auf diesem Gerät. Vorher das Protokoll speichern.</p>
+      <button class="btn ghost" data-act="wipe">${S._confirmWipe?"Wirklich alles löschen?":"Alle Eingaben löschen"}</button></div>`;
+}
+
+/* ---------- Abschluss ---------- */
+function vAbschluss(){
+  if (!S.unlocked.abschluss) return vLocked("abschluss", "Abschluss · Forschungskontroverse");
+  const a = S.abschluss, p = JK.positionen.find(x=>x.id===a.pos);
+  const posTiles = [...JK.positionen].sort((x,y)=>x.pos-y.pos).map(x=>`<button class="tile" data-pos="${x.id}" aria-pressed="${a.pos===x.id}"><span>${esc(x.autor)}</span><b style="font-size:1.15em">„${esc(x.kurz)}“</b></button>`).join("");
+  const own = JK.runden.map(x=>{ const st=S.runden["r"+x.nr]; return st&&st.option ? `R${x.nr}: ${st.option}` : null; }).filter(Boolean).join(" · ");
+  a.wgRating = a.wgRating || {};
+  const W = wg(), rated = Object.keys(a.wgRating).length;
+  const wgItems = W.weggabelungen.map(w => {
+    const mine = w.wahl[S.kab], st = S.runden["r"+w.r];
+    const own = mine && st && st.option ? (mine.includes(st.option) ? '<span class="pill same">euer Kabinett hat diesen Ausweg genommen</span>' : '<span class="pill diff">euer Kabinett hatte hier die Wahl – und hat ihn nicht genommen</span>') : "";
+    return `<li class="wg"><span class="wn">${w.nr}</span><div class="wb">
+      <div class="wd">${esc(w.datum)} · ${esc(w.ort)} · ${esc(w.akteur)}</div>
+      <p><b>Ausweg:</b> ${esc(w.ausstieg)}</p>
+      <p class="note"><b>Warum nicht genutzt?</b> ${esc(w.warumNicht)}</p>${own}
+      <div class="seg" role="group" aria-label="Wie realistisch war Ausweg ${w.nr} im Jahr 1914?">${JK.realismus.map((l,i)=>`<button data-wgr="${w.nr}|${i}" aria-pressed="${a.wgRating[w.nr]===i}" style="font-family:var(--f-sans);font-weight:500;font-size:.85em">${esc(l)}</button>`).join("")}</div>
+    </div></li>`; }).join("");
+  const wgPanel = `<div class="panel"><h3>1 · Zehn Weggabelungen – war der Krieg vermeidbar?</h3>
+      <p>An jeder dieser Stellen hätte ein Kabinett die Kette unterbrechen können. 1914 wurde <b>keiner</b> dieser Auswege genutzt. Bewertet jeden Ausweg: Wie realistisch war er <i>aus der Sicht von 1914</i>?</p>
+      <p class="note">${rated} von ${W.weggabelungen.length} bewertet</p>
+      <ol class="wlist">${wgItems}</ol>
+      <label class="fld">Die aussichtsreichste Weggabelung war …<select data-bind="abschluss.wgBest"><option value="">– wählen –</option>${W.weggabelungen.map(w=>`<option value="${w.nr}" ${String(a.wgBest)===String(w.nr)?"selected":""}>${w.nr} · ${esc(w.datum)} · ${esc(w.ort)}</option>`).join("")}</select></label>
+      <label class="fld"><span><b>${esc(JK.aufgaben.weggabelung[0].op)}</b>${esc(JK.aufgaben.weggabelung[0].rest)} <span class="note">[AFB ${esc(JK.aufgaben.weggabelung[0].afb)}]</span></span><textarea data-bind="abschluss.wgBegr">${esc(a.wgBegr)}</textarea></label>
+      ${W.fazit.map(f=>`<blockquote>${esc(f.text)}<br><span class="note" style="font-style:normal">${esc(f.quelle)}</span></blockquote>`).join("")}
+    </div>`;
+  return `<div class="eyebrow">Abschluss · War der Krieg vermeidbar?</div><h1 class="h1">Weggabelungen und Deutungen</h1>
+    ${wgPanel}
+    <div class="panel"><h3>2 · Eure Expertengruppe</h3><div class="grid">${posTiles}</div></div>
+    ${p ? `<div class="panel">
+      <div class="eyebrow">${esc(p.autor)} · ${esc(p.werk)}</div><h3>„${esc(p.kurz)}“</h3>
+      <p>${esc(p.these)}</p><blockquote>${esc(p.zitat)}</blockquote><p class="note">Q: ${esc(p.beleg)}</p>
+      <label class="fld"><span><b>${esc(JK.aufgaben.experten[0].op)}</b>${esc(JK.aufgaben.experten[0].rest)} <span class="note">[AFB ${esc(JK.aufgaben.experten[0].afb)}]</span></span><textarea data-bind="abschluss.these">${esc(a.these)}</textarea></label>
+      <label class="fld"><span><b>${esc(JK.aufgaben.experten[1].op)}</b>${esc(JK.aufgaben.experten[1].rest)} <span class="note">[AFB ${esc(JK.aufgaben.experten[1].afb)}]</span></span><small>Prüffrage: ${esc(p.pruefFrage)}${own?` · Eure Beschlüsse: ${esc(own)}`:""}</small><textarea data-bind="abschluss.pruef">${esc(a.pruef)}</textarea></label>
+    </div>` : ""}
+    <div class="panel"><h3>3 · Positionslinie</h3>
+      <p><b>${esc(JK.aufgaben.plenum[0].op)}</b>${esc(JK.aufgaben.plenum[0].rest)} <span class="note">[AFB ${esc(JK.aufgaben.plenum[0].afb)}]</span></p>
+      <div class="linie" role="radiogroup" aria-label="Positionslinie">${JK.linie.map(z=>`<label><input type="radio" name="linie" value="${z.id}" data-bind="abschluss.linie" ${a.linie===z.id?"checked":""}><b>${esc(z.label)}</b><span class="note">${esc(z.sub)}</span></label>`).join("")}</div>
+      <label class="fld">Begründung mit Spiel <i>und</i> Forschung<textarea data-bind="abschluss.linieBegr">${esc(a.linieBegr)}</textarea></label>
+      <label class="fld">Dein Sachurteil in drei Sätzen<small>„Betrachtet man die Handlungsspielräume im Juli 1914, so …“</small><textarea data-bind="abschluss.urteil">${esc(a.urteil)}</textarea></label>
+    </div>
+    <div class="panel"><h3>4 · Exit-Ticket</h3>
+      ${JK.exitTicket.map((q,i)=>`<label class="fld">${esc(q)}<textarea data-bind="abschluss.exit.${i}" style="min-height:60px">${esc(a.exit[i])}</textarea></label>`).join("")}
+    </div>
+    <div class="panel"><h3>Hausaufgabe</h3><ol>${JK.aufgaben.hausaufgabe.map(x=>`<li><b>${esc(x.op)}</b>${esc(x.rest)} <span class="note">[AFB ${esc(x.afb)}]</span></li>`).join("")}</ol>
+      <button class="btn" data-view="protokoll">Alles im Protokoll speichern</button></div>`;
+}
+
+/* ---------- Vollbild: Verkündung / Zustellung ---------- */
+function overlay(html){
+  const o = document.createElement("div"); o.className="overlay"; o.setAttribute("role","dialog"); o.setAttribute("aria-modal","true");
+  o.setAttribute("data-block", kab(S.kab).block);
+  o.innerHTML = html + `<button class="btn ghost" data-act="close">Schließen</button>`;
+  document.body.appendChild(o); o.querySelector("button").focus();
+}
+function announce(id){
+  const r = JK.runden.find(x=>"r"+x.nr===id), st = rs(id), o = r.optionen[S.kab].find(x=>x.k===st.option), k = kab(S.kab);
+  const sp = rolle(st.sprecher);
+  overlay(`<div class="eyebrow">${esc(k.name)} · Beschluss Runde ${r.nr}</div><div class="big">${esc(o.k)}</div><p class="txt">${esc(o.t)}</p>${sp?`<p class="note">Es verkündet: ${esc(sp.name)}, ${esc(sp.amt)}</p>`:""}`);
+}
+function deliver(id){
+  const r = JK.runden.find(x=>"r"+x.nr===id), st = rs(id), k = kab(S.kab), to = kab(st.tele.an);
+  const lines = st.tele.text.toUpperCase().split(/STOP/).map((s,i,arr)=>s.trim() + (i<arr.length-1?" STOP":"")).filter(s=>s && s!=="STOP");
+  overlay(`<div class="eyebrow">Zustellung · nur für ${esc(to?to.name:"?")}</div>
+    <div class="telegram"><div class="hdr"><span>Von ${esc(k.name)} an ${esc(to?to.name:"?")}</span><span>${esc(r.datum)}</span></div><ol>${lines.map(l=>`<li>${esc(l)}</li>`).join("")}</ol></div>
+    <p class="note">Empfänger: Absender und Kerninhalt im eigenen Posteingang notieren.</p>`);
+}
+
+/* ---------- Render ---------- */
+function render(){
+  renderTop();
+  const app = $("#app");
+  if (!S.kab){ S.view="start"; app.innerHTML = vStart(); return; }
+  const v = S.view;
+  if (v==="kabinett") app.innerHTML = vKabinett();
+  else if (v==="protokoll") app.innerHTML = vProtokoll();
+  else if (v==="abschluss") app.innerHTML = vAbschluss();
+  else { const r = JK.runden.find(x=>"r"+x.nr===v); app.innerHTML = r ? vRunde(r) : vKabinett(); }
+}
+function spokeBefore(nr, rid){ return JK.runden.some(x => x.nr < nr && (S.runden["r"+x.nr]||{}).sprecher===rid) && present().some(p => !JK.runden.some(x => x.nr < nr && (S.runden["r"+x.nr]||{}).sprecher===p.id)); }
+function go(v){ S.view=v; S._confirmUnlock=null; S._confirmWipe=false; save(); render(); window.scrollTo({top:0}); }
+
+/* ---------- Bindings ---------- */
+function setPath(path, val){
+  const parts = path.split("."); let o;
+  if (parts[0]==="abschluss"){ o = S.abschluss; parts.shift(); }
+  else { o = rs(parts.shift()); }
+  while (parts.length>1){ const p=parts.shift(); o = o[p]; }
+  o[parts[0]] = val;
+}
+document.addEventListener("input", e => {
+  const b = e.target.dataset.bind; if (!b) return;
+  if (e.target.type==="radio" && !e.target.checked) return;
+  setPath(b, e.target.value); save();
+  if (b.endsWith("tele.text")){ const id=b.split(".")[0], c=$("#tc_"+id), n=words(e.target.value); if(c){ c.textContent=n+" / 25 Wörter"; c.classList.toggle("over",n>25); } }
+});
+document.addEventListener("change", e => {
+  if (e.target.dataset.anw){ const id=e.target.dataset.anw; S.anw = e.target.checked ? [...new Set(S.anw.concat(id))] : S.anw.filter(x=>x!==id); save(); render(); return; }
+  const b = e.target.dataset.bind; if (!b) return;
+  if (e.target.type==="radio" || e.target.tagName==="SELECT"){ setPath(b, e.target.value); save(); }
+});
+document.addEventListener("submit", e => {
+  e.preventDefault();
+  const f = e.target;
+  if (f.dataset.code){
+    const id = f.dataset.code, val = $("#code_"+id).value;
+    if (hash(val)===JK.codeHash[id]){ S.unlocked[id]=true; save(); toast("Freigeschaltet"); render(); }
+    else { $("#err_"+id).textContent = "Dieser Code passt nicht. Schau noch einmal auf den Beamer."; }
+    return;
+  }
+  if (f.dataset.beschluss){
+    const id = f.dataset.beschluss, st = rs(id);
+    if (!st.sprecher){ $("#berr_"+id).textContent = "Wählt, wer den Beschluss verkündet."; return; }
+    if (!st.option){ $("#berr_"+id).textContent = "Wählt zuerst eine Option."; return; }
+    if (st.begr.trim().length < 20){ $("#berr_"+id).textContent = "Die Begründung fehlt oder ist zu kurz (mindestens ein ganzer Satz)."; return; }
+    st.locked = true; save(); render(); announce(id);
+  }
+});
+document.addEventListener("click", e => {
+  const t = e.target.closest("button"); if (!t || (t.type==="submit" && t.form)) return;
+  const d = t.dataset;
+  if (d.pickkab){ S.kab = d.pickkab; S.anw = JK.rollen.filter(r=>r.kab===S.kab).map(r=>r.id); go("kabinett"); return; }
+  if (d.gegen){ const [id,rid] = d.gegen.split("|"), st = rs(id); if (st.locked) return;
+    st.gegen = st.gegen.includes(rid) ? st.gegen.filter(x=>x!==rid) : st.gegen.concat(rid); save(); const y=window.scrollY; render(); window.scrollTo({top:y}); return; }
+  if (d.view){ go(d.view); return; }
+  if (d.wgr){ const [n,i] = d.wgr.split("|"); S.abschluss.wgRating = S.abschluss.wgRating || {}; S.abschluss.wgRating[n] = Number(i); save(); const y=window.scrollY; render(); window.scrollTo({top:y}); return; }
+  if (d.pos){ S.abschluss.pos = d.pos; save(); render(); return; }
+  if (d.hist){ const [id,k] = d.hist.split("|"); rs(id).hist = k; save(); render(); return; }
+  switch (d.act){
+    case "switch": S.kab=null; S.anw=[]; save(); render(); break;
+    case "announce": announce(d.r); break;
+    case "unlock":
+      if (S._confirmUnlock===d.r){ rs(d.r).locked=false; S._confirmUnlock=null; save(); render(); }
+      else { S._confirmUnlock=d.r; render(); }
+      break;
+    case "telefertig": {
+      const st = rs(d.r);
+      if (!st.tele.an){ toast("Bitte einen Empfänger wählen."); break; }
+      if (!st.tele.text.trim()){ toast("Das Telegramm ist leer."); break; }
+      if (words(st.tele.text)>25){ toast("Höchstens 25 Wörter."); break; }
+      st.tele.fertig=true; save(); render(); toast("Telegramm liegt zur Zustellung bereit"); break; }
+    case "teleedit": rs(d.r).tele.fertig=false; save(); render(); break;
+    case "deliver": deliver(d.r); break;
+    case "close": t.closest(".overlay").remove(); break;
+    case "copy": {
+      const txt = protocolText(), ta = $("#protText");
+      const fallback = () => { ta.hidden=false; ta.value=txt; ta.focus(); ta.select(); toast("Text markiert – jetzt kopieren"); };
+      if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(txt).then(()=>toast("In die Zwischenablage kopiert"), fallback); else fallback();
+      break; }
+    case "download": {
+      const name = "Julikrise_Protokoll_" + kab(S.kab).kurz.replace(/[^A-Za-z]/g,"") + ".txt", txt = protocolText();
+      if (DL){
+        DL.save({filename:name, data:new Blob([txt], {type:"text/plain;charset=utf-8"})})
+          .then(()=>toast("Gespeichert"), err => toast(err && err.code==="declined" ? "Speichern abgebrochen" : "Speichern nicht möglich – bitte „Text kopieren“ nutzen."));
+        break;
+      }
+      try {
+        const blob = new Blob([txt], {type:"text/plain;charset=utf-8"}), a = document.createElement("a");
+        a.href = URL.createObjectURL(blob); a.download = name;
+        document.body.appendChild(a); a.click(); setTimeout(()=>{ URL.revokeObjectURL(a.href); a.remove(); }, 500);
+      } catch(err){ toast("Speichern nicht möglich – bitte „Text kopieren“ nutzen."); }
+      break; }
+    case "print": window.print(); break;
+    case "wipe":
+      if (S._confirmWipe){ S = blank(); try{ localStorage.removeItem(KEY); }catch(err){} render(); toast("Gerät zurückgesetzt"); }
+      else { S._confirmWipe = true; render(); }
+      break;
+  }
+});
+document.addEventListener("keydown", e => { if (e.key==="Escape"){ const o=$(".overlay"); if(o) o.remove(); } });
+/* In claude.ai (Artifact) läuft das Speichern über die Plattform; lokal über einen normalen Download. */
+let DL = null;
+if (window.claude && typeof window.claude.use === "function") window.claude.use("downloads").then(d => { DL = d; }).catch(()=>{});
+render();
+})();
+</script>
+</body>
+</html>
