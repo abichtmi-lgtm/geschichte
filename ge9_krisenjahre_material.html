@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="de"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Krisenjahre 1919–1923</title>
+<style>
+:root{--links:#a8322a;--links-h:#f6dedb;--rechts:#1e6b37;--rechts-h:#d8eedf;--krise:#595959;--krise-h:#e6e6e6;
+--text:#1a1a1a;--muted:#555;--bg:#f2f2f2;--card:#fff;--line:#c8c8c8;--mark:#fff2a8;--fs:1.08rem}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--text);font:var(--fs)/1.55 Calibri,"Segoe UI",-apple-system,system-ui,sans-serif}
+.topbar{position:sticky;top:0;z-index:5;display:flex;gap:.5rem;align-items:center;justify-content:space-between;
+background:#fff;border-bottom:3px solid #000;padding:.55rem 16px}
+.topbar a.home{font-weight:700;color:#000;text-decoration:none}
+.topbar .fs button{font:inherit;min-width:44px;min-height:44px;border:2px solid #000;background:#fff;border-radius:6px;margin-left:.3rem}
+main{max-width:980px;margin:0 auto;padding:16px}
+h1{font-size:1.6rem;line-height:1.25;margin:.2rem 0 .4rem}h2{font-size:1.15rem;margin:0 0 .5rem}h3{font-size:1.05rem;margin:.2rem 0 .4rem}
+.box,.material,.tipps{background:var(--card);border:3px solid #000;border-radius:4px;padding:14px 16px;margin:0 0 16px}
+.material p{text-align:justify;hyphens:auto}
+.zeit{float:right;font-weight:400;font-size:.9rem;color:var(--muted)}
+.mid{font-weight:700}.quelle{font-size:.85rem;color:var(--muted);text-align:left!important;word-break:break-word}
+.klein{font-size:.9rem;color:var(--muted)}
+.badge{display:inline-block;padding:4px 10px;line-height:1.3;border-radius:4px;font-weight:700;font-size:.9rem;border:2px solid}
+.badge.links{color:var(--links);background:var(--links-h);border-color:var(--links)}
+.badge.rechts{color:var(--rechts);background:var(--rechts-h);border-color:var(--rechts)}
+.badge.krise{color:var(--krise);background:var(--krise-h);border-color:var(--krise)}
+.badge.neutral{color:#000;background:#fff;border-color:#000}
+.jahr{margin:.1rem 0 .8rem;color:var(--muted)}
+.crumbs{margin:0 0 .6rem}.crumbs a{color:#000}
+.legende{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin:.3rem 0 1rem}
+.spalten{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.spalte h3{padding:6px 10px;border:2px solid;border-radius:4px;text-align:center}
+.spalte h3.links{color:var(--links);background:var(--links-h)}.spalte h3.rechts{color:var(--rechts);background:var(--rechts-h)}
+.spalte h3.krise{color:var(--krise);background:var(--krise-h)}
+.kachel{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;gap:0 .6rem;align-items:center;min-height:64px;
+padding:10px 12px;margin:0 0 10px;border:2.5px solid;border-radius:6px;text-decoration:none;color:var(--text);font-weight:600}
+.kachel .g{grid-row:1/3;font-size:1.4rem;font-weight:800}.kachel .j{font-weight:400;font-size:.9rem;color:var(--muted)}
+.kachel.links{background:var(--links-h);border-color:var(--links)}.kachel.links .g{color:var(--links)}
+.kachel.rechts{background:var(--rechts-h);border-color:var(--rechts)}.kachel.rechts .g{color:var(--rechts)}
+.kachel.krise{background:var(--krise-h);border-color:var(--krise)}.kachel.krise .g{color:var(--krise)}
+.kachel.neutral{background:#fff;border-color:#000}
+.start{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.start a{display:block;background:#fff;border:3px solid #000;border-radius:6px;padding:18px;color:#000;text-decoration:none}
+.start a strong{font-size:1.3rem;display:block;margin-bottom:.3rem}
+.karte.links{border-color:var(--links)}.karte.rechts{border-color:var(--rechts)}.karte.krise{border-color:var(--krise)}
+.mini{border:2px dashed;border-radius:6px;padding:8px 12px;margin:0 0 10px;max-width:520px}
+.mini.links{background:var(--links-h);border-color:var(--links)}.mini.rechts{background:var(--rechts-h);border-color:var(--rechts)}
+.mini.krise{background:var(--krise-h);border-color:var(--krise)}
+.mini .l{margin:.3rem 0 0;font-size:.8rem;color:var(--muted)}.mini .z{margin:0;font-style:italic}.mini .gross{font-weight:700;font-style:normal;font-size:1.1rem}
+.tipps{border-color:#8c8c8c;border-width:2px}
+.tippbtn{font:inherit;min-height:44px;padding:6px 14px;margin:4px 8px 4px 0;border:2px solid #000;border-radius:6px;background:#fff;cursor:pointer}
+.tippbtn[disabled]{opacity:.4}.tipp{background:#fafafa;border-left:0;padding:8px 10px;border:1px solid var(--line);border-radius:4px}
+.hinweis{color:var(--muted);font-size:.9rem}
+mark.key{background:transparent;color:inherit;padding:0 1px}
+.markiert mark.key{background:var(--mark);box-shadow:0 0 0 2px var(--mark);border-radius:2px}
+.check label{display:flex;gap:.6rem;align-items:flex-start;padding:6px 0;min-height:44px}
+.check input{width:24px;height:24px;flex:none;margin-top:2px}
+.tabwrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.95rem}th,td{border:1px solid #000;padding:6px 8px;vertical-align:top}
+.stat{font-size:.82rem;table-layout:fixed}.stat th,.stat td{padding:4px 4px;hyphens:auto;-webkit-hyphens:auto;overflow-wrap:break-word}.stat thead th:first-child,.stat tbody th{width:16%}.raster th{text-align:left}
+.stat thead th{background:#f2f2f2;font-size:.85rem}.stat td{text-align:center}
+.stat tr.links th{background:var(--links-h)}.stat tr.rechts th{background:var(--rechts-h)}
+.raster td{min-width:160px;height:64px;background:#fff}.raster td:focus{outline:3px solid var(--rechts)}
+blockquote{margin:.4rem 0;padding:.4rem 1rem;border-left:4px solid #000;background:#fafafa}
+.rechenzeile{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.rechenzeile input{font:inherit;width:6.5rem;min-height:44px;padding:4px 8px;border:2px solid #000;border-radius:6px}
+.pruefen,.pruefen-z{font:inherit;min-height:44px;padding:6px 16px;border:2px solid #000;border-radius:6px;background:#000;color:#fff}
+.feedback,.feedback-z{font-weight:600;min-height:1.5em}
+.ursache{border-top:1px solid var(--line);padding-top:.4rem}
+.zuord{border:1px solid var(--line);border-radius:6px;padding:8px 12px;margin:0 0 10px;background:#fff}
+.zuord p{margin:.2rem 0 .5rem}.zuord select{font:inherit;min-height:44px;width:100%;max-width:520px;border:2px solid #000;border-radius:6px;background:#fff}
+.zuord.ok{border-color:#2e7d32;background:#eef7ee}.zuord.falsch{border-color:var(--links);background:var(--links-h)}
+.erkl{font-size:.92rem;color:#1b4d1e}
+.erinnerung p{margin:.4rem 0}
+.zusammenhang{border-style:dashed}
+footer{max-width:980px;margin:0 auto;padding:0 16px 32px;color:var(--muted);font-size:.8rem}
+@media (max-width:760px){.spalten,.start{grid-template-columns:1fr}h1{font-size:1.35rem}.zeit{float:none;display:block}}
+@media print{.topbar,.tipps,.tippbtn,.check{display:none}.seite[hidden]{display:none}}
+
+.weg{margin:0 0 12px;font-weight:600}
+.snr{display:inline-flex;align-items:center;justify-content:center;width:1.6em;height:1.6em;border-radius:50%;background:#000;color:#fff;font-size:.85em;font-weight:700;vertical-align:.05em}
+.fragen{display:grid;grid-template-columns:1fr 1fr;gap:12px}.fragen>div{border:1px solid var(--line);border-radius:4px;padding:6px 10px}
+.fragen .grau{background:var(--krise-h)}.fragen ol{margin:.2rem 0;padding-left:1.4rem}.fragen li{margin:.15rem 0}
+.extra{margin:.6rem 0 0}
+.pool{display:flex;flex-direction:column;gap:8px;margin:0 0 12px}
+.sk{font:inherit;text-align:left;min-height:48px;padding:8px 12px;border:2px solid #000;border-radius:6px;background:#fff;color:var(--text);cursor:pointer;width:100%}
+.folge{list-style:none;margin:0 0 10px;padding:0;counter-reset:f}
+.folge li{counter-increment:f;display:flex;gap:.6rem;align-items:stretch;margin:0 0 8px}
+.folge li::before{content:counter(f);flex:none;width:2rem;display:flex;align-items:center;justify-content:center;font-weight:800;border:2px solid #000;border-radius:6px;background:#fff}
+.folge li.leer::after{content:"";flex:1;min-height:48px;border:2px dashed var(--line);border-radius:6px}
+.folge .sk{background:#fafafa}.folge .ok .sk{border-color:#2e7d32;background:#eef7ee}.folge .falsch .sk{border-color:var(--links);background:var(--links-h)}
+.knoepfe{display:flex;flex-wrap:wrap;gap:8px}
+.pruefen-s,.reset-s,.loesung-s{font:inherit;min-height:44px;padding:6px 16px;border:2px solid #000;border-radius:6px;background:#fff;cursor:pointer}
+.pruefen-s{background:#000;color:#fff}
+.feedback-s{font-weight:600;min-height:1.5em}
+.fahrplan{border-top:3px solid #000;padding-top:8px}
+.plan .abschnitt{border:2px solid #000;border-radius:6px;padding:6px 12px;margin:0 0 8px}
+.plan .abschnitt.r{background:var(--krise-h)}
+.plan .abschnitt h4{margin:.1rem 0 .3rem;font-size:1rem}.plan ul{margin:0;padding-left:1.2rem}
+.plan .wer{float:right;font-weight:400;font-size:.9rem;color:var(--muted)}
+@media (max-width:760px){.fragen{grid-template-columns:1fr}}
+@media print{.sortier{display:none}}
+
+.skala{border-style:dashed}
+.kriterien label{display:flex;gap:.6rem;align-items:flex-start;padding:4px 0;min-height:44px}
+.kriterien input{width:24px;height:24px;flex:none;margin-top:2px}
+.stufen{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin:0 0 12px}
+.stufe{font:inherit;font-size:.85rem;line-height:1.2;min-height:64px;padding:6px 4px;border:2px solid #000;border-radius:6px;background:#fff;cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.stufe b{font-size:1.4rem}
+.stufe[data-s="1"]{background:#f7f7f7}.stufe[data-s="2"]{background:#ececec}.stufe[data-s="3"]{background:#dedede}.stufe[data-s="4"]{background:#cfcfcf}.stufe[data-s="5"]{background:#bdbdbd}
+.stufe.aktiv{background:#000;color:#fff;outline:3px solid #000;outline-offset:2px}
+.begruendung{font:inherit;width:100%;padding:8px 10px;border:2px solid #000;border-radius:6px;resize:vertical}
+.stufe-plan{font-weight:600;border:2px dashed #000;border-radius:6px;padding:6px 12px}
+@media (max-width:760px){.stufe{font-size:.75rem}}
+
+details.klapp{background:var(--card);border:3px solid #000;border-radius:4px;margin:0 0 16px;scroll-margin-top:72px}
+details.klapp.k-links{border-color:var(--links)}details.klapp.k-rechts{border-color:var(--rechts)}details.klapp.k-krise{border-color:var(--krise)}
+details.klapp.ch{border-style:dashed}
+.klapp>summary{list-style:none;cursor:pointer;padding:12px 16px;min-height:52px;display:flex;align-items:center;gap:.6rem}
+.klapp>summary::-webkit-details-marker{display:none}
+.klapp>summary h2{flex:1;margin:0;display:flex;align-items:center;gap:.5rem;flex-wrap:wrap}
+.klapp>summary .zeit{float:none;margin-left:auto}
+.klapp>summary::after{content:"▸";font-size:1.3rem;font-weight:700;transition:transform .15s}
+.klapp[open]>summary::after{transform:rotate(90deg)}
+.klapp[open]>summary{border-bottom:1px solid var(--line)}
+.klapp-inhalt{padding:12px 16px 14px}
+.klapp-inhalt>.box.schritt,.klapp-inhalt>.box.skala{border:0;padding:0;margin:0 0 12px;background:transparent}
+.klapp-inhalt>.material,.klapp-inhalt>.tipps{margin-bottom:12px}
+.weiter{font:inherit;min-height:44px;padding:6px 16px;border:2px solid #000;border-radius:6px;background:#fff;cursor:pointer;font-weight:600}
+.weg .zu{font:inherit;font-weight:600;background:none;border:0;padding:4px 2px;min-height:44px;cursor:pointer;color:inherit;text-decoration:underline;text-underline-offset:3px}
+@media print{details.klapp:not([open])>.klapp-inhalt{display:block}}
+
+.lang-btn{font:inherit;min-height:36px;padding:4px 10px;border:2px solid #000;background:#fff;border-radius:6px;cursor:pointer;font-weight:700;display:inline-flex;align-items:center;gap:4px;margin-left:.3rem}
+.lang-btn:hover{background:#e8f4fd;border-color:#0284c7}
+.lang-switch-box{display:flex;justify-content:flex-end;margin:0 0 .6rem}
+body.lang-en .lang-de{display:none!important}
+body.lang-de .lang-en{display:none!important}
+body:not(.lang-en) .lang-en{display:none!important}
+</style></head>
+<body>
+<div class="topbar"><a class="home" href="#start">Geschichte 9 · Krisenjahre 1919–1923</a>
+  <span class="fs" aria-label="Schriftgröße"><button id="fsMinus" aria-label="Schrift kleiner">A−</button><button id="fsPlus" aria-label="Schrift größer">A+</button><button id="langToggle" class="lang-btn" title="Sprache wechseln / Switch Language">🇩🇪 DE | 🇬🇧 EN</button></span></div>
+<main>
+<section id="seite-start" class="seite">
+  <div class="lang-de">
+    <h1>Die Krisenjahre der Weimarer Republik 1919–1923</h1>
+    <p>Wähle die Stunde. Deine Lehrkraft sagt dir, welche Gruppe oder welcher Strang du bist.</p>
+    <div class="start">
+      <a href="#s1"><strong>Stunde 1</strong>Angriff von allen Seiten – Material der Expertengruppen G1–G7</a>
+      <a href="#s2"><strong>Stunde 2</strong>Mit gleichem Maß gemessen? – Strang A, Strang B und Ursachen</a>
+    </div>
+  </div>
+  <div class="lang-en">
+    <h1>The Crisis Years of the Weimar Republic 1919–1923</h1>
+    <p>Select your lesson. Your teacher will assign your expert group or research track.</p>
+    <div class="start">
+      <a href="#s1"><strong>Lesson 1</strong>Attacked from All Sides – Materials for Expert Groups G1–G7</a>
+      <a href="#s2"><strong>Lesson 2</strong>Equal Standards for All? – Tracks A & B and Structural Causes</a>
+    </div>
+  </div>
+</section>
+<section id="seite-s1" class="seite" hidden>
+  <nav class="crumbs">
+    <a href="#start" class="lang-de">← Start</a>
+    <a href="#start" class="lang-en">← Overview</a>
+    <button class="lang-btn crumb-lang-btn lang-switch-btn" onclick="toggleLang()">🇬🇧 English</button>
+  </nav>
+
+  <div class="lang-de">
+    <h1>Stunde 1: Angriff von allen Seiten</h1>
+    <p><strong>Leitfrage:</strong> <em>Wer bedrohte die junge Republik, und wie reagierte der Staat?</em></p>
+    <div class="legende">
+      <strong>Farbe = von wem ging der Angriff aus?</strong>
+      <span class="badge links">rot = Angriff von links</span>
+      <span class="badge krise">grau = Krise der Republik</span>
+      <span class="badge rechts">grün = Angriff von rechts</span>
+    </div>
+    <p>Tippe auf eure Gruppe:</p>
+  </div>
+
+  <div class="lang-en">
+    <h1>Lesson 1: Attacked from All Sides</h1>
+    <p><strong>Key Question:</strong> <em>Who threatened the young republic, and how did the state respond?</em></p>
+    <div class="legende">
+      <strong>Color = Who launched the attack?</strong>
+      <span class="badge links">Red = Attack from the Left</span>
+      <span class="badge krise">Gray = Crisis of the Republic</span>
+      <span class="badge rechts">Green = Attack from the Right</span>
+    </div>
+    <p>Click on your expert group:</p>
+  </div>
+
+  <div class="spalten">
+    <div class="spalte">
+      <h3 class="links"><span class="lang-de">Angriffe von links</span><span class="lang-en">Attacks from the Left</span></h3>
+      <a class="kachel links" href="#g3">
+        <span class="g">G3</span>
+        <span><span class="lang-de">Die Rote Ruhrarmee 1920</span><span class="lang-en">The Red Ruhr Army 1920</span></span>
+        <span class="j">1920</span>
+      </a>
+      <a class="kachel links" href="#g6">
+        <span class="g">G6</span>
+        <span><span class="lang-de">Der „Deutsche Oktober“ 1923</span><span class="lang-en">The "German October" 1923</span></span>
+        <span class="j">1923</span>
+      </a>
+    </div>
+
+    <div class="spalte">
+      <h3 class="rechts"><span class="lang-de">Angriffe von rechts</span><span class="lang-en">Attacks from the Right</span></h3>
+      <a class="kachel rechts" href="#g1">
+        <span class="g">G1</span>
+        <span><span class="lang-de">Die Dolchstoßlegende</span><span class="lang-en">The "Stab-in-the-Back" Myth</span></span>
+        <span class="j">1919</span>
+      </a>
+      <a class="kachel rechts" href="#g2">
+        <span class="g">G2</span>
+        <span><span class="lang-de">Der Kapp-Lüttwitz-Putsch 1920</span><span class="lang-en">The Kapp-Lüttwitz Putsch 1920</span></span>
+        <span class="j">1920</span>
+      </a>
+      <a class="kachel rechts" href="#g4">
+        <span class="g">G4</span>
+        <span><span class="lang-de">Politische Morde – Erzberger & Rathenau</span><span class="lang-en">Political Assassinations – Erzberger & Rathenau</span></span>
+        <span class="j">1921/22</span>
+      </a>
+      <a class="kachel rechts" href="#g7">
+        <span class="g">G7</span>
+        <span><span class="lang-de">Der Hitler-Ludendorff-Putsch 1923</span><span class="lang-en">The Hitler-Ludendorff Putsch 1923</span></span>
+        <span class="j">1923</span>
+      </a>
+    </div>
+
+    <div class="spalte">
+      <h3 class="krise"><span class="lang-de">Krise der Republik</span><span class="lang-en">Crisis of the Republic</span></h3>
+      <a class="kachel krise" href="#g5">
+        <span class="g">G5</span>
+        <span><span class="lang-de">Der Ruhrkampf 1923</span><span class="lang-en">The Ruhr Occupation & Inflation 1923</span></span>
+        <span class="j">1923</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section id="seite-g1" class="seite rechts" hidden>
+  <nav class="crumbs">
+    <a href="#s1" class="lang-de">← Stunde 1: alle Gruppen</a>
+    <a href="#s1" class="lang-en">← Lesson 1: all groups</a>
+    <button class="lang-btn crumb-lang-btn lang-switch-btn" onclick="toggleLang()">🇬🇧 English</button>
+  </nav>
+
+  <header class="kopf">
+    <span class="badge rechts"><span class="lang-de">Angriff von rechts</span><span class="lang-en">Attack from the Right</span></span>
+    <h1><span class="lang-de">Expertengruppe G1: Die Dolchstoßlegende</span><span class="lang-en">Expert Group G1: The "Stab-in-the-Back" Myth</span></h1>
+    <p class="jahr"><span class="lang-de">Jahr an der Tafel:</span><span class="lang-en">Year on the board:</span> <strong>1919</strong></p>
+  </header>
+
+    <p class="weg"><span class="lang-de">Euer Weg (25 min):</span><span class="lang-en">Your route (25 min):</span> <button class="zu" data-nach="1"><span class="snr">1</span> <span class="lang-de">Text</span><span class="lang-en">Text</span></button> → <button class="zu" data-nach="2"><span class="snr">2</span> <span class="lang-de">Reaktionskarte</span><span class="lang-en">Reaction card</span></button> → <button class="zu" data-nach="3"><span class="snr">3</span> <span class="lang-de">Reihenfolge = Präsentation</span><span class="lang-en">Order = presentation</span></button></p>
+  <details class="klapp s1" data-nr="1">
+    <summary><h2><span class="snr">1</span> <span class="lang-de">Textarbeit</span><span class="lang-en">Working with the text</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box auftrag schritt">
+        <p><span class="lang-de"><strong>Lest</strong> den Text still. <strong>Arbeitet</strong> dann gemeinsam <strong>heraus</strong> und tragt in euer AB-Feld ein – <strong>nur Stichworte</strong>:</span><span class="lang-en"><strong>Read</strong> the text silently. Then <strong>work out</strong> together and note in your worksheet field – <strong>key words only</strong>:</span></p>
+    <div class="fragen">
+      <div><h3><span class="lang-de">Angriff</span><span class="lang-en">Attack</span></h3><ol type="a"><li><span class="lang-de">Wer verbreitete die Legende?</span><span class="lang-en">Who spread the myth?</span></li><li><span class="lang-de">Wen beschuldigte sie?</span><span class="lang-en">Whom did it blame?</span></li><li><span class="lang-de">Was behauptet sie – und was war wirklich passiert?</span><span class="lang-en">What does it claim – and what had really happened?</span></li></ol></div>
+      <div class="grau"><h3><span class="lang-de">Reaktion des Staates</span><span class="lang-en">Reaction of the state</span></h3><ol type="a" start="4"><li><span class="lang-de">Wer glaubte die Legende?</span><span class="lang-en">Who believed the myth?</span></li><li><span class="lang-de">Wie wirkte sie auf Richter und Offiziere?</span><span class="lang-en">How did it influence judges and officers?</span></li></ol></div>
+    </div>
+    <p class="extra"><span class="lang-de"><strong>Erklärt</strong> in einem Satz, warum die Legende für die Republik gefährlich war.</span><span class="lang-en"><strong>Explain</strong> in one sentence why the myth was dangerous for the Republic.</span> <span class="lang-de">(mündlich, für die Präsentation)</span><span class="lang-en">(orally, for the presentation)</span></p>
+  </div>
+
+  <article class="material" data-pid="g1">
+    <h2><span class="mid">M3:</span> <span class="lang-de">Die Dolchstoßlegende</span><span class="lang-en">The "Stab-in-the-Back" Myth (Dolchstoßlegende)</span></h2>
+    
+    <div class="lang-de">
+      <p>Im November 1919 sagt der ehemalige Chef der Obersten Heeresleitung (OHL), Paul von <strong>Hindenburg</strong>, vor einem Untersuchungsausschuss des Reichstags: <em>„Wie ein englischer General sehr richtig gesagt hat: Die deutsche Armee ist von hinten erdolcht worden.“</em> Die Behauptung: Das Heer sei <strong>„<mark class="key">im Felde unbesiegt</mark>“</strong> gewesen; erst Streiks, Revolution und die <strong>Politiker von SPD, Zentrum und DDP</strong> hätten den Sieg verhindert. Diese Politiker hatten den Waffenstillstand und den Versailler Vertrag unterzeichnet und werden nun als <strong>„Novemberverbrecher“</strong> beschimpft.</p>
+      <p>Tatsächlich hatte die OHL selbst im September 1918 den sofortigen Waffenstillstand gefordert, weil die militärische Lage aussichtslos war. Die Legende soll die <strong><mark class="key">Schuld</mark> der Militärführung <mark class="key">verschleiern</mark></strong> und die <strong>demokratischen Parteien verantwortlich machen</strong>. Sie wird in Offizierskreisen, in Teilen der Justiz und des Bürgertums weithin geglaubt. Wer die Republik bekämpft, kann sich so als „Patriot“ fühlen.</p>
+      <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+
+    <div class="lang-en">
+      <p>In November 1919, Field Marshal Paul von <strong>Hindenburg</strong>, former chief of the Supreme Army Command (OHL), testified before a parliamentary committee: <em>"As an English general rightly stated, the German army was stabbed in the back."</em> His claim: The German army remained <strong>"<mark class="key">undefeated in the field</mark>"</strong>, but was allegedly betrayed by domestic strikes, the revolution, and democratic politicians from the <strong>SPD, Center Party (Zentrum), and DDP</strong>. Because these politicians had signed the Armistice and the Treaty of Versailles, right-wing extremists defamed them as <strong>"November Criminals"</strong> (<em>Novemberverbrecher</em>).</p>
+      <p>In reality, the military leadership (OHL) itself had demanded an immediate armistice in September 1918 due to unavoidable military collapse. The myth was designed to <strong><mark class="key">conceal the guilt</mark> of the military elite</strong> and scapegoat democratic parties. Widely accepted among officers, conservative judges, and civil servants, it allowed anti-democratic right-wing extremists to portray themselves as "patriots".</p>
+      <p class="quelle">Source: Educational text adapted from German Historical Museum (DHM / LeMO), "Weimarer Republik".<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+  </article>
+
+  <div class="tipps" data-pid="g1">
+    <h3><span class="lang-de">Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</span><span class="lang-en">Scaffolded Tips (Use only when stuck)</span></h3>
+    <button class="tippbtn" data-k="1"><span class="lang-de">Tipp 1 anzeigen</span><span class="lang-en">Show Tip 1</span></button>
+    <p class="tipp" id="g1-t1" hidden>
+      <span class="lang-de"><strong>Tipp 1:</strong> Wer verbreitete die Legende – und warum gerade diese Personen?</span>
+      <span class="lang-en"><strong>Tip 1:</strong> Who created and spread the myth – and what motive did these specific individuals have?</span>
+    </p>
+    
+    <button class="tippbtn" data-k="2" data-mark="1" disabled><span class="lang-de">Tipp 2 anzeigen</span><span class="lang-en">Show Tip 2</span></button>
+    <p class="tipp" id="g1-t2" hidden>
+      <span class="lang-de"><strong>Tipp 2:</strong> Achtet auf die Stellen „im Felde unbesiegt“ und „Schuld … verschleiern“. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></span>
+      <span class="lang-en"><strong>Tip 2:</strong> Pay attention to the phrases "undefeated in the field" and "conceal ... guilt". <span class="hinweis">(Key phrases are now highlighted in the text.)</span></span>
+    </p>
+    
+    <button class="tippbtn" data-k="3" disabled><span class="lang-de">Tipp 3 anzeigen</span><span class="lang-en">Show Tip 3</span></button>
+    <p class="tipp" id="g1-t3" hidden>
+      <span class="lang-de"><strong>Tipp 3:</strong> Satzstarter für die Reaktionskarte: „Die Dolchstoßlegende half rechten Tätern, weil …“</span>
+      <span class="lang-en"><strong>Tip 3:</strong> Sentence starter: "The stab-in-the-back myth provided right-wing conspirators with a pretext because ..."</span>
+    </p>
+  </div>
+    <button class="weiter" data-nach="2"><span class="lang-de">Weiter zu Schritt 2</span><span class="lang-en">On to step 2</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s2 k-rechts" data-nr="2">
+    <summary><h2><span class="snr">2</span> <span class="lang-de">Reaktionskarte schreiben (grüne Karte)</span><span class="lang-en">Write your reaction card (green card)</span> <span class="zeit">5 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box schritt karte rechts">
+        <p><span class="lang-de"><strong>Erläutert</strong>, wie die Legende auf Richter und Offiziere wirkte.</span><span class="lang-en"><strong>Explain</strong> how the myth influenced judges and officers.</span> </p>
+    <div class="mini rechts">
+      <p class="l"><span class="lang-de">Angriff / Ereignis + Jahr</span><span class="lang-en">Attack / Event + Year</span></p>
+      <p class="z gross"><span class="lang-de">Die Dolchstoßlegende 1919</span><span class="lang-en">The Stab-in-the-Back Myth 1919</span></p>
+      <p class="l"><span class="lang-de">Wer reagierte für den Staat?</span><span class="lang-en">Who reacted for the state?</span></p>
+      <p class="z"><span class="lang-de">Regierung? Reichswehr? Freikorps? Polizei? Gericht?</span><span class="lang-en">Government? Military (Reichswehr)? Courts/Judiciary?</span></p>
+      <p class="l"><span class="lang-de">Reaktion des Staates</span><span class="lang-en">State Reaction / Impact</span></p>
+      <p class="z"><span class="lang-de">Wie wirkte die Legende auf Richter und Offiziere?</span><span class="lang-en">How did the myth influence judges and officers?</span></p>
+    </div>
+    <div class="lang-de">
+      <p>Mit dickem Stift, groß schreiben. Nach eurer Präsentation heftet ihr die Karte an die Tafel:
+        <strong>Spalte = Farbe</strong> (Angriff von rechts), <strong>Zeile = Jahr</strong> (1919).</p>
+      <p class="klein">Die Farbe zeigt, von wem der Angriff ausging – nicht, wer reagiert hat.</p>
+    </div>
+    <div class="lang-en">
+      <p>Write clearly and in large letters. After your presentation, attach the card to the board:
+        <strong>Column = Color</strong> (Green = Right-wing attack), <strong>Row = Year</strong> (1919).</p>
+      <p class="klein">The card color reflects the origin of the threat, not the responding institution.</p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="3"><span class="lang-de">Weiter zu Schritt 3</span><span class="lang-en">On to step 3</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s3" data-nr="3">
+    <summary><h2><span class="snr">3</span> <span class="lang-de">Sicherung: Was geschah wann?</span><span class="lang-en">Consolidation: what happened when?</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box sortier schritt" data-pid="g1">
+        <p><span class="lang-de"><strong>Bringt</strong> die Ereignisse in die richtige Reihenfolge: Tippt sie nacheinander an. Antippen in der Reihe legt eine Karte zurück.</span><span class="lang-en"><strong>Put</strong> the events in the right order: tap them one after another. Tapping a card in the sequence puts it back.</span></p>
+    <ol class="phasen" hidden><li data-ph="1"><span class="lang-de">Was war wirklich passiert?</span><span class="lang-en">What had really happened?</span></li><li data-ph="2"><span class="lang-de">Was behauptet die Legende?</span><span class="lang-en">What does the myth claim?</span></li><li data-ph="3"><span class="lang-de">Wer glaubte sie?</span><span class="lang-en">Who believed it?</span></li><li data-ph="4"><span class="lang-de">Welche Folgen hatte das?</span><span class="lang-en">What were the consequences?</span></li></ol>
+    <div class="pool"><button class="sk" data-ord="1" data-ph="1"><span class="lang-de">Sept. 1918: Die OHL fordert selbst den sofortigen Waffenstillstand, weil die Lage aussichtslos ist.</span><span class="lang-en">Sept. 1918: The OHL itself demands an immediate armistice because the situation is hopeless.</span></button><button class="sk" data-ord="2" data-ph="1"><span class="lang-de">Politiker von SPD, Zentrum und DDP unterzeichnen Waffenstillstand und Versailler Vertrag.</span><span class="lang-en">Politicians of the SPD, Centre Party and DDP sign the armistice and the Treaty of Versailles.</span></button><button class="sk" data-ord="3" data-ph="2"><span class="lang-de">Nov. 1919: Hindenburg behauptet vor dem Reichstag, das Heer sei „von hinten erdolcht“ worden.</span><span class="lang-en">Nov. 1919: Hindenburg claims before the Reichstag that the army was “stabbed in the back”.</span></button><button class="sk" data-ord="4" data-ph="2"><span class="lang-de">Die demokratischen Politiker werden als „Novemberverbrecher“ beschimpft.</span><span class="lang-en">The democratic politicians are denounced as “November Criminals”.</span></button><button class="sk" data-ord="5" data-ph="3"><span class="lang-de">Offiziere, Teile der Justiz und des Bürgertums glauben die Legende.</span><span class="lang-en">Officers, parts of the judiciary and the middle classes believe the myth.</span></button><button class="sk" data-ord="6" data-ph="4"><span class="lang-de">Wer die Republik bekämpft, kann sich als „Patriot“ fühlen.</span><span class="lang-en">Whoever fights the Republic can feel like a “patriot”.</span></button></div>
+    <ol class="folge"></ol>
+    <div class="knoepfe"><button class="pruefen-s"><span class="lang-de">Reihenfolge prüfen</span><span class="lang-en">Check order</span></button><button class="reset-s"><span class="lang-de">Neu starten</span><span class="lang-en">Restart</span></button><button class="loesung-s" hidden><span class="lang-de">Lösung zeigen</span><span class="lang-en">Show solution</span></button></div>
+    <p class="feedback-s" aria-live="polite"></p>
+    <div class="fahrplan" hidden>
+      <h3><span class="lang-de">Euer Präsentationsfahrplan (max. 3 min)</span><span class="lang-en">Your presentation plan (max. 3 min)</span></h3>
+      <p class="klein"><span class="lang-de">Jede Person übernimmt einen Abschnitt. Die Klasse schreibt in derselben Reihenfolge mit: ① ② = Angriff, ③ ④ = grauer Block „Reaktion des Staates“. Bei ③ oder ④ lest ihr eure Reaktionskarte vor.</span><span class="lang-en">Each person presents one section. The class takes notes in the same order: ① ② = attack, ③ ④ = grey block “reaction of the state”. Read out your reaction card at ③ or ④.</span></p>
+      <div class="plan"></div>
+      <p class="stufe-plan" hidden></p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="4"><span class="lang-de">Fertig? Weiter zur Challenge</span><span class="lang-en">Done? On to the challenge</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp ch" data-nr="4">
+    <summary><h2><span class="lang-de">Challenge: Wie gefährlich war euer Ereignis für die Republik?</span><span class="lang-en">Challenge: How dangerous was your event for the Republic?</span> <span class="zeit"><span class="lang-de">für schnelle Gruppen</span><span class="lang-en">for fast groups</span></span></h2></summary>
+    <div class="klapp-inhalt">
+<div class="box skala" data-pid="g1">
+        <p><strong>1.</strong> <span class="lang-de"><strong>Prüft</strong> die Kriterien: Was trifft auf euer Ereignis zu?</span><span class="lang-en"><strong>Check</strong> the criteria: which apply to your event?</span></p>
+    <div class="kriterien">
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Angriff richtete sich direkt gegen die gewählte Regierung oder die Verfassung.</span><span class="lang-en">The attack was aimed directly at the elected government or the constitution.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Viele Menschen waren beteiligt oder kamen ums Leben.</span><span class="lang-en">Many people were involved or lost their lives.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Staat konnte die Gefahr nur schwer oder gar nicht stoppen.</span><span class="lang-en">The state could stop the danger only with difficulty or not at all.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Die Folgen reichten über das Ereignis hinaus (z. B. Radikalisierung, Nachahmer, Vertrauensverlust).</span><span class="lang-en">The consequences went beyond the event (e.g. radicalisation, imitators, loss of trust).</span></label>
+    </div>
+    <p class="krit-zahl klein" aria-live="polite"></p>
+    <p><strong>2.</strong> <span class="lang-de"><strong>Ordnet</strong> euer Ereignis auf der Skala <strong>ein</strong>:</span><span class="lang-en"><strong>Place</strong> your event on the scale:</span></p>
+    <div class="stufen" role="group"><button class="stufe" data-s="1"><b>1</b><span class="lang-de">kaum</span><span class="lang-en">hardly</span></button><button class="stufe" data-s="2"><b>2</b><span class="lang-de">gering</span><span class="lang-en">low</span></button><button class="stufe" data-s="3"><b>3</b><span class="lang-de">mittel</span><span class="lang-en">medium</span></button><button class="stufe" data-s="4"><b>4</b><span class="lang-de">hoch</span><span class="lang-en">high</span></button><button class="stufe" data-s="5"><b>5</b><span class="lang-de">bedrohte die Republik</span><span class="lang-en">threatened the Republic</span></button></div>
+    <p><strong>3.</strong> <span class="lang-de"><strong>Begründet</strong> eure Einstufung in 1–2 Sätzen:</span><span class="lang-en"><strong>Justify</strong> your rating in 1–2 sentences:</span></p>
+    <textarea class="begruendung" rows="3" placeholder="Wir stufen … auf Stufe … ein, weil … Allerdings …" aria-label="Begründung"></textarea>
+    <p class="klein"><span class="lang-de">Übertragt Stufe und Begründung auf die <strong>Rückseite eurer Reaktionskarte</strong>. Nennt die Stufe am Ende eurer Präsentation. Es gibt keine einzig richtige Stufe – entscheidend ist die Begründung.</span><span class="lang-en">Copy the level and your justification onto the <strong>back of your reaction card</strong>. State the level at the end of your presentation. There is no single correct level – what matters is the justification.</span></p>
+  </div>
+    </div>
+  </details>
+  <div class="box check" data-pid="g1">
+    <h2><span class="lang-de">Checkliste eurer Gruppe</span><span class="lang-en">Group Checklist</span></h2>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 1: AB-Feld in Stichworten ausgefüllt (auch der graue Block)</span><span class="lang-en">Step 1: worksheet field completed in key words (including the grey block)</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 2: Reaktionskarte geschrieben</span><span class="lang-en">Step 2: reaction card written</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 3: Reihenfolge stimmt</span><span class="lang-en">Step 3: order is correct</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Präsentation verteilt: Wer spricht zu ①, ②, ③, ④?</span><span class="lang-en">Presentation shared out: who speaks on ①, ②, ③, ④?</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Challenge (freiwillig): Gefährdung eingestuft und begründet</span><span class="lang-en">Challenge (optional): danger rated and justified</span></label>
+  </div>
+</section>
+<section id="seite-g2" class="seite rechts" hidden>
+  <nav class="crumbs">
+    <a href="#s1" class="lang-de">← Stunde 1: alle Gruppen</a>
+    <a href="#s1" class="lang-en">← Lesson 1: all groups</a>
+    <button class="lang-btn crumb-lang-btn lang-switch-btn" onclick="toggleLang()">🇬🇧 English</button>
+  </nav>
+
+  <header class="kopf">
+    <span class="badge rechts"><span class="lang-de">Angriff von rechts</span><span class="lang-en">Attack from the Right</span></span>
+    <h1><span class="lang-de">Expertengruppe G2: Der Kapp-Lüttwitz-Putsch 1920</span><span class="lang-en">Expert Group G2: The Kapp-Lüttwitz Putsch 1920</span></h1>
+    <p class="jahr"><span class="lang-de">Jahr an der Tafel:</span><span class="lang-en">Year on the board:</span> <strong>1920</strong></p>
+  </header>
+
+    <p class="weg"><span class="lang-de">Euer Weg (25 min):</span><span class="lang-en">Your route (25 min):</span> <button class="zu" data-nach="1"><span class="snr">1</span> <span class="lang-de">Text</span><span class="lang-en">Text</span></button> → <button class="zu" data-nach="2"><span class="snr">2</span> <span class="lang-de">Reaktionskarte</span><span class="lang-en">Reaction card</span></button> → <button class="zu" data-nach="3"><span class="snr">3</span> <span class="lang-de">Reihenfolge = Präsentation</span><span class="lang-en">Order = presentation</span></button></p>
+  <details class="klapp s1" data-nr="1">
+    <summary><h2><span class="snr">1</span> <span class="lang-de">Textarbeit</span><span class="lang-en">Working with the text</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box auftrag schritt">
+        <p><span class="lang-de"><strong>Lest</strong> den Text still. <strong>Arbeitet</strong> dann gemeinsam <strong>heraus</strong> und tragt in euer AB-Feld ein – <strong>nur Stichworte</strong>:</span><span class="lang-en"><strong>Read</strong> the text silently. Then <strong>work out</strong> together and note in your worksheet field – <strong>key words only</strong>:</span></p>
+    <div class="fragen">
+      <div><h3><span class="lang-de">Angriff</span><span class="lang-en">Attack</span></h3><ol type="a"><li><span class="lang-de">Wer griff an?</span><span class="lang-en">Who attacked?</span></li><li><span class="lang-de">Wo?</span><span class="lang-en">Where?</span></li><li><span class="lang-de">Mit welchem Ziel?</span><span class="lang-en">With what goal?</span></li></ol></div>
+      <div class="grau"><h3><span class="lang-de">Reaktion des Staates</span><span class="lang-en">Reaction of the state</span></h3><ol type="a" start="4"><li><span class="lang-de">Wie reagierte die Reichswehr?</span><span class="lang-en">How did the Reichswehr react?</span></li><li><span class="lang-de">Wer stoppte den Putsch?</span><span class="lang-en">Who stopped the putsch?</span></li><li><span class="lang-de">Welche Strafen gab es?</span><span class="lang-en">What punishments followed?</span></li></ol></div>
+    </div>
+    
+  </div>
+
+  <article class="material" data-pid="g2">
+    <h2><span class="mid">M4:</span> <span class="lang-de">Der Kapp-Lüttwitz-Putsch 1920</span><span class="lang-en">The Kapp-Lüttwitz Putsch 1920</span></h2>
+    
+    <div class="lang-de">
+      <p>Im <strong>März 1920</strong> marschiert die rechtsradikale <strong>Marinebrigade Ehrhardt</strong> (ein Freikorps) mit Hakenkreuzen am Stahlhelm nach <strong>Berlin</strong>. Der ostpreußische Beamte Wolfgang <strong>Kapp</strong> und General Walther von <strong>Lüttwitz</strong> wollen die demokratische Regierung stürzen, die Nationalversammlung auflösen und die Monarchie wiederherstellen. Die gewählte Reichsregierung (SPD, Zentrum, DDP) muss nach Dresden und Stuttgart fliehen.</p>
+      <p>Als Reichswehrminister Gustav Noske (SPD) die Reichswehr auffordert, die Regierung zu schützen, antwortet General Hans von Seeckt: <em>„Truppe schießt nicht auf Truppe!“</em> Die reguläre Armee <strong><mark class="key">weigert sich</mark>, die Demokratie zu verteidigen</strong>. Gerettet wird die Republik durch den <strong>größten Generalstreik der deutschen Geschichte</strong>: Über 12 Millionen Arbeiter und Beamte legen die Arbeit nieder; Strom, Wasser, Bahn und Zeitungen stehen still. Nach nur vier Tagen bricht der Putsch zusammen.</p>
+      <p><strong>Die juristischen Folgen:</strong> Die meisten Putschisten erhalten eine <strong><mark class="key">Amnestie</mark></strong> (Straffreiheit). Von 705 eingeleiteten Verfahren wird <strong><mark class="key">nur einer</mark></strong> der Haupttäter verurteilt (zu 5 Jahren Festungshaft). General von Seeckt wird anschließend zum Chef der Heeresleitung befördert.</p>
+      <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+
+    <div class="lang-en">
+      <p>In <strong>March 1920</strong>, the radical right-wing <strong>Marinebrigade Ehrhardt</strong> (a paramilitary Freikorps unit wearing swastikas on their helmets) marched into <strong>Berlin</strong>. Civil servant Wolfgang <strong>Kapp</strong> and General Walther von <strong>Lüttwitz</strong> aimed to overthrow the democratic government, dissolve the National Assembly, and restore authoritarian rule. The democratically elected government was forced to flee to Dresden and Stuttgart.</p>
+      <p>When the Defense Minister ordered the army (Reichswehr) to protect the government, General Hans von Seeckt refused bluntly: <em>"Troops do not fire on troops!"</em> The regular army <strong><mark class="key">refuses to intervene</mark> or defend the republic</strong>. The democracy was ultimately saved by the <strong>largest general strike in German history</strong>: Over 12 million workers and civil servants halted all transportation, electricity, water, and government offices. The coup collapsed within four days.</p>
+      <p><strong>Judicial aftermath:</strong> Almost all coup participants received broad <strong><mark class="key">amnesty</mark></strong>. Out of 705 legal proceedings initiated against the right-wing putschists, <strong><mark class="key">only one</mark></strong> individual was sentenced to prison (5 years honorable fortress confinement). General von Seeckt was subsequently promoted to Commander-in-Chief of the Reichswehr.</p>
+      <p class="quelle">Source: Educational text adapted from German Historical Museum (DHM / LeMO), "Weimarer Republik".<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+  </article>
+
+  <div class="tipps" data-pid="g2">
+    <h3><span class="lang-de">Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</span><span class="lang-en">Scaffolded Tips (Use only when stuck)</span></h3>
+    <button class="tippbtn" data-k="1"><span class="lang-de">Tipp 1 anzeigen</span><span class="lang-en">Show Tip 1</span></button>
+    <p class="tipp" id="g2-t1" hidden>
+      <span class="lang-de"><strong>Tipp 1:</strong> Wer hat den Putsch beendet – die Reichswehr oder die Bevölkerung?</span>
+      <span class="lang-en"><strong>Tip 1:</strong> Who brought an end to the coup – the military or the working population?</span>
+    </p>
+    
+    <button class="tippbtn" data-k="2" data-mark="1" disabled><span class="lang-de">Tipp 2 anzeigen</span><span class="lang-en">Show Tip 2</span></button>
+    <p class="tipp" id="g2-t2" hidden>
+      <span class="lang-de"><strong>Tipp 2:</strong> Achtet auf die Stellen „weigert sich“, „Amnestie“ und „nur einer“. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></span>
+      <span class="lang-en"><strong>Tip 2:</strong> Look closely at the phrases "refuses to intervene", "amnesty", and "only one". <span class="hinweis">(Key phrases are now highlighted in the text.)</span></span>
+    </p>
+    
+    <button class="tippbtn" data-k="3" disabled><span class="lang-de">Tipp 3 anzeigen</span><span class="lang-en">Show Tip 3</span></button>
+    <p class="tipp" id="g2-t3" hidden>
+      <span class="lang-de"><strong>Tipp 3:</strong> Satzstarter: „Die Reichswehr … Deshalb scheiterte der Putsch erst durch …“</span>
+      <span class="lang-en"><strong>Tip 3:</strong> Sentence starter: "The army refused to defend the republic, so the coup was only halted by ..."</span>
+    </p>
+  </div>
+    <button class="weiter" data-nach="2"><span class="lang-de">Weiter zu Schritt 2</span><span class="lang-en">On to step 2</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s2 k-rechts" data-nr="2">
+    <summary><h2><span class="snr">2</span> <span class="lang-de">Reaktionskarte schreiben (grüne Karte)</span><span class="lang-en">Write your reaction card (green card)</span> <span class="zeit">5 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box schritt karte rechts">
+        <p><span class="lang-de"><strong>Erläutert</strong>, wie Reichswehr und Justiz reagierten.</span><span class="lang-en"><strong>Explain</strong> how the Reichswehr and the judiciary reacted.</span> <span class="lang-de">Ein Satz mit Opferzahl oder Strafmaß.</span><span class="lang-en">One sentence with the number of victims or the sentence.</span></p>
+    <div class="mini rechts">
+      <p class="l"><span class="lang-de">Angriff / Ereignis + Jahr</span><span class="lang-en">Attack / Event + Year</span></p>
+      <p class="z gross"><span class="lang-de">Der Kapp-Lüttwitz-Putsch 1920</span><span class="lang-en">The Kapp-Lüttwitz Putsch 1920</span></p>
+      <p class="l"><span class="lang-de">Wer reagierte für den Staat?</span><span class="lang-en">Who reacted for the state?</span></p>
+      <p class="z"><span class="lang-de">Regierung? Reichswehr? Freikorps? Polizei? Gericht?</span><span class="lang-en">Government? Military (Reichswehr)? Courts/Judiciary?</span></p>
+      <p class="l"><span class="lang-de">Reaktion des Staates</span><span class="lang-en">State Reaction / Sentence</span></p>
+      <p class="z"><span class="lang-de">ein Satz mit Opferzahl oder Strafmaß</span><span class="lang-en">One sentence detailing response and legal punishment</span></p>
+    </div>
+    <div class="lang-de">
+      <p>Mit dickem Stift, groß schreiben. Nach eurer Präsentation heftet ihr die Karte an die Tafel:
+        <strong>Spalte = Farbe</strong> (Angriff von rechts), <strong>Zeile = Jahr</strong> (1920).</p>
+      <p class="klein">Die Farbe zeigt, von wem der Angriff ausging – nicht, wer reagiert hat.</p>
+    </div>
+    <div class="lang-en">
+      <p>Write clearly and in large letters. After your presentation, attach the card to the board:
+        <strong>Column = Color</strong> (Green = Right-wing attack), <strong>Row = Year</strong> (1920).</p>
+      <p class="klein">The card color reflects the origin of the threat, not the responding institution.</p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="3"><span class="lang-de">Weiter zu Schritt 3</span><span class="lang-en">On to step 3</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s3" data-nr="3">
+    <summary><h2><span class="snr">3</span> <span class="lang-de">Sicherung: Was geschah wann?</span><span class="lang-en">Consolidation: what happened when?</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box sortier schritt" data-pid="g2">
+        <p><span class="lang-de"><strong>Bringt</strong> die Ereignisse in die richtige Reihenfolge: Tippt sie nacheinander an. Antippen in der Reihe legt eine Karte zurück.</span><span class="lang-en"><strong>Put</strong> the events in the right order: tap them one after another. Tapping a card in the sequence puts it back.</span></p>
+    <ol class="phasen" hidden><li data-ph="1"><span class="lang-de">Wer griff an – mit welchem Ziel?</span><span class="lang-en">Who attacked – with what goal?</span></li><li data-ph="2"><span class="lang-de">Was geschah – und was tat die Reichswehr?</span><span class="lang-en">What happened – and what did the Reichswehr do?</span></li><li data-ph="3"><span class="lang-de">Wer stoppte den Putsch?</span><span class="lang-en">Who stopped the putsch?</span></li><li data-ph="4"><span class="lang-de">Folgen und Strafen</span><span class="lang-en">Consequences and punishments</span></li></ol>
+    <div class="pool"><button class="sk" data-ord="1" data-ph="1"><span class="lang-de">Kapp und General von Lüttwitz wollen die Regierung stürzen und die Monarchie zurückholen.</span><span class="lang-en">Kapp and General von Lüttwitz want to overthrow the government and restore the monarchy.</span></button><button class="sk" data-ord="2" data-ph="2"><span class="lang-de">März 1920: Die Marinebrigade Ehrhardt marschiert in Berlin ein.</span><span class="lang-en">March 1920: The Marinebrigade Ehrhardt marches into Berlin.</span></button><button class="sk" data-ord="3" data-ph="2"><span class="lang-de">Die Reichswehr schützt die Regierung nicht: „Truppe schießt nicht auf Truppe!“</span><span class="lang-en">The Reichswehr does not protect the government: “Troops do not fire on troops!”</span></button><button class="sk" data-ord="3" data-ph="2"><span class="lang-de">Die gewählte Regierung flieht nach Dresden und Stuttgart.</span><span class="lang-en">The elected government flees to Dresden and Stuttgart.</span></button><button class="sk" data-ord="4" data-ph="3"><span class="lang-de">Über 12 Millionen Menschen streiken. Nach vier Tagen bricht der Putsch zusammen.</span><span class="lang-en">More than 12 million people go on strike. After four days the putsch collapses.</span></button><button class="sk" data-ord="5" data-ph="4"><span class="lang-de">Amnestie für die meisten Putschisten: Von 705 Verfahren endet nur eines mit einer Verurteilung.</span><span class="lang-en">Amnesty for most putschists: of 705 proceedings, only one ends in a conviction.</span></button></div>
+    <ol class="folge"></ol>
+    <div class="knoepfe"><button class="pruefen-s"><span class="lang-de">Reihenfolge prüfen</span><span class="lang-en">Check order</span></button><button class="reset-s"><span class="lang-de">Neu starten</span><span class="lang-en">Restart</span></button><button class="loesung-s" hidden><span class="lang-de">Lösung zeigen</span><span class="lang-en">Show solution</span></button></div>
+    <p class="feedback-s" aria-live="polite"></p>
+    <div class="fahrplan" hidden>
+      <h3><span class="lang-de">Euer Präsentationsfahrplan (max. 3 min)</span><span class="lang-en">Your presentation plan (max. 3 min)</span></h3>
+      <p class="klein"><span class="lang-de">Jede Person übernimmt einen Abschnitt. Die Klasse schreibt in derselben Reihenfolge mit: ① ② = Angriff, ③ ④ = grauer Block „Reaktion des Staates“. Bei ③ oder ④ lest ihr eure Reaktionskarte vor.</span><span class="lang-en">Each person presents one section. The class takes notes in the same order: ① ② = attack, ③ ④ = grey block “reaction of the state”. Read out your reaction card at ③ or ④.</span></p>
+      <div class="plan"></div>
+      <p class="stufe-plan" hidden></p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="4"><span class="lang-de">Fertig? Weiter zur Challenge</span><span class="lang-en">Done? On to the challenge</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp ch" data-nr="4">
+    <summary><h2><span class="lang-de">Challenge: Wie gefährlich war euer Ereignis für die Republik?</span><span class="lang-en">Challenge: How dangerous was your event for the Republic?</span> <span class="zeit"><span class="lang-de">für schnelle Gruppen</span><span class="lang-en">for fast groups</span></span></h2></summary>
+    <div class="klapp-inhalt">
+<div class="box skala" data-pid="g2">
+        <p><strong>1.</strong> <span class="lang-de"><strong>Prüft</strong> die Kriterien: Was trifft auf euer Ereignis zu?</span><span class="lang-en"><strong>Check</strong> the criteria: which apply to your event?</span></p>
+    <div class="kriterien">
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Angriff richtete sich direkt gegen die gewählte Regierung oder die Verfassung.</span><span class="lang-en">The attack was aimed directly at the elected government or the constitution.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Viele Menschen waren beteiligt oder kamen ums Leben.</span><span class="lang-en">Many people were involved or lost their lives.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Staat konnte die Gefahr nur schwer oder gar nicht stoppen.</span><span class="lang-en">The state could stop the danger only with difficulty or not at all.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Die Folgen reichten über das Ereignis hinaus (z. B. Radikalisierung, Nachahmer, Vertrauensverlust).</span><span class="lang-en">The consequences went beyond the event (e.g. radicalisation, imitators, loss of trust).</span></label>
+    </div>
+    <p class="krit-zahl klein" aria-live="polite"></p>
+    <p><strong>2.</strong> <span class="lang-de"><strong>Ordnet</strong> euer Ereignis auf der Skala <strong>ein</strong>:</span><span class="lang-en"><strong>Place</strong> your event on the scale:</span></p>
+    <div class="stufen" role="group"><button class="stufe" data-s="1"><b>1</b><span class="lang-de">kaum</span><span class="lang-en">hardly</span></button><button class="stufe" data-s="2"><b>2</b><span class="lang-de">gering</span><span class="lang-en">low</span></button><button class="stufe" data-s="3"><b>3</b><span class="lang-de">mittel</span><span class="lang-en">medium</span></button><button class="stufe" data-s="4"><b>4</b><span class="lang-de">hoch</span><span class="lang-en">high</span></button><button class="stufe" data-s="5"><b>5</b><span class="lang-de">bedrohte die Republik</span><span class="lang-en">threatened the Republic</span></button></div>
+    <p><strong>3.</strong> <span class="lang-de"><strong>Begründet</strong> eure Einstufung in 1–2 Sätzen:</span><span class="lang-en"><strong>Justify</strong> your rating in 1–2 sentences:</span></p>
+    <textarea class="begruendung" rows="3" placeholder="Wir stufen … auf Stufe … ein, weil … Allerdings …" aria-label="Begründung"></textarea>
+    <p class="klein"><span class="lang-de">Übertragt Stufe und Begründung auf die <strong>Rückseite eurer Reaktionskarte</strong>. Nennt die Stufe am Ende eurer Präsentation. Es gibt keine einzig richtige Stufe – entscheidend ist die Begründung.</span><span class="lang-en">Copy the level and your justification onto the <strong>back of your reaction card</strong>. State the level at the end of your presentation. There is no single correct level – what matters is the justification.</span></p>
+  </div>
+    </div>
+  </details>
+  <div class="box check" data-pid="g2">
+    <h2><span class="lang-de">Checkliste eurer Gruppe</span><span class="lang-en">Group Checklist</span></h2>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 1: AB-Feld in Stichworten ausgefüllt (auch der graue Block)</span><span class="lang-en">Step 1: worksheet field completed in key words (including the grey block)</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 2: Reaktionskarte geschrieben</span><span class="lang-en">Step 2: reaction card written</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 3: Reihenfolge stimmt</span><span class="lang-en">Step 3: order is correct</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Präsentation verteilt: Wer spricht zu ①, ②, ③, ④?</span><span class="lang-en">Presentation shared out: who speaks on ①, ②, ③, ④?</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Challenge (freiwillig): Gefährdung eingestuft und begründet</span><span class="lang-en">Challenge (optional): danger rated and justified</span></label>
+  </div>
+</section>
+<section id="seite-g3" class="seite links" hidden>
+  <nav class="crumbs">
+    <a href="#s1" class="lang-de">← Stunde 1: alle Gruppen</a>
+    <a href="#s1" class="lang-en">← Lesson 1: all groups</a>
+    <button class="lang-btn crumb-lang-btn lang-switch-btn" onclick="toggleLang()">🇬🇧 English</button>
+  </nav>
+
+  <header class="kopf">
+    <span class="badge links"><span class="lang-de">Angriff von links</span><span class="lang-en">Attack from the Left</span></span>
+    <h1><span class="lang-de">Expertengruppe G3: Die Rote Ruhrarmee 1920</span><span class="lang-en">Expert Group G3: The Red Ruhr Army 1920</span></h1>
+    <p class="jahr"><span class="lang-de">Jahr an der Tafel:</span><span class="lang-en">Year on the board:</span> <strong>1920</strong></p>
+  </header>
+
+    <p class="weg"><span class="lang-de">Euer Weg (25 min):</span><span class="lang-en">Your route (25 min):</span> <button class="zu" data-nach="1"><span class="snr">1</span> <span class="lang-de">Text</span><span class="lang-en">Text</span></button> → <button class="zu" data-nach="2"><span class="snr">2</span> <span class="lang-de">Reaktionskarte</span><span class="lang-en">Reaction card</span></button> → <button class="zu" data-nach="3"><span class="snr">3</span> <span class="lang-de">Reihenfolge = Präsentation</span><span class="lang-en">Order = presentation</span></button></p>
+  <details class="klapp s1" data-nr="1">
+    <summary><h2><span class="snr">1</span> <span class="lang-de">Textarbeit</span><span class="lang-en">Working with the text</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box auftrag schritt">
+        <p><span class="lang-de"><strong>Lest</strong> den Text still. <strong>Arbeitet</strong> dann gemeinsam <strong>heraus</strong> und tragt in euer AB-Feld ein – <strong>nur Stichworte</strong>:</span><span class="lang-en"><strong>Read</strong> the text silently. Then <strong>work out</strong> together and note in your worksheet field – <strong>key words only</strong>:</span></p>
+    <div class="fragen">
+      <div><h3><span class="lang-de">Angriff</span><span class="lang-en">Attack</span></h3><ol type="a"><li><span class="lang-de">Wer griff zu den Waffen – und warum zuerst?</span><span class="lang-en">Who took up arms – and why at first?</span></li><li><span class="lang-de">Wo?</span><span class="lang-en">Where?</span></li><li><span class="lang-de">Was forderten die Arbeiter danach?</span><span class="lang-en">What did the workers demand afterwards?</span></li></ol></div>
+      <div class="grau"><h3><span class="lang-de">Reaktion des Staates</span><span class="lang-en">Reaction of the state</span></h3><ol type="a" start="4"><li><span class="lang-de">Wer reagierte für den Staat?</span><span class="lang-en">Who reacted on behalf of the state?</span></li><li><span class="lang-de">Wie? Wie viele Tote?</span><span class="lang-en">How? How many dead?</span></li></ol></div>
+    </div>
+    
+  </div>
+
+  <article class="material" data-pid="g3">
+    <h2><span class="mid">M5:</span> <span class="lang-de">Die Rote Ruhrarmee 1920</span><span class="lang-en">The Red Ruhr Army 1920 (Ruhr Uprising)</span></h2>
+    
+    <div class="lang-de">
+      <p>Als Reaktion auf den rechten Kapp-Putsch bewaffnen sich im <strong>März 1920</strong> über 50.000 Arbeiter im <strong>Ruhrgebiet</strong>. Sie vertreiben die Putschisten und fordern weitergehende Reformen: die Vergesellschaftung der Zechen, die Entwaffnung rechter Truppen und eine Räterepublik. Große Teile des Reviers (u. a. Essen, Dortmund, Duisburg) werden von der „Roten Ruhrarmee“ kontrolliert.</p>
+      <p>Obwohl die Arbeiter ursprünglich zur Verteidigung der Republik zu den Waffen gegriffen hatten, schickt die Reichsregierung Anfang April 1920 <strong><mark class="key">Reichswehr und Freikorps</mark></strong> ins Ruhrgebiet – darunter ausgerechnet dieselben Freikorps-Einheiten, die Tage zuvor selbst gegen die Republik geputscht hatten. Der Aufstand wird mit äußerster Härte niedergeschlagen: <strong><mark class="key">über 1.000</mark> Arbeiter werden getötet</strong>, Hunderte Gefangene ohne Urteil <strong><mark class="key">standrechtlich erschossen</mark></strong>. Die Reichswehr verliert etwa 250 Soldaten.</p>
+      <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+
+    <div class="lang-en">
+      <p>In reaction to the right-wing Kapp Putsch, more than 50,000 industrial workers took up arms in the <strong>Ruhr district</strong> in <strong>March 1920</strong>. After repelling the putschists, radicalized left-wing workers demanded deeper socialist transformations: nationalization of coal mines, thorough purging of anti-republican officers, and a council republic. Large parts of the industrial basin (including Essen, Dortmund, and Duisburg) came under the control of the "Red Ruhr Army".</p>
+      <p>Even though the workers had originally mobilized to defend the republic, the central government deployed <strong><mark class="key">Reichswehr and Freikorps</mark></strong> units into the Ruhr in April 1920 — ironically deploying the very same nationalist Freikorps battalions that had staged the right-wing coup days earlier. The uprising was crushed with ruthless brutality: <strong><mark class="key">over 1,000</mark> workers were killed</strong>, and hundreds of captured workers were <strong><mark class="key">summarily executed</mark> without trial</strong>. The army suffered approximately 250 casualties.</p>
+      <p class="quelle">Source: Educational text adapted from German Historical Museum (DHM / LeMO), "Weimarer Republik".<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+  </article>
+
+  <div class="tipps" data-pid="g3">
+    <h3><span class="lang-de">Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</span><span class="lang-en">Scaffolded Tips (Use only when stuck)</span></h3>
+    <button class="tippbtn" data-k="1"><span class="lang-de">Tipp 1 anzeigen</span><span class="lang-en">Show Tip 1</span></button>
+    <p class="tipp" id="g3-t1" hidden>
+      <span class="lang-de"><strong>Tipp 1:</strong> Vergleicht die Truppen beim Kapp-Putsch und bei der Ruhrarmee: Wer wurde eingesetzt?</span>
+      <span class="lang-en"><strong>Tip 1:</strong> Compare how the state deployed troops during the Kapp Putsch versus the Ruhr Uprising: Who was sent to fight?</span>
+    </p>
+    
+    <button class="tippbtn" data-k="2" data-mark="1" disabled><span class="lang-de">Tipp 2 anzeigen</span><span class="lang-en">Show Tip 2</span></button>
+    <p class="tipp" id="g3-t2" hidden>
+      <span class="lang-de"><strong>Tipp 2:</strong> Achtet auf die Stellen „Reichswehr und Freikorps“, „über 1.000“ und „standrechtlich erschossen“. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></span>
+      <span class="lang-en"><strong>Tip 2:</strong> Focus on "Reichswehr and Freikorps", "over 1,000", and "summarily executed". <span class="hinweis">(Key phrases are now highlighted in the text.)</span></span>
+    </p>
+    
+    <button class="tippbtn" data-k="3" disabled><span class="lang-de">Tipp 3 anzeigen</span><span class="lang-en">Show Tip 3</span></button>
+    <p class="tipp" id="g3-t3" hidden>
+      <span class="lang-de"><strong>Tipp 3:</strong> Satzstarter: „Gegen die bewaffneten Arbeiter setzte die Regierung … ein; dabei starben …“</span>
+      <span class="lang-en"><strong>Tip 3:</strong> Sentence starter: "Against the armed workers, the government deployed ... resulting in the deaths of over ..."</span>
+    </p>
+  </div>
+    <button class="weiter" data-nach="2"><span class="lang-de">Weiter zu Schritt 2</span><span class="lang-en">On to step 2</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s2 k-links" data-nr="2">
+    <summary><h2><span class="snr">2</span> <span class="lang-de">Reaktionskarte schreiben (rote Karte)</span><span class="lang-en">Write your reaction card (red card)</span> <span class="zeit">5 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box schritt karte links">
+        <p><span class="lang-de"><strong>Erläutert</strong>, wie Reichswehr und Freikorps gegen die Arbeiter vorgingen.</span><span class="lang-en"><strong>Explain</strong> how the Reichswehr and Freikorps acted against the workers.</span> <span class="lang-de">Ein Satz mit Opferzahl oder Strafmaß.</span><span class="lang-en">One sentence with the number of victims or the sentence.</span></p>
+    <div class="mini links">
+      <p class="l"><span class="lang-de">Angriff / Ereignis + Jahr</span><span class="lang-en">Attack / Event + Year</span></p>
+      <p class="z gross"><span class="lang-de">Die Rote Ruhrarmee 1920</span><span class="lang-en">The Red Ruhr Army 1920</span></p>
+      <p class="l"><span class="lang-de">Wer reagierte für den Staat?</span><span class="lang-en">Who reacted for the state?</span></p>
+      <p class="z"><span class="lang-de">Regierung? Reichswehr? Freikorps? Polizei? Gericht?</span><span class="lang-en">Government? Military (Reichswehr)? Freikorps?</span></p>
+      <p class="l"><span class="lang-de">Reaktion des Staates</span><span class="lang-en">State Reaction / Fatalities</span></p>
+      <p class="z"><span class="lang-de">ein Satz mit Opferzahl oder Strafmaß</span><span class="lang-en">One sentence detailing force used and casualties</span></p>
+    </div>
+    <div class="lang-de">
+      <p>Mit dickem Stift, groß schreiben. Nach eurer Präsentation heftet ihr die Karte an die Tafel:
+        <strong>Spalte = Farbe</strong> (Angriff von links), <strong>Zeile = Jahr</strong> (1920).</p>
+      <p class="klein">Die Farbe zeigt, von wem der Angriff ausging – nicht, wer reagiert hat.</p>
+    </div>
+    <div class="lang-en">
+      <p>Write clearly and in large letters. After your presentation, attach the card to the board:
+        <strong>Column = Color</strong> (Red = Left-wing attack), <strong>Row = Year</strong> (1920).</p>
+      <p class="klein">The card color reflects the origin of the threat, not the responding institution.</p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="3"><span class="lang-de">Weiter zu Schritt 3</span><span class="lang-en">On to step 3</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s3" data-nr="3">
+    <summary><h2><span class="snr">3</span> <span class="lang-de">Sicherung: Was geschah wann?</span><span class="lang-en">Consolidation: what happened when?</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box sortier schritt" data-pid="g3">
+        <p><span class="lang-de"><strong>Bringt</strong> die Ereignisse in die richtige Reihenfolge: Tippt sie nacheinander an. Antippen in der Reihe legt eine Karte zurück.</span><span class="lang-en"><strong>Put</strong> the events in the right order: tap them one after another. Tapping a card in the sequence puts it back.</span></p>
+    <ol class="phasen" hidden><li data-ph="1"><span class="lang-de">Vorgeschichte</span><span class="lang-en">Background</span></li><li data-ph="2"><span class="lang-de">Wer griff an – mit welchem Ziel?</span><span class="lang-en">Who attacked – with what goal?</span></li><li data-ph="3"><span class="lang-de">Wie reagierte der Staat?</span><span class="lang-en">How did the state react?</span></li><li data-ph="4"><span class="lang-de">Folgen</span><span class="lang-en">Consequences</span></li></ol>
+    <div class="pool"><button class="sk" data-ord="1" data-ph="1"><span class="lang-de">März 1920: Rechte Truppen putschen in Berlin (Kapp-Putsch).</span><span class="lang-en">March 1920: Right-wing troops stage a coup in Berlin (Kapp Putsch).</span></button><button class="sk" data-ord="2" data-ph="2"><span class="lang-de">Über 50.000 Arbeiter im Ruhrgebiet bewaffnen sich und vertreiben die Putschisten.</span><span class="lang-en">More than 50,000 workers in the Ruhr arm themselves and drive out the putschists.</span></button><button class="sk" data-ord="3" data-ph="2"><span class="lang-de">Die „Rote Ruhrarmee“ fordert mehr: Zechen vergesellschaften, rechte Truppen entwaffnen, Räterepublik.</span><span class="lang-en">The “Red Ruhr Army” demands more: nationalise the mines, disarm right-wing troops, a council republic.</span></button><button class="sk" data-ord="4" data-ph="3"><span class="lang-de">April 1920: Die Regierung schickt Reichswehr und Freikorps ins Ruhrgebiet – auch Einheiten, die kurz zuvor geputscht hatten.</span><span class="lang-en">April 1920: The government sends the Reichswehr and Freikorps into the Ruhr – including units that had just staged the coup.</span></button><button class="sk" data-ord="5" data-ph="4"><span class="lang-de">Der Aufstand wird niedergeschlagen: Über 1.000 Arbeiter sterben.</span><span class="lang-en">The uprising is crushed: more than 1,000 workers die.</span></button><button class="sk" data-ord="5" data-ph="4"><span class="lang-de">Hunderte Gefangene werden ohne Urteil standrechtlich erschossen.</span><span class="lang-en">Hundreds of prisoners are summarily shot without trial.</span></button></div>
+    <ol class="folge"></ol>
+    <div class="knoepfe"><button class="pruefen-s"><span class="lang-de">Reihenfolge prüfen</span><span class="lang-en">Check order</span></button><button class="reset-s"><span class="lang-de">Neu starten</span><span class="lang-en">Restart</span></button><button class="loesung-s" hidden><span class="lang-de">Lösung zeigen</span><span class="lang-en">Show solution</span></button></div>
+    <p class="feedback-s" aria-live="polite"></p>
+    <div class="fahrplan" hidden>
+      <h3><span class="lang-de">Euer Präsentationsfahrplan (max. 3 min)</span><span class="lang-en">Your presentation plan (max. 3 min)</span></h3>
+      <p class="klein"><span class="lang-de">Jede Person übernimmt einen Abschnitt. Die Klasse schreibt in derselben Reihenfolge mit: ① ② = Angriff, ③ ④ = grauer Block „Reaktion des Staates“. Bei ③ oder ④ lest ihr eure Reaktionskarte vor.</span><span class="lang-en">Each person presents one section. The class takes notes in the same order: ① ② = attack, ③ ④ = grey block “reaction of the state”. Read out your reaction card at ③ or ④.</span></p>
+      <div class="plan"></div>
+      <p class="stufe-plan" hidden></p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="4"><span class="lang-de">Fertig? Weiter zur Challenge</span><span class="lang-en">Done? On to the challenge</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp ch" data-nr="4">
+    <summary><h2><span class="lang-de">Challenge: Wie gefährlich war euer Ereignis für die Republik?</span><span class="lang-en">Challenge: How dangerous was your event for the Republic?</span> <span class="zeit"><span class="lang-de">für schnelle Gruppen</span><span class="lang-en">for fast groups</span></span></h2></summary>
+    <div class="klapp-inhalt">
+<div class="box skala" data-pid="g3">
+        <p><strong>1.</strong> <span class="lang-de"><strong>Prüft</strong> die Kriterien: Was trifft auf euer Ereignis zu?</span><span class="lang-en"><strong>Check</strong> the criteria: which apply to your event?</span></p>
+    <div class="kriterien">
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Angriff richtete sich direkt gegen die gewählte Regierung oder die Verfassung.</span><span class="lang-en">The attack was aimed directly at the elected government or the constitution.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Viele Menschen waren beteiligt oder kamen ums Leben.</span><span class="lang-en">Many people were involved or lost their lives.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Staat konnte die Gefahr nur schwer oder gar nicht stoppen.</span><span class="lang-en">The state could stop the danger only with difficulty or not at all.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Die Folgen reichten über das Ereignis hinaus (z. B. Radikalisierung, Nachahmer, Vertrauensverlust).</span><span class="lang-en">The consequences went beyond the event (e.g. radicalisation, imitators, loss of trust).</span></label>
+    </div>
+    <p class="krit-zahl klein" aria-live="polite"></p>
+    <p><strong>2.</strong> <span class="lang-de"><strong>Ordnet</strong> euer Ereignis auf der Skala <strong>ein</strong>:</span><span class="lang-en"><strong>Place</strong> your event on the scale:</span></p>
+    <div class="stufen" role="group"><button class="stufe" data-s="1"><b>1</b><span class="lang-de">kaum</span><span class="lang-en">hardly</span></button><button class="stufe" data-s="2"><b>2</b><span class="lang-de">gering</span><span class="lang-en">low</span></button><button class="stufe" data-s="3"><b>3</b><span class="lang-de">mittel</span><span class="lang-en">medium</span></button><button class="stufe" data-s="4"><b>4</b><span class="lang-de">hoch</span><span class="lang-en">high</span></button><button class="stufe" data-s="5"><b>5</b><span class="lang-de">bedrohte die Republik</span><span class="lang-en">threatened the Republic</span></button></div>
+    <p><strong>3.</strong> <span class="lang-de"><strong>Begründet</strong> eure Einstufung in 1–2 Sätzen:</span><span class="lang-en"><strong>Justify</strong> your rating in 1–2 sentences:</span></p>
+    <textarea class="begruendung" rows="3" placeholder="Wir stufen … auf Stufe … ein, weil … Allerdings …" aria-label="Begründung"></textarea>
+    <p class="klein"><span class="lang-de">Übertragt Stufe und Begründung auf die <strong>Rückseite eurer Reaktionskarte</strong>. Nennt die Stufe am Ende eurer Präsentation. Es gibt keine einzig richtige Stufe – entscheidend ist die Begründung.</span><span class="lang-en">Copy the level and your justification onto the <strong>back of your reaction card</strong>. State the level at the end of your presentation. There is no single correct level – what matters is the justification.</span></p>
+  </div>
+    </div>
+  </details>
+  <div class="box check" data-pid="g3">
+    <h2><span class="lang-de">Checkliste eurer Gruppe</span><span class="lang-en">Group Checklist</span></h2>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 1: AB-Feld in Stichworten ausgefüllt (auch der graue Block)</span><span class="lang-en">Step 1: worksheet field completed in key words (including the grey block)</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 2: Reaktionskarte geschrieben</span><span class="lang-en">Step 2: reaction card written</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 3: Reihenfolge stimmt</span><span class="lang-en">Step 3: order is correct</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Präsentation verteilt: Wer spricht zu ①, ②, ③, ④?</span><span class="lang-en">Presentation shared out: who speaks on ①, ②, ③, ④?</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Challenge (freiwillig): Gefährdung eingestuft und begründet</span><span class="lang-en">Challenge (optional): danger rated and justified</span></label>
+  </div>
+</section>
+<section id="seite-g4" class="seite rechts" hidden>
+  <nav class="crumbs">
+    <a href="#s1" class="lang-de">← Stunde 1: alle Gruppen</a>
+    <a href="#s1" class="lang-en">← Lesson 1: all groups</a>
+    <button class="lang-btn crumb-lang-btn lang-switch-btn" onclick="toggleLang()">🇬🇧 English</button>
+  </nav>
+
+  <header class="kopf">
+    <span class="badge rechts"><span class="lang-de">Angriff von rechts</span><span class="lang-en">Attack from the Right</span></span>
+    <h1><span class="lang-de">Expertengruppe G4: Politische Morde – Matthias Erzberger und Walther Rathenau</span><span class="lang-en">Expert Group G4: Political Assassinations – Erzberger & Rathenau</span></h1>
+    <p class="jahr"><span class="lang-de">Jahr an der Tafel:</span><span class="lang-en">Year on the board:</span> <strong>1921/22</strong></p>
+  </header>
+
+    <p class="weg"><span class="lang-de">Euer Weg (25 min):</span><span class="lang-en">Your route (25 min):</span> <button class="zu" data-nach="1"><span class="snr">1</span> <span class="lang-de">Text</span><span class="lang-en">Text</span></button> → <button class="zu" data-nach="2"><span class="snr">2</span> <span class="lang-de">Reaktionskarte</span><span class="lang-en">Reaction card</span></button> → <button class="zu" data-nach="3"><span class="snr">3</span> <span class="lang-de">Reihenfolge = Präsentation</span><span class="lang-en">Order = presentation</span></button></p>
+  <details class="klapp s1" data-nr="1">
+    <summary><h2><span class="snr">1</span> <span class="lang-de">Textarbeit</span><span class="lang-en">Working with the text</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box auftrag schritt">
+        <p><span class="lang-de"><strong>Lest</strong> den Text still. <strong>Arbeitet</strong> dann gemeinsam <strong>heraus</strong> und tragt in euer AB-Feld ein – <strong>nur Stichworte</strong>:</span><span class="lang-en"><strong>Read</strong> the text silently. Then <strong>work out</strong> together and note in your worksheet field – <strong>key words only</strong>:</span></p>
+    <div class="fragen">
+      <div><h3><span class="lang-de">Angriff</span><span class="lang-en">Attack</span></h3><ol type="a"><li><span class="lang-de">Wer griff an?</span><span class="lang-en">Who attacked?</span></li><li><span class="lang-de">Gegen wen – und warum gerade diese Politiker?</span><span class="lang-en">Against whom – and why these politicians?</span></li><li><span class="lang-de">Mit welchem Ziel?</span><span class="lang-en">With what goal?</span></li></ol></div>
+      <div class="grau"><h3><span class="lang-de">Reaktion des Staates</span><span class="lang-en">Reaction of the state</span></h3><ol type="a" start="4"><li><span class="lang-de">Wie reagierten Reichstag und Regierung?</span><span class="lang-en">How did the Reichstag and the government react?</span></li><li><span class="lang-de">Wie urteilten die Richter?</span><span class="lang-en">How did the judges rule?</span></li></ol></div>
+    </div>
+    <p class="extra"><span class="lang-de"><strong>Erklärt</strong>, was Kanzler Wirth mit „Dieser Feind steht rechts!“ meinte.</span><span class="lang-en"><strong>Explain</strong> what Chancellor Wirth meant by “This enemy stands on the right!”.</span> <span class="lang-de">(mündlich, für die Präsentation)</span><span class="lang-en">(orally, for the presentation)</span></p>
+  </div>
+
+  <article class="material" data-pid="g4">
+    <h2><span class="mid">M6:</span> <span class="lang-de">Politische Morde – Matthias Erzberger und Walther Rathenau</span><span class="lang-en">Political Assassinations – Matthias Erzberger & Walther Rathenau</span></h2>
+    
+    <div class="lang-de">
+      <p>Rechtsradikale Geheimorganisationen, vor allem die <strong><mark class="key">Organisation Consul</mark> (O.C.)</strong> aus ehemaligen Freikorps-Offizieren, ermorden gezielt führende demokratische Politiker. Am 26. August 1921 wird der ehemalige Reichsfinanzminister Matthias <strong>Erzberger</strong> (Zentrum) beim Spaziergang im Schwarzwald erschossen – er hatte 1918 den Waffenstillstand unterzeichnet. Am 24. Juni 1922 wird Reichsaußenminister Walther <strong>Rathenau</strong> (DDP) in Berlin auf offener Straße mit Handgranaten und Maschinenpistolen ermordet. Er war Jude und stand für die Erfüllung des Versailler Vertrags.</p>
+      <p>Reichskanzler Joseph Wirth (Zentrum) ruft im Reichstag aus: <em>„Da steht der Feind, der sein Gift in die Wunden eines Volkes träufelt. – Da steht der Feind – und darüber ist kein Zweifel: Dieser Feind steht rechts!“</em> Der Reichstag verabschiedet das <strong><mark class="key">Republikschutzgesetz</mark></strong>, um verfassungsfeindliche Organisationen zu verbieten. Doch viele Richter urteilen extrem milde: Hintermänner kommen mit <strong><mark class="key">kurzen Haftstrafen</mark></strong> davon oder können ins Ausland fliehen; Mörder aus patriotischen Motiven erhalten oft Strafnachlass.</p>
+      <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+
+    <div class="lang-en">
+      <p>Secret right-wing terrorist networks, predominantly the <strong><mark class="key">Organisation Consul</mark> (O.C.)</strong> composed of former Freikorps officers, systematically assassinated prominent democratic statesmen. On August 26, 1921, former Finance Minister Matthias <strong>Erzberger</strong> (Center Party) was shot dead while walking in the Black Forest; he had signed the 1918 Armistice. On June 24, 1922, Foreign Minister Walther <strong>Rathenau</strong> (DDP) was murdered in Berlin in broad daylight using submachine guns and hand grenades. As a Jewish statesman who advocated fulfilling treaty obligations to regain international trust, he was intensely vilified by nationalists.</p>
+      <p>In a passionate parliamentary address, Chancellor Joseph Wirth declared: <em>"There stands the enemy, pouring venom into the wounds of our people. There stands the enemy, and let there be no doubt: this enemy stands on the right!"</em> The Reichstag enacted the <strong><mark class="key">Law for the Protection of the Republic</mark></strong> to ban extremist organizations. However, conservative judges systematically undermined these laws: conspirators received extremely <strong><mark class="key">short prison sentences</mark></strong> or were aided in fleeing abroad, often receiving leniency for claiming "patriotic motives".</p>
+      <p class="quelle">Source: Educational text adapted from German Historical Museum (DHM / LeMO), "Weimarer Republik".<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+  </article>
+
+  <div class="tipps" data-pid="g4">
+    <h3><span class="lang-de">Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</span><span class="lang-en">Scaffolded Tips (Use only when stuck)</span></h3>
+    <button class="tippbtn" data-k="1"><span class="lang-de">Tipp 1 anzeigen</span><span class="lang-en">Show Tip 1</span></button>
+    <p class="tipp" id="g4-t1" hidden>
+      <span class="lang-de"><strong>Tipp 1:</strong> Wie reagierte die Politik (Reichstag) – und wie reagierten die Richter?</span>
+      <span class="lang-en"><strong>Tip 1:</strong> Compare how the political branch (Parliament) reacted versus how conservative judges reacted in court.</span>
+    </p>
+    
+    <button class="tippbtn" data-k="2" data-mark="1" disabled><span class="lang-de">Tipp 2 anzeigen</span><span class="lang-en">Show Tip 2</span></button>
+    <p class="tipp" id="g4-t2" hidden>
+      <span class="lang-de"><strong>Tipp 2:</strong> Achtet auf die Stellen „Organisation Consul“, „Republikschutzgesetz“ und „kurzen Haftstrafen“. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></span>
+      <span class="lang-en"><strong>Tip 2:</strong> Look for "Organisation Consul", "Law for the Protection of the Republic", and "short prison sentences". <span class="hinweis">(Key phrases are now highlighted in the text.)</span></span>
+    </p>
+    
+    <button class="tippbtn" data-k="3" disabled><span class="lang-de">Tipp 3 anzeigen</span><span class="lang-en">Show Tip 3</span></button>
+    <p class="tipp" id="g4-t3" hidden>
+      <span class="lang-de"><strong>Tipp 3:</strong> Satzstarter: „Der Reichstag beschloss zwar das … , aber die Gerichte verurteilten die rechten Attentäter nur zu …“</span>
+      <span class="lang-en"><strong>Tip 3:</strong> Sentence starter: "While the Reichstag enacted the ..., conservative judges handed down only lenient sentences such as ..."</span>
+    </p>
+  </div>
+    <button class="weiter" data-nach="2"><span class="lang-de">Weiter zu Schritt 2</span><span class="lang-en">On to step 2</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s2 k-rechts" data-nr="2">
+    <summary><h2><span class="snr">2</span> <span class="lang-de">Reaktionskarte schreiben (grüne Karte)</span><span class="lang-en">Write your reaction card (green card)</span> <span class="zeit">5 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box schritt karte rechts">
+        <p><span class="lang-de"><strong>Erläutert</strong>, wie Regierung und Justiz auf die Morde reagierten.</span><span class="lang-en"><strong>Explain</strong> how the government and the judiciary reacted to the murders.</span> <span class="lang-de">Ein Satz mit Opferzahl oder Strafmaß.</span><span class="lang-en">One sentence with the number of victims or the sentence.</span></p>
+    <div class="mini rechts">
+      <p class="l"><span class="lang-de">Angriff / Ereignis + Jahr</span><span class="lang-en">Attack / Event + Year</span></p>
+      <p class="z gross"><span class="lang-de">Politische Morde 1921/22</span><span class="lang-en">Political Assassinations 1921/22</span></p>
+      <p class="l"><span class="lang-de">Wer reagierte für den Staat?</span><span class="lang-en">Who reacted for the state?</span></p>
+      <p class="z"><span class="lang-de">Regierung? Reichswehr? Freikorps? Polizei? Gericht?</span><span class="lang-en">Government? Parliament? Courts/Judiciary?</span></p>
+      <p class="l"><span class="lang-de">Reaktion des Staates</span><span class="lang-en">State Reaction / Verdicts</span></p>
+      <p class="z"><span class="lang-de">ein Satz mit Gesetz und Urteilen</span><span class="lang-en">One sentence on new legislation and judicial leniency</span></p>
+    </div>
+    <div class="lang-de">
+      <p>Mit dickem Stift, groß schreiben. Nach eurer Präsentation heftet ihr die Karte an die Tafel:
+        <strong>Spalte = Farbe</strong> (Angriff von rechts), <strong>Zeile = Jahr</strong> (1921/22).</p>
+      <p class="klein">Die Farbe zeigt, von wem der Angriff ausging – nicht, wer reagiert hat.</p>
+    </div>
+    <div class="lang-en">
+      <p>Write clearly and in large letters. After your presentation, attach the card to the board:
+        <strong>Column = Color</strong> (Green = Right-wing attack), <strong>Row = Year</strong> (1921/22).</p>
+      <p class="klein">The card color reflects the origin of the threat, not the responding institution.</p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="3"><span class="lang-de">Weiter zu Schritt 3</span><span class="lang-en">On to step 3</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s3" data-nr="3">
+    <summary><h2><span class="snr">3</span> <span class="lang-de">Sicherung: Was geschah wann?</span><span class="lang-en">Consolidation: what happened when?</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box sortier schritt" data-pid="g4">
+        <p><span class="lang-de"><strong>Bringt</strong> die Ereignisse in die richtige Reihenfolge: Tippt sie nacheinander an. Antippen in der Reihe legt eine Karte zurück.</span><span class="lang-en"><strong>Put</strong> the events in the right order: tap them one after another. Tapping a card in the sequence puts it back.</span></p>
+    <ol class="phasen" hidden><li data-ph="1"><span class="lang-de">Wer griff an?</span><span class="lang-en">Who attacked?</span></li><li data-ph="2"><span class="lang-de">Was geschah?</span><span class="lang-en">What happened?</span></li><li data-ph="3"><span class="lang-de">Wie reagierte die Politik?</span><span class="lang-en">How did politics react?</span></li><li data-ph="4"><span class="lang-de">Wie reagierte die Justiz?</span><span class="lang-en">How did the judiciary react?</span></li></ol>
+    <div class="pool"><button class="sk" data-ord="1" data-ph="1"><span class="lang-de">Ehemalige Freikorps-Offiziere bilden die Geheimorganisation Consul (O.C.).</span><span class="lang-en">Former Freikorps officers form the secret Organisation Consul (O.C.).</span></button><button class="sk" data-ord="2" data-ph="2"><span class="lang-de">August 1921: Matthias Erzberger, der 1918 den Waffenstillstand unterzeichnet hatte, wird erschossen.</span><span class="lang-en">August 1921: Matthias Erzberger, who had signed the 1918 armistice, is shot dead.</span></button><button class="sk" data-ord="3" data-ph="2"><span class="lang-de">Juni 1922: Außenminister Walther Rathenau wird in Berlin auf offener Straße ermordet.</span><span class="lang-en">June 1922: Foreign Minister Walther Rathenau is murdered in the open street in Berlin.</span></button><button class="sk" data-ord="4" data-ph="3"><span class="lang-de">Kanzler Wirth im Reichstag: „Dieser Feind steht rechts!“</span><span class="lang-en">Chancellor Wirth in the Reichstag: “This enemy stands on the right!”</span></button><button class="sk" data-ord="5" data-ph="3"><span class="lang-de">Der Reichstag beschließt das Republikschutzgesetz.</span><span class="lang-en">The Reichstag passes the Law for the Protection of the Republic.</span></button><button class="sk" data-ord="6" data-ph="4"><span class="lang-de">Viele Richter urteilen mild: kurze Haftstrafen, Hintermänner fliehen ins Ausland.</span><span class="lang-en">Many judges are lenient: short sentences, the masterminds flee abroad.</span></button></div>
+    <ol class="folge"></ol>
+    <div class="knoepfe"><button class="pruefen-s"><span class="lang-de">Reihenfolge prüfen</span><span class="lang-en">Check order</span></button><button class="reset-s"><span class="lang-de">Neu starten</span><span class="lang-en">Restart</span></button><button class="loesung-s" hidden><span class="lang-de">Lösung zeigen</span><span class="lang-en">Show solution</span></button></div>
+    <p class="feedback-s" aria-live="polite"></p>
+    <div class="fahrplan" hidden>
+      <h3><span class="lang-de">Euer Präsentationsfahrplan (max. 3 min)</span><span class="lang-en">Your presentation plan (max. 3 min)</span></h3>
+      <p class="klein"><span class="lang-de">Jede Person übernimmt einen Abschnitt. Die Klasse schreibt in derselben Reihenfolge mit: ① ② = Angriff, ③ ④ = grauer Block „Reaktion des Staates“. Bei ③ oder ④ lest ihr eure Reaktionskarte vor.</span><span class="lang-en">Each person presents one section. The class takes notes in the same order: ① ② = attack, ③ ④ = grey block “reaction of the state”. Read out your reaction card at ③ or ④.</span></p>
+      <div class="plan"></div>
+      <p class="stufe-plan" hidden></p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="4"><span class="lang-de">Fertig? Weiter zur Challenge</span><span class="lang-en">Done? On to the challenge</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp ch" data-nr="4">
+    <summary><h2><span class="lang-de">Challenge: Wie gefährlich war euer Ereignis für die Republik?</span><span class="lang-en">Challenge: How dangerous was your event for the Republic?</span> <span class="zeit"><span class="lang-de">für schnelle Gruppen</span><span class="lang-en">for fast groups</span></span></h2></summary>
+    <div class="klapp-inhalt">
+<div class="box skala" data-pid="g4">
+        <p><strong>1.</strong> <span class="lang-de"><strong>Prüft</strong> die Kriterien: Was trifft auf euer Ereignis zu?</span><span class="lang-en"><strong>Check</strong> the criteria: which apply to your event?</span></p>
+    <div class="kriterien">
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Angriff richtete sich direkt gegen die gewählte Regierung oder die Verfassung.</span><span class="lang-en">The attack was aimed directly at the elected government or the constitution.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Viele Menschen waren beteiligt oder kamen ums Leben.</span><span class="lang-en">Many people were involved or lost their lives.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Staat konnte die Gefahr nur schwer oder gar nicht stoppen.</span><span class="lang-en">The state could stop the danger only with difficulty or not at all.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Die Folgen reichten über das Ereignis hinaus (z. B. Radikalisierung, Nachahmer, Vertrauensverlust).</span><span class="lang-en">The consequences went beyond the event (e.g. radicalisation, imitators, loss of trust).</span></label>
+    </div>
+    <p class="krit-zahl klein" aria-live="polite"></p>
+    <p><strong>2.</strong> <span class="lang-de"><strong>Ordnet</strong> euer Ereignis auf der Skala <strong>ein</strong>:</span><span class="lang-en"><strong>Place</strong> your event on the scale:</span></p>
+    <div class="stufen" role="group"><button class="stufe" data-s="1"><b>1</b><span class="lang-de">kaum</span><span class="lang-en">hardly</span></button><button class="stufe" data-s="2"><b>2</b><span class="lang-de">gering</span><span class="lang-en">low</span></button><button class="stufe" data-s="3"><b>3</b><span class="lang-de">mittel</span><span class="lang-en">medium</span></button><button class="stufe" data-s="4"><b>4</b><span class="lang-de">hoch</span><span class="lang-en">high</span></button><button class="stufe" data-s="5"><b>5</b><span class="lang-de">bedrohte die Republik</span><span class="lang-en">threatened the Republic</span></button></div>
+    <p><strong>3.</strong> <span class="lang-de"><strong>Begründet</strong> eure Einstufung in 1–2 Sätzen:</span><span class="lang-en"><strong>Justify</strong> your rating in 1–2 sentences:</span></p>
+    <textarea class="begruendung" rows="3" placeholder="Wir stufen … auf Stufe … ein, weil … Allerdings …" aria-label="Begründung"></textarea>
+    <p class="klein"><span class="lang-de">Übertragt Stufe und Begründung auf die <strong>Rückseite eurer Reaktionskarte</strong>. Nennt die Stufe am Ende eurer Präsentation. Es gibt keine einzig richtige Stufe – entscheidend ist die Begründung.</span><span class="lang-en">Copy the level and your justification onto the <strong>back of your reaction card</strong>. State the level at the end of your presentation. There is no single correct level – what matters is the justification.</span></p>
+  </div>
+    </div>
+  </details>
+  <div class="box check" data-pid="g4">
+    <h2><span class="lang-de">Checkliste eurer Gruppe</span><span class="lang-en">Group Checklist</span></h2>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 1: AB-Feld in Stichworten ausgefüllt (auch der graue Block)</span><span class="lang-en">Step 1: worksheet field completed in key words (including the grey block)</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 2: Reaktionskarte geschrieben</span><span class="lang-en">Step 2: reaction card written</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 3: Reihenfolge stimmt</span><span class="lang-en">Step 3: order is correct</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Präsentation verteilt: Wer spricht zu ①, ②, ③, ④?</span><span class="lang-en">Presentation shared out: who speaks on ①, ②, ③, ④?</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Challenge (freiwillig): Gefährdung eingestuft und begründet</span><span class="lang-en">Challenge (optional): danger rated and justified</span></label>
+  </div>
+</section>
+<section id="seite-g5" class="seite krise" hidden>
+  <nav class="crumbs">
+    <a href="#s1" class="lang-de">← Stunde 1: alle Gruppen</a>
+    <a href="#s1" class="lang-en">← Lesson 1: all groups</a>
+    <button class="lang-btn crumb-lang-btn lang-switch-btn" onclick="toggleLang()">🇬🇧 English</button>
+  </nav>
+
+  <header class="kopf">
+    <span class="badge krise"><span class="lang-de">Krise der Republik</span><span class="lang-en">Crisis of the Republic</span></span>
+    <h1><span class="lang-de">Expertengruppe G5: Der Ruhrkampf und die Hyperinflation 1923</span><span class="lang-en">Expert Group G5: The Ruhr Occupation & Hyperinflation 1923</span></h1>
+    <p class="jahr"><span class="lang-de">Jahr an der Tafel:</span><span class="lang-en">Year on the board:</span> <strong>1923</strong></p>
+  </header>
+
+    <p class="weg"><span class="lang-de">Euer Weg (25 min):</span><span class="lang-en">Your route (25 min):</span> <button class="zu" data-nach="1"><span class="snr">1</span> <span class="lang-de">Text</span><span class="lang-en">Text</span></button> → <button class="zu" data-nach="2"><span class="snr">2</span> <span class="lang-de">Reaktionskarte</span><span class="lang-en">Reaction card</span></button> → <button class="zu" data-nach="3"><span class="snr">3</span> <span class="lang-de">Reihenfolge = Präsentation</span><span class="lang-en">Order = presentation</span></button></p>
+  <details class="klapp s1" data-nr="1">
+    <summary><h2><span class="snr">1</span> <span class="lang-de">Textarbeit</span><span class="lang-en">Working with the text</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box auftrag schritt">
+        <p><span class="lang-de"><strong>Lest</strong> den Text still. <strong>Arbeitet</strong> dann gemeinsam <strong>heraus</strong> und tragt in euer AB-Feld ein – <strong>nur Stichworte</strong>:</span><span class="lang-en"><strong>Read</strong> the text silently. Then <strong>work out</strong> together and note in your worksheet field – <strong>key words only</strong>:</span></p>
+    <div class="fragen">
+      <div><h3><span class="lang-de">Angriff</span><span class="lang-en">Attack</span></h3><ol type="a"><li><span class="lang-de">Wer besetzte das Ruhrgebiet?</span><span class="lang-en">Who occupied the Ruhr?</span></li><li><span class="lang-de">Warum?</span><span class="lang-en">Why?</span></li></ol></div>
+      <div class="grau"><h3><span class="lang-de">Reaktion des Staates</span><span class="lang-en">Reaction of the state</span></h3><ol type="a" start="3"><li><span class="lang-de">Wie reagierte die Regierung?</span><span class="lang-en">How did the government react?</span></li><li><span class="lang-de">Welche Folge hatte das für das Geld?</span><span class="lang-en">What did this mean for the currency?</span></li><li><span class="lang-de">Wie wurde die Krise beendet?</span><span class="lang-en">How was the crisis ended?</span></li></ol></div>
+    </div>
+    
+  </div>
+
+  <article class="material" data-pid="g5">
+    <h2><span class="mid">M7:</span> <span class="lang-de">Der Ruhrkampf und die Hyperinflation 1923</span><span class="lang-en">The Ruhr Occupation and Hyperinflation 1923</span></h2>
+    
+    <div class="lang-de">
+      <p>Im <strong>Januar 1923</strong> besetzen französische und belgische Truppen das <strong>Ruhrgebiet</strong>, das industrielle Herz Deutschlands. Die Begründung: Deutschland sei mit Reparationslieferungen (Holz und Kohle) im Rückstand. Die Reichsregierung unter Kanzler Wilhelm Cuno ruft zum <strong>„<mark class="key">passiven Widerstand</mark>“</strong> auf: Beamte verweigern den Gehorsam gegenüber den Besatzern, Bergwerke und Fabriken stehen still, die Eisenbahn fährt nicht.</p>
+      <p>Um die Millionen streikenden Arbeiter und ihre Familien zu unterstützen, druckt der Staat riesige Mengen Papiergeld. Die Folge ist eine beispiellose <strong>Hyperinflation</strong>: Ein Brot kostet im November 1923 über 200 <strong><mark class="key">Milliarden</mark></strong> Mark; Ersparnisse der Bevölkerung werden völlig entwertet. Im September 1923 bricht der neue Kanzler Gustav Stresemann den passiven Widerstand ab, weil der Staat bankrott ist. Mit der Einführung der <strong><mark class="key">Rentenmark</mark></strong> im November 1923 wird die Währung stabilisiert.</p>
+      <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+
+    <div class="lang-en">
+      <p>In <strong>January 1923</strong>, French and Belgian troops occupied the <strong>Ruhr valley</strong>, Germany's industrial core, claiming Germany had defaulted on timber and coal reparation deliveries. The German government under Chancellor Wilhelm Cuno called for <strong>"<mark class="key">passive resistance</mark>"</strong>: civil servants refused to obey French orders, coal mines shut down, and railway workers refused to operate trains.</p>
+      <p>To pay the wages of millions of striking workers and support their families, the government printed astronomical amounts of unbacked paper money. The result was catastrophic <strong>hyperinflation</strong>: By November 1923, a single loaf of bread cost over 200 <strong><mark class="key">billion</mark></strong> marks. Life savings of the middle class were wiped out completely. In September 1923, new Chancellor Gustav Stresemann halted passive resistance to avert complete national bankruptcy. The introduction of the <strong><mark class="key">Rentenmark</mark></strong> in November 1923 finally stabilized the currency.</p>
+      <p class="quelle">Source: Educational text adapted from German Historical Museum (DHM / LeMO), "Weimarer Republik".<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+  </article>
+
+  <div class="tipps" data-pid="g5">
+    <h3><span class="lang-de">Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</span><span class="lang-en">Scaffolded Tips (Use only when stuck)</span></h3>
+    <button class="tippbtn" data-k="1"><span class="lang-de">Tipp 1 anzeigen</span><span class="lang-en">Show Tip 1</span></button>
+    <p class="tipp" id="g5-t1" hidden>
+      <span class="lang-de"><strong>Tipp 1:</strong> Warum war dieses Ereignis kein Angriff von links oder rechts, sondern eine Krise der Republik?</span>
+      <span class="lang-en"><strong>Tip 1:</strong> Why is this event classified as a systemic crisis of the republic rather than a partisan left-wing or right-wing coup?</span>
+    </p>
+    
+    <button class="tippbtn" data-k="2" data-mark="1" disabled><span class="lang-de">Tipp 2 anzeigen</span><span class="lang-en">Show Tip 2</span></button>
+    <p class="tipp" id="g5-t2" hidden>
+      <span class="lang-de"><strong>Tipp 2:</strong> Achtet auf die Stellen „passiven Widerstand“, „Milliarden“ und „Rentenmark“. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></span>
+      <span class="lang-en"><strong>Tip 2:</strong> Look for "passive resistance", "billions", and "Rentenmark". <span class="hinweis">(Key phrases are now highlighted in the text.)</span></span>
+    </p>
+    
+    <button class="tippbtn" data-k="3" disabled><span class="lang-de">Tipp 3 anzeigen</span><span class="lang-en">Show Tip 3</span></button>
+    <p class="tipp" id="g5-t3" hidden>
+      <span class="lang-de"><strong>Tipp 3:</strong> Satzstarter: „Die Regierung reagierte mit … Die Kosten führten zur Hyperinflation, bis Stresemann …“</span>
+      <span class="lang-en"><strong>Tip 3:</strong> Sentence starter: "The government responded with passive resistance funded by printing money, until Stresemann stabilized the currency with the ..."</span>
+    </p>
+  </div>
+    <button class="weiter" data-nach="2"><span class="lang-de">Weiter zu Schritt 2</span><span class="lang-en">On to step 2</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s2 k-krise" data-nr="2">
+    <summary><h2><span class="snr">2</span> <span class="lang-de">Reaktionskarte schreiben (graue Karte)</span><span class="lang-en">Write your reaction card (gray card)</span> <span class="zeit">5 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box schritt karte krise">
+        <p><span class="lang-de"><strong>Erläutert</strong> den Zusammenhang zwischen Ruhrkampf und Hyperinflation.</span><span class="lang-en"><strong>Explain</strong> the connection between the Ruhr struggle and hyperinflation.</span> </p>
+    <div class="mini krise">
+      <p class="l"><span class="lang-de">Krise / Ereignis + Jahr</span><span class="lang-en">Crisis / Event + Year</span></p>
+      <p class="z gross"><span class="lang-de">Ruhrkampf & Hyperinflation 1923</span><span class="lang-en">Ruhr Occupation & Inflation 1923</span></p>
+      <p class="l"><span class="lang-de">Wer reagierte für den Staat?</span><span class="lang-en">Who reacted for the state?</span></p>
+      <p class="z"><span class="lang-de">Reichsregierung (Cuno / Stresemann)</span><span class="lang-en">National Government (Cuno / Stresemann)</span></p>
+      <p class="l"><span class="lang-de">Reaktion des Staates</span><span class="lang-en">State Reaction / Currency Reform</span></p>
+      <p class="z"><span class="lang-de">Passiver Widerstand, Gelddrucken, Rentenmark</span><span class="lang-en">Passive resistance, money printing, Rentenmark</span></p>
+    </div>
+    <div class="lang-de">
+      <p>Mit dickem Stift, groß schreiben. Nach eurer Präsentation heftet ihr die Karte an die Tafel:
+        <strong>Spalte = Farbe</strong> (Krise der Republik), <strong>Zeile = Jahr</strong> (1923).</p>
+      <p class="klein">Die graue Karte steht für die Staatskrise durch äußeren Druck und wirtschaftlichen Kollaps.</p>
+    </div>
+    <div class="lang-en">
+      <p>Write clearly and in large letters. After your presentation, attach the card to the board:
+        <strong>Column = Color</strong> (Gray = Republic Crisis), <strong>Row = Year</strong> (1923).</p>
+      <p class="klein">The gray card represents national crises driven by foreign pressure and economic breakdown.</p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="3"><span class="lang-de">Weiter zu Schritt 3</span><span class="lang-en">On to step 3</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s3" data-nr="3">
+    <summary><h2><span class="snr">3</span> <span class="lang-de">Sicherung: Was geschah wann?</span><span class="lang-en">Consolidation: what happened when?</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box sortier schritt" data-pid="g5">
+        <p><span class="lang-de"><strong>Bringt</strong> die Ereignisse in die richtige Reihenfolge: Tippt sie nacheinander an. Antippen in der Reihe legt eine Karte zurück.</span><span class="lang-en"><strong>Put</strong> the events in the right order: tap them one after another. Tapping a card in the sequence puts it back.</span></p>
+    <ol class="phasen" hidden><li data-ph="1"><span class="lang-de">Warum wurde das Ruhrgebiet besetzt?</span><span class="lang-en">Why was the Ruhr occupied?</span></li><li data-ph="2"><span class="lang-de">Wie reagierte die Regierung?</span><span class="lang-en">How did the government react?</span></li><li data-ph="3"><span class="lang-de">Welche Folge hatte das?</span><span class="lang-en">What was the consequence?</span></li><li data-ph="4"><span class="lang-de">Wie endete die Krise?</span><span class="lang-en">How did the crisis end?</span></li></ol>
+    <div class="pool"><button class="sk" data-ord="1" data-ph="1"><span class="lang-de">Deutschland ist mit Reparationslieferungen (Holz, Kohle) im Rückstand.</span><span class="lang-en">Germany is behind with reparation deliveries (timber, coal).</span></button><button class="sk" data-ord="2" data-ph="1"><span class="lang-de">Januar 1923: Französische und belgische Truppen besetzen das Ruhrgebiet.</span><span class="lang-en">January 1923: French and Belgian troops occupy the Ruhr.</span></button><button class="sk" data-ord="3" data-ph="2"><span class="lang-de">Die Regierung ruft zum passiven Widerstand auf: Fabriken und Bahn stehen still.</span><span class="lang-en">The government calls for passive resistance: factories and railways stand still.</span></button><button class="sk" data-ord="4" data-ph="2"><span class="lang-de">Der Staat druckt riesige Mengen Papiergeld, um die Streikenden zu bezahlen.</span><span class="lang-en">The state prints huge amounts of paper money to pay the strikers.</span></button><button class="sk" data-ord="5" data-ph="3"><span class="lang-de">Hyperinflation: Die Ersparnisse der Menschen werden wertlos.</span><span class="lang-en">Hyperinflation: people's savings become worthless.</span></button><button class="sk" data-ord="6" data-ph="4"><span class="lang-de">Stresemann bricht den passiven Widerstand ab (Sept. 1923); die Rentenmark stabilisiert die Währung (Nov. 1923).</span><span class="lang-en">Stresemann ends passive resistance (Sept. 1923); the Rentenmark stabilises the currency (Nov. 1923).</span></button></div>
+    <ol class="folge"></ol>
+    <div class="knoepfe"><button class="pruefen-s"><span class="lang-de">Reihenfolge prüfen</span><span class="lang-en">Check order</span></button><button class="reset-s"><span class="lang-de">Neu starten</span><span class="lang-en">Restart</span></button><button class="loesung-s" hidden><span class="lang-de">Lösung zeigen</span><span class="lang-en">Show solution</span></button></div>
+    <p class="feedback-s" aria-live="polite"></p>
+    <div class="fahrplan" hidden>
+      <h3><span class="lang-de">Euer Präsentationsfahrplan (max. 3 min)</span><span class="lang-en">Your presentation plan (max. 3 min)</span></h3>
+      <p class="klein"><span class="lang-de">Jede Person übernimmt einen Abschnitt. Die Klasse schreibt in derselben Reihenfolge mit: ① ② = Angriff, ③ ④ = grauer Block „Reaktion des Staates“. Bei ③ oder ④ lest ihr eure Reaktionskarte vor.</span><span class="lang-en">Each person presents one section. The class takes notes in the same order: ① ② = attack, ③ ④ = grey block “reaction of the state”. Read out your reaction card at ③ or ④.</span></p>
+      <div class="plan"></div>
+      <p class="stufe-plan" hidden></p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="4"><span class="lang-de">Fertig? Weiter zur Challenge</span><span class="lang-en">Done? On to the challenge</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp ch" data-nr="4">
+    <summary><h2><span class="lang-de">Challenge: Wie gefährlich war euer Ereignis für die Republik?</span><span class="lang-en">Challenge: How dangerous was your event for the Republic?</span> <span class="zeit"><span class="lang-de">für schnelle Gruppen</span><span class="lang-en">for fast groups</span></span></h2></summary>
+    <div class="klapp-inhalt">
+<div class="box skala" data-pid="g5">
+        <p><strong>1.</strong> <span class="lang-de"><strong>Prüft</strong> die Kriterien: Was trifft auf euer Ereignis zu?</span><span class="lang-en"><strong>Check</strong> the criteria: which apply to your event?</span></p>
+    <div class="kriterien">
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Angriff richtete sich direkt gegen die gewählte Regierung oder die Verfassung.</span><span class="lang-en">The attack was aimed directly at the elected government or the constitution.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Viele Menschen waren beteiligt oder kamen ums Leben.</span><span class="lang-en">Many people were involved or lost their lives.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Staat konnte die Gefahr nur schwer oder gar nicht stoppen.</span><span class="lang-en">The state could stop the danger only with difficulty or not at all.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Die Folgen reichten über das Ereignis hinaus (z. B. Radikalisierung, Nachahmer, Vertrauensverlust).</span><span class="lang-en">The consequences went beyond the event (e.g. radicalisation, imitators, loss of trust).</span></label>
+    </div>
+    <p class="krit-zahl klein" aria-live="polite"></p>
+    <p><strong>2.</strong> <span class="lang-de"><strong>Ordnet</strong> euer Ereignis auf der Skala <strong>ein</strong>:</span><span class="lang-en"><strong>Place</strong> your event on the scale:</span></p>
+    <div class="stufen" role="group"><button class="stufe" data-s="1"><b>1</b><span class="lang-de">kaum</span><span class="lang-en">hardly</span></button><button class="stufe" data-s="2"><b>2</b><span class="lang-de">gering</span><span class="lang-en">low</span></button><button class="stufe" data-s="3"><b>3</b><span class="lang-de">mittel</span><span class="lang-en">medium</span></button><button class="stufe" data-s="4"><b>4</b><span class="lang-de">hoch</span><span class="lang-en">high</span></button><button class="stufe" data-s="5"><b>5</b><span class="lang-de">bedrohte die Republik</span><span class="lang-en">threatened the Republic</span></button></div>
+    <p><strong>3.</strong> <span class="lang-de"><strong>Begründet</strong> eure Einstufung in 1–2 Sätzen:</span><span class="lang-en"><strong>Justify</strong> your rating in 1–2 sentences:</span></p>
+    <textarea class="begruendung" rows="3" placeholder="Wir stufen … auf Stufe … ein, weil … Allerdings …" aria-label="Begründung"></textarea>
+    <p class="klein"><span class="lang-de">Übertragt Stufe und Begründung auf die <strong>Rückseite eurer Reaktionskarte</strong>. Nennt die Stufe am Ende eurer Präsentation. Es gibt keine einzig richtige Stufe – entscheidend ist die Begründung.</span><span class="lang-en">Copy the level and your justification onto the <strong>back of your reaction card</strong>. State the level at the end of your presentation. There is no single correct level – what matters is the justification.</span></p>
+  </div>
+    </div>
+  </details>
+  <div class="box check" data-pid="g5">
+    <h2><span class="lang-de">Checkliste eurer Gruppe</span><span class="lang-en">Group Checklist</span></h2>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 1: AB-Feld in Stichworten ausgefüllt (auch der graue Block)</span><span class="lang-en">Step 1: worksheet field completed in key words (including the grey block)</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 2: Reaktionskarte geschrieben</span><span class="lang-en">Step 2: reaction card written</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 3: Reihenfolge stimmt</span><span class="lang-en">Step 3: order is correct</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Präsentation verteilt: Wer spricht zu ①, ②, ③, ④?</span><span class="lang-en">Presentation shared out: who speaks on ①, ②, ③, ④?</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Challenge (freiwillig): Gefährdung eingestuft und begründet</span><span class="lang-en">Challenge (optional): danger rated and justified</span></label>
+  </div>
+</section>
+<section id="seite-g6" class="seite links" hidden>
+  <nav class="crumbs">
+    <a href="#s1" class="lang-de">← Stunde 1: alle Gruppen</a>
+    <a href="#s1" class="lang-en">← Lesson 1: all groups</a>
+    <button class="lang-btn crumb-lang-btn lang-switch-btn" onclick="toggleLang()">🇬🇧 English</button>
+  </nav>
+
+  <header class="kopf">
+    <span class="badge links"><span class="lang-de">Angriff von links</span><span class="lang-en">Attack from the Left</span></span>
+    <h1><span class="lang-de">Expertengruppe G6: Der „Deutsche Oktober“ 1923</span><span class="lang-en">Expert Group G6: The "German October" in Saxony 1923</span></h1>
+    <p class="jahr"><span class="lang-de">Jahr an der Tafel:</span><span class="lang-en">Year on the board:</span> <strong>1923</strong></p>
+  </header>
+
+    <p class="weg"><span class="lang-de">Euer Weg (25 min):</span><span class="lang-en">Your route (25 min):</span> <button class="zu" data-nach="1"><span class="snr">1</span> <span class="lang-de">Text</span><span class="lang-en">Text</span></button> → <button class="zu" data-nach="2"><span class="snr">2</span> <span class="lang-de">Reaktionskarte</span><span class="lang-en">Reaction card</span></button> → <button class="zu" data-nach="3"><span class="snr">3</span> <span class="lang-de">Reihenfolge = Präsentation</span><span class="lang-en">Order = presentation</span></button></p>
+  <details class="klapp s1" data-nr="1">
+    <summary><h2><span class="snr">1</span> <span class="lang-de">Textarbeit</span><span class="lang-en">Working with the text</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box auftrag schritt">
+        <p><span class="lang-de"><strong>Lest</strong> den Text still. <strong>Arbeitet</strong> dann gemeinsam <strong>heraus</strong> und tragt in euer AB-Feld ein – <strong>nur Stichworte</strong>:</span><span class="lang-en"><strong>Read</strong> the text silently. Then <strong>work out</strong> together and note in your worksheet field – <strong>key words only</strong>:</span></p>
+    <div class="fragen">
+      <div><h3><span class="lang-de">Angriff</span><span class="lang-en">Attack</span></h3><ol type="a"><li><span class="lang-de">Wer plante den Angriff – und auf wessen Anweisung?</span><span class="lang-en">Who planned the attack – and on whose orders?</span></li><li><span class="lang-de">Wo?</span><span class="lang-en">Where?</span></li><li><span class="lang-de">Mit welchem Ziel?</span><span class="lang-en">With what goal?</span></li></ol></div>
+      <div class="grau"><h3><span class="lang-de">Reaktion des Staates</span><span class="lang-en">Reaction of the state</span></h3><ol type="a" start="4"><li><span class="lang-de">Wer reagierte für den Staat? Wie?</span><span class="lang-en">Who reacted on behalf of the state? How?</span></li><li><span class="lang-de">Was geschah mit der Regierung Zeigner – und in Freiberg?</span><span class="lang-en">What happened to the Zeigner government – and in Freiberg?</span></li></ol></div>
+    </div>
+    
+  </div>
+
+  <article class="material" data-pid="g6">
+    <h2><span class="mid">M8:</span> <span class="lang-de">Der „Deutsche Oktober“ 1923</span><span class="lang-en">The "German October" in Saxony 1923</span></h2>
+    
+    <div class="lang-de">
+      <p>Im Herbst 1923 plant die <strong>KPD</strong> auf Anweisung aus Moskau eine bewaffnete Revolution in Deutschland. Als Ausgangsbasis dienen <strong>Sachsen</strong> und <strong>Thüringen</strong>, wo KPD-Minister in die <strong><mark class="key">rechtmäßig gewählten</mark></strong> SPD-geführten Landesregierungen eintreten (Regierung Zeigner in Sachsen). Aus KPD-Mitgliedern und Gewerkschaftern werden bewaffnete „Proletarische Hundertschaften“ aufgestellt.</p>
+      <p>Reichspräsident Ebert verhängt mit Art. 48 WRV die <strong><mark class="key">Reichsexekution</mark></strong> gegen Sachsen: Die Reichswehr marschiert ein, die gewählte Regierung Zeigner wird am 29. Oktober <strong><mark class="key">abgesetzt</mark></strong>. In <strong>Freiberg</strong> schießen Soldaten am 27. Oktober in eine Demonstration; über 20 Menschen sterben. Auch in Thüringen rückt die Reichswehr ein.</p>
+      <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+
+    <div class="lang-en">
+      <p>In autumn 1923, following instructions from Moscow, the Communist Party of Germany (<strong>KPD</strong>) prepared an armed socialist revolution, termed the "German October". Their stronghold was <strong>Saxony</strong> and <strong>Thuringia</strong>, where KPD ministers joined the <strong><mark class="key">democratically elected</mark></strong> SPD-led coalition governments under Premier Erich Zeigner. Armed communist militia units ("Proletarian Hundreds") were trained.</p>
+      <p>Invoking Article 48 of the Weimar Constitution, Reich President Ebert decreed a <strong><mark class="key">federal intervention (Reichsexekution)</mark></strong> against Saxony: Army troops marched into Dresden and Leipzig, and on October 29 the elected state government was forcibly <strong><mark class="key">deposed and removed</mark></strong>. In <strong>Freiberg</strong>, soldiers opened fire on a demonstrating crowd on October 27, killing over 20 civilians. Federal troops executed similar interventions across Thuringia.</p>
+      <p class="quelle">Source: Educational text adapted from German Historical Museum (DHM / LeMO), "Weimarer Republik".<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+  </article>
+
+  <div class="tipps" data-pid="g6">
+    <h3><span class="lang-de">Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</span><span class="lang-en">Scaffolded Tips (Use only when stuck)</span></h3>
+    <button class="tippbtn" data-k="1"><span class="lang-de">Tipp 1 anzeigen</span><span class="lang-en">Show Tip 1</span></button>
+    <p class="tipp" id="g6-t1" hidden>
+      <span class="lang-de"><strong>Tipp 1:</strong> Was plante die KPD – und was geschah tatsächlich?</span>
+      <span class="lang-en"><strong>Tip 1:</strong> What did the KPD plan – and what actually happened when federal troops marched in?</span>
+    </p>
+    
+    <button class="tippbtn" data-k="2" data-mark="1" disabled><span class="lang-de">Tipp 2 anzeigen</span><span class="lang-en">Show Tip 2</span></button>
+    <p class="tipp" id="g6-t2" hidden>
+      <span class="lang-de"><strong>Tipp 2:</strong> Achtet auf die Stellen „rechtmäßig gewählt“, „Reichsexekution“ und „abgesetzt“. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></span>
+      <span class="lang-en"><strong>Tip 2:</strong> Look for "democratically elected", "federal intervention (Reichsexekution)", and "deposed and removed". <span class="hinweis">(Key phrases are now highlighted in the text.)</span></span>
+    </p>
+    
+    <button class="tippbtn" data-k="3" disabled><span class="lang-de">Tipp 3 anzeigen</span><span class="lang-en">Show Tip 3</span></button>
+    <p class="tipp" id="g6-t3" hidden>
+      <span class="lang-de"><strong>Tipp 3:</strong> Satzstarter: „Gegen die Regierung in Sachsen ging das Reich vor, indem …“</span>
+      <span class="lang-en"><strong>Tip 3:</strong> Sentence starter: "The central government intervened decisively against Saxony by ordering the Reichswehr to ..."</span>
+    </p>
+  </div>
+    <button class="weiter" data-nach="2"><span class="lang-de">Weiter zu Schritt 2</span><span class="lang-en">On to step 2</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s2 k-links" data-nr="2">
+    <summary><h2><span class="snr">2</span> <span class="lang-de">Reaktionskarte schreiben (rote Karte)</span><span class="lang-en">Write your reaction card (red card)</span> <span class="zeit">5 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box schritt karte links">
+        <p><span class="lang-de"><strong>Erläutert</strong>, wie das Reich gegen die Regierung in Sachsen vorging.</span><span class="lang-en"><strong>Explain</strong> how the Reich acted against the government of Saxony.</span> <span class="lang-de">Ein Satz mit Opferzahl oder Strafmaß.</span><span class="lang-en">One sentence with the number of victims or the sentence.</span></p>
+    <div class="mini links">
+      <p class="l"><span class="lang-de">Angriff / Ereignis + Jahr</span><span class="lang-en">Attack / Event + Year</span></p>
+      <p class="z gross"><span class="lang-de">Der „Deutsche Oktober“ 1923</span><span class="lang-en">The "German October" 1923</span></p>
+      <p class="l"><span class="lang-de">Wer reagierte für den Staat?</span><span class="lang-en">Who reacted for the state?</span></p>
+      <p class="z"><span class="lang-de">Reichspräsident Ebert & Reichswehr</span><span class="lang-en">Reich President Ebert & Reichswehr</span></p>
+      <p class="l"><span class="lang-de">Reaktion des Staates</span><span class="lang-en">State Reaction / Fatalities</span></p>
+      <p class="z"><span class="lang-de">Reichsexekution, Regierung abgesetzt, über 20 Tote</span><span class="lang-en">Federal execution, state government deposed, 20+ dead</span></p>
+    </div>
+    <div class="lang-de">
+      <p>Mit dickem Stift, groß schreiben. Nach eurer Präsentation heftet ihr die Karte an die Tafel:
+        <strong>Spalte = Farbe</strong> (Angriff von links), <strong>Zeile = Jahr</strong> (1923).</p>
+      <p class="klein">Die Farbe zeigt, von wem der Angriff ausging – nicht, wer reagiert hat.</p>
+    </div>
+    <div class="lang-en">
+      <p>Write clearly and in large letters. After your presentation, attach the card to the board:
+        <strong>Column = Color</strong> (Red = Left-wing attack), <strong>Row = Year</strong> (1923).</p>
+      <p class="klein">The card color reflects the origin of the threat, not the responding institution.</p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="3"><span class="lang-de">Weiter zu Schritt 3</span><span class="lang-en">On to step 3</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s3" data-nr="3">
+    <summary><h2><span class="snr">3</span> <span class="lang-de">Sicherung: Was geschah wann?</span><span class="lang-en">Consolidation: what happened when?</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box sortier schritt" data-pid="g6">
+        <p><span class="lang-de"><strong>Bringt</strong> die Ereignisse in die richtige Reihenfolge: Tippt sie nacheinander an. Antippen in der Reihe legt eine Karte zurück.</span><span class="lang-en"><strong>Put</strong> the events in the right order: tap them one after another. Tapping a card in the sequence puts it back.</span></p>
+    <ol class="phasen" hidden><li data-ph="1"><span class="lang-de">Wer plante den Angriff – mit welchem Ziel?</span><span class="lang-en">Who planned the attack – with what goal?</span></li><li data-ph="2"><span class="lang-de">Was geschah?</span><span class="lang-en">What happened?</span></li><li data-ph="3"><span class="lang-de">Wie reagierte der Staat?</span><span class="lang-en">How did the state react?</span></li><li data-ph="4"><span class="lang-de">Folgen</span><span class="lang-en">Consequences</span></li></ol>
+    <div class="pool"><button class="sk" data-ord="1" data-ph="1"><span class="lang-de">Herbst 1923: Die KPD plant auf Anweisung aus Moskau eine Revolution in Deutschland.</span><span class="lang-en">Autumn 1923: On orders from Moscow, the KPD plans a revolution in Germany.</span></button><button class="sk" data-ord="2" data-ph="2"><span class="lang-de">KPD-Minister treten in die gewählten SPD-Regierungen in Sachsen und Thüringen ein.</span><span class="lang-en">KPD ministers join the elected SPD-led governments in Saxony and Thuringia.</span></button><button class="sk" data-ord="2" data-ph="2"><span class="lang-de">Die KPD stellt bewaffnete „Proletarische Hundertschaften“ auf.</span><span class="lang-en">The KPD sets up armed “Proletarian Hundreds”.</span></button><button class="sk" data-ord="3" data-ph="3"><span class="lang-de">Die Reichswehr marschiert in Sachsen ein.</span><span class="lang-en">The Reichswehr marches into Saxony.</span></button><button class="sk" data-ord="4" data-ph="4"><span class="lang-de">27. Oktober: In Freiberg schießen Soldaten in eine Demonstration – über 20 Tote.</span><span class="lang-en">27 October: In Freiberg soldiers fire into a demonstration – more than 20 dead.</span></button><button class="sk" data-ord="5" data-ph="4"><span class="lang-de">29. Oktober: Mit der Reichsexekution (Art. 48) wird die gewählte Regierung Zeigner abgesetzt.</span><span class="lang-en">29 October: By means of the Reichsexekution (Art. 48), the elected Zeigner government is removed.</span></button></div>
+    <ol class="folge"></ol>
+    <div class="knoepfe"><button class="pruefen-s"><span class="lang-de">Reihenfolge prüfen</span><span class="lang-en">Check order</span></button><button class="reset-s"><span class="lang-de">Neu starten</span><span class="lang-en">Restart</span></button><button class="loesung-s" hidden><span class="lang-de">Lösung zeigen</span><span class="lang-en">Show solution</span></button></div>
+    <p class="feedback-s" aria-live="polite"></p>
+    <div class="fahrplan" hidden>
+      <h3><span class="lang-de">Euer Präsentationsfahrplan (max. 3 min)</span><span class="lang-en">Your presentation plan (max. 3 min)</span></h3>
+      <p class="klein"><span class="lang-de">Jede Person übernimmt einen Abschnitt. Die Klasse schreibt in derselben Reihenfolge mit: ① ② = Angriff, ③ ④ = grauer Block „Reaktion des Staates“. Bei ③ oder ④ lest ihr eure Reaktionskarte vor.</span><span class="lang-en">Each person presents one section. The class takes notes in the same order: ① ② = attack, ③ ④ = grey block “reaction of the state”. Read out your reaction card at ③ or ④.</span></p>
+      <div class="plan"></div>
+      <p class="stufe-plan" hidden></p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="4"><span class="lang-de">Fertig? Weiter zur Challenge</span><span class="lang-en">Done? On to the challenge</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp ch" data-nr="4">
+    <summary><h2><span class="lang-de">Challenge: Wie gefährlich war euer Ereignis für die Republik?</span><span class="lang-en">Challenge: How dangerous was your event for the Republic?</span> <span class="zeit"><span class="lang-de">für schnelle Gruppen</span><span class="lang-en">for fast groups</span></span></h2></summary>
+    <div class="klapp-inhalt">
+<div class="box skala" data-pid="g6">
+        <p><strong>1.</strong> <span class="lang-de"><strong>Prüft</strong> die Kriterien: Was trifft auf euer Ereignis zu?</span><span class="lang-en"><strong>Check</strong> the criteria: which apply to your event?</span></p>
+    <div class="kriterien">
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Angriff richtete sich direkt gegen die gewählte Regierung oder die Verfassung.</span><span class="lang-en">The attack was aimed directly at the elected government or the constitution.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Viele Menschen waren beteiligt oder kamen ums Leben.</span><span class="lang-en">Many people were involved or lost their lives.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Staat konnte die Gefahr nur schwer oder gar nicht stoppen.</span><span class="lang-en">The state could stop the danger only with difficulty or not at all.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Die Folgen reichten über das Ereignis hinaus (z. B. Radikalisierung, Nachahmer, Vertrauensverlust).</span><span class="lang-en">The consequences went beyond the event (e.g. radicalisation, imitators, loss of trust).</span></label>
+    </div>
+    <p class="krit-zahl klein" aria-live="polite"></p>
+    <p><strong>2.</strong> <span class="lang-de"><strong>Ordnet</strong> euer Ereignis auf der Skala <strong>ein</strong>:</span><span class="lang-en"><strong>Place</strong> your event on the scale:</span></p>
+    <div class="stufen" role="group"><button class="stufe" data-s="1"><b>1</b><span class="lang-de">kaum</span><span class="lang-en">hardly</span></button><button class="stufe" data-s="2"><b>2</b><span class="lang-de">gering</span><span class="lang-en">low</span></button><button class="stufe" data-s="3"><b>3</b><span class="lang-de">mittel</span><span class="lang-en">medium</span></button><button class="stufe" data-s="4"><b>4</b><span class="lang-de">hoch</span><span class="lang-en">high</span></button><button class="stufe" data-s="5"><b>5</b><span class="lang-de">bedrohte die Republik</span><span class="lang-en">threatened the Republic</span></button></div>
+    <p><strong>3.</strong> <span class="lang-de"><strong>Begründet</strong> eure Einstufung in 1–2 Sätzen:</span><span class="lang-en"><strong>Justify</strong> your rating in 1–2 sentences:</span></p>
+    <textarea class="begruendung" rows="3" placeholder="Wir stufen … auf Stufe … ein, weil … Allerdings …" aria-label="Begründung"></textarea>
+    <p class="klein"><span class="lang-de">Übertragt Stufe und Begründung auf die <strong>Rückseite eurer Reaktionskarte</strong>. Nennt die Stufe am Ende eurer Präsentation. Es gibt keine einzig richtige Stufe – entscheidend ist die Begründung.</span><span class="lang-en">Copy the level and your justification onto the <strong>back of your reaction card</strong>. State the level at the end of your presentation. There is no single correct level – what matters is the justification.</span></p>
+  </div>
+    </div>
+  </details>
+  <div class="box check" data-pid="g6">
+    <h2><span class="lang-de">Checkliste eurer Gruppe</span><span class="lang-en">Group Checklist</span></h2>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 1: AB-Feld in Stichworten ausgefüllt (auch der graue Block)</span><span class="lang-en">Step 1: worksheet field completed in key words (including the grey block)</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 2: Reaktionskarte geschrieben</span><span class="lang-en">Step 2: reaction card written</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 3: Reihenfolge stimmt</span><span class="lang-en">Step 3: order is correct</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Präsentation verteilt: Wer spricht zu ①, ②, ③, ④?</span><span class="lang-en">Presentation shared out: who speaks on ①, ②, ③, ④?</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Challenge (freiwillig): Gefährdung eingestuft und begründet</span><span class="lang-en">Challenge (optional): danger rated and justified</span></label>
+  </div>
+</section>
+<section id="seite-g7" class="seite rechts" hidden>
+  <nav class="crumbs">
+    <a href="#s1" class="lang-de">← Stunde 1: alle Gruppen</a>
+    <a href="#s1" class="lang-en">← Lesson 1: all groups</a>
+    <button class="lang-btn crumb-lang-btn lang-switch-btn" onclick="toggleLang()">🇬🇧 English</button>
+  </nav>
+
+  <header class="kopf">
+    <span class="badge rechts"><span class="lang-de">Angriff von rechts</span><span class="lang-en">Attack from the Right</span></span>
+    <h1><span class="lang-de">Expertengruppe G7: Der Hitler-Ludendorff-Putsch 1923</span><span class="lang-en">Expert Group G7: The Hitler-Ludendorff Putsch 1923</span></h1>
+    <p class="jahr"><span class="lang-de">Jahr an der Tafel:</span><span class="lang-en">Year on the board:</span> <strong>1923</strong></p>
+  </header>
+
+    <p class="weg"><span class="lang-de">Euer Weg (25 min):</span><span class="lang-en">Your route (25 min):</span> <button class="zu" data-nach="1"><span class="snr">1</span> <span class="lang-de">Text</span><span class="lang-en">Text</span></button> → <button class="zu" data-nach="2"><span class="snr">2</span> <span class="lang-de">Reaktionskarte</span><span class="lang-en">Reaction card</span></button> → <button class="zu" data-nach="3"><span class="snr">3</span> <span class="lang-de">Reihenfolge = Präsentation</span><span class="lang-en">Order = presentation</span></button></p>
+  <details class="klapp s1" data-nr="1">
+    <summary><h2><span class="snr">1</span> <span class="lang-de">Textarbeit</span><span class="lang-en">Working with the text</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box auftrag schritt">
+        <p><span class="lang-de"><strong>Lest</strong> den Text still. <strong>Arbeitet</strong> dann gemeinsam <strong>heraus</strong> und tragt in euer AB-Feld ein – <strong>nur Stichworte</strong>:</span><span class="lang-en"><strong>Read</strong> the text silently. Then <strong>work out</strong> together and note in your worksheet field – <strong>key words only</strong>:</span></p>
+    <div class="fragen">
+      <div><h3><span class="lang-de">Angriff</span><span class="lang-en">Attack</span></h3><ol type="a"><li><span class="lang-de">Wer griff an?</span><span class="lang-en">Who attacked?</span></li><li><span class="lang-de">Wo?</span><span class="lang-en">Where?</span></li><li><span class="lang-de">Mit welchem Ziel – nach welchem Vorbild?</span><span class="lang-en">With what goal – following whose example?</span></li></ol></div>
+      <div class="grau"><h3><span class="lang-de">Reaktion des Staates</span><span class="lang-en">Reaction of the state</span></h3><ol type="a" start="4"><li><span class="lang-de">Wer stoppte den Putsch?</span><span class="lang-en">Who stopped the putsch?</span></li><li><span class="lang-de">Welche Strafen gab es für Hitler, Ludendorff und die NSDAP?</span><span class="lang-en">What punishments did Hitler, Ludendorff and the NSDAP receive?</span></li></ol></div>
+    </div>
+    
+  </div>
+
+  <article class="material" data-pid="g7">
+    <h2><span class="mid">M9:</span> <span class="lang-de">Der Hitler-Ludendorff-Putsch 1923</span><span class="lang-en">The Hitler-Ludendorff Putsch 1923 (Beer Hall Putsch)</span></h2>
+    
+    <div class="lang-de">
+      <p>Am Abend des <strong>8. November 1923</strong> stürmt Adolf <strong>Hitler</strong> mit bewaffneten SA-Männern eine Versammlung im Münchner Bürgerbräukeller und ruft die „nationale Revolution“ aus. Nach dem Vorbild Mussolinis will er mit General <strong>Ludendorff</strong> einen <strong>„Marsch auf Berlin“</strong> beginnen und die Reichsregierung stürzen. Am 9. November stoppt die bayerische Landespolizei den Demonstrationszug an der <strong>Feldherrnhalle</strong>; 4 Polizisten und 14 Putschisten sterben.</p>
+      <p>Im Prozess 1924 darf Hitler den Gerichtssaal als Bühne für lange Reden nutzen. Er wird zur <mark class="key">Mindeststrafe</mark> von <strong>5 Jahren Festungshaft</strong> verurteilt – einer ehrenvollen Haftform mit vielen Freiheiten – und schon nach etwa <strong><mark class="key">9 Monaten</mark> (Dezember 1924)</strong> entlassen. Obwohl er österreichischer Staatsbürger ist, wird er nicht ausgewiesen. <strong>Ludendorff wird <mark class="key">freigesprochen</mark>.</strong> Die NSDAP wird verboten, 1925 aber neu gegründet.</p>
+      <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+
+    <div class="lang-en">
+      <p>On the evening of <strong>November 8, 1923</strong>, Adolf <strong>Hitler</strong> and armed SA stormtroopers stormed a political gathering in Munich's Bürgerbräukeller, proclaiming a "national revolution". Emulating Mussolini's March on Rome, Hitler and World War I General Erich <strong>Ludendorff</strong> intended to launch a <strong>"March on Berlin"</strong> to overthrow the democratic republic. On November 9, Bavarian State Police halted the armed march at the <strong>Feldherrnhalle</strong>; 4 police officers and 14 putschists were killed in the gunfire.</p>
+      <p>During the 1924 trial, right-wing judges allowed Hitler to use the courtroom for extensive propaganda speeches. He received only the absolute <mark class="key">minimum sentence</mark> of <strong>5 years fortress confinement</strong> (an honorable detention condition with personal liberties) and was released on parole after barely <strong><mark class="key">9 months</mark></strong> (December 1924). Despite being an Austrian citizen, he was not deported. <strong>Ludendorff was <mark class="key">fully acquitted</mark>.</strong> The NSDAP was temporarily banned, but refounded in 1925.</p>
+      <p class="quelle">Source: Educational text adapted from German Historical Museum (DHM / LeMO), "Weimarer Republik".<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p>
+    </div>
+  </article>
+
+  <div class="tipps" data-pid="g7">
+    <h3><span class="lang-de">Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</span><span class="lang-en">Scaffolded Tips (Use only when stuck)</span></h3>
+    <button class="tippbtn" data-k="1"><span class="lang-de">Tipp 1 anzeigen</span><span class="lang-en">Show Tip 1</span></button>
+    <p class="tipp" id="g7-t1" hidden>
+      <span class="lang-de"><strong>Tipp 1:</strong> Wer stoppte den Putsch – das Reich oder Bayern?</span>
+      <span class="lang-en"><strong>Tip 1:</strong> Who stopped the march – the federal Reich government or Bavarian State Police?</span>
+    </p>
+    
+    <button class="tippbtn" data-k="2" data-mark="1" disabled><span class="lang-de">Tipp 2 anzeigen</span><span class="lang-en">Show Tip 2</span></button>
+    <p class="tipp" id="g7-t2" hidden>
+      <span class="lang-de"><strong>Tipp 2:</strong> Achtet auf die Stellen „Mindeststrafe“, „9 Monaten“ und „freigesprochen“. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></span>
+      <span class="lang-en"><strong>Tip 2:</strong> Focus on the words "minimum sentence", "9 months", and "fully acquitted". <span class="hinweis">(Key phrases are now highlighted in the text.)</span></span>
+    </p>
+    
+    <button class="tippbtn" data-k="3" disabled><span class="lang-de">Tipp 3 anzeigen</span><span class="lang-en">Show Tip 3</span></button>
+    <p class="tipp" id="g7-t3" hidden>
+      <span class="lang-de"><strong>Tipp 3:</strong> Satzstarter: „Für einen bewaffneten Umsturzversuch mit 18 Toten erhielt Hitler …“</span>
+      <span class="lang-en"><strong>Tip 3:</strong> Sentence starter: "For an armed treasonous coup resulting in 18 deaths, Hitler received only ..."</span>
+    </p>
+  </div>
+    <button class="weiter" data-nach="2"><span class="lang-de">Weiter zu Schritt 2</span><span class="lang-en">On to step 2</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s2 k-rechts" data-nr="2">
+    <summary><h2><span class="snr">2</span> <span class="lang-de">Reaktionskarte schreiben (grüne Karte)</span><span class="lang-en">Write your reaction card (green card)</span> <span class="zeit">5 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box schritt karte rechts">
+        <p><span class="lang-de"><strong>Erläutert</strong>, wie Polizei und Justiz reagierten.</span><span class="lang-en"><strong>Explain</strong> how the police and the judiciary reacted.</span> <span class="lang-de">Ein Satz mit Opferzahl oder Strafmaß.</span><span class="lang-en">One sentence with the number of victims or the sentence.</span></p>
+    <div class="mini rechts">
+      <p class="l"><span class="lang-de">Angriff / Ereignis + Jahr</span><span class="lang-en">Attack / Event + Year</span></p>
+      <p class="z gross"><span class="lang-de">Der Hitler-Ludendorff-Putsch 1923</span><span class="lang-en">The Hitler-Ludendorff Putsch 1923</span></p>
+      <p class="l"><span class="lang-de">Wer reagierte für den Staat?</span><span class="lang-en">Who reacted for the state?</span></p>
+      <p class="z"><span class="lang-de">Bayerische Landespolizei & Volksgericht München</span><span class="lang-en">Bavarian Police & Munich People's Court</span></p>
+      <p class="l"><span class="lang-de">Reaktion des Staates</span><span class="lang-en">State Reaction / Sentence</span></p>
+      <p class="z"><span class="lang-de">Mindeststrafe 5 Jahre Festungshaft, nach 9 Monaten frei, Ludendorff freigesprochen</span><span class="lang-en">Minimum 5 yrs fortress confinement, released after 9 mo, Ludendorff acquitted</span></p>
+    </div>
+    <div class="lang-de">
+      <p>Mit dickem Stift, groß schreiben. Nach eurer Präsentation heftet ihr die Karte an die Tafel:
+        <strong>Spalte = Farbe</strong> (Angriff von rechts), <strong>Zeile = Jahr</strong> (1923).</p>
+      <p class="klein">Die Farbe zeigt, von wem der Angriff ausging – nicht, wer reagiert hat.</p>
+    </div>
+    <div class="lang-en">
+      <p>Write clearly and in large letters. After your presentation, attach the card to the board:
+        <strong>Column = Color</strong> (Green = Right-wing attack), <strong>Row = Year</strong> (1923).</p>
+      <p class="klein">The card color reflects the origin of the threat, not the responding institution.</p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="3"><span class="lang-de">Weiter zu Schritt 3</span><span class="lang-en">On to step 3</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp s3" data-nr="3">
+    <summary><h2><span class="snr">3</span> <span class="lang-de">Sicherung: Was geschah wann?</span><span class="lang-en">Consolidation: what happened when?</span> <span class="zeit">10 min</span></h2></summary>
+    <div class="klapp-inhalt">
+  <div class="box sortier schritt" data-pid="g7">
+        <p><span class="lang-de"><strong>Bringt</strong> die Ereignisse in die richtige Reihenfolge: Tippt sie nacheinander an. Antippen in der Reihe legt eine Karte zurück.</span><span class="lang-en"><strong>Put</strong> the events in the right order: tap them one after another. Tapping a card in the sequence puts it back.</span></p>
+    <ol class="phasen" hidden><li data-ph="1"><span class="lang-de">Wer griff an – mit welchem Ziel?</span><span class="lang-en">Who attacked – with what goal?</span></li><li data-ph="2"><span class="lang-de">Was geschah?</span><span class="lang-en">What happened?</span></li><li data-ph="3"><span class="lang-de">Wie reagierte der Staat?</span><span class="lang-en">How did the state react?</span></li><li data-ph="4"><span class="lang-de">Folgen und Strafen</span><span class="lang-en">Consequences and punishments</span></li></ol>
+    <div class="pool"><button class="sk" data-ord="1" data-ph="1"><span class="lang-de">Hitler und Ludendorff wollen nach Mussolinis Vorbild mit einem „Marsch auf Berlin“ die Regierung stürzen.</span><span class="lang-en">Following Mussolini's example, Hitler and Ludendorff want to overthrow the government with a “March on Berlin”.</span></button><button class="sk" data-ord="1" data-ph="1"><span class="lang-de">8. Nov. 1923: Hitler stürmt mit der SA den Münchner Bürgerbräukeller und ruft die „nationale Revolution“ aus.</span><span class="lang-en">8 Nov. 1923: Hitler storms the Bürgerbräukeller in Munich with the SA and proclaims the “national revolution”.</span></button><button class="sk" data-ord="2" data-ph="2"><span class="lang-de">9. Nov. 1923: Die Putschisten ziehen in einem Demonstrationszug durch München.</span><span class="lang-en">9 Nov. 1923: The putschists march through Munich in a procession.</span></button><button class="sk" data-ord="3" data-ph="3"><span class="lang-de">Die bayerische Landespolizei stoppt den Zug an der Feldherrnhalle; 4 Polizisten und 14 Putschisten sterben.</span><span class="lang-en">The Bavarian state police stop the march at the Feldherrnhalle; 4 police officers and 14 putschists die.</span></button><button class="sk" data-ord="4" data-ph="4"><span class="lang-de">1924: Hitler erhält die Mindeststrafe von 5 Jahren Festungshaft, Ludendorff wird freigesprochen.</span><span class="lang-en">1924: Hitler receives the minimum sentence of 5 years' fortress confinement; Ludendorff is acquitted.</span></button><button class="sk" data-ord="5" data-ph="4"><span class="lang-de">Dezember 1924: Hitler wird nach etwa 9 Monaten entlassen und nicht ausgewiesen.</span><span class="lang-en">December 1924: Hitler is released after about 9 months and not deported.</span></button></div>
+    <ol class="folge"></ol>
+    <div class="knoepfe"><button class="pruefen-s"><span class="lang-de">Reihenfolge prüfen</span><span class="lang-en">Check order</span></button><button class="reset-s"><span class="lang-de">Neu starten</span><span class="lang-en">Restart</span></button><button class="loesung-s" hidden><span class="lang-de">Lösung zeigen</span><span class="lang-en">Show solution</span></button></div>
+    <p class="feedback-s" aria-live="polite"></p>
+    <div class="fahrplan" hidden>
+      <h3><span class="lang-de">Euer Präsentationsfahrplan (max. 3 min)</span><span class="lang-en">Your presentation plan (max. 3 min)</span></h3>
+      <p class="klein"><span class="lang-de">Jede Person übernimmt einen Abschnitt. Die Klasse schreibt in derselben Reihenfolge mit: ① ② = Angriff, ③ ④ = grauer Block „Reaktion des Staates“. Bei ③ oder ④ lest ihr eure Reaktionskarte vor.</span><span class="lang-en">Each person presents one section. The class takes notes in the same order: ① ② = attack, ③ ④ = grey block “reaction of the state”. Read out your reaction card at ③ or ④.</span></p>
+      <div class="plan"></div>
+      <p class="stufe-plan" hidden></p>
+    </div>
+  </div>
+    <button class="weiter" data-nach="4"><span class="lang-de">Fertig? Weiter zur Challenge</span><span class="lang-en">Done? On to the challenge</span> ▸</button>
+    </div>
+  </details>
+  <details class="klapp ch" data-nr="4">
+    <summary><h2><span class="lang-de">Challenge: Wie gefährlich war euer Ereignis für die Republik?</span><span class="lang-en">Challenge: How dangerous was your event for the Republic?</span> <span class="zeit"><span class="lang-de">für schnelle Gruppen</span><span class="lang-en">for fast groups</span></span></h2></summary>
+    <div class="klapp-inhalt">
+<div class="box skala" data-pid="g7">
+        <p><strong>1.</strong> <span class="lang-de"><strong>Prüft</strong> die Kriterien: Was trifft auf euer Ereignis zu?</span><span class="lang-en"><strong>Check</strong> the criteria: which apply to your event?</span></p>
+    <div class="kriterien">
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Angriff richtete sich direkt gegen die gewählte Regierung oder die Verfassung.</span><span class="lang-en">The attack was aimed directly at the elected government or the constitution.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Viele Menschen waren beteiligt oder kamen ums Leben.</span><span class="lang-en">Many people were involved or lost their lives.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Der Staat konnte die Gefahr nur schwer oder gar nicht stoppen.</span><span class="lang-en">The state could stop the danger only with difficulty or not at all.</span></label>
+      <label><input type="checkbox" class="krit"> <span class="lang-de">Die Folgen reichten über das Ereignis hinaus (z. B. Radikalisierung, Nachahmer, Vertrauensverlust).</span><span class="lang-en">The consequences went beyond the event (e.g. radicalisation, imitators, loss of trust).</span></label>
+    </div>
+    <p class="krit-zahl klein" aria-live="polite"></p>
+    <p><strong>2.</strong> <span class="lang-de"><strong>Ordnet</strong> euer Ereignis auf der Skala <strong>ein</strong>:</span><span class="lang-en"><strong>Place</strong> your event on the scale:</span></p>
+    <div class="stufen" role="group"><button class="stufe" data-s="1"><b>1</b><span class="lang-de">kaum</span><span class="lang-en">hardly</span></button><button class="stufe" data-s="2"><b>2</b><span class="lang-de">gering</span><span class="lang-en">low</span></button><button class="stufe" data-s="3"><b>3</b><span class="lang-de">mittel</span><span class="lang-en">medium</span></button><button class="stufe" data-s="4"><b>4</b><span class="lang-de">hoch</span><span class="lang-en">high</span></button><button class="stufe" data-s="5"><b>5</b><span class="lang-de">bedrohte die Republik</span><span class="lang-en">threatened the Republic</span></button></div>
+    <p><strong>3.</strong> <span class="lang-de"><strong>Begründet</strong> eure Einstufung in 1–2 Sätzen:</span><span class="lang-en"><strong>Justify</strong> your rating in 1–2 sentences:</span></p>
+    <textarea class="begruendung" rows="3" placeholder="Wir stufen … auf Stufe … ein, weil … Allerdings …" aria-label="Begründung"></textarea>
+    <p class="klein"><span class="lang-de">Übertragt Stufe und Begründung auf die <strong>Rückseite eurer Reaktionskarte</strong>. Nennt die Stufe am Ende eurer Präsentation. Es gibt keine einzig richtige Stufe – entscheidend ist die Begründung.</span><span class="lang-en">Copy the level and your justification onto the <strong>back of your reaction card</strong>. State the level at the end of your presentation. There is no single correct level – what matters is the justification.</span></p>
+  </div>
+    </div>
+  </details>
+  <div class="box check" data-pid="g7">
+    <h2><span class="lang-de">Checkliste eurer Gruppe</span><span class="lang-en">Group Checklist</span></h2>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 1: AB-Feld in Stichworten ausgefüllt (auch der graue Block)</span><span class="lang-en">Step 1: worksheet field completed in key words (including the grey block)</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 2: Reaktionskarte geschrieben</span><span class="lang-en">Step 2: reaction card written</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Schritt 3: Reihenfolge stimmt</span><span class="lang-en">Step 3: order is correct</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Präsentation verteilt: Wer spricht zu ①, ②, ③, ④?</span><span class="lang-en">Presentation shared out: who speaks on ①, ②, ③, ④?</span></label>
+    <label><input type="checkbox"> <span class="lang-de">Challenge (freiwillig): Gefährdung eingestuft und begründet</span><span class="lang-en">Challenge (optional): danger rated and justified</span></label>
+  </div>
+</section>
+<section id="seite-s2" class="seite" hidden>
+  <nav class="crumbs"><a href="#start">← Start</a></nav>
+  <h1>Stunde 2: Mit gleichem Maß gemessen?</h1>
+  <p><strong>Leitfrage:</strong> <em>War die Weimarer Republik „auf dem rechten Auge blind“?</em></p>
+  <p><strong>Legt euer A3-Arbeitsblatt aus Stunde 1 neben das iPad</strong> – ihr braucht die grauen Reaktionsblöcke („Wer reagierte für den Staat?“).</p>
+  <div class="legende"><strong>Farbe = von wem ging der Angriff aus?</strong><span class="badge links">rot = Angriff von links</span><span class="badge krise">grau = Krise der Republik</span><span class="badge rechts">grün = Angriff von rechts</span></div>
+  <div class="spalten">
+    <div class="spalte"><h3 class="links" style="color:#000;background:#fff">Tischreihe A</h3><a class="kachel neutral" href="#a"><span class="g">A</span><span>Strang A: Die Justiz</span><span class="j">M10 · 15 min</span></a></div>
+    <div class="spalte"><h3 class="links" style="color:#000;background:#fff">Tischreihe B</h3><a class="kachel neutral" href="#b"><span class="g">B</span><span>Strang B: Reichswehr & Regierung</span><span class="j">M12 · 15 min</span></a></div>
+    <div class="spalte"><h3 class="links" style="color:#000;background:#fff">Danach alle</h3><a class="kachel neutral" href="#u"><span class="g">U</span><span>Ursachen der Ungleichbehandlung</span><span class="j">M13 · 10 min</span></a></div>
+  </div>
+</section>
+
+<section id="seite-a" class="seite neutral" hidden>
+  <nav class="crumbs"><a href="#s2">← Stunde 2: Übersicht</a></nav>
+  <header class="kopf"><span class="badge neutral">Strang A</span><h1>Die Justiz – „auf dem rechten Auge blind“?</h1></header>
+  <div class="box auftrag"><h2>Arbeitsauftrag <span class="zeit">15 min · Partnerarbeit</span></h2><ol>
+    <li><strong>Analysiere</strong> die Statistik M10a. Vergleiche dabei Anzahl der Morde, Anteil der gesühnten Taten, Hinrichtungen und Strafmaß.</li>
+    <li><strong>Erläutere</strong> anhand von M10b, wie das Gericht Hitler und seine Mitangeklagten bewertete. Beziehe dich auf das Strafmaß aus Stunde 1 (G7).</li>
+    <li><em>Challenge:</em> <strong>Überprüfe</strong> die Aussagekraft der Statistik: Wer hat sie erstellt? Welcher Zeitraum wird erfasst? Was kann sie nicht zeigen?</li></ol></div>
+  <article class="material" data-pid="a"><h2><span class="mid">M10a:</span> Politische Morde und ihre Bestrafung 1918–1922</h2>
+    <div class="tabwrap"><table class="stat">
+      <thead><tr><th>Politische Morde begangen von</th><th>Anzahl der Morde</th><th>ungesühnte Morde¹</th><th>teilweise gesühnte Morde²</th><th>gesühnte Morde³</th><th>verurteilte Mörder</th><th>freigesprochene Mörder</th><th>hingerichtete Mörder</th><th>Freiheitsstrafe je Mord</th></tr></thead>
+      <tbody><tr class="links"><th>Linksstehenden</th><td>22</td><td>4</td><td>1</td><td>17</td><td>38</td><td>–</td><td>10</td><td>15 Jahre</td></tr>
+      <tr class="rechts"><th>Rechtsstehenden</th><td>354</td><td>326</td><td>27</td><td>1</td><td>24</td><td>23</td><td>–</td><td>4 Monate</td></tr></tbody></table></div>
+    <p class="klein">¹ Morde ohne gerichtliche Bestrafung · ² Morde, bei denen die Richter eine zu geringe Strafe festgesetzt hatten · ³ Morde, die angemessen bestraft wurden</p>
+    <p class="quelle">Q: Nach Emil Julius Gumbel, Vier Jahre politischer Mord, Berlin: Verlag der Neuen Gesellschaft 1922, S. 81.</p>
+    <p class="klein"><em>Zum Autor: Emil Julius Gumbel (1891–1966) war Mathematiker, Statistiker und Pazifist und stand politisch links. Eine Denkschrift des Reichsjustizministeriums (1924) konnte seine Befunde im Kern nicht widerlegen.</em></p>
+    <h2><span class="mid">M10b:</span> Aus dem Urteil des Volksgerichts München I gegen Hitler u. a. vom 1. April 1924</h2>
+    <blockquote><p>„[Die Angeklagten] wurden bei ihrem Tun von <mark class="key">rein vaterländischem Geiste</mark> und dem <mark class="key">edelsten selbstlosen Willen</mark> geleitet. […]</p>
+    <p>Auf einen Mann, der <mark class="key">so deutsch denkt und fühlt</mark> wie Hitler, […] kann nach Auffassung des Gerichts die Vorschrift des § 9 Abs. II des Republikschutzgesetzes [Ausweisung von Ausländern, die wegen Hochverrats verurteilt wurden] ihrem Sinn und ihrer Zweckbestimmung nach keine Anwendung finden.“</p></blockquote>
+    <p class="quelle">Q: Urteil des Volksgerichts München I vom 1.4.1924, zit. nach: Lothar Gruchmann / Reinhard Weber (Hg.), Der Hitler-Prozess 1924. Wortlaut der Hauptverhandlung vor dem Volksgericht München I, München: Saur 1997–1999.</p></article>
+  <div class="box rechner"><h2>Rechenhilfe</h2><p>Wie viel Prozent der Morde wurden <strong>angemessen bestraft</strong> (gesühnt)?</p>
+    <div class="rechenzeile"><label>links: <input type="text" inputmode="decimal" data-soll="77" placeholder="%"> %</label>
+    <label>rechts: <input type="text" inputmode="decimal" data-soll="0.3" placeholder="%"> %</label>
+    <button class="pruefen">Prüfen</button></div><p class="feedback" aria-live="polite"></p></div>
+  <div class="tipps" data-pid="a"><h3>Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</h3>
+<button class="tippbtn" data-k="1" >Tipp 1 anzeigen</button><p class="tipp" id="a-t1" hidden><strong>Tipp 1:</strong> Rechnet mit der Rechenhilfe: Wie viel Prozent der Morde von rechts wurden angemessen bestraft? Wie viel Prozent der Morde von links?</p>
+<button class="tippbtn" data-k="2" data-mark="1" disabled>Tipp 2 anzeigen</button><p class="tipp" id="a-t2" hidden><strong>Tipp 2:</strong> Achtet in M10b auf die Wörter, mit denen das Gericht die Angeklagten lobt. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></p>
+<button class="tippbtn" data-k="3" disabled>Tipp 3 anzeigen</button><p class="tipp" id="a-t3" hidden><strong>Tipp 3:</strong> Satzstarter: „Während linke Mörder im Durchschnitt …, erhielten rechte Mörder …“</p>
+</div>
+</section>
+<section id="seite-b" class="seite neutral" hidden>
+  <nav class="crumbs"><a href="#s2">← Stunde 2: Übersicht</a></nav>
+  <header class="kopf"><span class="badge neutral">Strang B</span><h1>Reichswehr und Regierung: Sachsen und Bayern im Herbst 1923</h1></header>
+  <div class="box auftrag"><h2>Arbeitsauftrag <span class="zeit">15 min · Partnerarbeit</span></h2><ol>
+    <li><strong>Vergleiche</strong> das Vorgehen des Reiches gegen Sachsen und Bayern. Kriterien: Verhalten der Landesregierung gegenüber dem Reich – Gefahr für die Verfassung – Reaktion von Reich und Reichswehr.</li>
+    <li><strong>Erläutere</strong> mit Beispielen aus Stunde 1 (G2 Kapp-Putsch, G3 Rote Ruhrarmee), wie sich die Reichswehr gegenüber Angriffen von links und von rechts verhielt.</li>
+    <li><em>Challenge:</em> <strong>Beurteile</strong>, welches der beiden Länder die Verfassung 1923 stärker gefährdete.</li></ol></div>
+  <article class="material" data-pid="b"><h2><span class="mid">M12:</span> Sachsen und Bayern im Herbst 1923</h2>
+    <p><strong>Sachsen:</strong> Seit dem 10. Oktober 1923 regiert in Dresden Ministerpräsident Erich <strong>Zeigner (SPD)</strong> gemeinsam mit der <strong>KPD</strong>. Die Regierung ist vom sächsischen Landtag <mark class="key">rechtmäßig gewählt</mark>. Die KPD baut bewaffnete „Proletarische Hundertschaften“ auf und plant eine Revolution, sagt den Aufstand am 21. Oktober aber ab. Die Reichsregierung sieht in Sachsen eine kommunistische Gefahr. Reichspräsident Ebert (SPD) verhängt mit Art. 48 WRV die <strong>Reichsexekution</strong>: Die Reichswehr besetzt Sachsen. In Freiberg schießen Soldaten am 27. Oktober in eine Demonstration, über 20 Menschen sterben. Am 29. Oktober setzt ein Reichskommissar die Regierung Zeigner <strong>ab</strong>.</p>
+<p><strong>Bayern:</strong> Schon am 26. September 1923 verhängt die bayerische Regierung den Ausnahmezustand und ernennt den Monarchisten Gustav <strong>von Kahr</strong> zum Generalstaatskommissar mit diktatorischen Vollmachten. Kahr <strong><mark class="key">verweigert Anordnungen</mark> der Reichsregierung</strong>, zum Beispiel das Verbot der NSDAP-Zeitung „Völkischer Beobachter“. Als das Reich den Befehlshaber der Reichswehr in Bayern, General <strong>von Lossow</strong>, deshalb absetzt, lässt Bayern die Truppen am 22. Oktober <strong>auf die bayerische Regierung verpflichten</strong>. Kahr, Lossow und Polizeichef Seißer planen selbst eine „nationale Diktatur“ in Berlin. Der Chef der Heeresleitung, Hans von Seeckt, <strong><mark class="key">lehnt</mark> einen Einsatz der Reichswehr gegen Bayern ab</strong>. Eine Reichsexekution gegen Bayern gibt es <strong>nicht</strong>. Aus Protest gegen diese Ungleichbehandlung verlässt die SPD Anfang November die Reichsregierung. Nach dem Hitler-Putsch treten Kahr, Lossow und Seißer im Prozess nur als <strong>Zeugen</strong> auf.</p>
+    <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“. Online: LeMO.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p></article>
+  <div class="box erinnerung"><h2>Zur Erinnerung aus Stunde 1</h2>
+    <p><span class="badge links">Angriff von links</span> Rote Ruhrarmee 1920 (entstanden als Abwehr des Kapp-Putsches) → Reichswehr und Freikorps, über 1.000 Tote</p>
+    <p><span class="badge rechts">Angriff von rechts</span> Kapp-Putsch 1920 → „Truppe schießt nicht auf Truppe“, Scheitern erst durch den Generalstreik</p></div>
+  <div class="box vergleich"><h2>Vergleichsraster (Notizen, werden nicht gespeichert)</h2>
+    <div class="tabwrap"><table class="raster"><thead><tr><th>Kriterium</th><th>Sachsen</th><th>Bayern</th></tr></thead><tbody>
+      <tr><th>Verhalten gegenüber dem Reich</th><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+      <tr><th>Gefahr für die Verfassung</th><td contenteditable="true"></td><td contenteditable="true"></td></tr>
+      <tr><th>Reaktion von Reich und Reichswehr</th><td contenteditable="true"></td><td contenteditable="true"></td></tr></tbody></table></div></div>
+  <div class="tipps" data-pid="b"><h3>Tippkarte – erst nutzen, wenn ihr nicht weiterkommt</h3>
+<button class="tippbtn" data-k="1" >Tipp 1 anzeigen</button><p class="tipp" id="b-t1" hidden><strong>Tipp 1:</strong> Welche Landesregierung hat sich offen gegen Befehle des Reiches gestellt?</p>
+<button class="tippbtn" data-k="2" data-mark="1" disabled>Tipp 2 anzeigen</button><p class="tipp" id="b-t2" hidden><strong>Tipp 2:</strong> Achtet auf die Stellen „rechtmäßig gewählt“, „verweigert Anordnungen“ und „lehnt … ab“. <span class="hinweis">(Die Stellen sind jetzt im Text markiert.)</span></p>
+<button class="tippbtn" data-k="3" disabled>Tipp 3 anzeigen</button><p class="tipp" id="b-t3" hidden><strong>Tipp 3:</strong> Satzstarter: „Gegen Sachsen ging das Reich …, obwohl …; gegen Bayern dagegen …“</p>
+</div>
+</section>
+<section id="seite-u" class="seite neutral" hidden>
+  <nav class="crumbs"><a href="#s2">← Stunde 2: Übersicht</a></nav>
+  <header class="kopf"><span class="badge neutral">Für alle</span><h1>Warum auf dem rechten Auge blind? Ursachen der Ungleichbehandlung</h1></header>
+  <div class="box auftrag"><h2>Arbeitsauftrag <span class="zeit">10 min · Partnerarbeit</span></h2><ol>
+    <li><strong>Erkläre</strong>, warum Reichswehr und Justiz rechte Täter milder behandelten. Ordne jeder Ursache ein Beispiel aus Stunde 1 oder aus M10/M12 zu. <em>Tipp: Schaut in die grauen Reaktionsblöcke eures A3-ABs – wer hat jeweils für den Staat reagiert?</em></li></ol></div>
+  <article class="material"><h2><span class="mid">M13:</span> Ursachen der Ungleichbehandlung</h2>
+    <div class="ursache"><h3>1. Alte Eliten in neuen Ämtern</h3><p>Die Republik übernahm 1918/19 fast alle Richter, Staatsanwälte, Beamten und Offiziere des Kaiserreichs. Viele von ihnen trauerten der Monarchie nach und lehnten die Demokratie innerlich ab. Weil Richter nach der Verfassung unabhängig und nicht absetzbar waren (Art. 102, 104 WRV), konnte die Republik sie nicht einfach austauschen.</p></div><div class="ursache"><h3>2. Abhängigkeit vom Militär</h3><p>Am 10. November 1918 hatten Friedrich Ebert und General Wilhelm Groener vereinbart: Das Militär stützt die neue Regierung gegen die radikale Linke, dafür bleibt das Offizierskorps unangetastet (<strong>Ebert-Groener-Pakt</strong>). Bei linken Aufständen war die Regierung deshalb auf Reichswehr und Freikorps angewiesen. Die Reichswehr verstand sich als „Staat im Staate“, der dem Reich, nicht aber der Republik verpflichtet war.</p></div><div class="ursache"><h3>3. Angst vor dem Bolschewismus</h3><p>In Russland herrschten seit 1917 Bürgerkrieg, Enteignung und Terror der Bolschewiki. 1919 gab es auch in München und Bremen kurzlebige Räterepubliken. Für viele Bürger, Richter und Offiziere war die Linke deshalb die weitaus größere Gefahr.</p></div><div class="ursache"><h3>4. Nationalismus und Dolchstoßlegende</h3><p>Wer die „Novemberverbrecher“ bekämpfte, galt in rechten Kreisen als Patriot mit „ehrenhaften Motiven“. Ihm stand die milde Festungshaft zu. Linke Täter galten dagegen als „Vaterlandsverräter“.</p></div>
+    <p class="quelle">Q: Darstellungstext für den Unterricht (Lehrkraft, 2026), Fakten nach: Deutsches Historisches Museum, LeMO – Lebendiges Museum Online, Kapitel „Weimarer Republik“. Online: LeMO.<br><a href="https://www.dhm.de/lemo/kapitel/weimarer-republik" target="_blank" rel="noopener">https://www.dhm.de/lemo/kapitel/weimarer-republik</a></p></article>
+  <div class="box uebung"><h2>Übung: Welche Ursache steckt hinter dem Beispiel?</h2>
+    <div class="zuord" data-soll="1"><p>Die Justiz bestraft 1918–1922 nur 1 von 354 rechten Morden angemessen (Gumbel).</p>
+  <select aria-label="Ursache wählen"><option value="">Ursache wählen …</option><option value="1">1 – Alte Eliten in neuen Ämtern</option><option value="2">2 – Abhängigkeit vom Militär</option><option value="3">3 – Angst vor dem Bolschewismus</option><option value="4">4 – Nationalismus und Dolchstoßlegende</option></select>
+  <p class="erkl" hidden>Die Richter stammten aus dem Kaiserreich, lehnten die Republik oft ab – und konnten nicht abgesetzt werden.</p></div><div class="zuord" data-soll="2"><p>Die Regierung lässt den Januaraufstand 1919 und die Rote Ruhrarmee 1920 von Freikorps und Reichswehr niederschlagen.</p>
+  <select aria-label="Ursache wählen"><option value="">Ursache wählen …</option><option value="1">1 – Alte Eliten in neuen Ämtern</option><option value="2">2 – Abhängigkeit vom Militär</option><option value="3">3 – Angst vor dem Bolschewismus</option><option value="4">4 – Nationalismus und Dolchstoßlegende</option></select>
+  <p class="erkl" hidden>Seit dem Ebert-Groener-Pakt war die Regierung auf das Militär angewiesen – gerade gegen links.</p></div><div class="zuord" data-soll="3"><p>Das Reich setzt 1923 die gewählte SPD-KPD-Regierung Sachsens ab.</p>
+  <select aria-label="Ursache wählen"><option value="">Ursache wählen …</option><option value="1">1 – Alte Eliten in neuen Ämtern</option><option value="2">2 – Abhängigkeit vom Militär</option><option value="3">3 – Angst vor dem Bolschewismus</option><option value="4">4 – Nationalismus und Dolchstoßlegende</option></select>
+  <p class="erkl" hidden>Die Beteiligung der KPD weckte die Angst vor einer Revolution wie in Russland.</p></div><div class="zuord" data-soll="4"><p>Das Gericht bescheinigt Hitler 1924 „rein vaterländischen Geist“.</p>
+  <select aria-label="Ursache wählen"><option value="">Ursache wählen …</option><option value="1">1 – Alte Eliten in neuen Ämtern</option><option value="2">2 – Abhängigkeit vom Militär</option><option value="3">3 – Angst vor dem Bolschewismus</option><option value="4">4 – Nationalismus und Dolchstoßlegende</option></select>
+  <p class="erkl" hidden>Rechte Täter galten als Patrioten mit ehrenhaften Motiven – eine Folge von Nationalismus und Dolchstoßlegende.</p></div>
+    <button class="pruefen-z">Zuordnung prüfen</button><p class="feedback-z" aria-live="polite"></p>
+    <p class="klein">Übertragt zwei Ursachen mit Beispiel auf euer Auswertungsblatt (Aufgabe 2).</p></div>
+</section>
+</main>
+<footer>Gymnasium Dresden-Tolkewitz · Geschichte Klasse 9 · Darstellungstexte für den Unterricht (2026). Notizen und Häkchen werden nur auf diesem Gerät gespeichert.</footer>
+<script>
+(function(){
+  var seiten = document.querySelectorAll('.seite');
+  function zeige(){
+    var id = (location.hash || '#start').slice(1);
+    var ziel = document.getElementById('seite-' + id) || document.getElementById('seite-start');
+    seiten.forEach(function(s){ s.hidden = (s !== ziel); });
+    setTimeout(function(){ window.scrollTo(0,0); }, 0);
+  }
+  window.addEventListener('hashchange', zeige); zeige();
+
+  // Schriftgröße
+  var fs = 1.08;
+  function setFs(v){ fs = Math.min(1.5, Math.max(0.9, v)); document.documentElement.style.setProperty('--fs', fs + 'rem');
+    try{ localStorage.setItem('ge9kj_fs', fs); }catch(e){} }
+  try{ var g = parseFloat(localStorage.getItem('ge9kj_fs')); if(g) setFs(g); }catch(e){}
+  document.getElementById('fsMinus').onclick = function(){ setFs(fs - 0.08); };
+  document.getElementById('fsPlus').onclick = function(){ setFs(fs + 0.08); };
+
+  // Sprachumschaltung DE / EN
+  var curLang = 'de';
+  function setLang(l){
+    curLang = l;
+    document.body.classList.toggle('lang-en', curLang === 'en');
+    document.body.classList.toggle('lang-de', curLang === 'de');
+    var lb = document.getElementById('langToggle');
+    if(lb) lb.innerHTML = (curLang === 'de') ? '🇩🇪 DE | 🇬🇧 EN' : '🇬🇧 EN | 🇩🇪 DE';
+    document.querySelectorAll('.lang-switch-btn').forEach(function(btn){
+      btn.innerHTML = (curLang === 'de') ? '🇬🇧 Read in English' : '🇩🇪 Auf Deutsch lesen';
+    });
+    try{ localStorage.setItem('ge9kj_lang', curLang); }catch(e){}
+  }
+  try{ var sl = localStorage.getItem('ge9kj_lang'); if(sl) setLang(sl); else setLang('de'); }catch(e){ setLang('de'); }
+  var ltb = document.getElementById('langToggle');
+  if(ltb) ltb.onclick = function(){ setLang(curLang === 'de' ? 'en' : 'de'); };
+  window.toggleLang = function(){ setLang(curLang === 'de' ? 'en' : 'de'); };
+
+  // Gestufte Tipps (Tipp 2 markiert die Schlüsselstellen im Material)
+  document.querySelectorAll('.tipps').forEach(function(box){
+    var pid = box.dataset.pid;
+    box.querySelectorAll('.tippbtn').forEach(function(btn){
+      btn.onclick = function(){
+        var k = +btn.dataset.k;
+        document.getElementById(pid + '-t' + k).hidden = false;
+        btn.hidden = true;
+        var next = box.querySelector('.tippbtn[data-k="' + (k + 1) + '"]');
+        if(next) next.disabled = false;
+        if(btn.dataset.mark){ var m = document.querySelector('.material[data-pid="' + pid + '"]'); if(m) m.classList.add('markiert'); }
+      };
+    });
+  });
+
+  // Checklisten (nur auf diesem Gerät gemerkt)
+  document.querySelectorAll('.check').forEach(function(box){
+    var key = 'ge9kj_check_' + box.dataset.pid;
+    var cbs = box.querySelectorAll('input');
+    var st = [];
+    try{ st = JSON.parse(localStorage.getItem(key) || '[]'); }catch(e){}
+    cbs.forEach(function(cb, i){ cb.checked = !!st[i];
+      cb.onchange = function(){ var v = []; cbs.forEach(function(c){ v.push(c.checked); });
+        try{ localStorage.setItem(key, JSON.stringify(v)); }catch(e){} }; });
+  });
+
+  // Schritt 3: Ereignisse sortieren (gleiche data-ord = Reihenfolge egal)
+  document.querySelectorAll('.sortier').forEach(function(box){
+    var pool = box.querySelector('.pool'), folge = box.querySelector('.folge');
+    var karten = Array.prototype.slice.call(pool.querySelectorAll('.sk'));
+    var soll = karten.map(function(k){ return +k.dataset.ord; }).sort(function(a, b){ return a - b; });
+    var fb = box.querySelector('.feedback-s'), lsg = box.querySelector('.loesung-s'), versuche = 0;
+    var de = function(){ return !document.body.classList.contains('lang-en'); };
+    function mischen(){
+      for(var i = karten.length - 1; i > 0; i--){ var j = Math.floor(Math.random() * (i + 1)); var t = karten[i]; karten[i] = karten[j]; karten[j] = t; }
+      karten.forEach(function(k){ pool.appendChild(k); });
+    }
+    function zeichne(){
+      var liegend = Array.prototype.slice.call(folge.querySelectorAll('.sk'));
+      folge.innerHTML = '';
+      for(var i = 0; i < karten.length; i++){
+        var li = document.createElement('li');
+        if(liegend[i]) li.appendChild(liegend[i]); else li.className = 'leer';
+        folge.appendChild(li);
+      }
+      pool.hidden = !pool.querySelector('.sk');
+    }
+    function fertig(){ return Array.prototype.slice.call(folge.querySelectorAll('.sk')); }
+    karten.forEach(function(k){
+      k.onclick = function(){
+        if(box.classList.contains('geloest')) return;
+        if(k.parentNode === pool){ var liegend = fertig(); liegend.push(k); folge.innerHTML = ''; liegend.forEach(function(x){ folge.appendChild(x); }); }
+        else { var rest = fertig().filter(function(x){ return x !== k; }); pool.appendChild(k); folge.innerHTML = ''; rest.forEach(function(x){ folge.appendChild(x); }); }
+        fb.textContent = ''; zeichne();
+      };
+    });
+    function plan(){
+      var ziel = box.querySelector('.plan'); ziel.innerHTML = '';
+      box.querySelectorAll('.phasen li').forEach(function(ph, i){
+        var d = document.createElement('div'); d.className = 'abschnitt' + (i >= 2 ? ' r' : '');
+        d.innerHTML = '<h4><span class="wer"><span class="lang-de">Person ' + (i + 1) + '</span><span class="lang-en">Person ' + (i + 1) + '</span></span>' + '①②③④'.charAt(i) + ' ' + ph.innerHTML + '</h4>';
+        var ul = document.createElement('ul');
+        fertig().forEach(function(k){ if(+k.dataset.ph === i + 1){ var li = document.createElement('li'); li.innerHTML = k.innerHTML; ul.appendChild(li); } });
+        d.appendChild(ul); ziel.appendChild(d);
+      });
+      box.querySelector('.fahrplan').hidden = false; box.classList.add('geloest');
+    }
+    box.querySelector('.pruefen-s').onclick = function(){
+      var liegend = fertig();
+      if(liegend.length < karten.length){ fb.textContent = de() ? 'Legt zuerst alle Karten in die Reihe.' : 'Place all cards in the sequence first.'; return; }
+      var r = 0;
+      liegend.forEach(function(k, i){ var ok = +k.dataset.ord === soll[i]; k.parentNode.className = ok ? 'ok' : 'falsch'; if(ok) r++; });
+      versuche++;
+      if(r === karten.length){ fb.textContent = de() ? 'Alles richtig! Unten steht jetzt euer Präsentationsfahrplan.' : 'All correct! Your presentation plan is now shown below.'; plan(); }
+      else { fb.textContent = (de() ? r + ' von ' + karten.length + ' an der richtigen Stelle. Achtet auf die Daten und auf „Ursache → Folge“.' : r + ' of ' + karten.length + ' in the right place. Look at the dates and at “cause → effect”.'); if(versuche >= 2) lsg.hidden = false; }
+    };
+    box.querySelector('.reset-s').onclick = function(){
+      box.classList.remove('geloest'); box.querySelector('.fahrplan').hidden = true; lsg.hidden = true; versuche = 0; fb.textContent = '';
+      folge.innerHTML = ''; mischen(); zeichne();
+    };
+    lsg.onclick = function(){
+      var sortiert = karten.slice().sort(function(a, b){ return a.dataset.ord - b.dataset.ord; });
+      folge.innerHTML = ''; sortiert.forEach(function(k){ folge.appendChild(k); }); zeichne();
+      folge.querySelectorAll('li').forEach(function(li){ li.className = 'ok'; });
+      fb.textContent = de() ? 'Das ist die Lösung. Lest sie gemeinsam und vergleicht mit eurem AB-Feld.' : 'This is the solution. Read it together and compare it with your worksheet.'; plan();
+    };
+    mischen(); zeichne();
+  });
+
+  // Challenge: Gefährdungsskala (nur auf diesem Gerät gemerkt)
+  document.querySelectorAll('.skala').forEach(function(box){
+    var pid = box.dataset.pid, key = 'ge9kj_skala_' + pid;
+    var krit = box.querySelectorAll('.krit'), stufen = box.querySelectorAll('.stufe'), txt = box.querySelector('.begruendung');
+    var zahl = box.querySelector('.krit-zahl'), plan = document.querySelector('.sortier[data-pid="' + pid + '"] .stufe-plan');
+    var st = { k: [], s: 0, t: '' };
+    try{ st = JSON.parse(localStorage.getItem(key)) || st; }catch(e){}
+    function speichern(){ try{ localStorage.setItem(key, JSON.stringify(st)); }catch(e){} }
+    function zeige(){
+      var n = 0; krit.forEach(function(c, i){ c.checked = !!st.k[i]; if(c.checked) n++; });
+      zahl.innerHTML = '<span class="lang-de">' + n + ' von ' + krit.length + ' Kriterien treffen zu.</span><span class="lang-en">' + n + ' of ' + krit.length + ' criteria apply.</span>';
+      stufen.forEach(function(b){ var a = +b.dataset.s === st.s; b.classList.toggle('aktiv', a); b.setAttribute('aria-pressed', a); });
+      txt.value = st.t || '';
+      if(plan){ plan.hidden = !st.s;
+        plan.innerHTML = '<span class="lang-de">Zum Schluss: Unsere Gefährdungsstufe ist ' + st.s + ' von 5 – kurz begründen.</span><span class="lang-en">Finally: our danger level is ' + st.s + ' of 5 – justify it briefly.</span>'; }
+    }
+    krit.forEach(function(c, i){ c.onchange = function(){ st.k[i] = c.checked; speichern(); zeige(); }; });
+    stufen.forEach(function(b){ b.onclick = function(){ st.s = +b.dataset.s; speichern(); zeige(); }; });
+    txt.oninput = function(){ st.t = txt.value; speichern(); };
+    function ph(){ txt.placeholder = document.body.classList.contains('lang-en') ? 'We rate … at level … because … However …' : 'Wir stufen … auf Stufe … ein, weil … Allerdings …'; }
+    new MutationObserver(ph).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    ph(); zeige();
+  });
+
+  // Aufklappbare Schritte: "Weiter"-Knöpfe und Weg-Leiste öffnen den Zielschritt
+  function oeffne(sektion, nr, von){
+    var ziel = sektion.querySelector('details.klapp[data-nr="' + nr + '"]');
+    if(!ziel) return;
+    if(von) von.open = false;
+    ziel.open = true;
+    setTimeout(function(){ ziel.scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 0);
+  }
+  document.querySelectorAll('.weiter').forEach(function(b){
+    b.onclick = function(){ oeffne(b.closest('.seite'), b.dataset.nach, b.closest('details.klapp')); };
+  });
+  document.querySelectorAll('.weg .zu').forEach(function(b){
+    b.onclick = function(){ oeffne(b.closest('.seite'), b.dataset.nach); };
+  });
+
+  // Rechenhilfe Strang A
+  var rb = document.querySelector('.rechner .pruefen');
+  if(rb) rb.onclick = function(){
+    var fb = document.querySelector('.rechner .feedback'), ok = 0, msg = [];
+    document.querySelectorAll('.rechner input').forEach(function(inp){
+      var soll = parseFloat(inp.dataset.soll), ist = parseFloat(String(inp.value).replace(',', '.'));
+      var toleranz = soll < 1 ? 0.25 : 2;
+      if(!isNaN(ist) && Math.abs(ist - soll) <= toleranz) ok++;
+    });
+    fb.textContent = ok === 2 ? 'Richtig: links 17 von 22 ≈ 77 %, rechts 1 von 354 ≈ 0,3 %. Was bedeutet dieser Unterschied?'
+                    : 'Noch nicht ganz. Tipp: gesühnte Morde ÷ Anzahl der Morde × 100.';
+  };
+
+  // Zuordnungsübung M13
+  var zb = document.querySelector('.pruefen-z');
+  if(zb) zb.onclick = function(){
+    var alle = document.querySelectorAll('.zuord'), r = 0;
+    alle.forEach(function(z){ var v = z.querySelector('select').value; var ok = v === z.dataset.soll;
+      z.classList.toggle('ok', ok); z.classList.toggle('falsch', !!v && !ok); z.querySelector('.erkl').hidden = !ok; if(ok) r++; });
+    document.querySelector('.feedback-z').textContent = r + ' von ' + alle.length + ' richtig.' + (r === alle.length ? ' Stark!' : ' Lest die Ursachen in M13 noch einmal.');
+  };
+})();
+</script>
+</body></html>
