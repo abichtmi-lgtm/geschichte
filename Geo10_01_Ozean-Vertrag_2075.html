@@ -1,0 +1,1600 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Globaler Ozean-Vertrag 2075 – Vertragswerk der Weltmeereskonferenz</title>
+<meta name="description" content="Vertragsformular der Weltmeereskonferenz 2075: acht Artikel, Abstimmung mit 60-Prozent-Mehrheit, Ratifizierung und Erfolgsbilanz der Delegationen. Als Papierfassung druckbar.">
+<style>
+/* ============================================================
+   GLOBALER OZEAN-VERTRAG 2075 – eigenständiges Vertragswerk
+   Bildschirm: Dynamische Breitennutzung, Aufklapp-Artikel & kompakte Ansicht
+   Druck:      Papierfassung zum handschriftlichen Ausfüllen (vollständig geöffnet)
+   ============================================================ */
+:root{
+  --ocean-950:#060f1c; --ocean-900:#0a1628; --ocean-800:#0f2440;
+  --ocean-700:#163a5f; --ocean-600:#1d5080; --ocean-500:#2563a0;
+  --ocean-400:#3b82c4; --ocean-200:#93c5fd; --ocean-100:#c0dffb;
+  --ocean-50:#f0f7ff;
+  --seagreen:#2dd4a8; --seagreen-dark:#0f766e; --seagreen-bg:#ecfdf5;
+  --coral:#ff6b6b; --coral-bg:#fef2f2;
+  --sand:#f59e0b; --sand-bg:#fffbeb;
+  --text:#0f172a; --text-2:#475569; --text-3:#64748b;
+  --bg:#f1f5f9; --card-bg:#ffffff; --line:#cbd5e1; --line-subtle:#e2e8f0;
+  --r-sm:8px; --r-md:12px; --r-lg:16px; --r-xl:22px;
+  --shadow-sm:0 2px 8px rgba(10,22,40,.05);
+  --shadow-md:0 6px 20px rgba(10,22,40,.07), 0 2px 6px rgba(10,22,40,.04);
+  --shadow-lg:0 12px 36px rgba(10,22,40,.11), 0 4px 12px rgba(10,22,40,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,Helvetica,Arial,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Kopfleiste ---------- */
+.topbar{
+  background:linear-gradient(135deg,var(--ocean-950) 0%,var(--ocean-800) 50%,var(--ocean-700) 100%);
+  color:#fff;padding:1.1rem 2rem;position:sticky;top:0;z-index:100;
+  box-shadow:0 4px 24px rgba(6,15,28,.38);
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.topbar-inner{
+  max-width:1680px;margin:0 auto;display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:1rem;
+}
+.topbar-title h1{font-size:1.35rem;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;gap:.5rem}
+.topbar-title p{font-size:.82rem;color:var(--ocean-100);opacity:.9;margin-top:.15rem}
+
+.topbar-actions{display:flex;gap:.5rem;flex-wrap:wrap;align-items:center}
+.btn{
+  font:inherit;font-size:.8rem;font-weight:700;padding:.45rem .95rem;border-radius:100px;
+  border:1.5px solid rgba(255,255,255,.28);background:rgba(255,255,255,.1);color:#fff;
+  cursor:pointer;transition:all .18s ease;white-space:nowrap;display:inline-flex;align-items:center;gap:.35rem;
+}
+.btn:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.45);transform:translateY(-1px)}
+.btn-main{background:var(--seagreen);border-color:var(--seagreen);color:var(--ocean-950)}
+.btn-main:hover{background:#22c55e;border-color:#22c55e;color:#fff}
+
+/* Schnelle Artikel-Navigationsleiste & Accordion-Buttons */
+.art-nav{
+  max-width:1680px;margin:0.5rem auto 0;padding-top:.5rem;
+  border-top:1px solid rgba(255,255,255,.12);
+  display:flex;gap:.4rem;align-items:center;overflow-x:auto;scrollbar-width:none;
+}
+.art-nav::-webkit-scrollbar{display:none}
+.art-nav span{font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:var(--ocean-200);margin-right:.3rem}
+.nav-pill{
+  font-size:.75rem;font-weight:700;padding:.2rem .6rem;border-radius:100px;
+  background:rgba(255,255,255,.08);color:#fff;text-decoration:none;
+  transition:all .15s ease;display:inline-flex;align-items:center;gap:.3rem;white-space:nowrap;
+  border:1px solid rgba(255,255,255,.14);
+}
+.nav-pill:hover{background:rgba(255,255,255,.25);border-color:rgba(255,255,255,.4)}
+.nav-pill.is-passed{background:rgba(45,212,168,.25);border-color:var(--seagreen);color:#a7f3d0}
+.nav-pill.is-failed{background:rgba(239,68,68,.25);border-color:#ef4444;color:#fecaca}
+
+.nav-toggle-group{
+  margin-left:auto;
+  display:flex;
+  gap:.35rem;
+}
+.nav-toggle-btn{
+  font-size:.72rem;
+  font-weight:700;
+  padding:.2rem .55rem;
+  border-radius:100px;
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+  cursor:pointer;
+  transition:all .15s ease;
+  white-space:nowrap;
+}
+.nav-toggle-btn:hover{
+  background:rgba(255,255,255,.28);
+}
+
+/* ---------- Haupt-Layout (Volle Bildschirmbreite) ---------- */
+.wrap{
+  width:100%;
+  max-width:1680px;
+  margin:0 auto;
+  padding:1.5rem 1.75rem 4rem;
+}
+
+/* ---------- Vertragsdokument Container ---------- */
+.doc{
+  background:var(--card-bg);
+  border:1px solid var(--line);
+  border-radius:var(--r-xl);
+  padding:2rem 2.2rem;
+  box-shadow:var(--shadow-lg);
+}
+
+.doc-header-grid{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:1.25rem;
+  margin-bottom:1.5rem;
+  border-bottom:2px solid var(--ocean-50);
+  padding-bottom:1.5rem;
+}
+
+.doc-emblem{text-align:center;font-size:1.9rem;letter-spacing:.4rem;margin-bottom:.3rem}
+.doc-title{text-align:center;margin-bottom:.5rem}
+.doc-title h2{font-size:1.65rem;font-weight:900;color:var(--ocean-900);letter-spacing:-.02em;line-height:1.2}
+.doc-title p{font-size:.9rem;color:var(--text-2);margin-top:.25rem}
+.doc-title .org{font-size:.76rem;color:var(--ocean-600);font-weight:800;
+                text-transform:uppercase;letter-spacing:.09em;margin-top:.35rem;display:block}
+
+/* Header-Kompaktleiste: Meta, Präambel und Regeln */
+.info-row{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));
+  gap:1rem;
+  margin-bottom:1.75rem;
+}
+
+.meta{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:.75rem;
+  background:var(--ocean-50);
+  border:1.5px solid var(--ocean-100);
+  border-radius:var(--r-md);
+  padding:.9rem 1.1rem;
+  align-content:center;
+}
+.meta label{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.06em;
+            font-weight:800;color:var(--ocean-700);margin-bottom:.25rem}
+.meta input{width:100%;padding:.4rem .6rem;border:1.5px solid var(--line);border-radius:var(--r-sm);
+            font:inherit;font-size:.85rem;background:#fff;transition:border-color .15s}
+.meta input:focus{outline:none;border-color:var(--ocean-500);box-shadow:0 0 0 3px rgba(37,99,160,.12)}
+
+.preamble{
+  font-style:italic;background:#f8fafc;
+  border:1.5px solid var(--line-subtle);
+  border-left:5px solid var(--ocean-500);
+  padding:.9rem 1.15rem;border-radius:var(--r-md);
+  font-size:.86rem;line-height:1.55;color:var(--ocean-900);
+}
+.preamble strong{font-style:normal;color:var(--ocean-700)}
+
+.rules{
+  background:var(--sand-bg);
+  border:1.5px solid #fde68a;
+  border-left:5px solid #f59e0b;
+  border-radius:var(--r-md);
+  padding:.9rem 1.15rem;font-size:.84rem;line-height:1.55;color:#854d0e;
+}
+.rules b{display:block;margin-bottom:.15rem;color:#78350f}
+
+/* ============================================================
+   ARTIKEL-KARTEN (Aufklappbar / Details & Summary)
+   ============================================================ */
+.art-list{
+  display:flex;
+  flex-direction:column;
+  gap:1.35rem;
+}
+
+details.art{
+  border:2px solid var(--line);
+  border-left:7px solid var(--ocean-600);
+  border-radius:var(--r-lg);
+  padding:1.1rem 1.4rem;
+  box-shadow:var(--shadow-md);
+  background:#fff;
+  transition:border-color .2s ease, box-shadow .2s ease, background .2s ease;
+  position:relative;
+  scroll-margin-top:7rem;
+}
+details.art:hover{
+  box-shadow:var(--shadow-lg);
+}
+
+/* Dynamische Status-Farben am linken Rand und Kopf */
+details.art[data-state="passed"]{
+  border-color:#a7f3d0;
+  border-left-color:#10b981;
+  background:linear-gradient(180deg, #f0fdf4 0%, #ffffff 60px);
+}
+details.art[data-state="failed"]{
+  border-color:#fecaca;
+  border-left-color:#ef4444;
+  background:linear-gradient(180deg, #fef2f2 0%, #ffffff 60px);
+}
+details.art[data-state="pending"]{
+  border-left-color:var(--ocean-500);
+}
+
+/* Aufklapp-Kopfzeile (Summary) */
+summary.art-head{
+  display:flex;
+  align-items:center;
+  gap:.75rem;
+  flex-wrap:wrap;
+  cursor:pointer;
+  user-select:none;
+  list-style:none;
+  padding:0;
+  margin:0;
+  outline:none;
+}
+summary.art-head::-webkit-details-marker,
+summary.art-head::marker{
+  display:none;
+}
+details.art[open] summary.art-head{
+  border-bottom:1.5px solid var(--line-subtle);
+  padding-bottom:.65rem;
+  margin-bottom:.75rem;
+}
+
+.badge{
+  background:var(--ocean-700);color:#fff;font-size:.75rem;font-weight:800;
+  padding:.25rem .75rem;border-radius:100px;letter-spacing:.05em;text-transform:uppercase;
+  box-shadow:0 2px 6px rgba(10,22,40,.15);
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  flex-shrink:0;
+}
+details.art[data-state="passed"] .badge{background:#047857}
+details.art[data-state="failed"] .badge{background:#b91c1c}
+
+summary.art-head h3{
+  font-size:1.12rem;font-weight:800;color:var(--ocean-950);
+  flex:1;line-height:1.3;min-width:220px;
+}
+
+.status{
+  padding:.28rem .8rem;border-radius:100px;font-size:.76rem;font-weight:800;white-space:nowrap;
+  display:inline-flex;align-items:center;gap:.35rem;letter-spacing:.01em;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  flex-shrink:0;
+}
+.st-pending{background:var(--sand-bg);color:#92400e;border:1.5px solid #fcd34d}
+.st-passed{background:var(--seagreen-bg);color:#065f46;border:1.5px solid #6ee7b7;box-shadow:0 2px 8px rgba(16,185,129,.15)}
+.st-failed{background:var(--coral-bg);color:#991b1b;border:1.5px solid #fca5a5}
+
+/* Aufklapp-Pfeil (Chevron) */
+.toggle-icon{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--ocean-50);border:1.5px solid var(--ocean-100);
+  color:var(--ocean-700);font-size:.75rem;
+  display:inline-flex;align-items:center;justify-content:center;
+  transition:transform .22s ease, background .15s ease;
+  flex-shrink:0;
+}
+details.art:hover .toggle-icon{
+  background:var(--ocean-100);border-color:var(--ocean-200);
+}
+details.art[open] .toggle-icon{
+  transform:rotate(180deg);
+  background:var(--ocean-600);color:#fff;border-color:var(--ocean-600);
+}
+
+.art-body{
+  margin-top:.2rem;
+  animation:slideDown .2s ease-out;
+}
+@keyframes slideDown{
+  from{opacity:0;transform:translateY(-6px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.art-q{
+  font-size:.9rem;font-weight:600;color:var(--ocean-700);
+  background:var(--ocean-50);padding:.45rem .85rem;border-radius:var(--r-sm);
+  margin-bottom:.85rem;border-left:3px solid var(--ocean-400);
+}
+
+/* Grid-Layout für Abstimmungsoptionen: 2x2 auf Desktops/Tablets */
+.opts{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(340px, 1fr));
+  gap:.65rem;
+  margin-bottom:.85rem;
+}
+
+.opt{
+  display:flex;align-items:flex-start;gap:.75rem;padding:.75rem .95rem;
+  border-radius:var(--r-md);
+  border:1.5px solid var(--line-subtle);
+  background:#f8fafc;
+  cursor:pointer;
+  transition:all .18s ease;
+  position:relative;
+}
+.opt:hover{
+  border-color:var(--ocean-400);
+  background:#ffffff;
+  box-shadow:var(--shadow-sm);
+  transform:translateY(-1px);
+}
+.opt:has(input[type=radio]:checked){
+  border-color:var(--ocean-500);
+  background:#eff6ff;
+  box-shadow:0 0 0 1.5px var(--ocean-500), 0 4px 12px rgba(37,99,160,.12);
+}
+
+.opt input[type=radio]{
+  margin-top:.2rem;accent-color:var(--ocean-600);transform:scale(1.2);cursor:pointer;flex-shrink:0;
+}
+.opt-body{flex:1;font-size:.87rem;line-height:1.45}
+.opt-tag{
+  font-weight:800;color:var(--ocean-900);margin-right:.3rem;
+  display:inline-block;padding:.08rem .45rem;background:rgba(15,36,64,.06);
+  border-radius:4px;font-size:.78rem;
+}
+.opt:has(input[type=radio]:checked) .opt-tag{
+  background:var(--ocean-600);color:#fff;
+}
+.hint{
+  font-size:.74rem;color:var(--text-3);margin-top:.3rem;font-weight:700;
+  display:inline-flex;align-items:center;background:rgba(255,255,255,.8);
+  padding:.15rem .45rem;border-radius:4px;border:1px solid rgba(0,0,0,.06);
+}
+.free{
+  width:100%;padding:.45rem .65rem;border:1.5px dashed var(--ocean-400);border-radius:var(--r-sm);
+  font:inherit;font-size:.85rem;background:#fff;margin-top:.35rem;resize:vertical;
+}
+.free:focus{outline:none;border-style:solid;border-color:var(--ocean-600);box-shadow:0 0 0 2px rgba(37,99,160,.15)}
+
+/* Eigene Punktwirkung (Option D / Artikel 8) – dezent */
+.cscore{display:flex;flex-wrap:wrap;align-items:center;gap:.2rem .55rem;margin-top:.4rem;font-size:.74rem;color:var(--text-3)}
+.cscore .cs-l{font-weight:600;margin-right:.1rem}
+.cscore label{display:inline-flex;align-items:center;gap:.15rem;cursor:default}
+.cscore select{
+  appearance:none;-webkit-appearance:none;font:inherit;font-size:.74rem;font-variant-numeric:tabular-nums;
+  color:var(--text-2);background:transparent;border:1px solid var(--line-subtle);border-radius:4px;
+  padding:.05rem .3rem;min-width:2.1rem;text-align:center;text-align-last:center;cursor:pointer;
+}
+.cscore select:hover{border-color:var(--ocean-400)}
+.cscore select:focus{outline:none;border-color:var(--ocean-500);box-shadow:0 0 0 2px rgba(37,99,160,.12)}
+.cscore select.pos{color:#047857}
+.cscore select.neg{color:#b91c1c}
+
+/* ---------- Abstimmungsleiste ---------- */
+.votebar{
+  background:linear-gradient(90deg, var(--ocean-50) 0%, #f8fafc 100%);
+  border:1.5px solid var(--ocean-100);
+  border-radius:var(--r-md);
+  padding:.65rem .95rem;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:.65rem;
+}
+.votebar .vl{
+  font-size:.78rem;font-weight:800;color:var(--ocean-900);
+  text-transform:uppercase;letter-spacing:.05em;display:flex;align-items:center;gap:.35rem;
+}
+.votes{display:flex;gap:.45rem;flex-wrap:wrap}
+.pill{
+  display:inline-flex;align-items:center;gap:.4rem;background:#fff;
+  border:1.5px solid var(--line);
+  padding:.32rem .7rem;border-radius:100px;font-size:.8rem;font-weight:700;cursor:pointer;
+  user-select:none;transition:all .18s ease;box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+.pill:hover{
+  border-color:var(--ocean-400);background:#f0f7ff;transform:translateY(-1px);
+}
+.pill input{accent-color:var(--seagreen-dark);cursor:pointer;transform:scale(1.1)}
+.pill.yes{
+  background:#ecfdf5;border-color:#10b981;color:#065f46;
+  box-shadow:0 2px 8px rgba(16,185,129,.2);
+}
+
+/* Sonderkarte Artikel 8 */
+.art8-card{
+  background:#f8fafc;border:1.5px solid var(--line);border-radius:var(--r-md);
+  padding:.9rem 1.1rem;margin-bottom:.85rem;
+}
+.art8-meta{display:flex;align-items:center;gap:1rem;flex-wrap:wrap;font-size:.85rem;margin-bottom:.6rem}
+
+/* ---------- Ratifizierung & Erfolgsbilanz im Widescreen-Layout ---------- */
+.bottom-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(460px, 1fr));
+  gap:1.5rem;
+  margin-top:2rem;
+}
+
+.ratify{
+  background:#f8fafc;border:2px dashed var(--ocean-400);border-radius:var(--r-lg);
+  padding:1.6rem;display:flex;flex-direction:column;justify-content:space-between;
+  scroll-margin-top:7rem;
+}
+.ratify h3{text-align:center;font-size:1.25rem;font-weight:800;color:var(--ocean-900);margin-bottom:.25rem}
+.ratify .sub{text-align:center;font-size:.82rem;color:var(--text-2);margin-bottom:1rem}
+#overall{
+  display:block;width:fit-content;max-width:100%;margin:0 auto 1.25rem;padding:.55rem 1.35rem;
+  border-radius:100px;font-weight:800;font-size:.92rem;text-align:center;
+  background:var(--sand-bg);color:#92400e;border:2px solid #fcd34d;
+  -webkit-print-color-adjust:exact;print-color-adjust:exact;
+  box-shadow:0 2px 8px rgba(245,158,11,.15);
+}
+.sigs{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:.75rem}
+.sig{background:#fff;border:1.5px solid var(--line);border-radius:var(--r-md);padding:.75rem .5rem;text-align:center}
+.sig .role{font-size:.76rem;font-weight:800;margin-bottom:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sig .line{border-bottom:1.5px solid #4a5568;margin:1.8rem .3rem .3rem;min-height:16px}
+.sig .cap{font-size:.68rem;color:var(--text-2);text-transform:uppercase;letter-spacing:.03em}
+
+.score{
+  background:linear-gradient(145deg, var(--ocean-950) 0%, var(--ocean-900) 100%);
+  color:#fff;border-radius:var(--r-lg);padding:1.6rem;
+  box-shadow:var(--shadow-lg);border:1px solid rgba(255,255,255,.1);
+  display:flex;flex-direction:column;justify-content:space-between;
+  scroll-margin-top:7rem;
+}
+.score h3{font-size:1.25rem;font-weight:800;margin-bottom:.25rem;display:flex;align-items:center;gap:.4rem}
+.score > p{font-size:.82rem;color:var(--ocean-100);opacity:.88;margin-bottom:1rem}
+.sgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(105px,1fr));gap:.65rem}
+.sbox{
+  background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+  border-radius:var(--r-md);padding:.75rem .5rem;text-align:center;
+  transition:transform .15s ease;
+}
+.sbox:hover{background:rgba(255,255,255,.11);transform:translateY(-2px)}
+.sbox .t{font-size:.74rem;font-weight:700;margin-bottom:.2rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sbox .v{font-size:1.65rem;font-weight:900;color:var(--sand);line-height:1.1}
+.sbox .g{font-size:.68rem;color:var(--ocean-200);opacity:.8;margin-top:.15rem}
+.sbox-badge{
+  font-size:.64rem;font-weight:800;padding:.12rem .35rem;border-radius:100px;
+  margin-top:.3rem;display:inline-block;background:rgba(255,255,255,.1);color:#e2e8f0;
+}
+.sbox-met{background:#059669 !important;color:#ffffff !important}
+.sbox-unmet{background:#dc2626 !important;color:#ffffff !important}
+
+/* ============================================================
+   INDIVIDUELLE ZIELSTELLUNGEN & GEHEIME WERTUNGSKRITERIEN
+   ============================================================ */
+.goals-section{
+  margin-top:1.75rem;
+  background:#fff;
+  border:2px solid var(--ocean-200);
+  border-radius:var(--r-lg);
+  box-shadow:var(--shadow-md);
+  overflow:hidden;
+  scroll-margin-top:7rem;
+}
+.goals-section summary{
+  padding:1rem 1.35rem;
+  background:linear-gradient(90deg, var(--ocean-950) 0%, var(--ocean-850) 100%);
+  color:#fff;
+  font-size:1.02rem;
+  font-weight:800;
+  cursor:pointer;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  list-style:none;
+  user-select:none;
+}
+.goals-section summary::-webkit-details-marker,
+.goals-section summary::marker{
+  display:none;
+}
+.goals-section summary .goals-toggle-tag{
+  font-size:.72rem;font-weight:700;padding:.2rem .55rem;border-radius:100px;
+  background:rgba(255,255,255,.15);color:var(--sand);border:1px solid rgba(255,255,255,.2);
+}
+.goals-content{
+  padding:1.35rem;
+  background:#f8fafc;
+}
+.goals-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(280px, 1fr));
+  gap:1rem;
+}
+.goal-card{
+  background:#fff;
+  border-radius:var(--r-md);
+  border:1.5px solid var(--line);
+  padding:1rem 1.1rem;
+  box-shadow:var(--shadow-sm);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+.goal-card-head{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:.65rem;
+  padding-bottom:.5rem;
+  border-bottom:1.5px solid var(--line-subtle);
+}
+.goal-card-title{
+  font-size:.92rem;
+  font-weight:800;
+  display:flex;
+  align-items:center;
+  gap:.35rem;
+}
+.goal-target-pill{
+  font-size:.72rem;
+  font-weight:800;
+  padding:.15rem .5rem;
+  border-radius:100px;
+  background:var(--ocean-50);
+  border:1.5px solid var(--ocean-200);
+  color:var(--ocean-900);
+  white-space:nowrap;
+}
+.goal-mission{
+  font-size:.78rem;
+  color:var(--text-2);
+  margin-bottom:.65rem;
+  font-style:italic;
+  line-height:1.35;
+}
+.goal-rule-list{
+  list-style:none;
+  padding:0;
+  margin:0 0 .75rem 0;
+  display:flex;
+  flex-direction:column;
+  gap:.35rem;
+  font-size:.78rem;
+  line-height:1.35;
+}
+.goal-rule-item{
+  display:flex;
+  align-items:center;
+  gap:.45rem;
+  padding:.35rem .55rem;
+  border-radius:var(--r-sm);
+  border:1.5px solid transparent;
+  cursor:pointer;
+  transition:all .15s ease;
+  user-select:none;
+  background:#ffffff;
+}
+.goal-rule-item:hover{
+  background:#f1f5f9;
+  border-color:var(--line);
+  transform:translateX(2px);
+}
+.goal-rule-item:has(input[type=checkbox]:checked){
+  background:#ecfdf5;
+  border-color:#10b981;
+  box-shadow:0 1px 4px rgba(16,185,129,.15);
+}
+.goal-rule-item:has(input[type=checkbox]:checked) .rule-txt{
+  font-weight:700;
+  color:#065f46;
+}
+.goal-rule-item:has(input[type=checkbox]:checked:is([data-pts^="-"])){
+  background:#fef2f2;
+  border-color:#ef4444;
+  box-shadow:0 1px 4px rgba(239,68,68,.15);
+}
+.goal-rule-item:has(input[type=checkbox]:checked:is([data-pts^="-"])) .rule-txt{
+  font-weight:700;
+  color:#991b1b;
+}
+.goal-rule-item input[type=checkbox]{
+  accent-color:var(--seagreen-dark);
+  cursor:pointer;
+  transform:scale(1.18);
+  flex-shrink:0;
+  margin:0;
+}
+.rule-txt{
+  flex:1;
+}
+.pts-badge{
+  display:inline-block;
+  font-weight:800;
+  font-size:.7rem;
+  padding:.08rem .38rem;
+  border-radius:4px;
+  flex-shrink:0;
+  min-width:28px;
+  text-align:center;
+}
+.pts-pos{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0}
+.pts-neg{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+
+.goal-status-badge{
+  margin-top:auto;
+  padding:.35rem .6rem;
+  border-radius:var(--r-sm);
+  font-size:.74rem;
+  font-weight:800;
+  text-align:center;
+}
+.status-met{background:#d1fae5;color:#065f46;border:1px solid #10b981}
+.status-unmet{background:#fee2e2;color:#991b1b;border:1px solid #f87171}
+.status-open{background:#f1f5f9;color:#64748b;border:1px solid #cbd5e1}
+
+.footer-note{font-size:.8rem;color:var(--text-3);text-align:center;margin-top:2.2rem;line-height:1.6}
+
+/* ============================================================
+   DRUCK – Papierfassung zum handschriftlichen Ausfüllen (ISO A4)
+   ============================================================ */
+@page{size:210mm 297mm;margin:10mm 10mm}
+@media print{
+  *, *::before, *::after {
+    -webkit-filter:none !important;
+    filter:none !important;
+    backdrop-filter:none !important;
+    box-shadow:none !important;
+    text-shadow:none !important;
+  }
+  html,body{
+    background:#fff !important;
+    -webkit-print-color-adjust:exact !important;
+    print-color-adjust:exact !important;
+    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  }
+  body{font-size:9pt;line-height:1.38;color:#111}
+  .no-print{display:none !important}
+  .wrap{max-width:none;width:100%;padding:0}
+  .doc{border:none;border-radius:0;padding:0;box-shadow:none}
+
+  /* Beim Drucken alle Artikel IMMER vollständig aufklappen */
+  details.art{display:block !important;break-inside:avoid;page-break-inside:avoid}
+  details.art summary.art-head{display:flex !important;border-bottom:1.2mm solid #163a5f !important;margin-bottom:2mm !important;pointer-events:none}
+  details.art .art-body, details.art:not([open]) .art-body{display:block !important;opacity:1 !important}
+  .toggle-icon{display:none !important}
+
+  /* Auswahlfelder als ankreuzbare Kästchen */
+  input[type=radio],input[type=checkbox]{
+    -webkit-appearance:none;appearance:none;width:3.6mm;height:3.6mm;
+    border:.8pt solid #333;background:#fff;flex:0 0 auto;margin:0;transform:none;
+  }
+  input[type=radio]{border-radius:50%}
+  input[type=checkbox]{border-radius:.7mm}
+  .meta input[type=text]{border:none;border-bottom:.7pt solid #6b7a89;border-radius:0;
+                         background:transparent;padding:.4mm 0;font-size:9pt}
+  .free{border:.7pt dotted #6b7a89;min-height:12mm;background:transparent}
+
+  .doc-emblem{font-size:13pt;letter-spacing:2.5mm;margin-bottom:1mm}
+  .doc-title h2{font-size:15pt}
+  .doc-header-grid{border-bottom:none;padding-bottom:0;margin-bottom:2mm}
+  .info-row{grid-template-columns:1fr 1fr;gap:2mm;margin-bottom:3mm}
+  .meta{grid-column:1/-1;background:transparent;border:.7pt solid #9fb2c4;padding:1.5mm 2.5mm;page-break-inside:avoid}
+  .preamble,.rules{page-break-inside:avoid;padding:1.5mm 2.5mm;font-size:8.2pt}
+
+  .art-list{gap:3.2mm}
+  .art{border:.8pt solid #9fb2c4;border-left:2.5mm solid #163a5f;box-shadow:none;border-radius:2mm;padding:2.8mm 3.2mm;background:#fff;page-break-inside:avoid;break-inside:avoid}
+  .art-head h3{font-size:10pt}
+  .art-q{background:transparent;border-left:1.5pt solid #163a5f;padding:1mm 2mm;margin-bottom:1.8mm;font-size:8.4pt}
+  
+  .opts{grid-template-columns:1fr 1fr;gap:1.6mm;margin-bottom:2mm}
+  .opt{background:#fff;border:.6pt solid #d7dfe7;padding:1.6mm 2mm;border-radius:1.5mm}
+  .opt-body{font-size:8.2pt;line-height:1.35}
+  .hint{background:transparent;border:none;padding:0;font-size:7.5pt}
+
+  .votebar{background:#fff;border:.7pt solid #9fb2c4;padding:1.5mm 2.2mm}
+  .pill{border:.6pt solid #b9c6d3;font-size:7.8pt;padding:.7mm 1.8mm}
+  .status{border-width:.7pt;background:#fff !important;color:#333 !important;border:.7pt solid #9fb2c4 !important}
+  
+  .bottom-grid{grid-template-columns:1fr;gap:3mm;margin-top:3mm}
+  #overall{background:#fff !important;color:#111 !important;border:.8pt solid #333 !important}
+  .score{background:#fff;color:#111;border:.8pt solid #333;border-radius:2mm;padding:3mm;page-break-inside:avoid;break-inside:avoid}
+  .sbox{background:#fff;border:.6pt solid #9fb2c4}
+  .sbox .t{color:#111}
+  .sbox .v{color:#111;border-bottom:.7pt solid #6b7a89;min-height:7mm}
+  .sbox .g{opacity:1;color:#4a5568}
+  .score > p{opacity:1;color:#4a5568}
+
+  .pagebreak{page-break-before:always;break-before:page}
+  .ratify{background:#fff;border:.8pt dashed #333;page-break-inside:avoid;break-inside:avoid;padding:3mm}
+  .sig .line{border-bottom:.8pt solid #333;margin-top:11mm}
+
+  /* Gezielter Druck einzelner Blöcke */
+  body.only-sign .doc > *:not(.bottom-grid){display:none !important}
+  body.only-sign .bottom-grid > *:not(.ratify):not(.score){display:none !important}
+  body.only-sign .pagebreak{page-break-before:auto;break-before:auto}
+}
+
+@media (max-width:900px){
+  .wrap{padding:1rem}
+  .doc{padding:1.25rem 1rem 1.5rem;border-radius:var(--r-lg)}
+  .topbar{padding:.9rem 1rem}
+  .topbar-title h1{font-size:1.15rem}
+  .art-head h3{font-size:1rem}
+  .opts{grid-template-columns:1fr}
+  .bottom-grid{grid-template-columns:1fr}
+}
+
+/* ---------- Verdeckte Punktwirkung: erst in der Auswertung aufdecken ---------- */
+body:not(.reveal) .opt .hint,
+body:not(.reveal) .cscore,
+body:not(.reveal) #score,
+body:not(.reveal) #goals-details,
+body:not(.reveal) .art-nav a[href="#score"]{display:none !important}
+#revealBtn.is-open{background:#fef3c7;border-color:#f59e0b}
+</style>
+</head>
+<body>
+
+<header class="topbar no-print">
+  <div class="topbar-inner">
+    <div class="topbar-title">
+      <h1>📜 Globaler Ozean-Vertrag 2075</h1>
+      <p>Vertragswerk der Weltmeereskonferenz · Geographie Klasse 10 · 1 Exemplar pro Verhandlungsgruppe</p>
+    </div>
+    <div class="topbar-actions">
+      <button class="btn btn-main" onclick="window.print()">🖨 Vertragsformular drucken</button>
+      <button class="btn" onclick="printOnlySignatures()">🖨 Nur Unterschriftenseite</button>
+      <button class="btn" onclick="resetAll()">↺ Zurücksetzen</button>
+      <button class="btn" id="revealBtn" onclick="toggleReveal()" title="Punktwirkung und Erfolgsbilanz erst in der Auswertung zeigen">🔒 Auswertung aufdecken</button>
+    </div>
+  </div>
+  <nav class="art-nav" aria-label="Artikel-Schnellnavigation">
+    <span>Artikel:</span>
+    <a href="#art1" class="nav-pill" id="np-art1">Art. 1</a>
+    <a href="#art2" class="nav-pill" id="np-art2">Art. 2</a>
+    <a href="#art3" class="nav-pill" id="np-art3">Art. 3</a>
+    <a href="#art4" class="nav-pill" id="np-art4">Art. 4</a>
+    <a href="#art5" class="nav-pill" id="np-art5">Art. 5</a>
+    <a href="#art6" class="nav-pill" id="np-art6">Art. 6</a>
+    <a href="#art7" class="nav-pill" id="np-art7">Art. 7</a>
+    <a href="#art8" class="nav-pill" id="np-art8">Art. 8</a>
+    <a href="#ratify" class="nav-pill">✍️ Unterschriften</a>
+    <a href="#score" class="nav-pill">🏆 Bilanz</a>
+    
+    <div class="nav-toggle-group">
+      <button class="nav-toggle-btn" onclick="toggleAll(true)" title="Alle Artikel aufklappen">📂 Alle auf</button>
+      <button class="nav-toggle-btn" onclick="toggleAll(false)" title="Alle Artikel zuklappen">📁 Alle zu</button>
+    </div>
+  </nav>
+</header>
+
+<div class="wrap">
+<div class="doc">
+
+  <div class="doc-header-grid">
+    <div class="doc-emblem">🌊 🌍 📜</div>
+    <div class="doc-title">
+      <h2>GLOBALER OZEAN-VERTRAG 2075</h2>
+      <p>Internationales Abkommen zur nachhaltigen Nutzung, Wiederherstellung und zum Schutz der Weltmeere</p>
+      <span class="org">Weltkonferenz der Vereinten Nationen · Genfer Konvention für die Weltmeere</span>
+    </div>
+  </div>
+
+  <div class="info-row">
+    <div class="meta">
+      <div><label>👥 Verhandlungsgruppe</label><input type="text" placeholder="z. B. Gruppe 3 (Tisch 3)"></div>
+      <div><label>📅 Datum</label><input type="text" value="15. Oktober 2075"></div>
+      <div><label>🖊️ Protokollführung</label><input type="text" placeholder="Name eintragen"></div>
+    </div>
+
+    <div class="preamble">
+      <strong>Präambel.</strong> Die unterzeichnenden Delegationen – in Anerkennung der lebenswichtigen Bedeutung
+      der Weltmeere als Klimaregulator, Ernährungsgrundlage, Handelsweg und Energieträger – verpflichten sich zu verbindlichen Artikeln.
+      Ziel ist der Ausgleich zwischen Ökologie, Wirtschaft und globaler Klimagerechtigkeit.
+    </div>
+
+    <div class="rules">
+      <b>⚖️ So wird abgestimmt</b>
+      Pro Artikel <strong>genau eine Option</strong> (A–D) wählen und Zustimmungen ankreuzen. Ein Artikel ist <strong>angenommen ab 3 von 5 Stimmen</strong> (60 %). Der Vertrag tritt in Kraft bei <strong>mindestens 6 von 8 Artikeln</strong> (sonst −2 Punkte für alle).
+    </div>
+  </div>
+
+  <div class="art-list">
+
+    <!-- ===================== ARTIKEL 1 ===================== -->
+    <details class="art" id="art1" data-state="pending">
+      <summary class="art-head">
+        <span class="badge">Artikel 1</span>
+        <h3>🛡️ Meeresschutzgebiete &amp; Hochseezonen</h3>
+        <span class="status st-pending" data-status="art1">⏳ offen (0/5)</span>
+        <span class="toggle-icon">▼</span>
+      </summary>
+      <div class="art-body">
+        <p class="art-q">Welcher Anteil der Weltmeere wird völkerrechtlich geschützt – und welche Zonen haben Vorrang?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="art1" data-score="3,-2,-1,0,2">
+            <div class="opt-body"><span class="opt-tag">A · 50 % Globales Hochsee-Schutzgebiet</span>
+              <strong>50 % der Hohen See</strong> werden zu strengen Nullnutzungszonen erklärt: kein Fischfang, kein Tiefseebergbau, Fahrverbote auf sensiblen Routen.
+              <div class="hint">🐢 +3 · 🐟 −2 · 🚢 −1 · ⚡ 0 · 🏝️ +2</div></div></label>
+          <label class="opt"><input type="radio" name="art1" data-score="2,-2,0,0,3">
+            <div class="opt-body"><span class="opt-tag">B · 30 % Küsten- &amp; Riffschutz (Schwerpunkt Inseln)</span>
+              <strong>30 % Schutzgebiete mit Schwerpunkt auf Küstengewässern</strong>, Korallenriffen und Insel-AWZ. Sperrt Industrieflotten vor Inselküsten vollständig aus.
+              <div class="hint">🐢 +2 · 🐟 −2 · 🚢 0 · ⚡ 0 · 🏝️ +3</div></div></label>
+          <label class="opt"><input type="radio" name="art1" data-score="-2,2,2,1,-1">
+            <div class="opt-body"><span class="opt-tag">C · 20 % Flexible Industriekorridore</span>
+              <strong>Höchstens 20 % Schutzgebiete</strong>, mit garantierten Ausnahmen für internationale Schifffahrtsstraßen, traditionelle Fischgründe und Energiekorridore.
+              <div class="hint">🐢 −2 · 🐟 +2 · 🚢 +2 · ⚡ +1 · 🏝️ −1</div></div></label>
+          <label class="opt"><input type="radio" name="art1" data-score="0,0,0,0,0" data-custom="1">
+            <div class="opt-body"><span class="opt-tag">D · Eigene Formulierung der Gruppe</span>
+              <textarea class="free" rows="2" placeholder="Eigenen Kompromiss hier eintragen …"></textarea>
+              <div class="cscore" data-art="art1" title="Eigene Punktwirkung festlegen"></div></div></label>
+        </div>
+        <div class="votebar">
+          <span class="vl">✅ Zustimmung der Delegationen:</span>
+          <div class="votes">
+            <label class="pill"><input type="checkbox" data-vote="art1"> 🐢 Meeresschutz</label>
+            <label class="pill"><input type="checkbox" data-vote="art1"> 🐟 Fischerei</label>
+            <label class="pill"><input type="checkbox" data-vote="art1"> 🚢 Schifffahrt</label>
+            <label class="pill"><input type="checkbox" data-vote="art1"> ⚡ Energie</label>
+            <label class="pill"><input type="checkbox" data-vote="art1"> 🏝️ Inselstaat</label>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===================== ARTIKEL 2 ===================== -->
+    <details class="art" id="art2" data-state="pending">
+      <summary class="art-head">
+        <span class="badge">Artikel 2</span>
+        <h3>🐟 Fischereiquoten &amp; Fangmethoden</h3>
+        <span class="status st-pending" data-status="art2">⏳ offen (0/5)</span>
+        <span class="toggle-icon">▼</span>
+      </summary>
+      <div class="art-body">
+        <p class="art-q">Wie werden Fischbestände geschützt und industrielle Fangmethoden reguliert?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="art2" data-score="3,-3,0,0,1">
+            <div class="opt-body"><span class="opt-tag">A · Schleppnetzverbot &amp; Quoten −35 %</span>
+              Sofortiges Verbot von Grundschleppnetzen und Fabrikschiffen auf Hoher See, alle Quoten −35 %, lückenlose Kamera- und Satellitenüberwachung an Bord.
+              <div class="hint">🐢 +3 · 🐟 −3 · 🚢 0 · ⚡ 0 · 🏝️ +1</div></div></label>
+          <label class="opt"><input type="radio" name="art2" data-score="0,2,0,0,-1">
+            <div class="opt-body"><span class="opt-tag">B · Aquakultur-Offensive &amp; moderate Quoten (−15 %)</span>
+              Moderate Quotensenkung (−15 %), massiver Ausbau industrieller Aquakulturen an Küsten; Ausstieg aus Grundschleppnetzen bis 2085.
+              <div class="hint">🐢 0 · 🐟 +2 · 🚢 0 · ⚡ 0 · 🏝️ −1</div></div></label>
+          <label class="opt"><input type="radio" name="art2" data-score="-2,3,0,0,-2">
+            <div class="opt-body"><span class="opt-tag">C · Marktzertifikate &amp; Quoten unverändert</span>
+              Quoten bleiben unverändert; Konzerne steuern Nachhaltigkeit über freiwillige Marktzertifikate und Beifang-Kompensationen ohne Fangverbote.
+              <div class="hint">🐢 −2 · 🐟 +3 · 🚢 0 · ⚡ 0 · 🏝️ −2</div></div></label>
+          <label class="opt"><input type="radio" name="art2" data-score="0,0,0,0,0" data-custom="1">
+            <div class="opt-body"><span class="opt-tag">D · Eigene Formulierung der Gruppe</span>
+              <textarea class="free" rows="2" placeholder="Eigenen Kompromiss hier eintragen …"></textarea>
+              <div class="cscore" data-art="art2" title="Eigene Punktwirkung festlegen"></div></div></label>
+        </div>
+        <div class="votebar">
+          <span class="vl">✅ Zustimmung der Delegationen:</span>
+          <div class="votes">
+            <label class="pill"><input type="checkbox" data-vote="art2"> 🐢 Meeresschutz</label>
+            <label class="pill"><input type="checkbox" data-vote="art2"> 🐟 Fischerei</label>
+            <label class="pill"><input type="checkbox" data-vote="art2"> 🚢 Schifffahrt</label>
+            <label class="pill"><input type="checkbox" data-vote="art2"> ⚡ Energie</label>
+            <label class="pill"><input type="checkbox" data-vote="art2"> 🏝️ Inselstaat</label>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===================== ARTIKEL 3 ===================== -->
+    <details class="art pagebreak" id="art3" data-state="pending">
+      <summary class="art-head">
+        <span class="badge">Artikel 3</span>
+        <h3>🚢 Dekarbonisierung des Seeverkehrs</h3>
+        <span class="status st-pending" data-status="art3">⏳ offen (0/5)</span>
+        <span class="toggle-icon">▼</span>
+      </summary>
+      <div class="art-body">
+        <p class="art-q">Wie und bis wann muss der weltweite Schiffsverkehr emissionsfrei werden?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="art3" data-score="3,0,-3,1,2">
+            <div class="opt-body"><span class="opt-tag">A · Nullemission ab 2080 (Wasserstoff/Ammoniak)</span>
+              Vollständiges Verbot fossiler Schiffstreibstoffe ab 2080; Pflicht zu grünem Wasserstoff, Ammoniak und Windassistenz; Landstrompflicht in allen Häfen.
+              <div class="hint">🐢 +3 · 🐟 0 · 🚢 −3 · ⚡ +1 · 🏝️ +2</div></div></label>
+          <label class="opt"><input type="radio" name="art3" data-score="1,0,-1,0,1">
+            <div class="opt-body"><span class="opt-tag">B · Tempolimit („Slow Steaming“) &amp; Küstennah-Bann</span>
+              Verbindliches Tempolimit auf allen Hochseerouten (−20 % CO₂) und Schweröl-Verbot im 200-Meilen-Küstenbereich ab 2080; Flottenumbau bis 2088.
+              <div class="hint">🐢 +1 · 🐟 0 · 🚢 −1 · ⚡ 0 · 🏝️ +1</div></div></label>
+          <label class="opt"><input type="radio" name="art3" data-score="-2,0,3,1,-2">
+            <div class="opt-body"><span class="opt-tag">C · CO₂-Zertifikatehandel bis 2090</span>
+              Frist für Flottenumrüstung bis 2090; bestehende Flotten kompensieren Treibhausgase über den Zertifikatehandel statt kurzfristiger Umrüstpflicht.
+              <div class="hint">🐢 −2 · 🐟 0 · 🚢 +3 · ⚡ +1 · 🏝️ −2</div></div></label>
+          <label class="opt"><input type="radio" name="art3" data-score="0,0,0,0,0" data-custom="1">
+            <div class="opt-body"><span class="opt-tag">D · Eigene Formulierung der Gruppe</span>
+              <textarea class="free" rows="2" placeholder="Eigenen Kompromiss hier eintragen …"></textarea>
+              <div class="cscore" data-art="art3" title="Eigene Punktwirkung festlegen"></div></div></label>
+        </div>
+        <div class="votebar">
+          <span class="vl">✅ Zustimmung der Delegationen:</span>
+          <div class="votes">
+            <label class="pill"><input type="checkbox" data-vote="art3"> 🐢 Meeresschutz</label>
+            <label class="pill"><input type="checkbox" data-vote="art3"> 🐟 Fischerei</label>
+            <label class="pill"><input type="checkbox" data-vote="art3"> 🚢 Schifffahrt</label>
+            <label class="pill"><input type="checkbox" data-vote="art3"> ⚡ Energie</label>
+            <label class="pill"><input type="checkbox" data-vote="art3"> 🏝️ Inselstaat</label>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===================== ARTIKEL 4 ===================== -->
+    <details class="art" id="art4" data-state="pending">
+      <summary class="art-head">
+        <span class="badge">Artikel 4</span>
+        <h3>⚡ Offshore-Energie &amp; Tiefseebergbau</h3>
+        <span class="status st-pending" data-status="art4">⏳ offen (0/5)</span>
+        <span class="toggle-icon">▼</span>
+      </summary>
+      <div class="art-body">
+        <p class="art-q">Wie regeln wir Windkraft, fossile Bohrungen und den Abbau von Manganknollen?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="art4" data-score="3,1,0,-3,2">
+            <div class="opt-body"><span class="opt-tag">A · 30 Jahre Moratorium &amp; Bohrstopp</span>
+              30 Jahre Moratorium für Tiefseebergbau; sofortiger Stopp aller neuen Öl- und Gasbohrungen im Meer; Pflichtrückbau alter Plattformen bis 2080.
+              <div class="hint">🐢 +3 · 🐟 +1 · 🚢 0 · ⚡ −3 · 🏝️ +2</div></div></label>
+          <label class="opt"><input type="radio" name="art4" data-score="-1,-2,0,2,1">
+            <div class="opt-body"><span class="opt-tag">B · Offshore-Windpark-Ausbau &amp; Bergbau-Pilotzonen</span>
+              Vorrangiger Ausbau schwimmender Windparks auch in küstennahen Fanggründen; Tiefseebergbau in UN-Pilotzonen freigegeben; Öl-Ausstieg bis 2085.
+              <div class="hint">🐢 −1 · 🐟 −2 · 🚢 0 · ⚡ +2 · 🏝️ +1</div></div></label>
+          <label class="opt"><input type="radio" name="art4" data-score="-3,-1,1,3,-2">
+            <div class="opt-body"><span class="opt-tag">C · Industriefreigabe für Rohstoffe &amp; Gas</span>
+              Freigabe des Tiefseebergbaus für Batteriemetalle (Manganknollen); Offshore-Gasförderung läuft als Brückentechnologie bis mindestens 2095 weiter.
+              <div class="hint">🐢 −3 · 🐟 −1 · 🚢 +1 · ⚡ +3 · 🏝️ −2</div></div></label>
+          <label class="opt"><input type="radio" name="art4" data-score="0,0,0,0,0" data-custom="1">
+            <div class="opt-body"><span class="opt-tag">D · Eigene Formulierung der Gruppe</span>
+              <textarea class="free" rows="2" placeholder="Eigenen Kompromiss hier eintragen …"></textarea>
+              <div class="cscore" data-art="art4" title="Eigene Punktwirkung festlegen"></div></div></label>
+        </div>
+        <div class="votebar">
+          <span class="vl">✅ Zustimmung der Delegationen:</span>
+          <div class="votes">
+            <label class="pill"><input type="checkbox" data-vote="art4"> 🐢 Meeresschutz</label>
+            <label class="pill"><input type="checkbox" data-vote="art4"> 🐟 Fischerei</label>
+            <label class="pill"><input type="checkbox" data-vote="art4"> 🚢 Schifffahrt</label>
+            <label class="pill"><input type="checkbox" data-vote="art4"> ⚡ Energie</label>
+            <label class="pill"><input type="checkbox" data-vote="art4"> 🏝️ Inselstaat</label>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===================== ARTIKEL 5 ===================== -->
+    <details class="art pagebreak" id="art5" data-state="pending">
+      <summary class="art-head">
+        <span class="badge">Artikel 5</span>
+        <h3>🚮 Plastikmüll, Schadstoffe &amp; Verursacherprinzip</h3>
+        <span class="status st-pending" data-status="art5">⏳ offen (0/5)</span>
+        <span class="toggle-icon">▼</span>
+      </summary>
+      <div class="art-body">
+        <p class="art-q">Wie stoppen wir die Plastik- und Schadstoffflut in den Ozeanen?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="art5" data-score="3,1,0,-1,2">
+            <div class="opt-body"><span class="opt-tag">A · Globales Primärplastik-Verbot &amp; Chemieabgabe</span>
+              Weltweites Verbot von nicht biobasiertem Einwegplastik ab 2078; Sonderabgabe auf Chemie- und Plastikproduzenten zur Finanzierung von Reinigungsflotten.
+              <div class="hint">🐢 +3 · 🐟 +1 · 🚢 0 · ⚡ −1 · 🏝️ +2</div></div></label>
+          <label class="opt"><input type="radio" name="art5" data-score="2,-2,-1,0,1">
+            <div class="opt-body"><span class="opt-tag">B · Verursacherhaftung auf See (Netzpfand &amp; Hafenabgabe)</span>
+              Pfandsystem und GPS-Tracking für alle Fischernetze gegen Geisternetze; Pflichtabgabe auf gewerbliche Schiffe zur Hafenmüllentsorgung; 80 % Recyclingquote.
+              <div class="hint">🐢 +2 · 🐟 −2 · 🚢 −1 · ⚡ 0 · 🏝️ +1</div></div></label>
+          <label class="opt"><input type="radio" name="art5" data-score="-2,1,1,0,-1">
+            <div class="opt-body"><span class="opt-tag">C · Freiwillige Start-up-Fonds</span>
+              Förderung privater Reinigungs-Start-ups durch freiwillige Fondseinlagen; keine verbindlichen Produktionsverbote, Quoten oder Zwangsabgaben für Flotten.
+              <div class="hint">🐢 −2 · 🐟 +1 · 🚢 +1 · ⚡ 0 · 🏝️ −1</div></div></label>
+          <label class="opt"><input type="radio" name="art5" data-score="0,0,0,0,0" data-custom="1">
+            <div class="opt-body"><span class="opt-tag">D · Eigene Formulierung der Gruppe</span>
+              <textarea class="free" rows="2" placeholder="Eigenen Kompromiss hier eintragen …"></textarea>
+              <div class="cscore" data-art="art5" title="Eigene Punktwirkung festlegen"></div></div></label>
+        </div>
+        <div class="votebar">
+          <span class="vl">✅ Zustimmung der Delegationen:</span>
+          <div class="votes">
+            <label class="pill"><input type="checkbox" data-vote="art5"> 🐢 Meeresschutz</label>
+            <label class="pill"><input type="checkbox" data-vote="art5"> 🐟 Fischerei</label>
+            <label class="pill"><input type="checkbox" data-vote="art5"> 🚢 Schifffahrt</label>
+            <label class="pill"><input type="checkbox" data-vote="art5"> ⚡ Energie</label>
+            <label class="pill"><input type="checkbox" data-vote="art5"> 🏝️ Inselstaat</label>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===================== ARTIKEL 6 ===================== -->
+    <details class="art" id="art6" data-state="pending">
+      <summary class="art-head">
+        <span class="badge">Artikel 6</span>
+        <h3>💰 Internationaler Ozean-Klimafonds</h3>
+        <span class="status st-pending" data-status="art6">⏳ offen (0/5)</span>
+        <span class="toggle-icon">▼</span>
+      </summary>
+      <div class="art-body">
+        <p class="art-q">Wer finanziert Küstenschutz, Anpassung und Schäden in bedrohten Inselstaaten?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="art6" data-score="1,-1,-2,-2,3">
+            <div class="opt-body"><span class="opt-tag">A · Pflichtabgabe 1,5 % auf Konzerne</span>
+              Alle internationalen Schifffahrts-, Energie- und Fischereikonzerne zahlen jährlich 1,5 % ihres Umsatzes verpflichtend in einen UN-Fonds für Inselstaaten.
+              <div class="hint">🐢 +1 · 🐟 −1 · 🚢 −2 · ⚡ −2 · 🏝️ +3</div></div></label>
+          <label class="opt"><input type="radio" name="art6" data-score="1,0,-1,-1,2">
+            <div class="opt-body"><span class="opt-tag">B · 50/50 Lizenzabgabe auf Tiefseenutzung</span>
+              50 % Finanzierung durch Industriestaaten, 50 % über Lizenzabgaben auf Schiffskraftstoffe, Offshore-Wind und Tiefseebergbau für Frühwarnsysteme und Deiche.
+              <div class="hint">🐢 +1 · 🐟 0 · 🚢 −1 · ⚡ −1 · 🏝️ +2</div></div></label>
+          <label class="opt"><input type="radio" name="art6" data-score="-1,1,2,2,-3">
+            <div class="opt-body"><span class="opt-tag">C · Freiwillige bilaterale Partnerschaften</span>
+              Keine verpflichtenden Abgaben; Unternehmen investieren freiwillig in bilaterale Hilfsprojekte mit ausgewählten Inselregionen nach eigenem Ermessen.
+              <div class="hint">🐢 −1 · 🐟 +1 · 🚢 +2 · ⚡ +2 · 🏝️ −3</div></div></label>
+          <label class="opt"><input type="radio" name="art6" data-score="0,0,0,0,0" data-custom="1">
+            <div class="opt-body"><span class="opt-tag">D · Eigene Formulierung der Gruppe</span>
+              <textarea class="free" rows="2" placeholder="Eigenen Kompromiss hier eintragen …"></textarea>
+              <div class="cscore" data-art="art6" title="Eigene Punktwirkung festlegen"></div></div></label>
+        </div>
+        <div class="votebar">
+          <span class="vl">✅ Zustimmung der Delegationen:</span>
+          <div class="votes">
+            <label class="pill"><input type="checkbox" data-vote="art6"> 🐢 Meeresschutz</label>
+            <label class="pill"><input type="checkbox" data-vote="art6"> 🐟 Fischerei</label>
+            <label class="pill"><input type="checkbox" data-vote="art6"> 🚢 Schifffahrt</label>
+            <label class="pill"><input type="checkbox" data-vote="art6"> ⚡ Energie</label>
+            <label class="pill"><input type="checkbox" data-vote="art6"> 🏝️ Inselstaat</label>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===================== ARTIKEL 7 ===================== -->
+    <details class="art pagebreak" id="art7" data-state="pending">
+      <summary class="art-head">
+        <span class="badge">Artikel 7</span>
+        <h3>📡 Durchsetzung, Überwachung &amp; Sanktionen</h3>
+        <span class="status st-pending" data-status="art7">⏳ offen (0/5)</span>
+        <span class="toggle-icon">▼</span>
+      </summary>
+      <div class="art-body">
+        <p class="art-q">Wie wird die Einhaltung des Vertrages kontrolliert – und was passiert bei Verstößen?</p>
+        <div class="opts">
+          <label class="opt"><input type="radio" name="art7" data-score="3,-2,-2,0,2">
+            <div class="opt-body"><span class="opt-tag">A · Internationale UN-Ozeanpolizei</span>
+              Eine bewaffnete UN-Ozeanbehörde mit Satellitenzugriff, Inspektions- und Festnahmerecht auf allen Weltmeeren und Beschlagnahme von Schiffen bei Verstößen.
+              <div class="hint">🐢 +3 · 🐟 −2 · 🚢 −2 · ⚡ 0 · 🏝️ +2</div></div></label>
+          <label class="opt"><input type="radio" name="art7" data-score="1,-1,-1,0,1">
+            <div class="opt-body"><span class="opt-tag">B · Satellitentracking &amp; automatische Hafenverbote</span>
+              Lückenloses öffentliches Transponder-Tracking (AIS); bei Schutzgebiets- oder Quotenverstößen greift ein automatisches Anlege- und Ladeverbot in Vertragshäfen.
+              <div class="hint">🐢 +1 · 🐟 −1 · 🚢 −1 · ⚡ 0 · 🏝️ +1</div></div></label>
+          <label class="opt"><input type="radio" name="art7" data-score="-2,2,2,0,-2">
+            <div class="opt-body"><span class="opt-tag">C · Reine Flaggenstaaten-Kontrolle</span>
+              Kontrolle und Ahndung ausschließlich durch den jeweiligen Flaggenstaat; keine internationalen Zugriffsrechte oder automatischen Hafensanktionen.
+              <div class="hint">🐢 −2 · 🐟 +2 · 🚢 +2 · ⚡ 0 · 🏝️ −2</div></div></label>
+          <label class="opt"><input type="radio" name="art7" data-score="0,0,0,0,0" data-custom="1">
+            <div class="opt-body"><span class="opt-tag">D · Eigene Formulierung der Gruppe</span>
+              <textarea class="free" rows="2" placeholder="Eigenen Kompromiss hier eintragen …"></textarea>
+              <div class="cscore" data-art="art7" title="Eigene Punktwirkung festlegen"></div></div></label>
+        </div>
+        <div class="votebar">
+          <span class="vl">✅ Zustimmung der Delegationen:</span>
+          <div class="votes">
+            <label class="pill"><input type="checkbox" data-vote="art7"> 🐢 Meeresschutz</label>
+            <label class="pill"><input type="checkbox" data-vote="art7"> 🐟 Fischerei</label>
+            <label class="pill"><input type="checkbox" data-vote="art7"> 🚢 Schifffahrt</label>
+            <label class="pill"><input type="checkbox" data-vote="art7"> ⚡ Energie</label>
+            <label class="pill"><input type="checkbox" data-vote="art7"> 🏝️ Inselstaat</label>
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <!-- ===================== ARTIKEL 8 ===================== -->
+    <details class="art" id="art8" data-state="pending">
+      <summary class="art-head">
+        <span class="badge">Artikel 8</span>
+        <h3>🎲 Sonderklausel der Gruppe (Ereigniskarte)</h3>
+        <span class="status st-pending" data-status="art8">⏳ offen (0/5)</span>
+        <span class="toggle-icon">▼</span>
+      </summary>
+      <div class="art-body">
+        <p class="art-q">Hier beschließt die Gruppe eine Sondermaßnahme als Reaktion auf eine gezogene Ereigniskarte – oder eine völlig eigene Initiative.</p>
+        
+        <div class="art8-card">
+          <div class="art8-meta">
+            <span>Gezogene Ereigniskarte:</span>
+            <strong>A ☐ &nbsp; B ☐ &nbsp; C ☐ &nbsp; D ☐ &nbsp; E ☐ &nbsp; F ☐</strong>
+            <span style="margin-left:auto">eigene Initiative ☐</span>
+          </div>
+          <textarea class="free" rows="3" placeholder="Genaue Beschlussformulierung eintragen – mit konkreter Zahl, Frist und Zuständigkeit …"></textarea>
+          <div class="cscore" data-art="art8" data-init="1,1,1,1,1" title="Eigene Punktwirkung festlegen"></div>
+        </div>
+
+        <div class="votebar">
+          <span class="vl">✅ Zustimmung der Delegationen:</span>
+          <div class="votes">
+            <label class="pill"><input type="checkbox" data-vote="art8"> 🐢 Meeresschutz</label>
+            <label class="pill"><input type="checkbox" data-vote="art8"> 🐟 Fischerei</label>
+            <label class="pill"><input type="checkbox" data-vote="art8"> 🚢 Schifffahrt</label>
+            <label class="pill"><input type="checkbox" data-vote="art8"> ⚡ Energie</label>
+            <label class="pill"><input type="checkbox" data-vote="art8"> 🏝️ Inselstaat</label>
+          </div>
+        </div>
+      </div>
+    </details>
+
+  </div><!-- /.art-list -->
+
+  <div class="bottom-grid">
+    <!-- ===================== RATIFIZIERUNG ===================== -->
+    <div class="ratify pagebreak" id="ratify">
+      <div>
+        <h3>✍️ Ratifizierung &amp; Unterschriften</h3>
+        <p class="sub">Der Vertrag tritt in Kraft, wenn mindestens 6 der 8 Artikel mit Mehrheit (≥3/5) beschlossen wurden.</p>
+        <div id="overall">⏳ Status: In Verhandlung (0 von 8 Artikeln beschlossen)</div>
+      </div>
+      <div class="sigs">
+        <div class="sig"><div class="role" style="color:#046c4e">🐢 Meeresschutz</div><div class="line"></div><div class="cap">Delegierte:r</div></div>
+        <div class="sig"><div class="role" style="color:#075985">🐟 Fischerei</div><div class="line"></div><div class="cap">Delegierte:r</div></div>
+        <div class="sig"><div class="role" style="color:#3730a3">🚢 Schifffahrt</div><div class="line"></div><div class="cap">Delegierte:r</div></div>
+        <div class="sig"><div class="role" style="color:#92400e">⚡ Energie</div><div class="line"></div><div class="cap">Delegierte:r</div></div>
+        <div class="sig"><div class="role" style="color:#9d174d">🏝️ Inselstaat</div><div class="line"></div><div class="cap">Delegierte:r</div></div>
+      </div>
+    </div>
+
+    <!-- ===================== ERFOLGSBILANZ ===================== -->
+    <div class="score" id="score">
+      <div>
+        <h3>🏆 Erfolgsbilanz der Delegationen</h3>
+        <p>Gezählt wird nur, was tatsächlich beschlossen wurde. In der Papierfassung trägt jede Delegation ihre Punkte von der geheimen Punktekarte selbst ein. Scheitert der Vertrag (&lt;6 Artikel), verlieren alle Delegationen 2 Punkte.</p>
+      </div>
+      <div class="sgrid">
+        <div class="sbox" style="border-top:4px solid #10b981">
+          <div class="t">🐢 Schutz</div>
+          <div class="v" id="s0">0</div>
+          <div class="g">Ziel: ≥ +6</div>
+          <div class="sbox-badge" id="s-badge-0">Ziel: ≥ +6</div>
+        </div>
+        <div class="sbox" style="border-top:4px solid #0ea5e9">
+          <div class="t">🐟 Fisch</div>
+          <div class="v" id="s1">0</div>
+          <div class="g">Ziel: ≥ +5</div>
+          <div class="sbox-badge" id="s-badge-1">Ziel: ≥ +5</div>
+        </div>
+        <div class="sbox" style="border-top:4px solid #818cf8">
+          <div class="t">🚢 Fracht</div>
+          <div class="v" id="s2">0</div>
+          <div class="g">Ziel: ≥ +5</div>
+          <div class="sbox-badge" id="s-badge-2">Ziel: ≥ +5</div>
+        </div>
+        <div class="sbox" style="border-top:4px solid #f59e0b">
+          <div class="t">⚡ Energie</div>
+          <div class="v" id="s3">0</div>
+          <div class="g">Ziel: ≥ +5</div>
+          <div class="sbox-badge" id="s-badge-3">Ziel: ≥ +5</div>
+        </div>
+        <div class="sbox" style="border-top:4px solid #f472b6">
+          <div class="t">🏝️ Inseln</div>
+          <div class="v" id="s4">0</div>
+          <div class="g">Ziel: ≥ +6</div>
+          <div class="sbox-badge" id="s-badge-4">Ziel: ≥ +6</div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /.bottom-grid -->
+
+  <!-- ===================== INDIVIDUELLE ZIELE & GEHEIME KRITERIEN ===================== -->
+  <details class="goals-section pagebreak" id="goals-details">
+    <summary>
+      <span>🎯 Geheime Delegations-Ziele &amp; Punkte-Kriterien (Auswertungs-Synopse)</span>
+      <span class="goals-toggle-tag">Klick zum Aufdecken / Verbergen</span>
+    </summary>
+    <div class="goals-content">
+      <p style="font-size:.82rem;color:var(--text-2);margin-bottom:1rem;line-height:1.45">
+        <strong>Didaktischer Hinweis:</strong> Diese Übersicht fasst die individuellen Punktekarten der Rollenkarten zusammen. 
+        Sie dient der gemeinsamen Überprüfung in Phase 4 (Auswertung &amp; Debriefing): 
+        <em>Welche Delegation konnte ihre Kerninteressen durchsetzen, wer musste zurückstecken?</em>
+      </p>
+      
+      <div class="goals-grid">
+        
+        <!-- Gruppe 1: Meeresschutz -->
+        <div class="goal-card" style="border-top:4px solid #10b981">
+          <div class="goal-card-head">
+            <div class="goal-card-title">🐢 Meeresschutzorganisation</div>
+            <span class="goal-target-pill">Ziel: ≥ +6 Pkt</span>
+          </div>
+          <div class="goal-mission">„Ohne gesunde Ozeane gibt es keine Zukunft für Mensch und Wirtschaft.“</div>
+          <div class="goal-rule-list">
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="0" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Große Meeresschutzgebiete im Vertrag (Art. 1 / 4)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="0" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Starke Plastikreduktion &gt; 80 % (Art. 5)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="0" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Konkrete Maßnahmen gegen Überfischung (Art. 3)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="0" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Schneller Ausstieg aus fossilen Energien (Art. 7)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="0" data-pts="-2">
+              <span class="pts-badge pts-neg">−2</span>
+              <span class="rule-txt">Kompromiss mit unter 50 % Plastikreduktion</span>
+            </label>
+          </div>
+          <div class="goal-status-badge status-open" id="goal-status-0">⏳ Verhandlung läuft</div>
+        </div>
+
+        <!-- Gruppe 2: Fischereikonzern -->
+        <div class="goal-card" style="border-top:4px solid #0ea5e9">
+          <div class="goal-card-head">
+            <div class="goal-card-title">🐟 Fischereikonzern</div>
+            <span class="goal-target-pill">Ziel: ≥ +5 Pkt</span>
+          </div>
+          <div class="goal-mission">„Wir sichern die Welternährung – Regeln dürfen den Wettbewerb nicht ruinieren.“</div>
+          <div class="goal-rule-list">
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="1" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Planbare, wissenschaftlich fundierte Fangquoten (Art. 3)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="1" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Zugang zu den wichtigsten Fischgründen bleibt (Art. 1)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="1" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Gleiche Regeln für alle Flotten weltweit (Art. 8)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="1" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Nachhaltige Aquakultur wird gefördert (Art. 4)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="1" data-pts="-3">
+              <span class="pts-badge pts-neg">−3</span>
+              <span class="rule-txt">Starke Einschränkungen ohne Übergangsfristen</span>
+            </label>
+          </div>
+          <div class="goal-status-badge status-open" id="goal-status-1">⏳ Verhandlung läuft</div>
+        </div>
+
+        <!-- Gruppe 3: Containerschifffahrt -->
+        <div class="goal-card" style="border-top:4px solid #818cf8">
+          <div class="goal-card-head">
+            <div class="goal-card-title">🚢 Containerschifffahrt</div>
+            <span class="goal-target-pill">Ziel: ≥ +5 Pkt</span>
+          </div>
+          <div class="goal-mission">„Wir tragen 90 % des Welthandels – Preissprünge treffen alle Konsumenten.“</div>
+          <div class="goal-rule-list">
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="2" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Funktionierender Welthandel &amp; freie Routen (Art. 6)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="2" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Schrittweise Fristen bei Emissionssenkung (Art. 6)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="2" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Gleiche Standards gegen Billig-Ausflaggung (Art. 8)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="2" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Kreuzfahrten mit Landstrom möglich (Art. 6)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="2" data-pts="-3">
+              <span class="pts-badge pts-neg">−3</span>
+              <span class="rule-txt">Kurzfristige extreme Kosten- und Frachtsteigerungen</span>
+            </label>
+          </div>
+          <div class="goal-status-badge status-open" id="goal-status-2">⏳ Verhandlung läuft</div>
+        </div>
+
+        <!-- Gruppe 4: Energieindustrie -->
+        <div class="goal-card" style="border-top:4px solid #f59e0b">
+          <div class="goal-card-head">
+            <div class="goal-card-title">⚡ Energieindustrie</div>
+            <span class="goal-target-pill">Ziel: ≥ +5 Pkt</span>
+          </div>
+          <div class="goal-mission">„Geordneter Übergang zur Energiewende statt abrupter Versorgungskrise.“</div>
+          <div class="goal-rule-list">
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="3" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Fossile Förderung bleibt Übergangstechnologie (Art. 7)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="3" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Massiver Ausbau von Offshore-Windenergie (Art. 7)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="3" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Planbare Übergangsfristen und Investitionsschutz</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="3" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Tiefseebergbau unter Auflagen ermöglicht (Art. 2)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="3" data-pts="-5">
+              <span class="pts-badge pts-neg">−5</span>
+              <span class="rule-txt">Sofortiges Komplettverbot fossiler Förderung</span>
+            </label>
+          </div>
+          <div class="goal-status-badge status-open" id="goal-status-3">⏳ Verhandlung läuft</div>
+        </div>
+
+        <!-- Gruppe 5: Inselstaat -->
+        <div class="goal-card" style="border-top:4px solid #f472b6">
+          <div class="goal-card-head">
+            <div class="goal-card-title">🏝️ Inselstaat (Betroffene)</div>
+            <span class="goal-target-pill">Ziel: ≥ +6 Pkt</span>
+          </div>
+          <div class="goal-mission">„Für uns geht es nicht um Prozente oder Profit, sondern um die Existenz.“</div>
+          <div class="goal-rule-list">
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="4" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Verbindlicher Fonds für Klimaschäden / Loss &amp; Damage (Art. 8)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="4" data-pts="3">
+              <span class="pts-badge pts-pos">+3</span>
+              <span class="rule-txt">Maximaler Meeresschutz &amp; sofortige Emissionssenkung (Art. 1 / 7)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="4" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Küstenschutz &amp; Mangroven-Renaturierung (Art. 4)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="4" data-pts="2">
+              <span class="pts-badge pts-pos">+2</span>
+              <span class="rule-txt">Schutz lokaler Fischgründe vor Fernflotten (Art. 3)</span>
+            </label>
+            <label class="goal-rule-item">
+              <input type="checkbox" class="goal-toggle" data-group="4" data-pts="-3">
+              <span class="pts-badge pts-neg">−3</span>
+              <span class="rule-txt">Keine bindenden Hilfen / Weiterführung Status Quo</span>
+            </label>
+          </div>
+          <div class="goal-status-badge status-open" id="goal-status-4">⏳ Verhandlung läuft</div>
+        </div>
+
+      </div>
+    </div>
+  </details>
+
+  <p class="footer-note no-print">
+    Weltmeereskonferenz 2075 · Vertragswerk zum Rollenspiel für Geographie Klasse 10<br>
+    Rollenkarten, Vorbereitungsbogen und die Handreichung für die Lehrkraft liegen in der Datei
+    <strong>Geo10_01_Weltmeereskonferenz_Handreichung_Druckmaterial.html</strong>.
+  </p>
+
+</div>
+</div>
+
+<script>
+var ARTS = ['art1','art2','art3','art4','art5','art6','art7','art8'];
+var TARGETS = [6, 5, 5, 5, 6];
+
+/* Punktwirkung der gewählten Option je Artikel (Reihenfolge:
+   Meeresschutz, Fischerei, Schifffahrt, Energie, Inselstaat) */
+var chosen = {};
+ARTS.forEach(function(a){ chosen[a] = (a === 'art8') ? [1,1,1,1,1] : [0,0,0,0,0]; });
+var passed = {};
+ARTS.forEach(function(a){ passed[a] = false; });
+
+document.querySelectorAll('input[type=radio][data-score]').forEach(function(r){
+  r.addEventListener('change', function(){
+    chosen[r.name] = r.getAttribute('data-score').split(',').map(Number);
+    recalc();
+  });
+});
+
+/* Eigene Punktwirkung: kleine Auswahlfelder je Delegation (−3 … +3) */
+var CS_ICONS = ['🐢','🐟','🚢','⚡','🏝️'];
+document.querySelectorAll('.cscore').forEach(function(box){
+  var art = box.getAttribute('data-art');
+  var init = (box.getAttribute('data-init') || '0,0,0,0,0').split(',').map(Number);
+  var radio = document.querySelector('input[type=radio][name="'+art+'"][data-custom]');
+  var lab = document.createElement('span'); lab.className = 'cs-l'; lab.textContent = 'Punkte:';
+  box.appendChild(lab);
+  var sels = CS_ICONS.map(function(ic, i){
+    var l = document.createElement('label'); l.textContent = ic;
+    var sel = document.createElement('select');
+    sel.setAttribute('aria-label', 'Punkte ' + ic);
+    for (var v = -3; v <= 3; v++){
+      var o = document.createElement('option'); o.value = v; o.textContent = (v > 0 ? '+' : '') + v;
+      sel.appendChild(o);
+    }
+    sel.value = init[i]; sel.setAttribute('data-default', init[i]);
+    l.appendChild(sel); box.appendChild(l);
+    return sel;
+  });
+  function sync(){
+    var vals = sels.map(function(s){
+      var v = Number(s.value);
+      s.className = v > 0 ? 'pos' : (v < 0 ? 'neg' : '');
+      return v;
+    });
+    if (radio) radio.setAttribute('data-score', vals.join(','));
+    return vals;
+  }
+  sync();
+  sels.forEach(function(sel){
+    sel.addEventListener('change', function(){
+      var vals = sync();
+      if (radio){ radio.checked = true; chosen[art] = vals; }
+      else { chosen[art] = vals; }
+      recalc();
+    });
+  });
+});
+
+document.querySelectorAll('input[type=checkbox][data-vote]').forEach(function(c){
+  c.addEventListener('change', function(){ countVotes(c.getAttribute('data-vote')); });
+});
+
+document.querySelectorAll('input.goal-toggle').forEach(function(gt){
+  gt.addEventListener('change', function(){ recalc(); });
+});
+
+/* Schnelle Auf-/Zuklapp-Funktion */
+function toggleAll(openState){
+  document.querySelectorAll('details.art').forEach(function(d){
+    d.open = openState;
+  });
+}
+
+/* Klick auf Nav-Pill öffnet den jeweiligen Artikel automatisch */
+document.querySelectorAll('.art-nav a[href^="#art"]').forEach(function(link){
+  link.addEventListener('click', function(){
+    var id = link.getAttribute('href').substring(1);
+    var target = document.getElementById(id);
+    if(target && target.tagName.toLowerCase() === 'details'){
+      target.open = true;
+    }
+  });
+});
+
+function countVotes(art){
+  var boxes = document.querySelectorAll('input[type=checkbox][data-vote="'+art+'"]');
+  var yes = 0;
+  boxes.forEach(function(b){
+    var pill = b.closest('.pill');
+    if (b.checked){ yes++; pill.classList.add('yes'); } else { pill.classList.remove('yes'); }
+  });
+  
+  var badge = document.querySelector('[data-status="'+art+'"]');
+  var artEl = document.getElementById(art);
+  var navPill = document.getElementById('np-'+art);
+
+  if (yes >= 3){
+    passed[art] = true;
+    badge.className = 'status st-passed';
+    badge.textContent = '✅ angenommen (' + yes + '/5)';
+    if(artEl) artEl.setAttribute('data-state', 'passed');
+    if(navPill) { navPill.className = 'nav-pill is-passed'; navPill.textContent = '✓ ' + art.replace('art', 'Art. '); }
+  } else if (yes > 0){
+    passed[art] = false;
+    badge.className = 'status st-failed';
+    badge.textContent = '❌ abgelehnt (' + yes + '/5 – 3 nötig)';
+    if(artEl) artEl.setAttribute('data-state', 'failed');
+    if(navPill) { navPill.className = 'nav-pill is-failed'; navPill.textContent = '✗ ' + art.replace('art', 'Art. '); }
+  } else {
+    passed[art] = false;
+    badge.className = 'status st-pending';
+    badge.textContent = '⏳ offen (0/5)';
+    if(artEl) artEl.setAttribute('data-state', 'pending');
+    if(navPill) { navPill.className = 'nav-pill'; navPill.textContent = art.replace('art', 'Art. '); }
+  }
+  recalc();
+}
+
+function recalc(){
+  var total = [0,0,0,0,0], n = 0;
+  ARTS.forEach(function(a){
+    if (passed[a]){
+      n++;
+      for (var i = 0; i < 5; i++) total[i] += chosen[a][i];
+    }
+  });
+
+  /* Manuell aktivierte individuelle Ziele/Boni addieren */
+  var goalBonus = [0,0,0,0,0];
+  document.querySelectorAll('input.goal-toggle:checked').forEach(function(gt){
+    var grp = parseInt(gt.getAttribute('data-group'), 10);
+    var pts = parseInt(gt.getAttribute('data-pts'), 10);
+    if (!isNaN(grp) && !isNaN(pts)){
+      goalBonus[grp] += pts;
+    }
+  });
+
+  var failed = (n < 6);
+  for (var i = 0; i < 5; i++){
+    var v = total[i] + goalBonus[i] + (failed ? -2 : 0);
+    var el = document.getElementById('s'+i);
+    if(el) el.textContent = (v > 0 ? '+' : '') + v;
+    
+    var target = TARGETS[i];
+    var statusEl = document.getElementById('goal-status-'+i);
+    var boxBadge = document.getElementById('s-badge-'+i);
+    
+    var bonusText = (goalBonus[i] !== 0 ? ' (' + (goalBonus[i]>0?'+':'') + goalBonus[i] + ' Bonus)' : '');
+
+    if (n === 0 && goalBonus[i] === 0){
+      if(statusEl){ statusEl.className = 'goal-status-badge status-open'; statusEl.textContent = '⏳ Verhandlung läuft (Ziel: ≥ +' + target + ')'; }
+      if(boxBadge){ boxBadge.className = 'sbox-badge'; boxBadge.textContent = 'Ziel: ≥ +' + target; }
+    } else if (v >= target){
+      if(statusEl){ statusEl.className = 'goal-status-badge status-met'; statusEl.textContent = '🎉 Ziel erreicht (' + (v>0?'+':'') + v + ' / ≥ +' + target + ')' + bonusText; }
+      if(boxBadge){ boxBadge.className = 'sbox-badge sbox-met'; boxBadge.textContent = '✓ Ziel erreicht'; }
+    } else {
+      var diff = target - v;
+      if(statusEl){ statusEl.className = 'goal-status-badge status-unmet'; statusEl.textContent = '⚠️ Noch ' + diff + ' Pkt bis zum Ziel (' + (v>0?'+':'') + v + ' / ≥ +' + target + ')' + bonusText; }
+      if(boxBadge){ boxBadge.className = 'sbox-badge sbox-unmet'; boxBadge.textContent = 'Noch ' + diff + ' Pkt'; }
+    }
+  }
+  
+  var box = document.getElementById('overall');
+  if (box){
+    if (n >= 6){
+      box.style.background = '#d1fae5'; box.style.color = '#065f46'; box.style.borderColor = '#10b981';
+      box.textContent = '🎉 Vertrag ratifiziert – ' + n + ' von 8 Artikeln angenommen';
+    } else {
+      box.style.background = 'var(--sand-bg)'; box.style.color = '#92400e'; box.style.borderColor = '#fcd34d';
+      box.textContent = '⏳ In Verhandlung – ' + n + ' von 8 Artikeln angenommen (mindestens 6 nötig, sonst −2 Punkte für alle)';
+    }
+  }
+}
+
+function resetAll(){
+  document.querySelectorAll('input[type=radio],input[type=checkbox][data-vote],input.goal-toggle').forEach(function(i){ i.checked = false; });
+  document.querySelectorAll('textarea').forEach(function(t){ t.value = ''; });
+  document.querySelectorAll('.cscore select').forEach(function(sel){ sel.value = sel.getAttribute('data-default'); sel.className = Number(sel.value) > 0 ? 'pos' : ''; });
+  document.querySelectorAll('input[type=radio][data-custom]').forEach(function(r){ r.setAttribute('data-score', '0,0,0,0,0'); });
+  document.querySelectorAll('.pill').forEach(function(p){ p.classList.remove('yes'); });
+  ARTS.forEach(function(a){
+    chosen[a] = (a === 'art8') ? [1,1,1,1,1] : [0,0,0,0,0];
+    passed[a] = false;
+    var b = document.querySelector('[data-status="'+a+'"]');
+    if(b){ b.className = 'status st-pending'; b.textContent = '⏳ offen (0/5)'; }
+    var artEl = document.getElementById(a);
+    if(artEl) artEl.setAttribute('data-state', 'pending');
+    var navPill = document.getElementById('np-'+a);
+    if(navPill){ navPill.className = 'nav-pill'; navPill.textContent = a.replace('art', 'Art. '); }
+  });
+  recalc();
+}
+
+/* Passwort steht in der Handreichung (Auswertung & Plenum); hier nur als Prüfsumme hinterlegt */
+var PW_HASH = 151319358;
+function pwHash(str){
+  var x = 0x811c9dc5;
+  for (var i = 0; i < str.length; i++){ x ^= str.charCodeAt(i); x = Math.imul(x, 0x01000193) >>> 0; }
+  return x;
+}
+
+/* Punkte bleiben während der Verhandlung verdeckt, damit nach Argumenten statt nach Punkten entschieden wird */
+function toggleReveal(){
+  var on = !document.body.classList.contains('reveal');
+  if (on){
+    var pw = prompt('Passwort der Lehrkraft, um Punktwirkung und Erfolgsbilanz aufzudecken:');
+    if (pw === null) return;
+    if (pwHash(pw.trim().toLowerCase()) !== PW_HASH){ alert('Falsches Passwort.'); return; }
+  }
+  document.body.classList.toggle('reveal', on);
+  var b = document.getElementById('revealBtn');
+  b.classList.toggle('is-open', on);
+  b.textContent = on ? '🔓 Punkte verbergen' : '🔒 Auswertung aufdecken';
+}
+
+function printOnlySignatures(){
+  document.body.classList.add('only-sign');
+  window.print();
+}
+window.addEventListener('afterprint', function(){ document.body.classList.remove('only-sign'); });
+
+recalc();
+</script>
+</body>
+</html>
